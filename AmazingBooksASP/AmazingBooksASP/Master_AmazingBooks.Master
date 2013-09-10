@@ -11,10 +11,22 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div id="headSecond" style="background-color:aquamarine; width:100%; height:100px">
+
+        </div>
+        <div id="sidebar" style="background-color:mediumvioletred; height:100%; width:100px; position:absolute;">
+
+            <div id="Menu" style="position:absolute; left:25px; top:25px;">
+                <asp:Menu ID="Menu1" runat="server">
+                </asp:Menu>
+            </div>
+
+        </div>
+       
         
-        </asp:ContentPlaceHolder>
     </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>
