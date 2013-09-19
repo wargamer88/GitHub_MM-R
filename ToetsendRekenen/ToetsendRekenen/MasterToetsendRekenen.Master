@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterToetsendRekenen.master.cs" Inherits="ToetsendRekenen.MasterToetsendRekenen" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="MasterPage.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="formSite" runat="server">
+    <div>
+        <div id="header">
+            <div id="headerTitle">
+                <asp:Label ID="Label1" runat="server" Text="ToetsenRekenen"></asp:Label>
+            </div>
+        </div>
+        
+
+        <div id="bodyPage">
+            <div id="nav"></div>
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

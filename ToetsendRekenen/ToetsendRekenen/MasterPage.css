@@ -1,0 +1,39 @@
+﻿body {
+    background-color: #6D75EC;
+    height: 100%;
+}
+
+#formSite {
+    height:100%;
+}
+#header {
+    background-color:#535DEC;
+    height:100px;
+    width:50%;
+    margin:0 auto 0 auto;
+    border:solid 3px white;
+}
+
+#headerTitle {
+    margin:0 auto 0 auto;
+}
+
+#bodyPage {
+    background-color:#FFFFFF;
+    margin:0 auto 0 auto;
+    width:50%;
+    height:1000px;
+    border:solid 3px white;
+}
+
+#nav {
+    background-color:#7C85FF;
+    width:100px;
+    height:100%;
+}
+
+#content {
+    width:auto;
+    height:auto;
+    margin-left:106px;
+}
