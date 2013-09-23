@@ -1,39 +1,51 @@
 ﻿body {
-    background-color: #6D75EC;
+    background-color: #A19EFF;
     height: 100%;
+    width: 100%;
+    margin-right: 7px;
 }
 
 #formSite {
     height:100%;
 }
 #header {
-    background-color:#535DEC;
+    background-color:#6973FF;
     height:100px;
-    width:50%;
+    width:75%;
     margin:0 auto 0 auto;
     border:solid 3px white;
 }
 
 #headerTitle {
-    margin:0 auto 0 auto;
+    margin-top:30px;
+    margin-left:30px;
+    font-family:Arial;
+    font-size:x-large;
+    font-weight:900;
+    color:white;
 }
 
 #bodyPage {
     background-color:#FFFFFF;
     margin:0 auto 0 auto;
-    width:50%;
+    width:75%;
     height:1000px;
     border:solid 3px white;
+    position:relative;
 }
 
 #nav {
-    background-color:#7C85FF;
-    width:100px;
+    background-color:#7D86FF;
+    width:200px;
     height:100%;
+    float:left;
+    position:fixed;
 }
 
 #content {
     width:auto;
-    height:auto;
-    margin-left:106px;
+    height:100%;
+    margin-left:207px;
+    float:none;
+    background-color:white;
 }

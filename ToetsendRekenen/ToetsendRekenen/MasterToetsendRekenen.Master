@@ -14,13 +14,19 @@
     <div>
         <div id="header">
             <div id="headerTitle">
-                <asp:Label ID="Label1" runat="server" Text="ToetsenRekenen"></asp:Label>
+                ToetsendRekenen
             </div>
         </div>
         
 
         <div id="bodyPage">
-            <div id="nav"></div>
+            <div id="nav">
+                <asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label><br />
+                <asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label><br />
+                <asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label><br />
+                <asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label><br />
+                <asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label><br />
+            </div>
             <div id="content">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
