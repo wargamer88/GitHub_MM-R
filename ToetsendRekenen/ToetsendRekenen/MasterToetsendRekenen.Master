@@ -8,11 +8,19 @@
     <link rel="stylesheet" type="text/css" href="MasterPage.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 91px;
+            height: 92px;
+            float:right;
+        }
+    </style>
 </head>
 <body>
     <form id="formSite" runat="server">
     <div>
         <div id="header">
+            <img alt="Uil" class="auto-style1" src="Images/uil.gif" />
             <div id="headerTitle">
                 ToetsendRekenen
             </div>
@@ -21,11 +29,17 @@
 
         <div id="bodyPage">
             <div id="nav">
-                <asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label><br />
-                <asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label><br />
-                <asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label><br />
-                <asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label><br />
-                <asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label><br />
+                <p style="font-size: 21px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoofdmenu</p>
+                
+                &nbsp;<asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label><br />
+                &nbsp;<asp:Label ID="Procenten" runat="server" Text="Procenten spel"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblM2" runat="server" Text="Vierkante meter spel"></asp:Label><br />
+                &nbsp;<asp:Label ID="lblAfronden" runat="server" Text="Afronden spel"></asp:Label><br />
+
             </div>
             <div id="content">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

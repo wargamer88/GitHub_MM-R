@@ -57,9 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\RekenenDenken.png" />
+    <Content Include="Images\uil.gif" />
     <Content Include="MasterPage.css" />
     <Content Include="Web.config" />
     <Content Include="SommenSubcategorie.aspx" />
+    <Content Include="Sommen.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterToetsendRekenen.Master.cs">
@@ -76,6 +79,13 @@
     </Compile>
     <Compile Include="SommenSubcategorie.aspx.designer.cs">
       <DependentUpon>SommenSubcategorie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sommen.aspx.cs">
+      <DependentUpon>Sommen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sommen.aspx.designer.cs">
+      <DependentUpon>Sommen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
