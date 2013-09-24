@@ -57,8 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\legeSter.png" />
     <Content Include="Images\RekenenDenken.png" />
-    <Content Include="Images\uil.gif" />
+    <Content Include="Images\Ster.png" />
     <Content Include="MasterPage.css" />
     <Content Include="Web.config" />
     <Content Include="SommenSubcategorie.aspx" />
