@@ -1,4 +1,5 @@
-﻿body {
+﻿
+body {
     background-color: #A19EFF;
     height: 100%;
     width: 100%;
@@ -8,6 +9,7 @@
 #formSite {
     height:100%;
 }
+
 #header {
     background-color:#6973FF;
     height:100px;
@@ -29,7 +31,8 @@
     background-color:#FFFFFF;
     margin:0 auto 0 auto;
     width:75%;
-    height:1000px;
+    min-height:500px;
+    max-height:1000px;
     border:solid 3px white;
     position:relative;
 }
@@ -37,7 +40,8 @@
 #nav {
     background-color:#7D86FF;
     width:200px;
-    height:100%;
+    min-height:500px;
+    max-height:1000px;
     float:left;
 }
 
@@ -47,4 +51,34 @@
     margin-left:207px;
     float:none;
     background-color:white;
+}
+
+#sommenContent {
+    width:100%;
+}
+
+.som {
+    width:49.5%;
+    height:auto;
+    /*border-right:solid 1px black;*/
+    float:left;
+}
+.sterren {
+    width:100%;
+    height:50px;
+    border-left:solid 1px black;
+    border-bottom:solid 1px black;
+    float:right;
+}
+
+.uitkomstSterren {
+    width:50%;
+    height:auto;
+    border-left:solid 1px black;
+    border-bottom:solid 1px black;  
+    float: right;   
+}
+
+#inloggen {
+    margin: 0 auto 0 auto;
 }
