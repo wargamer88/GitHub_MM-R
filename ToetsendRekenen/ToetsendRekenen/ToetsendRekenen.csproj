@@ -60,10 +60,14 @@
     <Content Include="Images\legeSter.png" />
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Ster.png" />
+    <Content Include="Images\uil1.gif" />
     <Content Include="MasterPage.css" />
     <Content Include="Web.config" />
     <Content Include="SommenSubcategorie.aspx" />
     <Content Include="Sommen.aspx" />
+    <Content Include="Hoofdscherm.aspx" />
+    <Content Include="InlogStatistieken.aspx" />
+    <Content Include="Statistieken.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterToetsendRekenen.Master.cs">
@@ -87,6 +91,27 @@
     </Compile>
     <Compile Include="Sommen.aspx.designer.cs">
       <DependentUpon>Sommen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hoofdscherm.aspx.cs">
+      <DependentUpon>Hoofdscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hoofdscherm.aspx.designer.cs">
+      <DependentUpon>Hoofdscherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InlogStatistieken.aspx.cs">
+      <DependentUpon>InlogStatistieken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InlogStatistieken.aspx.designer.cs">
+      <DependentUpon>InlogStatistieken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistieken.aspx.cs">
+      <DependentUpon>Statistieken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Statistieken.aspx.designer.cs">
+      <DependentUpon>Statistieken.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

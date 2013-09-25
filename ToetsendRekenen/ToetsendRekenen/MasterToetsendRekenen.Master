@@ -20,7 +20,7 @@
     <form id="formSite" runat="server">
     <div>
         <div id="header">
-            <img alt="Uil" class="auto-style1" src="Images/uil.gif" />
+            <img alt="Uil" class="auto-style1" src="Images/uil1.gif" />
             <div id="headerTitle">
                 ToetsendRekenen
             </div>
