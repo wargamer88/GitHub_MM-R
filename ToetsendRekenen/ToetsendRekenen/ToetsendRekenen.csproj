@@ -73,6 +73,7 @@
     <Content Include="InlogStatistieken.aspx" />
     <Content Include="Statistieken.aspx" />
     <Content Include="Supermarktspel.aspx" />
+    <Content Include="TestDB.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterToetsendRekenen.Master.cs">
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="Supermarktspel.aspx.designer.cs">
       <DependentUpon>Supermarktspel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestDB.aspx.cs">
+      <DependentUpon>TestDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestDB.aspx.designer.cs">
+      <DependentUpon>TestDB.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
