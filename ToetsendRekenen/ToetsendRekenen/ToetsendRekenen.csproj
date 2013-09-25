@@ -68,6 +68,7 @@
     <Content Include="Hoofdscherm.aspx" />
     <Content Include="InlogStatistieken.aspx" />
     <Content Include="Statistieken.aspx" />
+    <Content Include="Supermarktspel.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterToetsendRekenen.Master.cs">
@@ -112,6 +113,13 @@
     </Compile>
     <Compile Include="Statistieken.aspx.designer.cs">
       <DependentUpon>Statistieken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supermarktspel.aspx.cs">
+      <DependentUpon>Supermarktspel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supermarktspel.aspx.designer.cs">
+      <DependentUpon>Supermarktspel.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
