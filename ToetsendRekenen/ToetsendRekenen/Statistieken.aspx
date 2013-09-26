@@ -57,16 +57,26 @@
     <p>
         <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False">
             <Columns>
+                <asp:BoundField DataField="Oefening" HeaderText="Oefening" SortExpression="Oefening" />
                 <asp:BoundField DataField="Categorie" HeaderText="Categorie" SortExpression="Categorie" />
                 <asp:BoundField DataField="SubCategorie" HeaderText="SubCategorie" SortExpression="SubCategorie" />
-                <asp:BoundField DataField="AantalGoed" HeaderText="AantalGoed" SortExpression="AantalGoed" />
-                <asp:BoundField DataField="AantalFout" HeaderText="AantalFout" SortExpression="AantalFout" />
+                <asp:BoundField DataField="Aantal Goed" HeaderText="Aantal Goed" ReadOnly="True" SortExpression="Aantal Goed" />
+                <asp:BoundField DataField="Aantal Fout" HeaderText="Aantal Fout" ReadOnly="True" SortExpression="Aantal Fout" />
             </Columns>
 
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PVB1314-003ConnectionString %>" SelectCommand="SELECT [Categorie], [SubCategorie], [AantalGoed], [AantalFout] FROM [Resultaat]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PVB1314-003ConnectionString %>" SelectCommand="SELECT DISTINCT R.Oefening &quot;Oefening&quot;, R.Categorie &quot;Categorie&quot;, R.SubCategorie &quot;SubCategorie&quot;, sum(R.AantalGoed) &quot;Aantal Goed&quot; , sum(R.AantalFout) &quot;Aantal Fout&quot; FROM Resultaat R
+Group by R.Oefening, R.Categorie, R.SubCategorie"></asp:SqlDataSource>
     </p>
-    <p>
-        <br />
+<p>
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+            <Columns>
+                <asp:BoundField DataField="Views" HeaderText="Views" ReadOnly="True" SortExpression="Views" />
+                <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:MM/dd/yyyy}" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:PVB1314-003ConnectionString2 %>" SelectCommand="Select count(s.SessieID) &quot;Views&quot;, s.Datum
+from Sessie s 
+group by s.Datum"></asp:SqlDataSource>
     </p>
 </asp:Content>
