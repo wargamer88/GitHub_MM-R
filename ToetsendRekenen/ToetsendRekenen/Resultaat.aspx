@@ -1,5 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterToetsendRekenen.Master" AutoEventWireup="true" CodeBehind="Resultaat.aspx.cs" Inherits="ToetsendRekenen.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style2 {
+            width: 50px;
+        }
+        .auto-style3 {
+            width: 100px;
+            height: 100px;
+            float: right;
+        }
+        .auto-style4 {
+            width: 100px;
+            height: 100px;
+            float: right;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="sterren">
@@ -9,7 +24,7 @@
     </div>
     <div id="resultaat">
         De score die je hebt behaalt staat hieronder en de sterren die hierbij horen zie je bovenin.<br />
-        <br />
+        <img alt="" class="auto-style4" src="Images/Happy.png" /><img alt="" class="auto-style3" src="Images/Sad.png" /><br />
         Aantal goed: 23<br />
         Aantal fout: 27<br />
         <br />

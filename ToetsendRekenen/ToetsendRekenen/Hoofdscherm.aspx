@@ -5,5 +5,10 @@
     <p>
         Welkom op de site van ToetsendRekenen</p>
     <p>
-        Links in het hoofdmenu kan je uit de verschilende categorieën kiezen.</p>
+        Links in het hoofdmenu kan je uit de verschilende categorieën kiezen. </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;<asp:Button ID="btnStatistiek" runat="server" Text="Ga naar statistieken" />
+    </p>
 </asp:Content>

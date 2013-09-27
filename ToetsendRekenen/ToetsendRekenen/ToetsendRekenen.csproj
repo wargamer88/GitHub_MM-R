@@ -61,8 +61,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Happy.png" />
     <Content Include="Images\legeSter.png" />
     <Content Include="Images\RekenenDenken.png" />
+    <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="MasterPage.css" />
