@@ -3,21 +3,21 @@
     <link href="Supermarkt.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <div id="voortgang">
+        Test
+    </div>
     <div id="left-content">
         Test
     </div>
     <div id="right-content">
-        <div id="booschappenlijsttop">
+        <div id="boodschappenlijsttop">
         </div>
         <div id="boodschappenlijst1px">
         </div>
         <div id="boodschappenlijstonder">
         </div>
-&nbsp;</div>
-    <div id="som">
-        Test
     </div>
-    <div id="voortgang">
+    <div id="som">
         Test
     </div>
     <div id="uitleg">
