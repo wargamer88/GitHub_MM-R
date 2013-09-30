@@ -68,14 +68,27 @@
     <Content Include="Images\uil1.gif" />
     <Content Include="MasterPage.css" />
     <Content Include="Web.config" />
-    <Content Include="SommenSubcategorie.aspx" />
+    <Content Include="SommenSub.aspx" />
     <Content Include="Sommen.aspx" />
     <Content Include="Hoofdscherm.aspx" />
     <Content Include="InlogStatistieken.aspx" />
     <Content Include="Statistieken.aspx" />
-    <Content Include="Supermarktspel.aspx" />
+    <Content Include="Supermarkt.aspx" />
     <Content Include="TestDB.aspx" />
     <Content Include="Resultaat.aspx" />
+    <Content Include="GetallenlijnSub.aspx" />
+    <Content Include="Getallenlijn.aspx" />
+    <Content Include="Breuken.aspx" />
+    <Content Include="BreukenSub.aspx" />
+    <Content Include="SupermarktSub.aspx" />
+    <Content Include="Klokkijken.aspx" />
+    <Content Include="KlokkijkenSub.aspx" />
+    <Content Include="Procenten.aspx" />
+    <Content Include="ProcentenSub.aspx" />
+    <Content Include="VierkanteMeterSpel.aspx" />
+    <Content Include="VierkanteMeterSpelSub.aspx" />
+    <Content Include="AfrondenSpel.aspx" />
+    <Content Include="AfrondenSpelSub.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterToetsendRekenen.Master.cs">
@@ -86,12 +99,12 @@
       <DependentUpon>MasterToetsendRekenen.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SommenSubcategorie.aspx.cs">
-      <DependentUpon>SommenSubcategorie.aspx</DependentUpon>
+    <Compile Include="SommenSub.aspx.cs">
+      <DependentUpon>SommenSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SommenSubcategorie.aspx.designer.cs">
-      <DependentUpon>SommenSubcategorie.aspx</DependentUpon>
+    <Compile Include="SommenSub.aspx.designer.cs">
+      <DependentUpon>SommenSub.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sommen.aspx.cs">
       <DependentUpon>Sommen.aspx</DependentUpon>
@@ -121,12 +134,12 @@
     <Compile Include="Statistieken.aspx.designer.cs">
       <DependentUpon>Statistieken.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Supermarktspel.aspx.cs">
-      <DependentUpon>Supermarktspel.aspx</DependentUpon>
+    <Compile Include="Supermarkt.aspx.cs">
+      <DependentUpon>Supermarkt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Supermarktspel.aspx.designer.cs">
-      <DependentUpon>Supermarktspel.aspx</DependentUpon>
+    <Compile Include="Supermarkt.aspx.designer.cs">
+      <DependentUpon>Supermarkt.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestDB.aspx.cs">
       <DependentUpon>TestDB.aspx</DependentUpon>
@@ -141,6 +154,97 @@
     </Compile>
     <Compile Include="Resultaat.aspx.designer.cs">
       <DependentUpon>Resultaat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetallenlijnSub.aspx.cs">
+      <DependentUpon>GetallenlijnSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetallenlijnSub.aspx.designer.cs">
+      <DependentUpon>GetallenlijnSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Getallenlijn.aspx.cs">
+      <DependentUpon>Getallenlijn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Getallenlijn.aspx.designer.cs">
+      <DependentUpon>Getallenlijn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Breuken.aspx.cs">
+      <DependentUpon>Breuken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Breuken.aspx.designer.cs">
+      <DependentUpon>Breuken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BreukenSub.aspx.cs">
+      <DependentUpon>BreukenSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BreukenSub.aspx.designer.cs">
+      <DependentUpon>BreukenSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupermarktSub.aspx.cs">
+      <DependentUpon>SupermarktSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupermarktSub.aspx.designer.cs">
+      <DependentUpon>SupermarktSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Klokkijken.aspx.cs">
+      <DependentUpon>Klokkijken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Klokkijken.aspx.designer.cs">
+      <DependentUpon>Klokkijken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KlokkijkenSub.aspx.cs">
+      <DependentUpon>KlokkijkenSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KlokkijkenSub.aspx.designer.cs">
+      <DependentUpon>KlokkijkenSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Procenten.aspx.cs">
+      <DependentUpon>Procenten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Procenten.aspx.designer.cs">
+      <DependentUpon>Procenten.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcentenSub.aspx.cs">
+      <DependentUpon>ProcentenSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcentenSub.aspx.designer.cs">
+      <DependentUpon>ProcentenSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VierkanteMeterSpel.aspx.cs">
+      <DependentUpon>VierkanteMeterSpel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VierkanteMeterSpel.aspx.designer.cs">
+      <DependentUpon>VierkanteMeterSpel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VierkanteMeterSpelSub.aspx.cs">
+      <DependentUpon>VierkanteMeterSpelSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VierkanteMeterSpelSub.aspx.designer.cs">
+      <DependentUpon>VierkanteMeterSpelSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AfrondenSpel.aspx.cs">
+      <DependentUpon>AfrondenSpel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AfrondenSpel.aspx.designer.cs">
+      <DependentUpon>AfrondenSpel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AfrondenSpelSub.aspx.cs">
+      <DependentUpon>AfrondenSpelSub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AfrondenSpelSub.aspx.designer.cs">
+      <DependentUpon>AfrondenSpelSub.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
