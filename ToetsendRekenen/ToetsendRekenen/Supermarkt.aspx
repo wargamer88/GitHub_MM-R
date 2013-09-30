@@ -7,8 +7,13 @@
         Test
     </div>
     <div id="right-content">
-        Test
-    </div>
+        <div id="booschappenlijsttop">
+        </div>
+        <div id="boodschappenlijst1px">
+        </div>
+        <div id="boodschappenlijstonder">
+        </div>
+&nbsp;</div>
     <div id="som">
         Test
     </div>
