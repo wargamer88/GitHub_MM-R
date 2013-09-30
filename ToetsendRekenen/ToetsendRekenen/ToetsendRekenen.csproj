@@ -66,6 +66,7 @@
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
     <Content Include="Images\uil1.gif" />
+    <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
     <Content Include="Web.config" />
     <Content Include="SommenSub.aspx" />
