@@ -1,2 +1,21 @@
 ﻿body {
 }
+
+.subs {
+    width:100px;
+    float:left;
+}
+
+.subsBreed{
+    width:150px;
+    float:left;
+}
+
+#animatedClockDIV {
+    float:right;
+}
+
+#animatedClockGIF {
+    width:200px;
+    height:200px;
+}
