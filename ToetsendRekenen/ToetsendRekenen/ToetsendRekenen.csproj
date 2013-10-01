@@ -63,6 +63,9 @@
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\legeSter.png" />
+    <Content Include="Images\perkament1px.png" />
+    <Content Include="Images\Perkamentboven.png" />
+    <Content Include="Images\perkamentonder.png" />
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
