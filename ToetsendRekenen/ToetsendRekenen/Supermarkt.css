@@ -23,19 +23,19 @@
 }
 #boodschappenlijsttop {
    background-image:url('Images/Test003.png');
-   height:133px;
+   height:85px;
    width:200px; 
    background-repeat:no-repeat;
 }
 #boodschappenlijst1px {
-   background-image:url('Images/Test005px1.png');
-   height:133px;
+   background-image:url('C:\Users\Michael\Documents\GitHub\GitHub_MM-R\ToetsendRekenen\ToetsendRekenen\Images\Test005px1.png');
+   height:100px;
    width:200px; 
    background-repeat:repeat-y;
 }
 #boodschappenlijstonder {
    background-image:url('Images/Test004.png');
-   height:71px;
+   height:85px;
    width:200px; 
    background-repeat:no-repeat;
    margin-left:-4px;
