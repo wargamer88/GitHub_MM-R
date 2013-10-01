@@ -2,38 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script>$(function () {
-    var canvas = $('canvas')[0];
-    var ctx = canvas.getContext('2d');
+    <div>
+        <div><asp:Image ID="Image1" runat="server" ImageUrl="Images/Getallenlijn.png" /></div>
+        <div style="margin-left:22px; margin-top:-10px; width: 12px;"><asp:Label ID="StartNummer" runat="server" Text="0" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
+        <div style="margin-left:215px; margin-top:-30px; width: 12px;"><asp:Label ID="MiddelNummer" runat="server" Text="5" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
+        <div style="margin-left:401px; margin-top:-30px; width: 12px;"><asp:Label ID="EindNummer" runat="server" Text="10" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
+    </div>
+    <div>
 
-    var w = canvas.width = 700;
-    var h = canvas.height = 400;
-    with (ctx) {
-        fillStyle = '#000';
-        fillRect(0, 0, w, h);
-        fill();
-        beginPath();
-        lineWidth = 2;
-        strokeStyle = '#f00';
-        moveTo(w / 7, h / 2);
-        lineTo(6 * w / 7, h / 2);
-        stroke();
-        for (var i = -10; i <= 10; i++) {
-            beginPath();
-            strokeStyle = '#0f0';
-            lineWidth = 2;
-            moveTo(w / 2 + i * 20, h / 2 - 20);
-            lineTo(w / 2 + i * 20, h / 2 + 20);
-            fillStyle = '#ff0';
-            fillText(i, (w / 2 + i * 20) - 5, h / 2 + 35);
-            if (!i) {
-                lineWidth = 4;
-                strokeStyle = '#f0f';
-            }
-            fill();
-            stroke();
-        }
-    }
-});</script>
-
+    </div>
 </asp:Content>
