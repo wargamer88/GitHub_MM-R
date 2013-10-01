@@ -16,27 +16,27 @@
     float:left;
     width:100%;
     margin-left:0px;
+    border:1px solid #000;
 }
 #uitleg {
     float:left;
     width:100%;
 }
 #boodschappenlijsttop {
-   background-image:url('');
-   height:85px;
-   width:200px; 
+   background-image:url('Images/Perkamentboven.png');
+   height:60px;
+   width:350px; 
    background-repeat:no-repeat;
 }
 #boodschappenlijst1px {
-   background-image:url('');
-   height:100px;
-   width:200px; 
+   background-image:url('Images/perkament1px.png');
+   min-height:50px;
+   width:350px; 
    background-repeat:repeat-y;
 }
 #boodschappenlijstonder {
-   background-image:url('');
-   height:85px;
-   width:200px; 
+   background-image:url('Images/perkamentonder.png');
+   height:60px;
+   width:350px; 
    background-repeat:no-repeat;
-   margin-left:-4px;
 }
