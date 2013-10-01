@@ -6,9 +6,11 @@
     <div id="sommenContent">
         <div class="som">
             
-            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Erbij sommen</span><br />
+            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoge klokken</span><br />
             <br />
             Hoelaat is het?<br />
+            <br />
+            <br />
             <br />
 
 
