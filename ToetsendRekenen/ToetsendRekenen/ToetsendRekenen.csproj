@@ -79,7 +79,6 @@
     <Content Include="InlogStatistieken.aspx" />
     <Content Include="Statistieken.aspx" />
     <Content Include="Supermarkt.aspx" />
-    <Content Include="TestDB.aspx" />
     <Content Include="Resultaat.aspx" />
     <Content Include="GetallenlijnSub.aspx" />
     <Content Include="Getallenlijn.aspx" />
@@ -145,13 +144,6 @@
     </Compile>
     <Compile Include="Supermarkt.aspx.designer.cs">
       <DependentUpon>Supermarkt.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestDB.aspx.cs">
-      <DependentUpon>TestDB.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestDB.aspx.designer.cs">
-      <DependentUpon>TestDB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resultaat.aspx.cs">
       <DependentUpon>Resultaat.aspx</DependentUpon>
