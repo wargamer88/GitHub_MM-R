@@ -29,7 +29,7 @@
 
         <div id="bodyPage">
             <div id="nav">
-                <p style="font-size: 21px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoofdmenu</p>
+                <p style="font-size: 21px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="Hoofdscherm.aspx">Hoofdmenu</a></p>
                 
                 &nbsp;<a href="SommenSub.aspx"><asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label></a><br />
                 &nbsp;<a href="GetallenlijnSub.aspx"><asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label></a><br />

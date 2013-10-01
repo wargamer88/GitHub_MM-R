@@ -22,19 +22,19 @@
     width:100%;
 }
 #boodschappenlijsttop {
-   background-image:url('Images/Boodschappenlijstonder.png');
+   
    height:71px;
    width:200px; 
    background-repeat:no-repeat;
 }
 #boodschappenlijst1px {
-   background-image:url('Images/Boodschappenbody.png');
+   
    height:71px;
    width:200px; 
    background-repeat:repeat-y;
 }
 #boodschappenlijstonder {
-   background-image:url('Images/Boodschappenlijstboven.png');
+   
    height:71px;
    width:200px; 
    background-repeat:no-repeat;

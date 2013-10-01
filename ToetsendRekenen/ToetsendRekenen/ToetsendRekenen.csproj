@@ -60,13 +60,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Boodschappenlijst1px.png" />
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\legeSter.png" />
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
+    <Content Include="Images\Test000.png" />
+    <Content Include="Images\Test001.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />

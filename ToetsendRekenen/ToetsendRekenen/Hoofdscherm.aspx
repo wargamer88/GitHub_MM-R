@@ -9,6 +9,6 @@
     <p>
         &nbsp;</p>
     <p>
-        &nbsp;<asp:Button ID="btnStatistiek" runat="server" Text="Ga naar statistieken" />
+        &nbsp;<asp:Button ID="btnStatistiek" runat="server" Text="Ga naar statistieken" OnClick="btnStatistiek_Click" />
     </p>
 </asp:Content>

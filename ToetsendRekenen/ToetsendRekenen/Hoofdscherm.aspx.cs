@@ -13,5 +13,10 @@ namespace ToetsendRekenen
         {
 
         }
+
+        protected void btnStatistiek_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/InlogStatistieken.aspx");
+        }
     }
 }
