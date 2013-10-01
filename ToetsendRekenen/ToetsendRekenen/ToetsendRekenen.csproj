@@ -60,6 +60,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Boodschappenlijst1px.png" />
+    <Content Include="Images\Boodschappenlijstboven.png" />
+    <Content Include="Images\Boodschappenlijstonder.png" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\legeSter.png" />
     <Content Include="Images\RekenenDenken.png" />
@@ -68,6 +71,7 @@
     <Content Include="Images\uil1.gif" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
+    <Content Include="Supermarkt.css" />
     <Content Include="Web.config" />
     <Content Include="SommenSub.aspx" />
     <Content Include="Sommen.aspx" />
