@@ -66,9 +66,6 @@
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
-    <Content Include="Images\Test003.png" />
-    <Content Include="Images\Test004.png" />
-    <Content Include="Images\Test005px1.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
