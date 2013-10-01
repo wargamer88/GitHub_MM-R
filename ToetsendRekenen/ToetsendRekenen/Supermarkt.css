@@ -22,20 +22,20 @@
     width:100%;
 }
 #boodschappenlijsttop {
-   
-   height:71px;
+   background-image:url('');
+   height:85px;
    width:200px; 
    background-repeat:no-repeat;
 }
 #boodschappenlijst1px {
-   
-   height:71px;
+   background-image:url('');
+   height:100px;
    width:200px; 
    background-repeat:repeat-y;
 }
 #boodschappenlijstonder {
-   
-   height:71px;
+   background-image:url('');
+   height:85px;
    width:200px; 
    background-repeat:no-repeat;
    margin-left:-4px;
