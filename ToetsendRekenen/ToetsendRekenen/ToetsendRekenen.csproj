@@ -60,10 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\boodschappenbody.png" />
     <Content Include="Images\Boodschappenlijst1px.png" />
-    <Content Include="Images\Boodschappenlijstonder.png" />
-    <Content Include="Images\Boodschappenlijstboven.png" />
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\legeSter.png" />

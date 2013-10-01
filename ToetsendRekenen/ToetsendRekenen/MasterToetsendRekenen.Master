@@ -31,14 +31,14 @@
             <div id="nav">
                 <p style="font-size: 21px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoofdmenu</p>
                 
-                &nbsp;<asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label><br />
-                &nbsp;<asp:Label ID="Procenten" runat="server" Text="Procenten spel"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblM2" runat="server" Text="Vierkante meter spel"></asp:Label><br />
-                &nbsp;<asp:Label ID="lblAfronden" runat="server" Text="Afronden spel"></asp:Label><br />
+                &nbsp;<a href="SommenSub.aspx"><asp:Label ID="lblSommen" runat="server" Text="Kan je met sommen werken?"></asp:Label></a><br />
+                &nbsp;<a href="GetallenlijnSub.aspx"><asp:Label ID="lblGetallenlijn" runat="server" Text="Getallenlijn"></asp:Label></a><br />
+                &nbsp;<a href="BreukenSub.aspx"><asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label></a><br />
+                &nbsp;<a href="SupermarktSub.aspx"><asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label></a><br />
+                &nbsp;<a href="KlokkijkenSub.aspx"><asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label></a><br />
+                &nbsp;<a href="ProcentenSub.aspx"><asp:Label ID="Procenten" runat="server" Text="Procenten spel"></asp:Label></a><br />
+                &nbsp;<a href="VierkanteMeterSpelSub.aspx"><asp:Label ID="lblM2" runat="server" Text="Vierkante meter spel"></asp:Label></a><br />
+                &nbsp;<a href="AfrondenSpelSub.aspx"><asp:Label ID="lblAfronden" runat="server" Text="Afronden spel"></asp:Label></a><br />
 
             </div>
             <div id="content">
