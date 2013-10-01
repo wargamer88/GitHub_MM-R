@@ -14,7 +14,7 @@
         1 minuut<br />
 
     </div>
-    <div class="subs">
+    <div class="subs subsFloat">
         <span style="font-weight: bold">Digitaal</span>
         <br />
         <br />
@@ -44,4 +44,6 @@
         1 minuut<br />
 
     </div>
+    <div id="animatedClockDIV">
+        <img id="animatedClockGIF" src="Images/Clock.gif" /></div>
 </asp:Content>
