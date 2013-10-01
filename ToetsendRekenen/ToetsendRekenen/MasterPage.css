@@ -13,7 +13,7 @@ body {
 #header {
     background-color:#6973FF;
     height:100px;
-    width:75%;
+    width:1000px;
     margin:0 auto 0 auto;
     border:solid 3px white;
 }
@@ -30,7 +30,7 @@ body {
 #bodyPage {
     background-color:#FFFFFF;
     margin:0 auto 0 auto;
-    width:75%;
+    width:1000px;
     min-height:500px;
     max-height:1000px;
     border:solid 3px white;
