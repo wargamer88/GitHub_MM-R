@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div id="voortgang">
-        Test
-    </div>
+            Voortang</div>
     <div id="left-content">
-        Test
+        Plaatjes van de producten met geldprijs.
+
     </div>
     <div id="right-content">
         <div id="boodschappenlijsttop">
@@ -18,9 +18,10 @@
         </div>
     </div>
     <div id="som">
-        Test
+        Som met antwoord balk
     </div>
     <div id="uitleg">
-        Test
+        Uitleg
+
     </div>
 </asp:Content>
