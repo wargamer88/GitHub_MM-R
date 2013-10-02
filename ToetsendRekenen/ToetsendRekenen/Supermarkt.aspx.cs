@@ -13,5 +13,10 @@ namespace ToetsendRekenen
         {
 
         }
+
+        protected void reaction_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

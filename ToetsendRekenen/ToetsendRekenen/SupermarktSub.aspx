@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="lijstafrekenen">
-        <asp:Button ID="afrekenenLijst" runat="server" Text="Boodschappen afrekenen" />
+        <asp:Button ID="afrekenenLijst" runat="server" Text="Boodschappen afrekenen" OnClick="afrekenenLijst_Click" />
     </div>
     <div id="lijstmaken">
         <asp:Button ID="makenLijst" runat="server" Text="Boodschappenlijst maken" OnClick="makenLijst_Click" />

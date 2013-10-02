@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace ToetsendRekenen
 {
@@ -26,6 +27,15 @@ namespace ToetsendRekenen
 
         protected void makenLijst_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void afrekenenLijst_Click(object sender, EventArgs e)
+        {
+            string page = "afrekenen";
+            var supermarkt = new WebForm6();
+            Response.Redirect("/Supermarkt.aspx");
+            
 
         }
     }

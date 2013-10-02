@@ -31,6 +31,6 @@
     </div>
     <div id="uitleg">
         Uitleg
-
+        <asp:TextBox ID="reaction" runat="server" OnTextChanged="reaction_TextChanged"></asp:TextBox>
     </div>
 </asp:Content>
