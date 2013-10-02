@@ -11,6 +11,12 @@
 #som {
     float:left;
     width:100%;
+    margin-top:0px;
+    padding-top:0px;
+}
+    #som #antwoord {
+    margin-bottom: 0px;
+    padding-top:0px;
 }
 #voortgang {
     float:left;
