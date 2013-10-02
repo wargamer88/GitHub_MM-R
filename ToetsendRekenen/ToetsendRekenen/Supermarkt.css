@@ -48,17 +48,17 @@
 }
 #lijstmaken {
     width:49%;
-    float:left;
+    float:right;
     text-align:center;
     height: 26px;
 }
 #lijstafrekenenstatiegeld {
-    width:49%;
+    width:390px;
     float:left;
 }
 #lijstmakenstatiegeld {
-    width:49%;
-    float:left;
+    width:390px;
+    float:right;
 }
 #afrekenenLijst {
     width:175px;
@@ -68,19 +68,18 @@
 }
 #afrekenenzonder {
     float:right;
-    width:110px;
 }
 #makenzonder {
     float:right;
-    width:110px;
+    width:185px;
+    text-align:right;
 }
 #afrekenenmet {
-    width:100px;
+    width:10px;
     float:left;
     margin-left:10px;
 }
 #makenmet {
-    width:100px;
+    width:185px;
     float:left;
-    margin-left:10px;
 }

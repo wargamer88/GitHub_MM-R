@@ -10,15 +10,19 @@
         <asp:Button ID="makenLijst" runat="server" Text="Boodschappenlijst maken" OnClick="makenLijst_Click" />
     </div>
     <div id="lijstafrekenenstatiegeld">
-
-        <asp:Button ID="afrekenenmet" runat="server" Text="Met statiegeld" />
-        <asp:Button ID="afrekenenzonder" runat="server" Text="Zonder statiegeld" />
-
+        <div id="afrekenenmet">
+            <asp:Button ID="afrekenenmetbutton" runat="server" Text="Met statiegeld" OnClick="afrekenenmet_Click" Visible="False" />
+        </div>
+        <div id="afrekenenzonder">
+            <asp:Button ID="afrekenenzonderbutton" runat="server" Text="Zonder statiegeld" Visible="False" Width="120px" />
+        </div>
     </div>
     <div id="lijstmakenstatiegeld">
-
-        <asp:Button ID="makenmet" runat="server" Text="Met statiegeld" />
-        <asp:Button ID="makenzonder" runat="server" Text="Zonder statiegeld" />
-
+        <div id="makenmet">
+            <asp:Button ID="makenmetbutton" runat="server" Text="Met statiegeld" Visible="False" Width="100px" />
+        </div>
+        <div id="makenzonder">
+            <asp:Button ID="makenzonderbutton" runat="server" Text="Zonder statiegeld" Visible="False" Width="120px" />
+        </div>
     </div>
 </asp:Content>

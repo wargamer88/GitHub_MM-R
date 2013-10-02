@@ -31,39 +31,39 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button makenLijst;
         
         /// <summary>
-        /// afrekenenmet control.
+        /// afrekenenmetbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button afrekenenmet;
+        protected global::System.Web.UI.WebControls.Button afrekenenmetbutton;
         
         /// <summary>
-        /// afrekenenzonder control.
+        /// afrekenenzonderbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button afrekenenzonder;
+        protected global::System.Web.UI.WebControls.Button afrekenenzonderbutton;
         
         /// <summary>
-        /// makenmet control.
+        /// makenmetbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makenmet;
+        protected global::System.Web.UI.WebControls.Button makenmetbutton;
         
         /// <summary>
-        /// makenzonder control.
+        /// makenzonderbutton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makenzonder;
+        protected global::System.Web.UI.WebControls.Button makenzonderbutton;
     }
 }
