@@ -40,3 +40,46 @@
    width:350px; 
    background-repeat:no-repeat;
 }
+/*Hierovder de CSS voor de Subpagina. Aka keuze menu.*/
+#lijstafrekenen {
+    width:49%;
+    float:left;
+    text-align:center;
+}
+#lijstmaken {
+    width:49%;
+    float:left;
+    text-align:center;
+}
+#lijstafrekenenstatiegeld {
+    width:49%;
+    float:left;
+}
+#lijstmakenstatiegeld {
+    width:49%;
+    float:left;
+}
+#afrekenenLijst {
+    width:175px;
+}
+#makenLijst {
+    width:175px;
+}
+#afrekenenzonder {
+    float:right;
+    width:110px;
+}
+#makenzonder {
+    float:right;
+    width:110px;
+}
+#afrekenenmet {
+    width:100px;
+    float:left;
+    margin-left:10px;
+}
+#makenmet {
+    width:100px;
+    float:left;
+    margin-left:10px;
+}
