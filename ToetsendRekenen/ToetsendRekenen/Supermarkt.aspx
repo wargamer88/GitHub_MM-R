@@ -16,7 +16,8 @@
         <div id="boodschappenlijsttop">
         </div>
         <div id="boodschappenlijst1px">
-        </div>
+            1x Appels<br />
+            1x Peren</div>
         <div id="boodschappenlijstonder">
         </div>
     </div>
