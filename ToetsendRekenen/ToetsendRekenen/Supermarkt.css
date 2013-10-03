@@ -39,6 +39,8 @@
    min-height:50px;
    width:350px; 
    background-repeat:repeat-y;
+   padding-left:20px;
+   font-size:14px;
 }
 #boodschappenlijstonder {
    background-image:url('Images/perkamentonder.png');
