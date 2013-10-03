@@ -15,8 +15,11 @@ namespace ToetsendRekenen
         decimal sum;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Subpagina word opgehaald.
             string IpassAstringfrompage1 = Convert.ToString(Session["test"]);
             reaction.Text = IpassAstringfrompage1;
+
+            //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
             string[,] producten = new string[,] { { "Appels", "2,69" }, { "Bananen", "2,19" }, { "Melk", "0,83" }, { "Pruimen", "1,41" }, { "Manderijnen", "1,55" }, { "Appelsap", "1,06" }, { "Chocola", "1,87" }, { "Eieren", "1,29" }, { "Peren", "1,69" }, { "Koekjes", "0,81" }, { "Rode Bieten", "1,13" }, { "Blik groente", "1,39" }, { "Thee", "0,93" }, { "Ananas", "1,99" }, { "Frisdrank", "0,39" } }; 
             price = new decimal[producten.Length / 2];
             int teller = 0;
@@ -29,7 +32,7 @@ namespace ToetsendRekenen
                 teller++;
                 sum += price[arr];
             }
-            //boodschappenlijst1px.InnerText;
+            //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.
             for (int arr = 0; arr < producten.Length / 2; arr++)
             {
                 int j = 0;
@@ -46,6 +49,7 @@ namespace ToetsendRekenen
 
         protected void verzend_Click(object sender, EventArgs e)
         {
+            //Kijken of antword in antwoordenbox gelijk is aan de totale prijs van het boodschappenlijst.
             decimal antwoordvar = Convert.ToDecimal(antwoord.Text);
             if (antwoordvar == sum)
             {
