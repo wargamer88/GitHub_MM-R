@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataToDatabase.cs" />
+    <Compile Include="Getallenlijn.cs" />
     <Compile Include="MasterToetsendRekenen.Master.cs">
       <DependentUpon>MasterToetsendRekenen.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
