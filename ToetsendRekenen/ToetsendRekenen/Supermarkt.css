@@ -39,6 +39,16 @@
    min-height:50px;
    width:350px; 
    background-repeat:repeat-y;
+   padding-left:50px;
+   font-size:16px;
+}
+#divtekst {
+   background-image:url('Images/perkament1px.png');
+   min-height:50px;
+   width:350px; 
+   background-repeat:repeat-y;
+   padding-left:50px;
+   font-size:16px;
 }
 #boodschappenlijstonder {
    background-image:url('Images/perkamentonder.png');
@@ -46,7 +56,7 @@
    width:350px; 
    background-repeat:no-repeat;
 }
-/*Hierovder de CSS voor de Subpagina. Aka keuze menu.*/
+/*Hieronder de CSS voor de Subpagina.*/
 #lijstafrekenen {
     width:49%;
     float:left;
