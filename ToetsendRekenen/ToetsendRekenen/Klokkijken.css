@@ -19,3 +19,23 @@
     width:200px;
     height:200px;
 }
+
+#questionClock {
+    height: 200px;
+    width: 200px;
+}
+
+.wijzerPlaat {
+    position:absolute;
+    z-index:1;
+}
+
+.korteWijzer {
+    position:absolute;
+    z-index:2;
+}
+
+.langeWijzer {
+    position:absolute;
+    z-index:3;
+}

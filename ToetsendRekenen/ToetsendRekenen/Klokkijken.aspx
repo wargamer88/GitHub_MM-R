@@ -10,13 +10,18 @@
             <br />
             Hoelaat is het?<br />
             <br />
-            <br />
-            <br />
-            <div id="Clock">
-                <img id="wijzerPlaat" src="Images/WijzerPlaat.png" />
-                <img id="korteWijzer" src="Images/KorteWijzer.png" />
-                <img id="langeWijzer" src="Images/LangeWijzer.png" />
+            <div id="questionClock">
+                <img class="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img class="korteWijzer" src="Images/KorteWijzer.png" />
+                <img class="langeWijzer" src="Images/LangeWijzer.png" />
             </div>
+
+            <%--<script type="text/javascript">
+                $(document).ready(function () {
+                    $('#langeWijzer').css({ "transform": "rotate(" + 360 + "deg)" });
+                });
+
+            </script>--%>
 
             <br />
         </div>
