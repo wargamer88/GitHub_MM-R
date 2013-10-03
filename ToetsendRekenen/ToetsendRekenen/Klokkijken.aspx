@@ -12,7 +12,11 @@
             <br />
             <br />
             <br />
-
+            <div id="Clock">
+                <img id="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img id="korteWijzer" src="Images/KorteWijzer.png" />
+                <img id="langeWijzer" src="Images/LangeWijzer.png" />
+            </div>
 
             <br />
         </div>
