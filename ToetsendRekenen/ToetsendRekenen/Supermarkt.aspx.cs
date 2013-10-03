@@ -29,6 +29,14 @@ namespace ToetsendRekenen
                 teller++;
                 sum += price[arr];
             }
+            //boodschappenlijst1px.InnerText;
+            for (int arr = 0; arr < producten.Length / 2; arr++)
+            {
+                int j = 0;
+                var test = producten[arr, j];
+                Productenlijst.Text += test + "<br />";
+            }
+
         }
 
         protected void reaction_TextChanged(object sender, EventArgs e)
