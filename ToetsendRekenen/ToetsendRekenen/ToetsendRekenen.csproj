@@ -62,6 +62,8 @@
   <ItemGroup>
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
+    <Content Include="Images\KorteWijzer.png" />
+    <Content Include="Images\LangeWijzer.png" />
     <Content Include="Images\legeSter.png" />
     <Content Include="Images\perkament1px.png" />
     <Content Include="Images\Perkamentboven.png" />
@@ -70,6 +72,8 @@
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
     <Content Include="Images\uil1.gif" />
+    <Content Include="Images\WijzerPlaat.png" />
+    <Content Include="jQueryRotate.js" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
     <Content Include="Supermarkt.css" />
@@ -183,6 +187,7 @@
     <Compile Include="BreukenSub.aspx.designer.cs">
       <DependentUpon>BreukenSub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Supermarkt.cs" />
     <Compile Include="SupermarktSub.aspx.cs">
       <DependentUpon>SupermarktSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

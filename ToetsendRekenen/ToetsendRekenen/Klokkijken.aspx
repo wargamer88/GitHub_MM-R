@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterToetsendRekenen.Master" AutoEventWireup="true" CodeBehind="Klokkijken.aspx.cs" Inherits="ToetsendRekenen.WebForm14" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="Klokkijken.css" />
+    <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+    <script type="text/javascript">
+        
+            $('#langeWijzer').rotate(45);
+        
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="sommenContent">
@@ -10,9 +17,13 @@
             <br />
             Hoelaat is het?<br />
             <br />
-            <br />
-            <br />
+            <div id="questionClock">
+                <img class="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img class="korteWijzer" src="Images/KorteWijzer.png" />
+                <img class="langeWijzer" src="Images/LangeWijzer.png" />
+            </div>
 
+            
 
             <br />
         </div>
@@ -33,4 +44,6 @@
             
         </div>
     </div>
+
+    
 </asp:Content>
