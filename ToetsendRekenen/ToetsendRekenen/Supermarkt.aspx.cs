@@ -28,7 +28,8 @@ namespace ToetsendRekenen
             //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.        
             //Productenlijst.Text = SM.GetProductsList(producten);
             //Productenlijst.Text = SM.Randomlijst(producten);
-
+            string path = System.IO.Directory.GetCurrentDirectory() + "/Images/Supermarkt/";
+            SM.GetImagesPath(path);
         }
 
         protected void reaction_TextChanged(object sender, EventArgs e)

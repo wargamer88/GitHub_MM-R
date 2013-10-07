@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Drawing;
+using System.IO;
 
 namespace ToetsendRekenen
 {
@@ -70,10 +71,24 @@ namespace ToetsendRekenen
             
         //}
 
-        public void PlaatjeNaarDatabase()
+       
+       public List<String> GetImagesPath(String folderName)
         {
-            //Image img = Image.FromFile()
-            //DD.ImagetoByteArray();
+
+            DirectoryInfo Folder;
+            FileInfo[] Images;
+
+            Folder = new DirectoryInfo(folderName);
+            Images = Folder.GetFiles();
+            List<String> imagesList = new List<String>();
+
+            for (int i = 0; i < Images.Length; i++)
+            {
+                imagesList.Add(String.Format(@"{0}/{1}", folderName, Images[i].Name));
+            }
+
+
+            return imagesList;
         }
         
     }
