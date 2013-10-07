@@ -1,13 +1,13 @@
 ﻿
 body {
     background-color: #A19EFF;
-    height: 100%;
+    height: 0 auto;
     width: 100%;
     margin-right: 7px;
 }
 
 #formSite {
-    height:100%;
+    height:0 auto;
 }
 
 #header {
@@ -32,7 +32,7 @@ body {
     margin:0 auto 0 auto;
     width:1000px;
     min-height:500px;
-    max-height:1000px;
+    height:0 auto;
     border:solid 3px white;
     position:relative;
 }
@@ -41,17 +41,19 @@ body {
     background-color:#7D86FF;
     width:200px;
     min-height:500px;
-    max-height:1000px;
+    height:0 auto;
     float:left;
 }
 
 #content {
     width:auto;
-    height:100%;
+    height:0 auto;
     margin-left:207px;
     float:none;
     background-color:white;
 }
+
+/*Hieronder voor sommenpage :P*/
 
 #sommenContent {
     width:100%;
