@@ -186,6 +186,7 @@
     <Compile Include="BreukenSub.aspx.designer.cs">
       <DependentUpon>BreukenSub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Supermarkt.cs" />
     <Compile Include="SupermarktSub.aspx.cs">
       <DependentUpon>SupermarktSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
