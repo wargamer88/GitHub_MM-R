@@ -10,9 +10,9 @@ namespace ToetsendRekenen
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
-
-        decimal[] price;
+        Supermarkt SM = new Supermarkt();
         decimal sum;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Subpagina word opgehaald.
@@ -21,24 +21,11 @@ namespace ToetsendRekenen
 
             //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
             string[,] producten = new string[,] { { "Appels", "2,69" }, { "Bananen", "2,19" }, { "Melk", "0,83" }, { "Pruimen", "1,41" }, { "Manderijnen", "1,55" }, { "Appelsap", "1,06" }, { "Chocola", "1,87" }, { "Eieren", "1,29" }, { "Peren", "1,69" }, { "Koekjes", "0,81" }, { "Rode Bieten", "1,13" }, { "Blik groente", "1,39" }, { "Thee", "0,93" }, { "Ananas", "1,99" }, { "Frisdrank", "0,39" } }; 
-            price = new decimal[producten.Length / 2];
-            int teller = 0;
-            for (int arr = 0; arr < producten.Length/2; arr++)
-            {
-                int j=1;
-                var test = producten[arr,j];
-                decimal test1  = Convert.ToDecimal(test);
-                price[teller] = test1;
-                teller++;
-                sum += price[arr];
-            }
-            //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.
-            for (int arr = 0; arr < producten.Length / 2; arr++)
-            {
-                int j = 0;
-                var test = producten[arr, j];
-                Productenlijst.Text += test + "<br />";
-            }
+            decimal Totaal = SM.GetPrice();
+
+            //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.        
+            //Productenlijst.Text = SM.GetProductsList(producten);
+            //Productenlijst.Text = SM.Randomlijst(producten);
 
         }
 

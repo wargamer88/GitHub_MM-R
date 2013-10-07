@@ -13,9 +13,10 @@ namespace ToetsendRekenen
         public decimal[] price { get; set; }
         public decimal sum { get; set; }
         public string[,] producten { get; set; }
+        public string productenlabel { get; set; }
 
         //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
-        public void GetPrice()
+        public decimal GetPrice()
         {
             producten = new string[,] { { "Appels", "2,69" }, { "Bananen", "2,19" }, { "Melk", "0,83" }, { "Pruimen", "1,41" }, { "Manderijnen", "1,55" }, { "Appelsap", "1,06" }, { "Chocola", "1,87" }, { "Eieren", "1,29" }, { "Peren", "1,69" }, { "Koekjes", "0,81" }, { "Rode Bieten", "1,13" }, { "Blik groente", "1,39" }, { "Thee", "0,93" }, { "Ananas", "1,99" }, { "Frisdrank", "0,39" } };
             price = new decimal[producten.Length / 2];
@@ -29,17 +30,41 @@ namespace ToetsendRekenen
                 teller++;
                 sum += price[arr];
             }
+            return sum;
         }
         //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.
-        public string GetProductsList(string Productenlijst)
+        public string GetProductsList(string[,] Productenlijst)
         {
             for (int arr = 0; arr < producten.Length / 2; arr++)
             {
                 int j = 0;
                 var test = producten[arr, j];
-                Productenlijst += test + "<br />";
+                productenlabel += test + "<br />";
             }
-            return Productenlijst;
+            return productenlabel;
         }
+        //public string Randomlijst(string[,] producten)
+        //{
+        //    Random R = new Random();
+        //    int teller = 0;
+        //    string[] alleproducten;
+        //    for (int arr = 0; arr < producten.Length / 2; arr++)
+        //    {
+        //        int j = 0;
+        //        arr = R.Next(producten.Length / 2);
+        //        alleproducten = new string[arr];
+        //        var perproduct = producten[arr, j];
+        //        alleproducten[teller] = perproduct;
+        //        if (teller != producten.Length / 2)
+        //        {
+        //            teller++;
+        //        }
+        //        else { }
+        //        // productenlabel += test + "<br />";
+
+        //    }
+        //    return productenlabel;
+            
+        //}
     }
 }
