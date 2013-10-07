@@ -73,6 +73,7 @@
     <Content Include="Images\Ster.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="Images\WijzerPlaat.png" />
+    <Content Include="jQueryRotate.js" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
     <Content Include="Supermarkt.css" />
