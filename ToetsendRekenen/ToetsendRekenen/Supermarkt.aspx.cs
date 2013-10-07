@@ -12,6 +12,8 @@ namespace ToetsendRekenen
     {
         Supermarkt SM = new Supermarkt();
         decimal sum;
+        int goed = 0;
+        int fout = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,11 +42,11 @@ namespace ToetsendRekenen
             decimal antwoordvar = Convert.ToDecimal(antwoord.Text);
             if (antwoordvar == sum)
             {
-                reaction.Text = "Het werkt!";
+                goed++;
             }
             else
             {
-                reaction.Text = "Klopt niet!";
+                fout++;
             }
         }
     }

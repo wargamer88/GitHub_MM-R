@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Drawing;
 
 namespace ToetsendRekenen
 {
     public class Supermarkt
     {
+        DataToDatabase DD = new DataToDatabase();
+
         public int AfbeeldingsID { get; set; }
         public byte[] Afbeelding { get; set; }
         public decimal Supermarktprijs { get; set; }
@@ -66,5 +69,12 @@ namespace ToetsendRekenen
         //    return productenlabel;
             
         //}
+
+        public void PlaatjeNaarDatabase()
+        {
+            //Image img = Image.FromFile()
+            //DD.ImagetoByteArray();
+        }
+        
     }
 }
