@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 using System.Drawing;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace ToetsendRekenen
 {
     public class Supermarkt
     {
         DataToDatabase DD = new DataToDatabase();
+        List<String> imagesList = new List<String>();
+
+        SqlConnection thisConnection = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;
+Password=romimi;");
 
         public int AfbeeldingsID { get; set; }
         public byte[] Afbeelding { get; set; }
@@ -17,6 +24,23 @@ namespace ToetsendRekenen
         public decimal sum { get; set; }
         public string[,] producten { get; set; }
         public string productenlabel { get; set; }
+        
+        //Methode om naar database te sturen
+        public void NaarDB()
+        {
+            thisConnection.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
+            foreach (var img in imagesList)
+            {
+                Image i = Image.FromFile(img);
+                var test = DD.ImagetoByteArray(i);
+                cmd.Parameters.AddWithValue("@Afbeelding", test);
+                cmd.Connection = thisConnection;
+                cmd.ExecuteNonQuery();
+            }
+            
+        }
+
 
         //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
@@ -46,35 +70,61 @@ namespace ToetsendRekenen
             }
             return productenlabel;
         }
-        //public string Randomlijst(string[,] producten)
-        //{
-        //    Random R = new Random();
-        //    int teller = 0;
-        //    string[] alleproducten;
-        //    for (int arr = 0; arr < producten.Length / 2; arr++)
-        //    {
-        //        int j = 0;
-        //        arr = R.Next(producten.Length / 2);
-        //        alleproducten = new string[arr];
-        //        var perproduct = producten[arr, j];
-        //        alleproducten[teller] = perproduct;
-        //        if (teller != producten.Length / 2)
-        //        {
-        //            teller++;
-        //        }
-        //        else { }
-        //        // productenlabel += test + "<br />";
-
-        //    }
-        //    return productenlabel;
-            
-        //}
-
-        public void PlaatjeNaarDatabase()
+        public string Randomlijst(string[,] producten)
         {
-            //Image img = Image.FromFile()
-            //DD.ImagetoByteArray();
+            Random R = new Random();
+            int teller = 0;
+            string[] alleproducten = new string[producten.Length/2];
+            for (int arr = 0; arr < producten.Length / 2; arr++)
+            {
+                int j = 0;
+                //alleproducten = new string[arr];
+                var perproduct = producten[arr, j];
+                alleproducten[teller] = perproduct;
+                teller++;
+                // productenlabel += test + "<br />";
+            }
+            string test = alleproducten[R.Next(alleproducten.Length)];
+            return productenlabel;
+
         }
-        
+
+       
+       public List<String> GetImagesPath(String folderName)
+        {
+
+            DirectoryInfo Folder;
+            FileInfo[] Images;
+
+            Folder = new DirectoryInfo(folderName);
+            Images = Folder.GetFiles();
+
+            for (int i = 0; i < Images.Length; i++)
+            {
+                imagesList.Add(String.Format(@"{0}/{1}", folderName, Images[i].Name));
+            }
+
+
+            return imagesList;
+        }
+
+       public void PlaatjeNaarDatabase()
+       {
+           
+           foreach (var img in imagesList)
+           {
+               Image i = Image.FromFile(img);
+           }
+       }
+       public string PlaatjesNaarScherm()
+       {
+           string plaatjestekst = "";
+           int teller = 0;
+           for (int i = 0; i < imagesList.Count; i++)
+           {
+               plaatjestekst = "<img src='C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt/pop-can-clip-art.jpg' />";
+           }
+           return plaatjestekst;
+       }
     }
 }
