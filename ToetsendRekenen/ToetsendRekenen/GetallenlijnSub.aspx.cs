@@ -56,5 +56,47 @@ namespace ToetsendRekenen
                 lbError.Text = ex.ToString();
             }
         }
+
+        protected void lbKommaGetal1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Getallenlijn";
+                objResultaat.Categorie = "KommaGetallen";
+                objResultaat.SubCategorie = "0-10";
+                objResultaat.SessieID = Session.SessionID;
+
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Getallenlijn.aspx");
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
+            }
+        }
+
+        protected void lbKommatGetal2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Getallenlijn";
+                objResultaat.Categorie = "KommaGetallen";
+                objResultaat.SubCategorie = "0-100";
+                objResultaat.SessieID = Session.SessionID;
+
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Getallenlijn.aspx");
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
+            }
+        }
     }
 }

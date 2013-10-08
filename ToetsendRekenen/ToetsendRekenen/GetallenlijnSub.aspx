@@ -24,8 +24,9 @@
     <p style="font-weight:bold;">
         Komma Getallen:
     </p>
-    <div>0 t/m 10</div>    
-    <div>0 t/m 100</div>
+    <asp:LinkButton ID="lbKommaGetal1" runat="server" OnClick="lbKommaGetal1_Click">0 t/m 10</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="lbKommatGetal2" runat="server" OnClick="lbKommatGetal2_Click">0 t/m 100</asp:LinkButton>
 
     <p style="font-weight:bold;">
         Breuken:
