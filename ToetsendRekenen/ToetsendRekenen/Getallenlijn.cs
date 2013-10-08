@@ -16,6 +16,10 @@ namespace ToetsendRekenen
         public int MiddelGetal { get; set; }
         public double Tussenstapdouble { get; set; }
         public int Tussenstapint { get; set; }
+        public int RandomPositie1 { get; set; }
+        public int RandomPositie2 { get; set; }
+        public int RandomPositie3 { get; set; }
+        public int RandomPositie4 { get; set; }
 
         //Methode voor het genereren van de Getallenlijn.
         public void GetallenlijnGenereren(string moeilijkheidsgraad)
@@ -29,6 +33,10 @@ namespace ToetsendRekenen
             FoutGetal3 = 0;
             Tussenstapdouble = 0;
             Tussenstapint = 0;
+            RandomPositie1 = 0;
+            RandomPositie2 = 0;
+            RandomPositie3 = 0;
+            RandomPositie4 = 0;
 
             //Moeilijkheidsgraad bekijken en juiste scope binnengaan
             if (moeilijkheidsgraad == "0-10")
@@ -41,16 +49,15 @@ namespace ToetsendRekenen
                 Tussenstapdouble = R.Next(0, 1);
                 //Eind Getal bepalen van Tussenstappen
                 EindGetal = StartGetal + (Convert.ToInt32(Tussenstapdouble * 10));
-                //EindGetal omhoog afronden naar een Even Getal
-                EindGetal += (EindGetal & 1);
                 //Random tussenstap positie genereren tussen 1 en 9
                 do
                 {
                     VraagGetal = R.Next(1, 8);
                 }
                 while (VraagGetal == 5);
+
                 //3 Random foute getallen genereren tussen start getal en eindgetal
-                    FoutGetal1 = R.Next(StartGetal, EindGetal);
+                FoutGetal1 = R.Next(StartGetal, EindGetal);
                 do
                 {
                     FoutGetal2 = R.Next(StartGetal, EindGetal);
@@ -61,7 +68,7 @@ namespace ToetsendRekenen
                     FoutGetal3 = R.Next(StartGetal, EindGetal);
                 }
                 while (FoutGetal3 == FoutGetal1 || FoutGetal3 == FoutGetal2);
-                MiddelGetal = StartGetal + (Convert.ToInt32(Tussenstapdouble * 5));   
+                MiddelGetal = StartGetal + (Convert.ToInt32(Tussenstapdouble * 5));      
             }
             if(moeilijkheidsgraad == "0-100")
             {
@@ -92,7 +99,34 @@ namespace ToetsendRekenen
                     FoutGetal3 = R.Next(StartGetal, EindGetal);
                 }
                 while (FoutGetal3 == FoutGetal1 || FoutGetal3 == FoutGetal2);
-                MiddelGetal = StartGetal + (Convert.ToInt32(Tussenstapint * 5));         
+                MiddelGetal = StartGetal + (Convert.ToInt32(Tussenstapint * 5));   
+                
+                //Genereer een random positie voor het juiste antwoord (in de Checkboxlist)
+                do
+                {
+                    RandomPositie1 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0);
+
+                //Genereer een random posities voor de foute antwoorden (in de Checkboxlist)
+                do
+                {
+                    RandomPositie2 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie2 == RandomPositie1);
+                do
+                {
+                    RandomPositie3 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie3 == RandomPositie1 || RandomPositie3 == RandomPositie2);
+                do
+                {
+                    RandomPositie4 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie4 == RandomPositie1 || RandomPositie4 == RandomPositie2 || RandomPositie4 == RandomPositie3);
+              
+
+
             }
 
         }
