@@ -13,5 +13,10 @@ namespace ToetsendRekenen
         {
             
         }
+
+        protected void lbGetallen2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Getallenlijn.aspx");
+        }
     }
 }

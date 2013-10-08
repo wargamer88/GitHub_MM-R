@@ -9,7 +9,7 @@
      </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <img alt="Denken aan sommen" class="auto-style2" src="Images/RekenenDenken.png" />
+    <img alt="Denken aan sommen" class="auto-style2" src="Images/GetallenlijnDenken.png" />
     <p style="font-size: 19px; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif">
         Ken jij de getallenlijn?</p>
     <p>
@@ -18,7 +18,7 @@
         Getallen:
     </p>
     <div>0 t/m 10</div>    
-    <div>0 t/m 100</div>
+    <asp:LinkButton ID="lbGetallen2" runat="server" OnClick="lbGetallen2_Click">0 t/m 100</asp:LinkButton>
 
     <p style="font-weight:bold;">
         Komma Getallen:

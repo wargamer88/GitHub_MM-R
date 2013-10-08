@@ -111,6 +111,8 @@
       <DependentUpon>MasterToetsendRekenen.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultaat.cs" />
+    <Compile Include="Sessie.cs" />
     <Compile Include="SommenSub.aspx.cs">
       <DependentUpon>SommenSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
