@@ -25,6 +25,16 @@
                 <img class="korteWijzer" src="Images/KorteWijzer.png" />
                 <img class="langeWijzer" src="Images/LangeWijzer.png" />
             </div>
+            <br />
+
+            <asp:RadioButton ID="Antwoord1" runat="server" OnCheckedChanged="Antwoord1_CheckedChanged" text="test" />
+            <br />
+            <asp:RadioButton ID="Antwoord2" runat="server" OnCheckedChanged="Antwoord2_CheckedChanged" text="test" />
+            <br />
+            <asp:RadioButton ID="Antwoord3" runat="server" OnCheckedChanged="Antwoord3_CheckedChanged" text="test" />
+            <br />
+            <asp:RadioButton ID="Antwoord4" runat="server" OnCheckedChanged="Antwoord4_CheckedChanged" text="test" />
+
 
             
 

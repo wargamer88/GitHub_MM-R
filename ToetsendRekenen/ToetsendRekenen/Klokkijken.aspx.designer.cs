@@ -11,5 +11,41 @@ namespace ToetsendRekenen {
     
     
     public partial class WebForm14 {
+        
+        /// <summary>
+        /// Antwoord1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Antwoord1;
+        
+        /// <summary>
+        /// Antwoord2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Antwoord2;
+        
+        /// <summary>
+        /// Antwoord3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Antwoord3;
+        
+        /// <summary>
+        /// Antwoord4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Antwoord4;
     }
 }

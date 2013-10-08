@@ -7,10 +7,21 @@ namespace ToetsendRekenen
 {
     public class Klokkijken
     {
-        public int randomtijd(string wijzer, int tijd, int minuten)
+
+        Random rnd = new Random();
+
+        public int randomHour()
         {
-            Random rnd = new Random();
-            int min = 0;
+            int hours;
+            hours = rnd.Next(0, 12);
+            return hours;
+        }
+
+        public double randomtijd(string wijzer, int tijd, double minuten, int hours)
+        {
+            
+            double min = 0;
+            double urenGrades;
 
             switch (wijzer)
             {
@@ -32,23 +43,23 @@ namespace ToetsendRekenen
                     }
                     break;
                 case "korteWijzer":
-                    min = rnd.Next(0, 12) * 5;
+                    urenGrades = hours * 5;
 
                     if(minuten >52 && minuten <=7)
                     {
-                        return min;
+                        return urenGrades;
                     }
                     else if (minuten > 7 && minuten <= 22)
                     {
-                        return min = min + 7;
+                        return urenGrades += 1.25;
                     }
                     else if (minuten > 22 && minuten <= 37)
                     {
-                        return min = min + 15;
+                        return urenGrades += 2.5;
                     }
                     else if (minuten > 37 && minuten <= 52)
                     {
-                        return min = min + 23;
+                        return urenGrades += 3.75;
                     }
 
                     return min;
@@ -56,6 +67,19 @@ namespace ToetsendRekenen
             }
             return min;
             
+        }
+
+        public string answerCheck(string givenAnswer, string goodAnswer)
+        {
+            if (givenAnswer == goodAnswer)
+            {
+                return "Dit andwoord is goed";
+            }
+            else
+            {
+                return "Dit antwoord is fout";
+            }
+
         }
     }
 }
