@@ -17,30 +17,46 @@ namespace ToetsendRekenen
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Uren = klokkijken.randomHour();
             minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", 5, 0, Uren);
             minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", 5, minutenVanLangewijzer, Uren);
+
         }
 
         protected void Antwoord1_CheckedChanged(object sender, EventArgs e)
         {
-            minutenVanKortewijzer = Math.
-            klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            string check;
+            check =  klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            LblGoedFout.Text = check;
+            LblGoedFout.Visible = true;
+            btnVolgendeVraag.Visible = true;
         }
 
         protected void Antwoord2_CheckedChanged(object sender, EventArgs e)
         {
-
+            string check;
+            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            LblGoedFout.Text = check;
+            LblGoedFout.Visible = true;
+            btnVolgendeVraag.Visible = true;
         }
 
         protected void Antwoord3_CheckedChanged(object sender, EventArgs e)
         {
-
+            string check;
+            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            LblGoedFout.Text = check;
+            LblGoedFout.Visible = true;
+            btnVolgendeVraag.Visible = true;
         }
 
         protected void Antwoord4_CheckedChanged(object sender, EventArgs e)
         {
-
+            string check;
+            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            LblGoedFout.Text = check;
+            LblGoedFout.Visible = true;
+            btnVolgendeVraag.Visible = true;
         }
     }
 }

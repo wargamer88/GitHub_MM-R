@@ -35,6 +35,13 @@
             <br />
             <asp:RadioButton ID="Antwoord4" runat="server" OnCheckedChanged="Antwoord4_CheckedChanged" text="test" />
 
+            <br />
+            <br />
+            <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
+            <br />
+            <br />
+            <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" />
+
 
             
 
