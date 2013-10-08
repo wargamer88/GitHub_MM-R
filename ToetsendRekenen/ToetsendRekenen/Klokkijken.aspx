@@ -3,9 +3,12 @@
     <link rel="stylesheet" type="text/css" href="Klokkijken.css" />
     <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
     <script type="text/javascript">
-        
-            $('#langeWijzer').rotate(45);
-        
+        $(document).ready(function () {
+            $gradesLangewijzer = 360 / 60 * parseInt("<%= minutenVanLangewijzer%>");
+            $gradesKortewijzer = 360 / 60 * parseInt("<%= minutenVanKortewijzer%>");
+            $('.langeWijzer').rotate($gradesLangewijzer);
+            $('.korteWijzer').rotate($gradesKortewijzer);
+        });
 
     </script>
 </asp:Content>
