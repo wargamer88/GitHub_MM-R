@@ -6,6 +6,7 @@ using System.IO;
 using System.Drawing;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace ToetsendRekenen
 {
@@ -70,11 +71,18 @@ Password=romimi;");
             }
             return productenlabel;
         }
+
+        //Maakt een random lijstje van de producten
         public string Randomlijst(string[,] producten)
         {
             Random R = new Random();
             int teller = 0;
             string[] alleproducten = new string[producten.Length/2];
+            ArrayList randomlist = new ArrayList();
+            int C = 0;
+            int rc = randomlist.Count;
+            int tellerR = 0;
+
             for (int arr = 0; arr < producten.Length / 2; arr++)
             {
                 int j = 0;
@@ -82,9 +90,26 @@ Password=romimi;");
                 var perproduct = producten[arr, j];
                 alleproducten[teller] = perproduct;
                 teller++;
-                // productenlabel += test + "<br />";
+                
             }
-            string test = alleproducten[R.Next(alleproducten.Length)];
+
+            for (int i = 0; i < R.Next(0, C = Convert.ToInt16(producten.Length /1.5)); i++)
+            {
+                string test = alleproducten[R.Next(alleproducten.Length)];
+                randomlist.Add(test);
+                    productenlabel += test + "<br />";
+            }
+
+            for (int i = 0; i < randomlist.Count; i++)
+            {
+                var test = randomlist[tellerR];
+                for (int j = 0; j < randomlist.Count; j++)
+                {
+                    var test1 = randomlist[tellerR];
+                }
+                tellerR++;
+            }
+            
             return productenlabel;
 
         }
