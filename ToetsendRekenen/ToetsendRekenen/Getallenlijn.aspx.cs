@@ -22,10 +22,12 @@ namespace ToetsendRekenen
                     lbResultaat.Visible = false;
 
                     //Getallenlijn/Antwoorden genereren en Invullen.
-                    string moeilijkheidsgraad = "0-100";
+                    Resultaat objResultaat = new Resultaat();
+                    objResultaat = (Resultaat)Session["Resultaat"];
+                    string subcategorie = objResultaat.SubCategorie;
                     do
                     {
-                       GL.GetallenlijnGenereren(moeilijkheidsgraad);
+                       GL.GetallenlijnGenereren(subcategorie);
                     }
                     while (GL.EindGetal > 100);
                     cblAntwoorden.Items[GL.RandomPositie2].Text = Convert.ToString(GL.FoutGetal1);
