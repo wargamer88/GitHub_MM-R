@@ -12,7 +12,10 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Sessie objSessie = new Sessie();
+            objSessie.SessieID = Session.SessionID;
+            objSessie.Datum = DateTime.Now;
+            Session["Sessie"] = objSessie;
         }
 
         protected void btnStatistiek_Click(object sender, EventArgs e)
