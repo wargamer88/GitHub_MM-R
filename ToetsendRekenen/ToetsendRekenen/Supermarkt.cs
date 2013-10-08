@@ -30,18 +30,39 @@ Password=romimi;");
         public void NaarDB()
         {
             thisConnection.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
             foreach (var img in imagesList)
             {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
+                SqlParameter pm = new SqlParameter();
                 Image i = Image.FromFile(img);
-                var test = DD.ImagetoByteArray(i);
-                cmd.Parameters.AddWithValue("@Afbeelding", test);
+                pm.ParameterName = "@Afbeelding";
+                pm.Value = i;
+                cmd.Parameters.Add(pm);
                 cmd.Connection = thisConnection;
                 cmd.ExecuteNonQuery();
             }
             
         }
 
+        public void VanDB()
+        {
+            thisConnection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = @AfbeeldingID");
+            SqlParameter pm = new SqlParameter();
+            int afbeeldingID = 1;
+            pm.ParameterName = "@AfbeeldingID";
+            pm.Value = afbeeldingID;
+            cmd.Connection = thisConnection;
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    byte[] raw = (byte[])reader["Afbeelding"];
+                    // TODO: do something with the raw data
+                    DD.ByteArraytoImage(raw);
+                }
+            }
+        }
 
         //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
@@ -82,6 +103,8 @@ Password=romimi;");
             int C = 0;
             int rc = randomlist.Count;
             int tellerR = 0;
+            int tellerRC = 0;
+            int aantal = 0;
 
             for (int arr = 0; arr < producten.Length / 2; arr++)
             {
@@ -97,19 +120,30 @@ Password=romimi;");
             {
                 string test = alleproducten[R.Next(alleproducten.Length)];
                 randomlist.Add(test);
-                    productenlabel += test + "<br />";
             }
 
             for (int i = 0; i < randomlist.Count; i++)
             {
                 var test = randomlist[tellerR];
+                tellerRC = 0;
+                aantal = 0;
                 for (int j = 0; j < randomlist.Count; j++)
                 {
-                    var test1 = randomlist[tellerR];
+                    var test1 = randomlist[tellerRC];
+                        if (test == test1)
+                        {
+                            aantal++;
+                        }
+                        else
+                        { 
+
+                        }
+                        tellerRC++;
                 }
                 tellerR++;
+                productenlabel += aantal + "x  "+ test + "<br />";
             }
-            
+
             return productenlabel;
 
         }
