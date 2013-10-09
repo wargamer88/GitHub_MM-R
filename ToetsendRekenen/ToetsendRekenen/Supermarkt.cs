@@ -69,24 +69,23 @@ Password=romimi;");
                     productenFromDBD.Add(new Supermarkt { ImageFromDBD = test, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
                 }
                 TellerDB++;
+                reader.Close();
             }
+            //return productenFromDBD;
         }
 
         //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
         {
-            producten = new string[,] { { "Appels", "2,69" }, { "Bananen", "2,19" }, { "Melk", "0,83" }, { "Pruimen", "1,41" }, { "Manderijnen", "1,55" }, { "Appelsap", "1,06" }, { "Chocola", "1,87" }, { "Eieren", "1,29" }, { "Peren", "1,69" }, { "Koekjes", "0,81" }, { "Rode Bieten", "1,13" }, { "Blik groente", "1,39" }, { "Thee", "0,93" }, { "Ananas", "1,99" }, { "Frisdrank", "0,39" } };
-            price = new decimal[producten.Length / 2];
+            price = new decimal[productenFromDBD.Count];
             int teller = 0;
-            for (int arr = 0; arr < producten.Length / 2; arr++)
+            foreach (var items in productenFromDBD)
             {
-                int j = 1;
-                var test = producten[arr, j];
-                decimal test1 = Convert.ToDecimal(test);
-                price[teller] = test1;
+                price[teller] = items.PriceFromDBD;
+                sum += price[teller];
                 teller++;
-                sum += price[arr];
             }
+
             return sum;
         }
         //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.
@@ -102,29 +101,25 @@ Password=romimi;");
         }
 
         //Maakt een random lijstje van de producten
-        public string Randomlijst(string[,] producten)
+        public string Randomlijst()
         {
             Random R = new Random();
             int teller = 0;
-            string[] alleproducten = new string[producten.Length/2];
-            ArrayList randomlist = new ArrayList();
+            string[] alleproducten = new string[productenFromDBD.Count];
+            List<string> randomlist = new List<string>();
             int C = 0;
             int rc = randomlist.Count;
             int tellerR = 0;
             int tellerRC = 0;
             int aantal = 0;
 
-            for (int arr = 0; arr < producten.Length / 2; arr++)
+            foreach (var ProdTag in productenFromDBD)
             {
-                int j = 0;
-                //alleproducten = new string[arr];
-                var perproduct = producten[arr, j];
-                alleproducten[teller] = perproduct;
+                alleproducten[teller] = ProdTag.TagFromDBD;
                 teller++;
-                
             }
 
-            for (int i = 0; i < R.Next(0, C = Convert.ToInt16(producten.Length /1.5)); i++)
+            for (int i = 0; i < R.Next(3, C = productenFromDBD.Count); i++)
             {
                 string test = alleproducten[R.Next(alleproducten.Length)];
                 randomlist.Add(test);
@@ -138,9 +133,13 @@ Password=romimi;");
                 for (int j = 0; j < randomlist.Count; j++)
                 {
                     var test1 = randomlist[tellerRC];
-                        if (test == test1)
+                        if (test == test1 && !(tellerR > tellerRC))
                         {
                             aantal++;
+                        }
+                        else if (!(tellerR > tellerRC))
+                        {
+                            randomlist.Remove(randomlist[tellerRC]);
                         }
                         else
                         { 
