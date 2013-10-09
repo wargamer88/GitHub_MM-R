@@ -14,6 +14,7 @@ namespace ToetsendRekenen
     {
         DataToDatabase DD = new DataToDatabase();
         List<String> imagesList = new List<String>();
+        public List<Supermarkt> productenFromDBD = new List<Supermarkt>();
 
         SqlConnection thisConnection = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;
 Password=romimi;");
@@ -25,42 +26,49 @@ Password=romimi;");
         public decimal sum { get; set; }
         public string[,] producten { get; set; }
         public string productenlabel { get; set; }
+
+        public Image ImageFromDBD { get; set; }
+        public decimal PriceFromDBD { get; set; }
+        public string TagFromDBD { get; set; }
         
-        //Methode om naar database te sturen
+        //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
             thisConnection.Open();
-            foreach (var img in imagesList)
-            {
                 SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
                 SqlParameter pm = new SqlParameter();
-                Image i = Image.FromFile(img);
+                Image i = Image.FromFile(imagesList[13]);
                 pm.ParameterName = "@Afbeelding";
-                pm.Value = i;
+                pm.Value = DD.ImagetoByteArray(i);
                 cmd.Parameters.Add(pm);
                 cmd.Connection = thisConnection;
                 cmd.ExecuteNonQuery();
-            }
-            
         }
 
+        //Methode om de database afbeeldingen uit te lezen en op te slaan.
         public void VanDB()
         {
             thisConnection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = @AfbeeldingID");
+            int TellerDB = 1;
             SqlParameter pm = new SqlParameter();
-            int afbeeldingID = 1;
             pm.ParameterName = "@AfbeeldingID";
-            pm.Value = afbeeldingID;
-            cmd.Connection = thisConnection;
-            using (var reader = cmd.ExecuteReader())
+
+            for (int i = 0; i < imagesList.Count-1; i++)
             {
-                if (reader.Read())
+                pm.Value = TellerDB;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = " + TellerDB);
+
+                cmd.Connection = thisConnection;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
                     byte[] raw = (byte[])reader["Afbeelding"];
-                    // TODO: do something with the raw data
-                    DD.ByteArraytoImage(raw);
+                    var test = DD.ByteArraytoImage(raw);
+
+                    productenFromDBD.Add(new Supermarkt { ImageFromDBD = test, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
                 }
+                TellerDB++;
             }
         }
 
