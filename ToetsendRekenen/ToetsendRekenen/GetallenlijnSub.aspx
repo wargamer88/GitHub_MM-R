@@ -1,34 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterToetsendRekenen.Master" AutoEventWireup="true" CodeBehind="GetallenlijnSub.aspx.cs" Inherits="ToetsendRekenen.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style2 {
-            width: 385px;
-            height: 471px;
-            float:right;
-        }
-     </style>
+    <link rel="stylesheet" type="text/css" href="Getallenlijn.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <img alt="Denken aan sommen" class="auto-style2" src="Images/GetallenlijnDenken.png" />
-    <p style="font-size: 19px; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif">
+    
+    <img alt="Denken aan sommen" id="SubImage" src="Images/GetallenlijnDenken.png" />
+    <p id="SubTitel">
         Ken jij de getallenlijn?</p>
     <p>
         Selecteer één van de onderstaande categorieën.</p>
-    <p style="font-weight:bold;">
+    <p class="SubCategorie">
         Getallen:
     </p>
     <asp:LinkButton ID="lbGetallen1" runat="server" OnClick="lbGetallen1_Click">0 t/m 10</asp:LinkButton>
     <br />
     <asp:LinkButton ID="lbGetallen2" runat="server" OnClick="lbGetallen2_Click">0 t/m 100</asp:LinkButton>
 
-    <p style="font-weight:bold;">
+    <p class="SubCategorie">
         Komma Getallen:
     </p>
     <asp:LinkButton ID="lbKommaGetal1" runat="server" OnClick="lbKommaGetal1_Click">0 t/m 10</asp:LinkButton>
     <br />
     <asp:LinkButton ID="lbKommatGetal2" runat="server" OnClick="lbKommatGetal2_Click">0 t/m 100</asp:LinkButton>
 
-    <p style="font-weight:bold;">
+    <p class="SubCategorie">
         Breuken:
     </p>
     <div>0 t/m 10</div>    
