@@ -28,7 +28,7 @@ namespace ToetsendRekenen
             //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.        
             //Productenlijst.Text = SM.GetProductsList(producten);
             //Productenlijst.Text = SM.Randomlijst(producten);
-            string path = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
+            string path = "D:/School/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
             SM.GetImagesPath(path);
             //SM.PlaatjeNaarDatabase();
             SM.NaarDB();
