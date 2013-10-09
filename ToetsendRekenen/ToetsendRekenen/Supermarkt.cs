@@ -100,7 +100,9 @@ Password=romimi;");
             return productenlabel;
         }
 
-        //Maakt een random lijstje van de producten
+        //Maakt een random lijstje van de producten.
+
+        //NOTE VOOR MORGEN. ZET OPNIEUW IN EEN LIST AANTALLEN EN STRINGS. DISTINCT DE LIST LATER EN STUUR DAT NA DE PAGINA.
         public string Randomlijst()
         {
             Random R = new Random();
@@ -133,13 +135,14 @@ Password=romimi;");
                 for (int j = 0; j < randomlist.Count; j++)
                 {
                     var test1 = randomlist[tellerRC];
-                        if (test == test1 && !(tellerR > tellerRC))
+                    if (randomlist[tellerR] == randomlist[tellerRC] && tellerR >= tellerRC)
                         {
                             aantal++;
-                        }
-                        else if (!(tellerR > tellerRC))
-                        {
                             randomlist.Remove(randomlist[tellerRC]);
+                        }
+                    else if (randomlist[tellerR] == randomlist[tellerRC])
+                        {
+                            aantal++;
                         }
                         else
                         { 
