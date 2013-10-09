@@ -19,8 +19,8 @@
                     <br />
                     Welk nummer wijst de pijl aan<br />
                     <br />
-                    <asp:RadioButtonList ID="cblAntwoorden" runat="server" Font-Bold="False" Font-Size="Medium" Height="125px" Width="53px" AutoPostBack="True" OnSelectedIndexChanged="Antwoorden_SelectedIndexChanged">
-                    <asp:ListItem Value="1">300</asp:ListItem>
+                    <asp:RadioButtonList ID="cblAntwoorden" runat="server" Font-Bold="False" Font-Size="Medium" Height="125px" Width="66px" AutoPostBack="True" OnSelectedIndexChanged="Antwoorden_SelectedIndexChanged">
+                    <asp:ListItem Value="1">3000</asp:ListItem>
                     <asp:ListItem Value="2">2</asp:ListItem>
                     <asp:ListItem Value="3">5</asp:ListItem>
                     <asp:ListItem Value="4">4</asp:ListItem>
