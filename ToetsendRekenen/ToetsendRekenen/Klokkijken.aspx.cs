@@ -30,7 +30,7 @@ namespace ToetsendRekenen
                 Minuten = Convert.ToInt16(minutenVanLangewijzer);
                 minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, Uren);
 
-                antwoorden[0] = Uren.ToString() + ':' + minutenVanLangewijzer.ToString();
+                antwoorden[0] = Uren.ToString() + ':' + Minuten.ToString();
 
                 Uren = klokkijken.randomHour();
                 antwoorden[1] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
@@ -53,21 +53,22 @@ namespace ToetsendRekenen
                 LblGoedFout.Visible = false;
                 btnVolgendeVraag.Visible = false;
 
-                Session["uur"] = minutenVanKortewijzer;
-                Session["minuut"] = minutenVanLangewijzer;
+                Session["uur"] = Uren;
+                Session["minuut"] = Minuten;
 
             }
         }
 
         protected void RblAntwoorden_SelectedIndexChanged(object sender, EventArgs e)
         {
-            minutenVanKortewijzer = (double)Session["uur"];
-            minutenVanLangewijzer = (double)Session["minuut"];
+            Uren = (int)Session["uur"];
+            Minuten = (int)Session["minuut"];
             string check;
-            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, Uren.ToString() + ':' + Minuten.ToString());
             LblGoedFout.Text = check;
             LblGoedFout.Visible = true;
             btnVolgendeVraag.Visible = true;
+            RblAntwoorden.Enabled = false;
         }
 
         protected void btnVolgendeVraag_Click(object sender, EventArgs e)

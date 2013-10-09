@@ -13,7 +13,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="sommenContent">
+        
         <div class="som">
             
             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoge klokken</span><br />
@@ -26,6 +28,8 @@
                 <img class="langeWijzer" src="Images/LangeWijzer.png" />
             </div>
             <br />
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
             <asp:RadioButtonList ID="RblAntwoorden" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem></asp:ListItem>
@@ -36,8 +40,9 @@
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" OnClick="btnVolgendeVraag_Click" />
-
+            <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" OnClick="btnVolgendeVraag_Click" BackColor="#3333FF" ForeColor="White" />
+                 </ContentTemplate>
+            </asp:UpdatePanel>
 
             
 
