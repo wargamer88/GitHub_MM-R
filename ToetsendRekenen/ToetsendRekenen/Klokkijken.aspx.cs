@@ -13,6 +13,7 @@ namespace ToetsendRekenen
         protected double minutenVanKortewijzer;
         protected string[] antwoorden = new string[4];
         protected int Uren;
+        protected int Minuten;
         protected string[] rndAntwoorden = new string[4];
         protected int tijd;
 
@@ -21,69 +22,60 @@ namespace ToetsendRekenen
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tijd = 1;
-            Uren = klokkijken.randomHour();
-            minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, Uren);
-            minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, Uren);
+            if (!IsPostBack)
+            {
+                tijd = 5;
+                Uren = klokkijken.randomHour();
+                minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, Uren);
+                Minuten = Convert.ToInt16(minutenVanLangewijzer);
+                minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, Uren);
 
-            antwoorden[0] = minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString();
+                antwoorden[0] = Uren.ToString() + ':' + Minuten.ToString();
 
-            antwoorden[1] = klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString() + ":" +
-                            klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, 0).ToString();
+                Uren = klokkijken.randomHour();
+                antwoorden[1] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
 
-            antwoorden[2] = klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString() + ":" +
-                            klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, 0).ToString();
+                Uren = klokkijken.randomHour();
+                antwoorden[2] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
 
-            antwoorden[3] = klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString() + ":" +
-                            klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, 0).ToString();
+                Uren = klokkijken.randomHour();
+                antwoorden[3] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
 
-            //Random rnd = new Random();
-            //rndAntwoorden = rndAntwoorden.OrderBy(x => rnd.Next()).ToArray();
+                Random rnd = new Random();
+                rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();
 
-            Antwoord1.Text = antwoorden[0];
-            Antwoord2.Text = antwoorden[1];
-            Antwoord3.Text = antwoorden[2];
-            Antwoord4.Text = antwoorden[3];
+                RblAntwoorden.Items[0].Text = rndAntwoorden[0];
+                RblAntwoorden.Items[1].Text = rndAntwoorden[1];
+                RblAntwoorden.Items[2].Text = rndAntwoorden[2];
+                RblAntwoorden.Items[3].Text = rndAntwoorden[3];
 
 
-            LblGoedFout.Visible = false;
-            btnVolgendeVraag.Visible = false;
+                LblGoedFout.Visible = false;
+                btnVolgendeVraag.Visible = false;
+
+                Session["uur"] = Uren;
+                Session["minuut"] = Minuten;
+
+            }
         }
 
-        protected void Antwoord1_CheckedChanged(object sender, EventArgs e)
+        protected void RblAntwoorden_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Uren = (int)Session["uur"];
+            Minuten = (int)Session["minuut"];
             string check;
-            check =  klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
+            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, Uren.ToString() + ':' + Minuten.ToString());
             LblGoedFout.Text = check;
             LblGoedFout.Visible = true;
             btnVolgendeVraag.Visible = true;
+            RblAntwoorden.Enabled = false;
         }
 
-        protected void Antwoord2_CheckedChanged(object sender, EventArgs e)
+        protected void btnVolgendeVraag_Click(object sender, EventArgs e)
         {
-            string check;
-            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
-            LblGoedFout.Text = check;
-            LblGoedFout.Visible = true;
-            btnVolgendeVraag.Visible = true;
+            Response.Redirect("Klokkijken.aspx");
         }
 
-        protected void Antwoord3_CheckedChanged(object sender, EventArgs e)
-        {
-            string check;
-            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
-            LblGoedFout.Text = check;
-            LblGoedFout.Visible = true;
-            btnVolgendeVraag.Visible = true;
-        }
-
-        protected void Antwoord4_CheckedChanged(object sender, EventArgs e)
-        {
-            string check;
-            check = klokkijken.answerCheck(Antwoord1.Text, minutenVanKortewijzer.ToString() + ':' + minutenVanLangewijzer.ToString());
-            LblGoedFout.Text = check;
-            LblGoedFout.Visible = true;
-            btnVolgendeVraag.Visible = true;
-        }
+        
     }
 }

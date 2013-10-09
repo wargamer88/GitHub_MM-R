@@ -69,6 +69,7 @@ body {
 .voortgang {
     width:100%;
     height:30px;
+    margin-left: 3px;
 }
 
 #voortgang {
@@ -80,6 +81,7 @@ body {
     height:80px;
     border-left:solid 1px black;
     float:right;
+    margin-left: 0px;
 }
 
 .uitkomstSterren {
@@ -87,7 +89,8 @@ body {
     height:auto;
     border-left:solid 1px black;
     border-bottom:solid 1px black;  
-    float: right;   
+    float: right;
+    margin-left: 7px;
 }
 
 .uitleg {
@@ -95,7 +98,8 @@ body {
     height:auto;
     border-top:solid 1px black;
     float: right;
-    visibility: hidden
+    visibility: hidden;
+    margin-left: 11px;
 }
 
 #inloggen {

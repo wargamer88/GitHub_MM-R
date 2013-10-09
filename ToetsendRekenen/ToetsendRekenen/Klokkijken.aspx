@@ -13,7 +13,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="sommenContent">
+        
         <div class="som">
             
             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoge klokken</span><br />
@@ -26,22 +28,21 @@
                 <img class="langeWijzer" src="Images/LangeWijzer.png" />
             </div>
             <br />
-
-            <asp:RadioButton ID="Antwoord1" runat="server" OnCheckedChanged="Antwoord1_CheckedChanged" text="test" />
-            <br />
-            <asp:RadioButton ID="Antwoord2" runat="server" OnCheckedChanged="Antwoord2_CheckedChanged" text="test" />
-            <br />
-            <asp:RadioButton ID="Antwoord3" runat="server" OnCheckedChanged="Antwoord3_CheckedChanged" text="test" />
-            <br />
-            <asp:RadioButton ID="Antwoord4" runat="server" OnCheckedChanged="Antwoord4_CheckedChanged" text="test" />
-
-            <br />
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+            <asp:RadioButtonList ID="RblAntwoorden" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+            </asp:RadioButtonList>
             <br />
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" />
-
+            <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" OnClick="btnVolgendeVraag_Click" BackColor="#3333FF" ForeColor="White" />
+                 </ContentTemplate>
+            </asp:UpdatePanel>
 
             
 
