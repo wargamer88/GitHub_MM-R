@@ -31,8 +31,8 @@ namespace ToetsendRekenen
             string path = "D:/School/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
             SM.GetImagesPath(path);
             //SM.PlaatjeNaarDatabase();
-            SM.NaarDB();
-            //SM.VanDB();
+            //SM.NaarDB();
+            SM.VanDB();
             
         }
 
