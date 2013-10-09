@@ -31,7 +31,7 @@ namespace ToetsendRekenen
                     {
                         GL.GetallenlijnGenereren(categorie, subcategorie);
                     }
-                    while (GL.EindGetal > 100);
+                    while (GL.EindGetal > 100  || GL.EindKommaGetal > 100);
                     if (objResultaat.Categorie == "Getallen")
                     {
                         cblAntwoorden.Items[GL.RandomPositie2].Text = Convert.ToString(GL.FoutGetal1);

@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Getallenlijn.css" />
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\KorteWijzer.png" />
