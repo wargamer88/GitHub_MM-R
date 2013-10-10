@@ -119,7 +119,11 @@ Password=romimi;");
             int rc = randomlist.Count;
             int tellerR = 0;
             int tellerRC = 0;
+            int tellerd = 0;
             string[] disttostring = new string[dist.Count];
+
+            string bind1 ="";
+            string bind2 ="";
             
 
             foreach (var ProdTag in productenFromDBD)
@@ -165,21 +169,22 @@ Password=romimi;");
                     {
                     }
                     tellerRC++;
-                    dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = test });
+                    
                 }
                 tellerR++;
+                dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = test });
                 //var disttest = dist.Distinct(test == test);
-                int tellerd = 0;
-                for (int q = 0; q < dist.Count; q++)
-                {
-                    string distincttostring = dist.ToString();
-                    disttostring[tellerd] = distincttostring;
-                    tellerd++;
-                }
-                randomlist.Distinct();
+                //randomlist.Distinct();
                 
-                productenlabel += aantal + "x  "+ test + "<br />";
+                //productenlabel += aantal + "x  "+ test + "<br />";
             }
+
+            foreach (var aantal in dist)
+	        {
+		        string distincttostring = aantal.aantal + "x "+ aantal.TagFromDBD;
+                disttostring[tellerd] = distincttostring;
+                tellerd = tellerd + 1;
+	        }
 
             return productenlabel;
 
