@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Collections;
+using MoreLinq;
 
 namespace ToetsendRekenen
 {
@@ -26,6 +27,7 @@ Password=romimi;");
         public decimal sum { get; set; }
         public string[,] producten { get; set; }
         public string productenlabel { get; set; }
+        public int aantal { get; set; }
 
         public Image ImageFromDBD { get; set; }
         public decimal PriceFromDBD { get; set; }
@@ -100,18 +102,25 @@ Password=romimi;");
             return productenlabel;
         }
 
-        //Maakt een random lijstje van de producten
+        //Maakt een random lijstje van de producten.
+
+        //NOTE VOOR MORGEN. ZET OPNIEUW IN EEN LIST AANTALLEN EN STRINGS. DISTINCT DE LIST LATER EN STUUR DAT NA DE PAGINA.
         public string Randomlijst()
         {
             Random R = new Random();
             int teller = 0;
             string[] alleproducten = new string[productenFromDBD.Count];
             List<string> randomlist = new List<string>();
+
+            List<Supermarkt> dist = new List<Supermarkt>();
+            List<Supermarkt> distinctlijst = new List<Supermarkt>();
+
             int C = 0;
             int rc = randomlist.Count;
             int tellerR = 0;
             int tellerRC = 0;
-            int aantal = 0;
+            string[] disttostring = new string[dist.Count];
+            
 
             foreach (var ProdTag in productenFromDBD)
             {
@@ -132,29 +141,49 @@ Password=romimi;");
                 aantal = 0;
                 for (int j = 0; j < randomlist.Count; j++)
                 {
-                    var test1 = randomlist[tellerRC];
-                        if (test == test1 && !(tellerR > tellerRC))
-                        {
-                            aantal++;
-                        }
-                        else if (!(tellerR > tellerRC))
-                        {
-                            randomlist.Remove(randomlist[tellerRC]);
-                        }
-                        else
-                        { 
+                    //var test1 = randomlist[tellerRC];
+                    //if (randomlist[tellerR] == randomlist[tellerRC] && tellerR >= tellerRC)
+                    //    {
+                    //        aantal++;
+                    //        randomlist.Remove(randomlist[tellerRC]);
+                    //    }
+                    //else if (randomlist[tellerR] == randomlist[tellerRC])
+                    //    {
+                    //        aantal++;
+                    //    }
+                    //    else
+                    //    { 
 
-                        }
-                        tellerRC++;
+                    //    }
+                    //    tellerRC++;
+                    var test1 = randomlist[tellerRC];
+                    if (test == test1)
+                    {
+                        aantal++;
+                    }
+                    else
+                    {
+                    }
+                    tellerRC++;
+                    dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = test });
                 }
                 tellerR++;
+                //var disttest = dist.Distinct(test == test);
+                int tellerd = 0;
+                for (int q = 0; q < dist.Count; q++)
+                {
+                    string distincttostring = dist.ToString();
+                    disttostring[tellerd] = distincttostring;
+                    tellerd++;
+                }
+                randomlist.Distinct();
+                
                 productenlabel += aantal + "x  "+ test + "<br />";
             }
 
             return productenlabel;
 
         }
-
        
        public List<String> GetImagesPath(String folderName)
         {
