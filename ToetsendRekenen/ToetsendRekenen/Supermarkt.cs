@@ -204,7 +204,6 @@ Password=romimi;");
                 imagesList.Add(String.Format(@"{0}/{1}", folderName, Images[i].Name));
             }
 
-
             return imagesList;
         }
 

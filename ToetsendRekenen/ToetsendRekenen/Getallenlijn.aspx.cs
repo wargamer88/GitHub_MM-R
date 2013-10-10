@@ -19,6 +19,18 @@ namespace ToetsendRekenen
             {
                 if (!IsPostBack)
                 {
+                    int voortgang = (int)Session["Voortgang"];
+                    if (voortgang != 50)
+                    {
+                        voortgang = voortgang + 1;
+                    }
+                    else if (voortgang >= 50)
+                    {
+                        Response.Redirect("Resultaat.aspx");
+                    }
+                    lbVoortgang.Text = Convert.ToString(voortgang);
+                    Session["Voortgang"] = voortgang;
+
                     lbError.Visible = false;
                     lbResultaat.Visible = false;
 
@@ -114,15 +126,21 @@ namespace ToetsendRekenen
                     {
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is juist!";
+                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Green;
                         cblAntwoorden.Enabled = false;
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility);
                     }
                     else
                     {
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is fout!";
+                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Red;
                         cblAntwoorden.Enabled = false;
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility);
                     }
                 }
                 else if (objResultaat.Categorie == "KommaGetallen")
@@ -131,15 +149,21 @@ namespace ToetsendRekenen
                     {
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is juist!";
+                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Green;
                         cblAntwoorden.Enabled = false;
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility);
                     }
                     else
                     {
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is fout!";
+                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Red;
                         cblAntwoorden.Enabled = false;
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility);
                     }
                 }
                 
