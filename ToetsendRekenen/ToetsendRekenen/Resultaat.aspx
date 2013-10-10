@@ -25,8 +25,8 @@
     <div id="resultaat">
         De score die je hebt behaalt staat hieronder en de sterren die hierbij horen zie je bovenin.<br />
         <img alt="" class="auto-style4" src="Images/Happy.png" /><img alt="" class="auto-style3" src="Images/Sad.png" /><br />
-        Aantal goed: 23<br />
-        Aantal fout: 27<br />
+        Aantal goed: <asp:Label ID="lbAantalGoed" runat="server" Text="0"></asp:Label><br />
+        Aantal fout: <asp:Label ID="lbAantalFout" runat="server" Text="0"></asp:Label><br />
         <br />
         Je hebt nog niet alles goed beantwoord.<br />
         Als je alles goed hebt krijg je een leuk plaatje te zien.<br />

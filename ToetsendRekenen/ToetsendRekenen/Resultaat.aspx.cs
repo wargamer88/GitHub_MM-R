@@ -11,7 +11,10 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+            Resultaat objResultaat = new Resultaat();
+            objResultaat = (Resultaat)Session["Resultaat"];
+            lbAantalGoed.Text = Convert.ToString(objResultaat.AantalGoed);
+            lbAantalFout.Text = Convert.ToString(objResultaat.AantalFout);
+        } 
     }
 }

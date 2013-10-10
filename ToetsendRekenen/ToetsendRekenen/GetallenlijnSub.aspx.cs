@@ -25,6 +25,10 @@ namespace ToetsendRekenen
                 objResultaat.Categorie = "Getallen";
                 objResultaat.SubCategorie = "0-100";
                 objResultaat.SessieID = Session.SessionID;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int voortgang = 48;
+                Session["Voortgang"] = voortgang;
 
                 Session["Resultaat"] = objResultaat;
                 Response.Redirect("Getallenlijn.aspx");
@@ -45,7 +49,11 @@ namespace ToetsendRekenen
                 objResultaat.Oefening = "Getallenlijn";
                 objResultaat.Categorie = "Getallen";
                 objResultaat.SubCategorie = "0-10";
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
                 objResultaat.SessieID = Session.SessionID;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
 
                 Session["Resultaat"] = objResultaat;
                 Response.Redirect("Getallenlijn.aspx");
@@ -67,6 +75,10 @@ namespace ToetsendRekenen
                 objResultaat.Categorie = "KommaGetallen";
                 objResultaat.SubCategorie = "0-10";
                 objResultaat.SessieID = Session.SessionID;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
 
                 Session["Resultaat"] = objResultaat;
                 Response.Redirect("Getallenlijn.aspx");
@@ -88,6 +100,10 @@ namespace ToetsendRekenen
                 objResultaat.Categorie = "KommaGetallen";
                 objResultaat.SubCategorie = "0-100";
                 objResultaat.SessieID = Session.SessionID;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
 
                 Session["Resultaat"] = objResultaat;
                 Response.Redirect("Getallenlijn.aspx");
