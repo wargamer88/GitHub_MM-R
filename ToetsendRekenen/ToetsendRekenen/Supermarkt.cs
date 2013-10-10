@@ -16,6 +16,7 @@ namespace ToetsendRekenen
         DataToDatabase DD = new DataToDatabase();
         List<String> imagesList = new List<String>();
         public List<Supermarkt> productenFromDBD = new List<Supermarkt>();
+        List<Supermarkt> dist = new List<Supermarkt>();
 
         SqlConnection thisConnection = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;
 Password=romimi;");
@@ -27,7 +28,9 @@ Password=romimi;");
         public decimal sum { get; set; }
         public string[,] producten { get; set; }
         public string productenlabel { get; set; }
+        public string pricelabel { get; set; }
         public int aantal { get; set; }
+
 
         public Image ImageFromDBD { get; set; }
         public decimal PriceFromDBD { get; set; }
@@ -52,10 +55,20 @@ Password=romimi;");
         {
             thisConnection.Open();
             int TellerDB = 1;
+            int aantalafbeelding = 0;
             SqlParameter pm = new SqlParameter();
             pm.ParameterName = "@AfbeeldingID";
 
-            for (int i = 0; i < imagesList.Count-1; i++)
+            SqlCommand cm = new SqlCommand("SELECT * FROM Afbeelding");
+            cm.Connection = thisConnection;
+
+            SqlDataReader readcm = cm.ExecuteReader();
+            while (readcm.Read())
+            {
+                aantalafbeelding++;
+            }
+            readcm.Close();
+            for (int i = 0; i < aantalafbeelding; i++)
             {
                 pm.Value = TellerDB;
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = " + TellerDB);
@@ -73,57 +86,56 @@ Password=romimi;");
                 TellerDB++;
                 reader.Close();
             }
-            //return productenFromDBD;
+            thisConnection.Close();
         }
 
-        //Producten worden ingeladen in een array en prijs word opgehaald en uitgerekend.
+        //Producten worden ingeladen vanuit de database en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
         {
-            price = new decimal[productenFromDBD.Count];
-            int teller = 0;
-            foreach (var items in productenFromDBD)
-            {
-                price[teller] = items.PriceFromDBD;
-                sum += price[teller];
-                teller++;
-            }
+            string currentproduct ="";
+
+            thisConnection.Open();
+
+                for (int i = 0; i < dist.Count; i++)
+                {
+                   decimal oldsum = 0;             
+                   foreach (var cpro in dist)
+                    {
+                        currentproduct =  cpro.TagFromDBD;
+                        SqlParameter pm = new SqlParameter();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE Tag = @Tag");
+                        pm.ParameterName = "@Tag";
+                        pm.Value = currentproduct;
+                        cmd.Parameters.Add(pm);
+
+                        cmd.Connection = thisConnection;
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            sum = (decimal)reader["Supermarktprijs"];
+                            oldsum = oldsum + sum;
+                            sum = oldsum;
+                        }
+                        reader.Close();
+                    }
+             }
 
             return sum;
         }
-        //Hieronder word de lijst met producten gemaakt. Dit word later in een methode gezet van deze pagina.
-        public string GetProductsList(string[,] Productenlijst)
-        {
-            for (int arr = 0; arr < producten.Length / 2; arr++)
-            {
-                int j = 0;
-                var test = producten[arr, j];
-                productenlabel += test + "<br />";
-            }
-            return productenlabel;
-        }
 
-        //Maakt een random lijstje van de producten.
-
-        //NOTE VOOR MORGEN. ZET OPNIEUW IN EEN LIST AANTALLEN EN STRINGS. DISTINCT DE LIST LATER EN STUUR DAT NA DE PAGINA.
+        //Genereert altijd een random aantal producten. Minimaal 5 en maximaal 15 omdat er maar 15 producten zijn in de database.
+        //Meer dan 15 is natuurlijk mogelijk bij eht aanpassen van de lus dat aangegeven staat als Max product.
         public string Randomlijst()
         {
             Random R = new Random();
-            int teller = 0;
             string[] alleproducten = new string[productenFromDBD.Count];
             List<string> randomlist = new List<string>();
 
-            List<Supermarkt> dist = new List<Supermarkt>();
-            List<Supermarkt> distinctlijst = new List<Supermarkt>();
-
-            int C = 0;
             int rc = randomlist.Count;
+            int teller = 0;
             int tellerR = 0;
             int tellerRC = 0;
             int tellerd = 0;
-            string[] disttostring = new string[dist.Count];
-
-            string bind1 ="";
-            string bind2 ="";
             
 
             foreach (var ProdTag in productenFromDBD)
@@ -131,8 +143,8 @@ Password=romimi;");
                 alleproducten[teller] = ProdTag.TagFromDBD;
                 teller++;
             }
-
-            for (int i = 0; i < R.Next(3, C = productenFromDBD.Count); i++)
+            //Max Product.
+            for (int i = 0; i < R.Next(3, productenFromDBD.Count); i++)
             {
                 string test = alleproducten[R.Next(alleproducten.Length)];
                 randomlist.Add(test);
@@ -145,21 +157,6 @@ Password=romimi;");
                 aantal = 0;
                 for (int j = 0; j < randomlist.Count; j++)
                 {
-                    //var test1 = randomlist[tellerRC];
-                    //if (randomlist[tellerR] == randomlist[tellerRC] && tellerR >= tellerRC)
-                    //    {
-                    //        aantal++;
-                    //        randomlist.Remove(randomlist[tellerRC]);
-                    //    }
-                    //else if (randomlist[tellerR] == randomlist[tellerRC])
-                    //    {
-                    //        aantal++;
-                    //    }
-                    //    else
-                    //    { 
-
-                    //    }
-                    //    tellerRC++;
                     var test1 = randomlist[tellerRC];
                     if (test == test1)
                     {
@@ -171,25 +168,30 @@ Password=romimi;");
                     tellerRC++;
                     
                 }
+                
                 tellerR++;
                 dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = test });
-                //var disttest = dist.Distinct(test == test);
-                //randomlist.Distinct();
-                
-                //productenlabel += aantal + "x  "+ test + "<br />";
             }
-
+            string[] disttostring = new string[dist.Count];
             foreach (var aantal in dist)
 	        {
-		        string distincttostring = aantal.aantal + "x "+ aantal.TagFromDBD;
+                string distincttostring = aantal.aantal + "x " + aantal.TagFromDBD + "<br />";
                 disttostring[tellerd] = distincttostring;
                 tellerd = tellerd + 1;
 	        }
 
+            IEnumerable<string> productendistinct = disttostring.Distinct();
+
+            foreach (string product in productendistinct)
+            {
+                productenlabel += product;
+            }
+
             return productenlabel;
 
         }
-       
+
+       //Methode dat alleen gebruikt word indien en plaatjes vanuit de lokale PC moet worden opgehaald om naar de database te schrijven.
        public List<String> GetImagesPath(String folderName)
         {
 
@@ -207,6 +209,7 @@ Password=romimi;");
             return imagesList;
         }
 
+        //Methode dat de plaatje maakt dat van je lokale PC komt.
        public void PlaatjeNaarDatabase()
        {
            
@@ -215,10 +218,11 @@ Password=romimi;");
                Image i = Image.FromFile(img);
            }
        }
+
+        //Methode dat zorgt dat de plaatjes die in de database staan random verschijnen op de pagina. (niet af)
        public string PlaatjesNaarScherm()
        {
            string plaatjestekst = "";
-           int teller = 0;
            for (int i = 0; i < imagesList.Count; i++)
            {
                plaatjestekst = "<img src='C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt/pop-can-clip-art.jpg' />";
