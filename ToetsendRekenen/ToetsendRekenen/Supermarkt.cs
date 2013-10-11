@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
-using System.Drawing;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Collections;
 using MoreLinq;
+using System.Web.UI.WebControls;
 
 namespace ToetsendRekenen
 {
@@ -39,15 +39,28 @@ Password=romimi;");
         //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
-            thisConnection.Open();
+                thisConnection.Open();
+                int teller = 0;
                 SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
                 SqlParameter pm = new SqlParameter();
-                Image i = Image.FromFile(imagesList[13]);
-                pm.ParameterName = "@Afbeelding";
-                pm.Value = DD.ImagetoByteArray(i);
-                cmd.Parameters.Add(pm);
-                cmd.Connection = thisConnection;
-                cmd.ExecuteNonQuery();
+                FileUpload fu = new FileUpload();
+                String savePath = @"lokale PC/";
+                if (fu.HasFiles)
+                {
+                    string fileName = fu.FileName;
+                    savePath += fileName;
+                    imagesList[teller] = savePath;
+
+                    Image i = new Image();
+                    i.ImageUrl = imagesList[teller];
+
+                    pm.ParameterName = "@Afbeelding";
+                    pm.Value = DD.ImagetoByteArray(i);
+                    cmd.Parameters.Add(pm);
+                    cmd.Connection = thisConnection;
+                    cmd.ExecuteNonQuery();
+                }
+
         }
 
         //Methode om de database afbeeldingen uit te lezen en op te slaan.
@@ -79,9 +92,9 @@ Password=romimi;");
                 while (reader.Read())
                 {
                     byte[] raw = (byte[])reader["Afbeelding"];
-                    var test = DD.ByteArraytoImage(raw);
+                    var BTI = DD.ByteArraytoImage(raw);
 
-                    productenFromDBD.Add(new Supermarkt { ImageFromDBD = test, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
+                    productenFromDBD.Add(new Supermarkt { ImageFromDBD = BTI, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
                 }
                 TellerDB++;
                 reader.Close();
@@ -146,19 +159,19 @@ Password=romimi;");
             //Max Product.
             for (int i = 0; i < R.Next(3, productenFromDBD.Count); i++)
             {
-                string test = alleproducten[R.Next(alleproducten.Length)];
-                randomlist.Add(test);
+                string product1 = alleproducten[R.Next(alleproducten.Length)];
+                randomlist.Add(product1);
             }
 
             for (int i = 0; i < randomlist.Count; i++)
             {
-                var test = randomlist[tellerR];
+                var eersteproduct = randomlist[tellerR];
                 tellerRC = 0;
                 aantal = 0;
                 for (int j = 0; j < randomlist.Count; j++)
                 {
-                    var test1 = randomlist[tellerRC];
-                    if (test == test1)
+                    var controleproduct = randomlist[tellerRC];
+                    if (eersteproduct == controleproduct)
                     {
                         aantal++;
                     }
@@ -170,7 +183,7 @@ Password=romimi;");
                 }
                 
                 tellerR++;
-                dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = test });
+                dist.Add(new Supermarkt { aantal = aantal, TagFromDBD = eersteproduct });
             }
             string[] disttostring = new string[dist.Count];
             foreach (var aantal in dist)
@@ -209,25 +222,15 @@ Password=romimi;");
             return imagesList;
         }
 
-        //Methode dat de plaatje maakt dat van je lokale PC komt.
-       public void PlaatjeNaarDatabase()
-       {
-           
-           foreach (var img in imagesList)
-           {
-               Image i = Image.FromFile(img);
-           }
-       }
 
         //Methode dat zorgt dat de plaatjes die in de database staan random verschijnen op de pagina. (niet af)
-       public string PlaatjesNaarScherm()
+       public Image PlaatjesNaarScherm()
        {
-           string plaatjestekst = "";
-           for (int i = 0; i < imagesList.Count; i++)
+           foreach (var plaatje in productenFromDBD)
            {
-               plaatjestekst = "<img src='C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt/pop-can-clip-art.jpg' />";
+               ImageFromDBD = plaatje.ImageFromDBD;
            }
-           return plaatjestekst;
+           return ImageFromDBD;
        }
     }
 }
