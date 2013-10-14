@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MoreLinq.Source.MoreEnumerable.EquiZip</id>
+    <version>1.0.1</version>
+    <title>MoreLINQ's EquiZip for C# Sequences (Source)</title>
+    <authors>MoreLINQ Developers</authors>
+    <owners>MoreLINQ Developers</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://code.google.com/p/morelinq/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# source implementation that enhances LINQ to Objects with the method EquiZip. Returns a projection of tuples, where each tuple contains the N-th element from each of the argument sequences.</description>
+    <summary>Enhances LINQ to Objects with the method EquiZip</summary>
+    <releaseNotes>Microsoft .NET Framework 2.0 support via LINQBridge</releaseNotes>
+    <language>en-US</language>
+    <tags>linq extensions</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework2.0">
+        <dependency id="LinqBridge.Embedded" />
+      </group>
+    </dependencies>
+    <references />
+  </metadata>
+</package>

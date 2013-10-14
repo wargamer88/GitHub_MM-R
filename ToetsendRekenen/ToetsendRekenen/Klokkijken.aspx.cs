@@ -12,10 +12,19 @@ namespace ToetsendRekenen
         protected double minutenVanLangewijzer;
         protected double minutenVanKortewijzer;
         protected string[] antwoorden = new string[4];
+
+        protected int goedUren;
+        protected int goedMinuten;
+        protected string goedsUren;
+        protected string goedsMinuten;
+
         protected int Uren;
         protected int Minuten;
+        protected string sUren;
+        protected string sMinuten;
         protected string[] rndAntwoorden = new string[4];
         protected int tijd;
+        Resultaat objResultaat = new Resultaat();
 
         Klokkijken klokkijken = new Klokkijken();
 
@@ -24,22 +33,34 @@ namespace ToetsendRekenen
         {
             if (!IsPostBack)
             {
-                tijd = 5;
-                Uren = klokkijken.randomHour();
-                minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, Uren);
-                Minuten = Convert.ToInt16(minutenVanLangewijzer);
-                minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, Uren);
+                objResultaat = (Resultaat)Session["Resultaat"];
+                tijd = Convert.ToInt16(objResultaat.SubCategorie);
+                goedUren = klokkijken.randomHour();
+                goedsUren = klokkijken.timeLengthCheck(goedUren);
+                minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, goedUren);
+                goedMinuten = Convert.ToInt16(minutenVanLangewijzer);
+                goedsMinuten = klokkijken.timeLengthCheck(goedMinuten);
+                minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, goedUren);
 
-                antwoorden[0] = Uren.ToString() + ':' + Minuten.ToString();
-
-                Uren = klokkijken.randomHour();
-                antwoorden[1] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
-
-                Uren = klokkijken.randomHour();
-                antwoorden[2] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
+                antwoorden[0] = goedsUren + ':' + goedsMinuten;
 
                 Uren = klokkijken.randomHour();
-                antwoorden[3] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[1] = sUren + ':' + sMinuten;
+
+                Uren = klokkijken.randomHour();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[2] = sUren + ':' + sMinuten;
+
+                Uren = klokkijken.randomHour();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[3] = sUren + ':' + sMinuten;
 
                 Random rnd = new Random();
                 rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();
@@ -53,18 +74,18 @@ namespace ToetsendRekenen
                 LblGoedFout.Visible = false;
                 btnVolgendeVraag.Visible = false;
 
-                Session["uur"] = Uren;
-                Session["minuut"] = Minuten;
+                Session["uur"] = goedsUren;
+                Session["minuut"] = goedsMinuten;
 
             }
         }
 
         protected void RblAntwoorden_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Uren = (int)Session["uur"];
-            Minuten = (int)Session["minuut"];
+            goedsUren = (string)Session["uur"];
+            goedsMinuten = (string)Session["minuut"];
             string check;
-            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, Uren.ToString() + ':' + Minuten.ToString());
+            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, goedsUren + ':' + goedsMinuten);
             LblGoedFout.Text = check;
             LblGoedFout.Visible = true;
             btnVolgendeVraag.Visible = true;

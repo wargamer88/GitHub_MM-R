@@ -45,7 +45,7 @@ namespace ToetsendRekenen
                 case "korteWijzer":
                     urenGrades = hours * 5;
 
-                    if(minuten >52 && minuten <=7)
+                    if(minuten >52 | minuten <=7)
                     {
                         return urenGrades;
                     }
@@ -80,6 +80,17 @@ namespace ToetsendRekenen
                 return "Dit antwoord is fout";
             }
 
+        }
+
+        public string timeLengthCheck(int time)
+        {
+            string stringTime = time.ToString();
+            if (stringTime.Length == 1)
+            {
+                stringTime = "0" + stringTime;
+            }
+
+            return stringTime;
         }
     }
 }
