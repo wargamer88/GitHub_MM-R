@@ -16,7 +16,28 @@ namespace ToetsendRekenen
 
         protected void btnInloggen_Click(object sender, EventArgs e)
         {
+            try
+            {
+                lbError.Visible = false;
+                Inlog I = new Inlog();
+                bool inlog = I.Inloggen(tbGebruikersnaam.Text, tbWachtwoord.Text);
 
+                if (inlog == true)
+                {
+                    Session["Inlog"] = I;
+                    Response.Redirect("Statistieken.aspx");
+                }
+                else
+                {
+                    lbError.Visible = true;
+                    lbError.Text = "Inloggen Mislukt";
+                }
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
+            }
         }
     }
 }
