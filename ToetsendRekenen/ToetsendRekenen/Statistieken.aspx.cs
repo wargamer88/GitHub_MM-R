@@ -20,6 +20,7 @@ namespace ToetsendRekenen
             {
                 lbResultaatChange.Visible = false;
                 Inlog I = new Inlog();
+                I = (Inlog)Session["Inlog"];
                 bool WWChange = I.Changepassword(tbOudWW.Text, tbNieuwWW.Text, tbBevestigingNieuwWW.Text);
 
                 if (WWChange == true)
