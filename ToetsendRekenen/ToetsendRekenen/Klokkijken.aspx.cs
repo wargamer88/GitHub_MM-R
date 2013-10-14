@@ -14,6 +14,8 @@ namespace ToetsendRekenen
         protected string[] antwoorden = new string[4];
         protected int Uren;
         protected int Minuten;
+        protected string sUren;
+        protected string sMinuten;
         protected string[] rndAntwoorden = new string[4];
         protected int tijd;
 
@@ -26,20 +28,31 @@ namespace ToetsendRekenen
             {
                 tijd = 5;
                 Uren = klokkijken.randomHour();
+                sUren = klokkijken.timeLengthCheck(Uren);
                 minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, Uren);
                 Minuten = Convert.ToInt16(minutenVanLangewijzer);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
                 minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", tijd, minutenVanLangewijzer, Uren);
 
-                antwoorden[0] = Uren.ToString() + ':' + Minuten.ToString();
+                antwoorden[0] = sUren.ToString() + ':' + sMinuten.ToString();
 
                 Uren = klokkijken.randomHour();
-                antwoorden[1] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[1] = sUren + ':' + sMinuten;
 
                 Uren = klokkijken.randomHour();
-                antwoorden[2] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[2] = sUren + ':' + sMinuten;
 
                 Uren = klokkijken.randomHour();
-                antwoorden[3] = Uren.ToString() + ':' + klokkijken.randomtijd("langeWijzer", tijd, 0, 0).ToString();
+                sUren = klokkijken.timeLengthCheck(Uren);
+                Minuten = (int)klokkijken.randomtijd("langeWijzer", tijd, 0, 0);
+                sMinuten = klokkijken.timeLengthCheck(Minuten);
+                antwoorden[3] = sUren + ':' + sMinuten;
 
                 Random rnd = new Random();
                 rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();

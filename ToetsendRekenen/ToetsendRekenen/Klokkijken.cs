@@ -81,5 +81,16 @@ namespace ToetsendRekenen
             }
 
         }
+
+        public string timeLengthCheck(int time)
+        {
+            string stringTime = time.ToString();
+            if (stringTime.Length == 1)
+            {
+                stringTime = "0" + stringTime;
+            }
+
+            return stringTime;
+        }
     }
 }
