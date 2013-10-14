@@ -28,6 +28,48 @@ namespace ToetsendRekenen
         //}
         //#endregion
 
+        public byte[] ImagetoByte(string p_postedImageFileName, string[] p_fileType)
+        {
+            bool isValidFileType = false;
+            FileInfo file = new FileInfo(p_postedImageFileName);
+
+            foreach (string strExtensionType in p_fileType)
+
+            {
+
+                if (strExtensionType == file.Extension)
+
+                {
+
+                    isValidFileType = true;
+
+                    break;
+
+                }
+
+            }
+
+            if (isValidFileType)
+
+            {
+
+                FileStream fs = new FileStream(p_postedImageFileName, FileMode.Open, FileAccess.Read);
+
+                BinaryReader br = new BinaryReader(fs);
+
+                byte[] image = br.ReadBytes((int)fs.Length);
+
+                br.Close();
+
+                fs.Close();
+
+                return image;
+
+            }
+
+            return null;
+        }
+
         public Byte[] ImagetoByteArray(Image Image)
         {
             byte[] bytes;

@@ -39,28 +39,33 @@ Password=romimi;");
         //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
+                string[] p_fileType = new string[] {".jpg", ".jpeg", ".png",".gif"};
                 thisConnection.Open();
                 int teller = 0;
-                SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
-                SqlParameter pm = new SqlParameter();
-                FileUpload fu = new FileUpload();
-                String savePath = @"lokale PC/";
-                if (fu.HasFiles)
+                String savePath = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
+                GetImagesPath(savePath);
+                for (int i = 0; i < imagesList.Count; i++)
                 {
-                    string fileName = fu.FileName;
-                    savePath += fileName;
-                    imagesList[teller] = savePath;
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
+                    SqlParameter pm = new SqlParameter();
+                    FileUpload fu = new FileUpload();
 
-                    Image i = new Image();
-                    i.ImageUrl = imagesList[teller];
+                    //string fileName = fu.FileName;
+                    //savePath += fileName;
+                    //imagesList[teller] = savePath;
+
+                    Image img = new Image();
+                    //img.ImageUrl = imagesList[teller];
 
                     pm.ParameterName = "@Afbeelding";
-                    pm.Value = DD.ImagetoByteArray(i);
+                    pm.Value = DD.ImagetoByte(imagesList[teller],p_fileType);
                     cmd.Parameters.Add(pm);
                     cmd.Connection = thisConnection;
                     cmd.ExecuteNonQuery();
+                    teller++;
+                    
                 }
-
+                thisConnection.Close();
         }
 
         //Methode om de database afbeeldingen uit te lezen en op te slaan.

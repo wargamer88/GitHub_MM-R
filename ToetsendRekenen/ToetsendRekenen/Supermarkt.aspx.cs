@@ -26,6 +26,7 @@ namespace ToetsendRekenen
             //Pad naar lokale PC voor de plaatjes.
             //string path = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
             //SM.GetImagesPath(path);
+            SM.NaarDB();
 
             //Producten worden ingeladen in een array en prijs word opgehaald.
 
