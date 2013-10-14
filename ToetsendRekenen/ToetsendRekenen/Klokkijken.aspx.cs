@@ -24,6 +24,7 @@ namespace ToetsendRekenen
         protected string sMinuten;
         protected string[] rndAntwoorden = new string[4];
         protected int tijd;
+        Resultaat objResultaat = new Resultaat();
 
         Klokkijken klokkijken = new Klokkijken();
 
@@ -32,7 +33,8 @@ namespace ToetsendRekenen
         {
             if (!IsPostBack)
             {
-                tijd = 5;
+                objResultaat = (Resultaat)Session["Resultaat"];
+                tijd = Convert.ToInt16(objResultaat.SubCategorie);
                 goedUren = klokkijken.randomHour();
                 goedsUren = klokkijken.timeLengthCheck(goedUren);
                 minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", tijd, 0, goedUren);
