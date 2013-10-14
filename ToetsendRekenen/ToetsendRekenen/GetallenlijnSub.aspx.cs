@@ -27,7 +27,9 @@ namespace ToetsendRekenen
                 objResultaat.SessieID = Session.SessionID;
                 objResultaat.AantalGoed = 0;
                 objResultaat.AantalFout = 0;
-                int voortgang = 48;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
+                int voortgang = 0;
                 Session["Voortgang"] = voortgang;
 
                 Session["Resultaat"] = objResultaat;
@@ -52,6 +54,8 @@ namespace ToetsendRekenen
                 objResultaat.AantalGoed = 0;
                 objResultaat.AantalFout = 0;
                 objResultaat.SessieID = Session.SessionID;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
                 int voortgang = 0;
                 Session["Voortgang"] = voortgang;
 
@@ -75,6 +79,8 @@ namespace ToetsendRekenen
                 objResultaat.Categorie = "KommaGetallen";
                 objResultaat.SubCategorie = "0-10";
                 objResultaat.SessieID = Session.SessionID;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
                 objResultaat.AantalGoed = 0;
                 objResultaat.AantalFout = 0;
                 int voortgang = 0;
@@ -100,6 +106,8 @@ namespace ToetsendRekenen
                 objResultaat.Categorie = "KommaGetallen";
                 objResultaat.SubCategorie = "0-100";
                 objResultaat.SessieID = Session.SessionID;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
                 objResultaat.AantalGoed = 0;
                 objResultaat.AantalFout = 0;
                 int voortgang = 0;

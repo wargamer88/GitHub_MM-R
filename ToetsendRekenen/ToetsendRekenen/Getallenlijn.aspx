@@ -28,6 +28,8 @@
                     </asp:RadioButtonList>
                     <asp:Label ID="lbResultaat" runat="server" Text="Resultaat"></asp:Label>
                     <br />
+                    <asp:Label ID="lbAntwoord" runat="server" Text="Juiste Antwoord" Visible="False"></asp:Label>
+                    <br />
                     <br />
                     <asp:Button ID="btnNext" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" Width="154px" OnClick="btnNext_Click" />
                     <br />
@@ -45,7 +47,7 @@
                 
                 <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; position:absolute; top:15px; margin-left:15px;">Score</span>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" />
+                <asp:Image ID="imgSter1" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter2" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter3" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter4" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter5" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" />
                 <div class="voortgang"><span id="voortgang" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/50 vragen</span></div>
 
             </div>
@@ -54,7 +56,9 @@
             <div id="uitleg" runat="server" style="visibility: hidden; width:100%; height:auto; border-top:solid 1px black; float: right; margin-left: 11px;">
                 <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">
                     Uitleg:
-
+                    Middelgetal - BeginGetal (als die bijvoorbeeld tussen midden en begin zit)
+                    daarna deel je dat door 5, en het antwoord daarvan zijn de tussenstappen.
+                    Wat je dus dan doet is de tussenstapgrootte * het aantal streepjes tot aan de Pijl.
                 </span>
             </div>
                 </ContentTemplate>
