@@ -69,7 +69,31 @@ namespace ToetsendRekenen
                     FoutGetal3 = R.Next(StartGetal, EindGetal);
                 }
                 while (FoutGetal3 == FoutGetal1 || FoutGetal3 == FoutGetal2 || FoutGetal3 == antwoord);
-                MiddelGetal = StartGetal + (Tussenstapint * 5);      
+                MiddelGetal = StartGetal + (Tussenstapint * 5);
+
+                //Genereer een random positie voor het juiste antwoord (in de Checkboxlist)
+                do
+                {
+                    RandomPositie1 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0);
+
+                //Genereer een random posities voor de foute antwoorden (in de Checkboxlist)
+                do
+                {
+                    RandomPositie2 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie2 == RandomPositie1);
+                do
+                {
+                    RandomPositie3 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie3 == RandomPositie1 || RandomPositie3 == RandomPositie2);
+                do
+                {
+                    RandomPositie4 = R.Next(0, 4);
+                }
+                while (RandomPositie1 == 0 || RandomPositie4 == RandomPositie1 || RandomPositie4 == RandomPositie2 || RandomPositie4 == RandomPositie3);
             }
 #endregion
             #region Getallen/0-100
