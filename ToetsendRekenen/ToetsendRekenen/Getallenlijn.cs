@@ -27,7 +27,7 @@ namespace ToetsendRekenen
         public double FoutKommaGetal2 { get; set; }
         public double FoutKommaGetal3 { get; set; }
         public double MiddelKommaGetal { get; set; }
-#endregion
+        #endregion
 
         //Methode voor het genereren van de Getallenlijn.
         public void GetallenlijnGenereren(string Categorie, string Subcategorie)
@@ -314,6 +314,7 @@ namespace ToetsendRekenen
                 while (RandomPositie1 == 0 || RandomPositie4 == RandomPositie1 || RandomPositie4 == RandomPositie2 || RandomPositie4 == RandomPositie3);
             }
             #endregion
+            
         }
     }
 }

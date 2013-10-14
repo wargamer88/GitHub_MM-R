@@ -28,8 +28,6 @@
                     </asp:RadioButtonList>
                     <asp:Label ID="lbResultaat" runat="server" Text="Resultaat"></asp:Label>
                     <br />
-                    <asp:Label ID="lbAntwoord" runat="server" Text="Juiste Antwoord" Visible="False"></asp:Label>
-                    <br />
                     <br />
                     <asp:Button ID="btnNext" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" Width="154px" OnClick="btnNext_Click" />
                     <br />
@@ -56,10 +54,14 @@
             <div id="uitleg" runat="server" style="visibility: hidden; width:100%; height:auto; border-top:solid 1px black; float: right; margin-left: 11px;">
                 <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">
                     Uitleg:
-                    Middelgetal - BeginGetal (als die bijvoorbeeld tussen midden en begin zit)
-                    daarna deel je dat door 5, en het antwoord daarvan zijn de tussenstappen.
-                    Wat je dus dan doet is de tussenstapgrootte * het aantal streepjes tot aan de Pijl.
                 </span>
+                <br />
+                Je begint door <asp:Label ID="lbUitlegMiddenGetal" runat="server" Text="MiddelGetal"></asp:Label> - <asp:Label ID="lbUitlegBeginGetal" runat="server" Text="BeginGetal"></asp:Label>
+                daarna deel je dat door 5, en het antwoord daarvan is <asp:Label ID="lbUitlegTussenstap" runat="server" Text="Tussenstapgroote"></asp:Label>, dat is de tussenstapgrootte.
+                Wat je dus dan doet is <asp:Label ID="lbUitlegTussenstapGrootte" runat="server" Text="tussenstapgrootte"></asp:Label> * <asp:Label ID="lbUitlegLijnnummer" runat="server" Text="VraagGetal"></asp:Label>.
+
+                <br />
+                <asp:Label ID="lbAntwoord" runat="server" Text="Juiste Antwoord" Visible="False"></asp:Label>
             </div>
                 </ContentTemplate>
             </asp:UpdatePanel>

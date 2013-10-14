@@ -105,6 +105,12 @@ namespace ToetsendRekenen
                         
                         Pijltje.Style.Add("Left", plaatspijl);
                         cblAntwoorden.Items[GL.RandomPositie1].Text = Convert.ToString(antwoord);
+
+                        lbUitlegBeginGetal.Text = Convert.ToString(GL.StartGetal);
+                        lbUitlegMiddenGetal.Text = Convert.ToString(GL.MiddelGetal);
+                        lbUitlegTussenstap.Text = Convert.ToString(GL.Tussenstapint);
+                        lbUitlegTussenstapGrootte.Text = Convert.ToString(GL.Tussenstapint);
+                        lbUitlegLijnnummer.Text = Convert.ToString(GL.VraagGetal);
                     }
                     else if (objResultaat.Categorie == "KommaGetallen")
                     {
@@ -114,6 +120,12 @@ namespace ToetsendRekenen
                         
                         Pijltje.Style.Add("Left", plaatspijl);
                         cblAntwoorden.Items[GL.RandomPositie1].Text = Convert.ToString(antword);
+
+                        lbUitlegBeginGetal.Text = Convert.ToString(GL.StartKommaGetal);
+                        lbUitlegMiddenGetal.Text = Convert.ToString(GL.MiddelKommaGetal);
+                        lbUitlegTussenstap.Text = Convert.ToString(GL.Tussenstapdouble);
+                        lbUitlegTussenstapGrootte.Text = Convert.ToString(GL.Tussenstapdouble);
+                        lbUitlegLijnnummer.Text = Convert.ToString(GL.VraagGetal);
                     }
 
                     if (objResultaat.Categorie == "Getallen")

@@ -17,7 +17,7 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnInloggen" runat="server" Text="Inoggen" Width="124px" />
+        <asp:Button ID="btnInloggen" runat="server" Text="Inoggen" Width="124px" OnClick="btnInloggen_Click" />
 
 
     </div>
