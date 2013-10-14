@@ -45,7 +45,7 @@ namespace ToetsendRekenen
                 case "korteWijzer":
                     urenGrades = hours * 5;
 
-                    if(minuten >52 && minuten <=7)
+                    if(minuten >52 | minuten <=7)
                     {
                         return urenGrades;
                     }

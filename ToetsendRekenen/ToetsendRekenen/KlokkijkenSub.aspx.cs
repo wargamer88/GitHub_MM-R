@@ -13,5 +13,85 @@ namespace ToetsendRekenen
         {
 
         }
+
+        protected void lblAnaloog15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaloog10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaloog5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaloog1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDigitaal15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDigitaal10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDigitaal5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDigitaal1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaarD15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaarD10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaarD5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblAnaarD1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDnaarA15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDnaarA10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDnaarA5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lblDnaarA1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
