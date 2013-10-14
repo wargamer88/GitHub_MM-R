@@ -13,7 +13,7 @@ namespace ToetsendRekenen
         Supermarkt SM = new Supermarkt();
         List<Supermarkt> SuperList = new List<Supermarkt>();
         DataToDatabase DD = new DataToDatabase();
-        decimal sum;
+        decimal sum =0;
         int goed = 0;
         int fout = 0;
 
