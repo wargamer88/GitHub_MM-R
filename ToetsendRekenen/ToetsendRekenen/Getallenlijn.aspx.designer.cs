@@ -103,15 +103,6 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Label lbResultaat;
         
         /// <summary>
-        /// lbAntwoord control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAntwoord;
-        
-        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
@@ -200,5 +191,59 @@ namespace ToetsendRekenen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uitleg;
+        
+        /// <summary>
+        /// lbUitlegMiddenGetal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbUitlegMiddenGetal;
+        
+        /// <summary>
+        /// lbUitlegBeginGetal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbUitlegBeginGetal;
+        
+        /// <summary>
+        /// lbUitlegTussenstap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbUitlegTussenstap;
+        
+        /// <summary>
+        /// lbUitlegTussenstapGrootte control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbUitlegTussenstapGrootte;
+        
+        /// <summary>
+        /// lbUitlegLijnnummer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbUitlegLijnnummer;
+        
+        /// <summary>
+        /// lbAntwoord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAntwoord;
     }
 }

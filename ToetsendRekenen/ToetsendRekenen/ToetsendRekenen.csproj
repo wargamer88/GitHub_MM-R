@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="DataToDatabase.cs" />
     <Compile Include="Getallenlijn.cs" />
+    <Compile Include="Inlog.cs" />
     <Compile Include="Klokkijken.cs" />
     <Compile Include="MasterToetsendRekenen.Master.cs">
       <DependentUpon>MasterToetsendRekenen.Master</DependentUpon>
