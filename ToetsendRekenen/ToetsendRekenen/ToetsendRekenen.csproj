@@ -155,6 +155,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultaat.cs" />
     <Compile Include="Sessie.cs" />
+    <Compile Include="ShowImage.ashx.cs">
+      <DependentUpon>ShowImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SommenSub.aspx.cs">
       <DependentUpon>SommenSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,6 +304,7 @@
   <ItemGroup>
     <Content Include="MasterToetsendRekenen.Master" />
     <Content Include="packages.config" />
+    <Content Include="ShowImage.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
