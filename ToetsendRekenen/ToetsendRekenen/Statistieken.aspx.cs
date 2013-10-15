@@ -11,7 +11,10 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Inlog"] == null)
+            {
+                Response.Redirect("InlogStatistieken.aspx");
+            }
         }
 
         protected void btnWijzigWW_Click(object sender, EventArgs e)
