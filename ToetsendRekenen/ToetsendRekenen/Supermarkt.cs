@@ -238,8 +238,8 @@ Password=romimi;");
            int teller = 0;
            foreach (var img in productenFromDBD)
            {
-               var Image = img.ImageFromDBD;
-               imglist[teller] = Image;
+               imglist[teller] = img.ImageFromDBD;
+               teller++;
            }
             
            return imglist;

@@ -11,7 +11,7 @@
     <div id="left-content">
         Plaatjes van de producten met geldprijs.
         <br />
-        <asp:Image ID="TestImage" runat="server" />
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Supermarkt.aspx.cs"/>
     </div>
     <div id="right-content">
         <div id="boodschappenlijsttop">
