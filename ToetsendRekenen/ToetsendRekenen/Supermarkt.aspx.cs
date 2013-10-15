@@ -48,7 +48,7 @@ namespace ToetsendRekenen
                 Response.ClearContent();
                 Response.ContentType = "image/Gif";
                 Response.BinaryWrite(ms.ToArray());
-
+                //PicSpan.InnerHtml;
             }
       
         }

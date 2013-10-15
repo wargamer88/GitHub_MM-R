@@ -12,6 +12,7 @@
         Plaatjes van de producten met geldprijs.
         <br />
         <asp:Image ID="Image1" runat="server" ImageUrl="~/Supermarkt.aspx.cs"/>
+        <span ID="PicSpan" runat="server"></span>
     </div>
     <div id="right-content">
         <div id="boodschappenlijsttop">
