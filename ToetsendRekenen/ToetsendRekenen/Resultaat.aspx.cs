@@ -13,11 +13,11 @@ namespace ToetsendRekenen
         {
             Resultaat objResultaat = new Resultaat();
             objResultaat = (Resultaat)Session["Resultaat"];
-            lbAantalGoed.Text = Convert.ToString(objResultaat.AantalGoed);
-            lbAantalFout.Text = Convert.ToString(objResultaat.AantalFout);
+            //lbAantalGoed.Text = Convert.ToString(objResultaat.AantalGoed);
+            //lbAantalFout.Text = Convert.ToString(objResultaat.AantalFout);
 
 
-            int aantalsterren = (int)Session["AantalSterren"];
+            int aantalsterren ;//(int)Session["AantalSterren"];
             aantalsterren = 1;
             if (aantalsterren == 1)
             {
