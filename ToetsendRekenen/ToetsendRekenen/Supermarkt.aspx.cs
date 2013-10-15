@@ -41,12 +41,16 @@ namespace ToetsendRekenen
 
             imglist = SM.PlaatjesNaarScherm();
 
-            SM.PlaatjesNaarScherm();
-            Response.ClearContent();
-            Response.ContentType = "image/Gif";
-            Response.BinaryWrite(ms.ToArray());
+            foreach (var img in imglist)
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
 
-            
+                Response.ClearContent();
+                Response.ContentType = "image/Gif";
+                Response.BinaryWrite(ms.ToArray());
+
+            }
+      
         }
 
         protected void reaction_TextChanged(object sender, EventArgs e)
