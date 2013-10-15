@@ -7,5 +7,6 @@ namespace ToetsendRekenen
 {
     public class Statistieken
     {
+
     }
 }
