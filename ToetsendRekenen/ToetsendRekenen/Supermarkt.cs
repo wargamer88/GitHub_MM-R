@@ -7,7 +7,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Collections;
 using MoreLinq;
-using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace ToetsendRekenen
 {
@@ -35,41 +35,32 @@ Password=romimi;");
         public Image ImageFromDBD { get; set; }
         public decimal PriceFromDBD { get; set; }
         public string TagFromDBD { get; set; }
+
         
         //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
-                string[] p_fileType = new string[] {".jpg", ".jpeg", ".png",".gif"};
                 thisConnection.Open();
                 int teller = 0;
                 String savePath = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
                 GetImagesPath(savePath);
                 for (int i = 0; i < imagesList.Count; i++)
                 {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
-                    SqlParameter pm = new SqlParameter();
-                    FileUpload fu = new FileUpload();
-
-                    //string fileName = fu.FileName;
-                    //savePath += fileName;
-                    //imagesList[teller] = savePath;
-
-                    Image img = new Image();
-                    //img.ImageUrl = imagesList[teller];
-
-                    pm.ParameterName = "@Afbeelding";
-                    pm.Value = DD.ImagetoByte(imagesList[teller],p_fileType);
-                    cmd.Parameters.Add(pm);
-                    cmd.Connection = thisConnection;
-                    cmd.ExecuteNonQuery();
-                    teller++;
-                    
+                 SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
+                 SqlParameter pm = new SqlParameter();
+                 Image img = Image.FromFile(imagesList[teller]);
+                 pm.ParameterName = "@Afbeelding";
+                 pm.Value = DD.ImagetoByteArray(img);
+                 cmd.Parameters.Add(pm);
+                 cmd.Connection = thisConnection;
+                 cmd.ExecuteNonQuery();
+                 teller++;                  
                 }
                 thisConnection.Close();
         }
 
         //Methode om de database afbeeldingen uit te lezen en op te slaan.
-        public void VanDB()
+        public List<Supermarkt> VanDB()
         {
             thisConnection.Open();
             int TellerDB = 1;
@@ -99,12 +90,24 @@ Password=romimi;");
                     byte[] raw = (byte[])reader["Afbeelding"];
                     var BTI = DD.ByteArraytoImage(raw);
 
-                    productenFromDBD.Add(new Supermarkt { ImageFromDBD = BTI, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
+                    if (reader["Supermarktprijs"] == null)
+                    {
+                        PriceFromDBD = 0;
+                    }
+                    else if (reader["Tag"] == null)
+                    {
+                        TagFromDBD = "";
+                    }
+                    else
+                    {
+                        productenFromDBD.Add(new Supermarkt { ImageFromDBD = BTI, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
+                    }
                 }
                 TellerDB++;
                 reader.Close();
             }
             thisConnection.Close();
+            return productenFromDBD;
         }
 
         //Producten worden ingeladen vanuit de database en prijs word opgehaald en uitgerekend.
@@ -229,13 +232,17 @@ Password=romimi;");
 
 
         //Methode dat zorgt dat de plaatjes die in de database staan random verschijnen op de pagina. (niet af)
-       public Image PlaatjesNaarScherm()
+       public Image[] PlaatjesNaarScherm()
        {
-           foreach (var plaatje in productenFromDBD)
+           Image[] imglist = new Image[productenFromDBD.Count];
+           int teller = 0;
+           foreach (var img in productenFromDBD)
            {
-               ImageFromDBD = plaatje.ImageFromDBD;
+               var Image = img.ImageFromDBD;
+               imglist[teller] = Image;
            }
-           return ImageFromDBD;
+            
+           return imglist;
        }
     }
 }

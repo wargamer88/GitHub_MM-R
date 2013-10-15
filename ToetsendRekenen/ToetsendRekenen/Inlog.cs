@@ -17,6 +17,7 @@ namespace ToetsendRekenen
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             SqlCommand cmd = new SqlCommand("SELECT * from Inlog where GebruikersID = 1");
 
+            cmd.Connection = conn;
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -72,14 +73,9 @@ namespace ToetsendRekenen
                 if (NieuwWW == BevestigingNieuwWW)
                 {
                     SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
-                    SqlCommand cmd = new SqlCommand("UPDATE Inlog SET Wachtwoord = @Wachtwoord where Gebruikersnaam = @Gebruikersnaam AND Wachtwoord = @Wachtwoord");
+                    SqlCommand cmd = new SqlCommand("UPDATE Inlog SET Wachtwoord = @Wachtwoord where GebruikersID = 1");
 
                     SqlParameter pm = new SqlParameter();
-                    pm.ParameterName = "@Gebruikersnaam";
-                    pm.Value = GebruikersNaam;
-                    cmd.Parameters.Add(pm);
-
-                    pm = new SqlParameter();
                     pm.ParameterName = "@Wachtwoord";
                     pm.Value = NieuwWW;
                     cmd.Parameters.Add(pm);
@@ -89,7 +85,7 @@ namespace ToetsendRekenen
                     cmd.ExecuteNonQuery();
                     UpdateObject();
                     Changepassword = true;
-                    
+                    conn.Close();
                 }
                 else
                 {
