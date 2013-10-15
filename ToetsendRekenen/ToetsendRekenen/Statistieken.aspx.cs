@@ -11,10 +11,40 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Inlog"] == null)
+            try
             {
-                Response.Redirect("InlogStatistieken.aspx");
+                lbErrorStats.Visible = false;
+                if (Session["Inlog"] == null)
+                {
+                    Response.Redirect("InlogStatistieken.aspx");
+                }
+                if (!IsPostBack)
+                {
+                    Statistieken st = new Statistieken();
+                    gvResultaat.DataSource = st.OphalenResultaat();
+                    gvResultaat.DataBind();
+                    gvViews.DataSource = st.OphalenViews();
+                    gvViews.DataBind();
+
+                    int jaar = Convert.ToInt16(DateTime.Now.Year);
+                    int indexjaar = 0;
+                    int maximaaljaar = Convert.ToInt16(DateTime.Now.Year - 3);
+                    do
+                    {
+                        ddlJaar.Items[indexjaar].Text = Convert.ToString(jaar);
+                        jaar = jaar-1;
+                        indexjaar++;
+                    }
+                    while(jaar != maximaaljaar);
+                    
+                }
             }
+            catch (Exception ex)
+            {
+                lbErrorStats.Visible = true;
+                lbErrorStats.Text = ex.ToString();
+            }
+
         }
 
         protected void btnWijzigWW_Click(object sender, EventArgs e)

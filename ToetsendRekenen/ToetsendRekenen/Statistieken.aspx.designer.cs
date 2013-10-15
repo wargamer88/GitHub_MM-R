@@ -67,13 +67,13 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button btnWijzigWW;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlWeek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWeek;
         
         /// <summary>
         /// ToonGegevensWeek control.
@@ -85,13 +85,13 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button ToonGegevensWeek;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// ddlMaand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaand;
         
         /// <summary>
         /// ToonGegevensMaand control.
@@ -103,13 +103,13 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button ToonGegevensMaand;
         
         /// <summary>
-        /// DropDownList3 control.
+        /// ddlJaar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlJaar;
         
         /// <summary>
         /// ToonGegevensJaar control.
@@ -121,40 +121,40 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button ToonGegevensJaar;
         
         /// <summary>
-        /// ToonGegevensVariabelVan control.
+        /// tbDatumVan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ToonGegevensVariabelVan;
+        protected global::System.Web.UI.WebControls.TextBox tbDatumVan;
         
         /// <summary>
-        /// ToonGegevensVariabelVan_CalendarExtender control.
+        /// tbDatumVan_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender ToonGegevensVariabelVan_CalendarExtender;
+        protected global::AjaxControlToolkit.CalendarExtender tbDatumVan_CalendarExtender;
         
         /// <summary>
-        /// TextBox5 control.
+        /// tbDatumTot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox tbDatumTot;
         
         /// <summary>
-        /// TextBox5_CalendarExtender control.
+        /// tbDatumTot_CalendarExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender TextBox5_CalendarExtender;
+        protected global::AjaxControlToolkit.CalendarExtender tbDatumTot_CalendarExtender;
         
         /// <summary>
         /// ToonGegevensVariabelTot control.
@@ -166,39 +166,30 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Button ToonGegevensVariabelTot;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvResultaat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvResultaat;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// gvViews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.GridView gvViews;
         
         /// <summary>
-        /// GridView2 control.
+        /// lbErrorStats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
-        
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::System.Web.UI.WebControls.Label lbErrorStats;
     }
 }

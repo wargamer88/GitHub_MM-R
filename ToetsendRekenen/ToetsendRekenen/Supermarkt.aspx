@@ -9,9 +9,7 @@
                 <img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" />
                 <span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00;margin-top:15px; float:right;">Voortgang /50 vragen</span></div>
     <div id="left-content">
-        Plaatjes van de producten met geldprijs.
-        <br />
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/Supermarkt.aspx.cs"/>
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Supermarkt/super001koekje.png" />
     </div>
     <div id="right-content">
         <div id="boodschappenlijsttop">
