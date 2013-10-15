@@ -30,6 +30,7 @@ Password=romimi;");
         public string productenlabel { get; set; }
         public string pricelabel { get; set; }
         public int aantal { get; set; }
+        public string[] ImageUrl { get; set; }
 
 
         public Image ImageFromDBD { get; set; }
@@ -79,6 +80,7 @@ Password=romimi;");
             readcm.Close();
             for (int i = 0; i < aantalafbeelding; i++)
             {
+                ImageUrl = new string[aantalafbeelding];
                 pm.Value = TellerDB;
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = " + TellerDB);
 
@@ -101,7 +103,11 @@ Password=romimi;");
                     else
                     {
                         productenFromDBD.Add(new Supermarkt { ImageFromDBD = BTI, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
+                        TellerDB--;
+                        ImageUrl[TellerDB] = reader[1].ToString();
+                        TellerDB++;
                     }
+
                 }
                 TellerDB++;
                 reader.Close();
@@ -235,13 +241,14 @@ Password=romimi;");
        public Image[] PlaatjesNaarScherm()
        {
            Image[] imglist = new Image[productenFromDBD.Count];
+           string[] ImageUrl1 = new string[productenFromDBD.Count];
            int teller = 0;
            foreach (var img in productenFromDBD)
            {
                imglist[teller] = img.ImageFromDBD;
                teller++;
            }
-            
+
            return imglist;
        }
     }

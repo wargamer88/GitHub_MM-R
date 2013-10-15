@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Drawing;
 using System.Web.SessionState;
+using System.Windows.Controls;
 
 namespace ToetsendRekenen
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class WebForm6 : System.Web.UI.Page, IHttpHandler
     {
         Supermarkt SM = new Supermarkt();
         List<Supermarkt> SuperList = new List<Supermarkt>();
@@ -41,14 +42,13 @@ namespace ToetsendRekenen
 
             imglist = SM.PlaatjesNaarScherm();
 
-            foreach (var img in imglist)
+            int teller = 1;
+            foreach (var img in SuperList)
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-
-                Response.ClearContent();
-                Response.ContentType = "image/Gif";
-                Response.BinaryWrite(ms.ToArray());
-                //PicSpan.InnerHtml;
+                
+                //string path = img.TagFromDBD;
+                //Image1.ImageUrl = "~/Afbeelding/"+path;
+                //ImageLis
             }
       
         }
