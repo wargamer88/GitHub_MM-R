@@ -16,6 +16,7 @@ namespace ToetsendRekenen
             objSessie.SessieID = Session.SessionID;
             objSessie.Datum = DateTime.Now;
             Session["Sessie"] = objSessie;
+            Session["Inlog"] = null;
         }
 
         protected void btnStatistiek_Click(object sender, EventArgs e)
