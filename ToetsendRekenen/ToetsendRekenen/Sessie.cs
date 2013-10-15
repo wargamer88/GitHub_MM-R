@@ -43,9 +43,11 @@ namespace ToetsendRekenen
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
+                dbSessieID = (string)reader["SessieID"];
                 if (dbSessieID == SessieID)
                 {
                     SessieAlreadyExists = true;
+                    break;
                 }
             }
             conn.Close();
