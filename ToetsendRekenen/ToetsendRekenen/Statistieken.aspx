@@ -34,7 +34,18 @@
         <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" />
         <br />
         Maand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="ddlMaand" runat="server" Height="21px" Width="121px" style="margin-left: 3px">
-            <asp:ListItem>Februari</asp:ListItem>
+            <asp:ListItem Value="01">Januari</asp:ListItem>
+            <asp:ListItem Value="02">Februari</asp:ListItem>
+            <asp:ListItem Value="03">Maart</asp:ListItem>
+            <asp:ListItem Value="04">April</asp:ListItem>
+            <asp:ListItem Value="05">Mei</asp:ListItem>
+            <asp:ListItem Value="06">Juni</asp:ListItem>
+            <asp:ListItem Value="07">Juli</asp:ListItem>
+            <asp:ListItem Value="08">Augustus</asp:ListItem>
+            <asp:ListItem Value="09">September</asp:ListItem>
+            <asp:ListItem Value="10">October</asp:ListItem>
+            <asp:ListItem Value="11">November</asp:ListItem>
+            <asp:ListItem Value="12">December</asp:ListItem>
         </asp:DropDownList>
         <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" />
         <br />
