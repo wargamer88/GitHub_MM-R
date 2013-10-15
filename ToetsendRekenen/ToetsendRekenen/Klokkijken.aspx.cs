@@ -25,9 +25,10 @@ namespace ToetsendRekenen
         protected string sUren;
         protected string sMinuten;
 
-        //antwoorden arrays
+        //arrays
         protected string[] antwoorden = new string[4];
         protected string[] rndAntwoorden = new string[4];
+        protected List<string> vragen;
 
         //Session variabelen
         protected int subCategorie;
@@ -43,12 +44,20 @@ namespace ToetsendRekenen
         {
             if (!IsPostBack)
             {
-                //object en subcategorie vullen
+               
+
+                //object, subcategorie en vragen list vullen
                 objResultaat = (Resultaat)Session["Resultaat"];
                 subCategorie = Convert.ToInt16(objResultaat.SubCategorie);
+                vragen = (List<string>)Session["vragenlijst"];
+                if (vragen == null)
+                {
+                    vragen = new List<string>();
+                }
+                
 
                 //Sterren laden
-                int aantalsterren = (int)Session["AantalSterren"];
+                aantalsterren = (int)Session["AantalSterren"];
                 if (aantalsterren == 1)
                 {
                     imgSter1.ImageUrl = "Images/Ster.png";
@@ -94,34 +103,48 @@ namespace ToetsendRekenen
                 Session["Voortgang"] = voortgang;
 
                 //kloktijden aanmaken en goede antwoord opslaan
-                goedUren = klokkijken.randomHour();
-                goedsUren = klokkijken.timeLengthCheck(goedUren);
-                minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", subCategorie, 0, goedUren);
-                goedMinuten = Convert.ToInt16(minutenVanLangewijzer);
-                goedsMinuten = klokkijken.timeLengthCheck(goedMinuten);
-                minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", subCategorie, minutenVanLangewijzer, goedUren);
-                antwoorden[0] = goedsUren + ':' + goedsMinuten;
+                do
+                {
+                    goedUren = klokkijken.randomHour();
+                    goedsUren = klokkijken.timeLengthCheck(goedUren);
+                    minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", subCategorie, 0, goedUren);
+                    goedMinuten = Convert.ToInt16(minutenVanLangewijzer);
+                    goedsMinuten = klokkijken.timeLengthCheck(goedMinuten);
+                    minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", subCategorie, minutenVanLangewijzer, goedUren);
+                    antwoorden[0] = goedsUren + ':' + goedsMinuten;
+                    
+                } while (klokkijken.PreventRepeatingQuestions(antwoorden[0], vragen));
+                vragen.Add(antwoorden[0]);
+                
+                //1e Fout antwoord genereren en opslaan
+                do
+                {
+                    Uren = klokkijken.randomHour();
+                    sUren = klokkijken.timeLengthCheck(Uren);
+                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                    antwoorden[1] = sUren + ':' + sMinuten;
+                } while (antwoorden[1] == antwoorden[0]);
 
-                //Fout antwoord genereren en opslaan
-                Uren = klokkijken.randomHour();
-                sUren = klokkijken.timeLengthCheck(Uren);
-                Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
-                sMinuten = klokkijken.timeLengthCheck(Minuten);
-                antwoorden[1] = sUren + ':' + sMinuten;
+                //2e Fout antwoord genereren en opslaan
+                do
+                {
+                    Uren = klokkijken.randomHour();
+                    sUren = klokkijken.timeLengthCheck(Uren);
+                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                    antwoorden[2] = sUren + ':' + sMinuten;
+                } while (antwoorden[2] == antwoorden[0] | antwoorden[2] == antwoorden[1]);
 
-                //Fout antwoord genereren en opslaan
-                Uren = klokkijken.randomHour();
-                sUren = klokkijken.timeLengthCheck(Uren);
-                Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
-                sMinuten = klokkijken.timeLengthCheck(Minuten);
-                antwoorden[2] = sUren + ':' + sMinuten;
-
-                //Fout antwoord genereren en opslaan
-                Uren = klokkijken.randomHour();
-                sUren = klokkijken.timeLengthCheck(Uren);
-                Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
-                sMinuten = klokkijken.timeLengthCheck(Minuten);
-                antwoorden[3] = sUren + ':' + sMinuten;
+                //3e Fout antwoord genereren en opslaan
+                do
+                {
+                    Uren = klokkijken.randomHour();
+                    sUren = klokkijken.timeLengthCheck(Uren);
+                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                    antwoorden[3] = sUren + ':' + sMinuten;
+                } while (antwoorden[3] == antwoorden[0] | antwoorden[3] == antwoorden[1] | antwoorden[3] == antwoorden[2]);
 
                 //Aatwoorden[] ranomizen naar rndAntwoorden[]
                 Random rnd = new Random();
@@ -137,10 +160,11 @@ namespace ToetsendRekenen
                 LblGoedFout.Visible = false;
                 btnVolgendeVraag.Visible = false;
 
-                //goede antwoord en objResultaat in de sessie zetten 
+                //alle nodige variabelen in de sessie zetten
                 Session["uur"] = goedsUren;
                 Session["minuut"] = goedsMinuten;
                 Session["Resultaat"] = objResultaat;
+                Session["vragenlijst"] = vragen;
             }
         }
 

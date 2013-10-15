@@ -29,7 +29,7 @@ namespace ToetsendRekenen
                     switch (tijd)
                     {
                         case 15:
-                            min = rnd.Next(1,5) * 15;
+                            min = rnd.Next(0,4) * 15;
                             return min;
                         case 10:
                             min = rnd.Next(0,6) * 10;
@@ -91,6 +91,21 @@ namespace ToetsendRekenen
             }
 
             return stringTime;
+        }
+
+        public bool PreventRepeatingQuestions(string antwoord, List<string> vragen)
+        {
+            if (vragen.Count != 1)
+            {
+                for (int i = 0; i < vragen.Count; i++)
+                {
+                    if (vragen[i] == antwoord)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
