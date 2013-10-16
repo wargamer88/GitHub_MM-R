@@ -32,7 +32,7 @@ namespace ToetsendRekenen
             return reader;
         }
 
-        public SqlDataReader FilterenMetMaandResultaat(String Maand)
+        public SqlDataReader FilterenMetMaandResultaat(string Maand)
         {
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
@@ -85,7 +85,7 @@ namespace ToetsendRekenen
             return reader;
         }
 
-        public SqlDataReader FilterenMetMaandViews(String Maand)
+        public SqlDataReader FilterenMetMaandViews(string Maand)
         {
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");

@@ -80,5 +80,46 @@ namespace ToetsendRekenen
                 lbResultaatChange.Text = ex.ToString();
             }
         }
+
+        protected void ToonGegevensWeek_Click(object sender, EventArgs e)
+        {
+            Statistieken st = new Statistieken();
+            string week = ddlWeek.SelectedItem.Text;
+            gvResultaat.DataSource = st.FilterenMetWeekResultaat(week);
+            gvResultaat.DataBind();
+            gvViews.DataSource = st.FilterenMetWeekViews(week);
+            gvViews.DataBind();
+        }
+
+        protected void ToonGegevensMaand_Click(object sender, EventArgs e)
+        {
+            Statistieken st = new Statistieken();
+            string maand = ddlMaand.SelectedItem.Text;
+            gvResultaat.DataSource = st.FilterenMetMaandResultaat(maand);
+            gvResultaat.DataBind();
+            gvViews.DataSource = st.FilterenMetMaandViews(maand);
+            gvViews.DataBind();
+        }
+
+        protected void ToonGegevensJaar_Click(object sender, EventArgs e)
+        {
+            Statistieken st = new Statistieken();
+            string jaar = ddlJaar.SelectedItem.Text;
+            gvResultaat.DataSource = st.FilterenMetJaarResultaat(jaar);
+            gvResultaat.DataBind();
+            gvViews.DataSource = st.FilterenMetJaarViews(jaar);
+            gvViews.DataBind();
+        }
+
+        protected void ToonGegevensVariabelTot_Click(object sender, EventArgs e)
+        {
+            Statistieken st = new Statistieken();
+            DateTime van = Convert.ToDateTime(tbDatumVan.Text);
+            DateTime tot = Convert.ToDateTime(tbDatumTot.Text);
+            gvResultaat.DataSource = st.FilterenMetDatumResultaat(van, tot);
+            gvResultaat.DataBind();
+            gvViews.DataSource = st.FilterenMetDatumViews(van, tot);
+            gvViews.DataBind();
+        }
     }
 }

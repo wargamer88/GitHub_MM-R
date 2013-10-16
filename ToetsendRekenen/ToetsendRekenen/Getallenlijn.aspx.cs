@@ -182,27 +182,42 @@ namespace ToetsendRekenen
                         if (objResultaat.AantalGoed == 10)
                         {
                             imgSter1.ImageUrl = "Images/Ster.png";
-                            aantalsterren = aantalsterren + 1;
+                            if (aantalsterren == 0)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
                             Session["AantalSterren"] = aantalsterren;
                         }
                         else if (objResultaat.AantalGoed == 20)
                         {
-                            aantalsterren = aantalsterren + 1;
+                            if (aantalsterren == 1)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
                             Session["AantalSterren"] = aantalsterren;
                         }
                         else if (objResultaat.AantalGoed == 30)
                         {
-                            aantalsterren = aantalsterren + 1;
+                            if (aantalsterren == 2)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
                             Session["AantalSterren"] = aantalsterren;
                         }
                         else if (objResultaat.AantalGoed == 40)
                         {
-                            aantalsterren = aantalsterren + 1;
+                            if (aantalsterren == 3)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
                             Session["AantalSterren"] = aantalsterren;
                         }
                         else if (objResultaat.AantalGoed == 50)
                         {
-                            aantalsterren = aantalsterren + 1;
+                            if (aantalsterren == 4)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
                             Session["AantalSterren"] = aantalsterren;
                         }
                     }
@@ -231,6 +246,49 @@ namespace ToetsendRekenen
                         cblAntwoorden.Enabled = false;
                         string visibility = "visible";
                         uitleg.Style.Add("visibility", visibility);
+
+                        int aantalsterren = (int)Session["AantalSterren"];
+                        if (objResultaat.AantalGoed == 10)
+                        {
+                            imgSter1.ImageUrl = "Images/Ster.png";
+                            if (aantalsterren == 0)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 20)
+                        {
+                            if (aantalsterren == 1)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 30)
+                        {
+                            if (aantalsterren == 2)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 40)
+                        {
+                            if (aantalsterren == 3)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 50)
+                        {
+                            if (aantalsterren == 4)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
                     }
                     else if(Convert.ToDouble(cblAntwoorden.SelectedItem.Text) != antword)
                     {

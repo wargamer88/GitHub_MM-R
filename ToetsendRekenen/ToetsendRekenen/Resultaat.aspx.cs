@@ -12,9 +12,13 @@ namespace ToetsendRekenen
         protected void Page_Load(object sender, EventArgs e)
         {
             Resultaat objResultaat = new Resultaat();
+            Sessie objSessie = new Sessie();
             objResultaat = (Resultaat)Session["Resultaat"];
+            objSessie = (Sessie)Session["Sessie"];
             lbAantalGoed.Text = Convert.ToString(objResultaat.AantalGoed);
             lbAantalFout.Text = Convert.ToString(objResultaat.AantalFout);
+
+            objResultaat.NewResultaat(objSessie);
 
             int aantalsterren = (int)Session["AantalSterren"];
             
