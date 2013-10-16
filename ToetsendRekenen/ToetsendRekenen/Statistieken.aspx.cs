@@ -94,7 +94,7 @@ namespace ToetsendRekenen
         protected void ToonGegevensMaand_Click(object sender, EventArgs e)
         {
             Statistieken st = new Statistieken();
-            string maand = ddlMaand.SelectedItem.Text;
+            string maand = ddlMaand.SelectedItem.Value;
             gvResultaat.DataSource = st.FilterenMetMaandResultaat(maand);
             gvResultaat.DataBind();
             gvViews.DataSource = st.FilterenMetMaandViews(maand);
