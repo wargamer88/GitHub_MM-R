@@ -23,8 +23,8 @@
         Aantal goed: <asp:Label ID="lbAantalGoed" runat="server" Text="0"></asp:Label><br />
         Aantal fout: <asp:Label ID="lbAantalFout" runat="server" Text="0"></asp:Label><br />
         <br />
-        Je hebt nog niet alles goed beantwoord.<br />
-        Als je alles goed hebt krijg je een leuk plaatje te zien.<br />
+        <asp:Label ID="lbAanmoediging" runat="server" Text="Als je 4 sterren hebt krijg je een leuk plaatje te zien"></asp:Label>
+        <br />
         <br />
 
     </div>
