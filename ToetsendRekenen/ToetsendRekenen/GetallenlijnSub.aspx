@@ -12,14 +12,14 @@
     <p class="SubCategorie">
         Getallen:
     </p>
-    <asp:LinkButton ID="lbGetallen1" runat="server" OnClick="lbGetallen1_Click">0 t/m 10</asp:LinkButton>
+    <asp:LinkButton ID="lbGetallen1" runat="server" OnClick="lbGetallen1_Click">0 t/m 20</asp:LinkButton>
     <br />
     <asp:LinkButton ID="lbGetallen2" runat="server" OnClick="lbGetallen2_Click">0 t/m 100</asp:LinkButton>
 
     <p class="SubCategorie">
         Komma Getallen:
     </p>
-    <asp:LinkButton ID="lbKommaGetal1" runat="server" OnClick="lbKommaGetal1_Click">0 t/m 10</asp:LinkButton>
+    <asp:LinkButton ID="lbKommaGetal1" runat="server" OnClick="lbKommaGetal1_Click">0 t/m 20</asp:LinkButton>
     <br />
     <asp:LinkButton ID="lbKommatGetal2" runat="server" OnClick="lbKommatGetal2_Click">0 t/m 100</asp:LinkButton>
 

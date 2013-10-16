@@ -214,7 +214,7 @@ namespace ToetsendRekenen
                         lbAntwoord.Text = "Het juiste antwoord = " + Convert.ToString(antwoord);
                         objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Red;
-                        lbAntwoord.ForeColor = System.Drawing.Color.Red;
+                        lbAntwoord.ForeColor = System.Drawing.Color.Green;
                         cblAntwoorden.Enabled = false;
                         string visibility = "visible";
                         uitleg.Style.Add("visibility", visibility);

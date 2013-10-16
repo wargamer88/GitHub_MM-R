@@ -28,7 +28,7 @@ namespace ToetsendRekenen
 
                     int jaar = Convert.ToInt16(DateTime.Now.Year);
                     int indexjaar = 0;
-                    int maximaaljaar = Convert.ToInt16(DateTime.Now.Year - 3);
+                    int maximaaljaar = Convert.ToInt16(DateTime.Now.Year - 4);
                     do
                     {
                         ddlJaar.Items[indexjaar].Text = Convert.ToString(jaar);
