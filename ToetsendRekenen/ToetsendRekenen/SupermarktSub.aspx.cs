@@ -25,50 +25,59 @@ namespace ToetsendRekenen
 
         }
 
-        protected void makenLijst_Click(object sender, EventArgs e)
+        protected void lbGetallen1_Click(object sender, EventArgs e)
         {
-            if (makenmetbutton.Visible == false && makenzonderbutton.Visible == false)
+            try
             {
-                makenmetbutton.Visible = true;
-                makenzonderbutton.Visible = true;
-                string page1 = "makenlijst";
-                Session["test"] = page1;
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Supermarkt";
+                objResultaat.Categorie = "Lijst afrekenen";
+                objResultaat.SubCategorie = "Met afronden";
+                objResultaat.SessieID = Session.SessionID;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
 
-                var supermarkt1 = new WebForm6();
-                //Response.Redirect("/Supermarkt.aspx");
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Supermarkt.aspx");
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
             }
         }
 
-        protected void afrekenenLijst_Click(object sender, EventArgs e)
+        protected void lbGetallen2_Click(object sender, EventArgs e)
         {
-            
-            if (afrekenenmetbutton.Visible == false && afrekenenzonderbutton.Visible == false)
+            try
             {
-                afrekenenmetbutton.Visible = true;
-                afrekenenzonderbutton.Visible = true;
-                string page1 = "Hidden";
-                Session["test"] = page1;
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Supermarkt";
+                objResultaat.Categorie = "Lijst afrekenen";
+                objResultaat.SubCategorie = "Zonder afronden";
+                objResultaat.SessieID = Session.SessionID;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
 
-                var supermarkt1 = new WebForm6();
-                //Response.Redirect("/Supermarkt.aspx");
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Supermarkt.aspx");
             }
-            else
+            catch (Exception ex)
             {
-                string page = "afrekenen";
-                Session["test"] = page;
-
-                var supermarkt = new WebForm6();
-                Response.Redirect("/Supermarkt.aspx");
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
             }
-        }
 
-        protected void afrekenenmet_Click(object sender, EventArgs e)
-        {
-            string page = "statiegeld";
-            Session["test"] = page;
-
-            var supermarkt = new WebForm6();
-            Response.Redirect("/Supermarkt.aspx");
         }
     }
 }

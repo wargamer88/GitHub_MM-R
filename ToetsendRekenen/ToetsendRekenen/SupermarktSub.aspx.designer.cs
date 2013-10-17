@@ -13,57 +13,30 @@ namespace ToetsendRekenen {
     public partial class WebForm13 {
         
         /// <summary>
-        /// afrekenenLijst control.
+        /// MetAfronden control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button afrekenenLijst;
+        protected global::System.Web.UI.WebControls.LinkButton MetAfronden;
         
         /// <summary>
-        /// makenLijst control.
+        /// ZonderAfronden control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makenLijst;
+        protected global::System.Web.UI.WebControls.LinkButton ZonderAfronden;
         
         /// <summary>
-        /// afrekenenmetbutton control.
+        /// lbError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button afrekenenmetbutton;
-        
-        /// <summary>
-        /// afrekenenzonderbutton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button afrekenenzonderbutton;
-        
-        /// <summary>
-        /// makenmetbutton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makenmetbutton;
-        
-        /// <summary>
-        /// makenzonderbutton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makenzonderbutton;
+        protected global::System.Web.UI.WebControls.Label lbError;
     }
 }
