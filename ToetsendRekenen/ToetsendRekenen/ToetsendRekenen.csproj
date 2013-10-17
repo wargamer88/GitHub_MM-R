@@ -70,12 +70,14 @@
     <Content Include="Images\KorteWijzer.png" />
     <Content Include="Images\LangeWijzer.png" />
     <Content Include="Images\legeSter.png" />
+    <Content Include="Images\Moon.png" />
     <Content Include="Images\perkament1px.png" />
     <Content Include="Images\Perkamentboven.png" />
     <Content Include="Images\perkamentonder.png" />
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
+    <Content Include="Images\Sun.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="Images\WijzerPlaat.png" />
     <Content Include="jQueryRotate.js" />

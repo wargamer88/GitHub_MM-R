@@ -13,7 +13,7 @@ namespace ToetsendRekenen
         public int randomHour()
         {
             int hours;
-            hours = rnd.Next(1, 13);
+            hours = rnd.Next(0, 24);
             return hours;
         }
 

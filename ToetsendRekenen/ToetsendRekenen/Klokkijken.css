@@ -32,7 +32,7 @@
 
 #questionClock {
     height: 200px;
-    width: 200px;
+    width: 400px;
 }
 
 .wijzerPlaat {
@@ -48,4 +48,8 @@
 .langeWijzer {
     position:absolute;
     z-index:3;
+}
+
+.SunAndMoon {
+    margin-left:200px;
 }

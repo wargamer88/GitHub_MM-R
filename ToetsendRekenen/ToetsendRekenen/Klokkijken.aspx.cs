@@ -111,7 +111,7 @@ namespace ToetsendRekenen
                     goedMinuten = Convert.ToInt16(minutenVanLangewijzer);
                     goedsMinuten = klokkijken.timeLengthCheck(goedMinuten);
                     minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", subCategorie, minutenVanLangewijzer, goedUren);
-                    antwoorden[0] = goedsUren + ':' + goedsMinuten;
+                    antwoorden[0] = goedsUren + " : " + goedsMinuten;
                     
                 } while (klokkijken.PreventRepeatingQuestions(antwoorden[0], vragen));
                 vragen.Add(antwoorden[0]);
@@ -123,7 +123,7 @@ namespace ToetsendRekenen
                     sUren = klokkijken.timeLengthCheck(Uren);
                     Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
                     sMinuten = klokkijken.timeLengthCheck(Minuten);
-                    antwoorden[1] = sUren + ':' + sMinuten;
+                    antwoorden[1] = sUren + " : " + sMinuten;
                 } while (antwoorden[1] == antwoorden[0]);
 
                 //2e Fout antwoord genereren en opslaan
@@ -133,7 +133,7 @@ namespace ToetsendRekenen
                     sUren = klokkijken.timeLengthCheck(Uren);
                     Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
                     sMinuten = klokkijken.timeLengthCheck(Minuten);
-                    antwoorden[2] = sUren + ':' + sMinuten;
+                    antwoorden[2] = sUren + " : " + sMinuten;
                 } while (antwoorden[2] == antwoorden[0] | antwoorden[2] == antwoorden[1]);
 
                 //3e Fout antwoord genereren en opslaan
@@ -143,7 +143,7 @@ namespace ToetsendRekenen
                     sUren = klokkijken.timeLengthCheck(Uren);
                     Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
                     sMinuten = klokkijken.timeLengthCheck(Minuten);
-                    antwoorden[3] = sUren + ':' + sMinuten;
+                    antwoorden[3] = sUren + " : " + sMinuten;
                 } while (antwoorden[3] == antwoorden[0] | antwoorden[3] == antwoorden[1] | antwoorden[3] == antwoorden[2]);
 
                 //Aatwoorden[] ranomizen naar rndAntwoorden[]
@@ -151,10 +151,15 @@ namespace ToetsendRekenen
                 rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();
 
                 //RadioButtonList vullen
-                RblAntwoorden.Items[0].Text = rndAntwoorden[0];
-                RblAntwoorden.Items[1].Text = rndAntwoorden[1];
-                RblAntwoorden.Items[2].Text = rndAntwoorden[2];
-                RblAntwoorden.Items[3].Text = rndAntwoorden[3];
+                RblAntwoorden.Items[0].Text = rndAntwoorden[0] + " uur";
+                RblAntwoorden.Items[1].Text = rndAntwoorden[1] + " uur";
+                RblAntwoorden.Items[2].Text = rndAntwoorden[2] + " uur";
+                RblAntwoorden.Items[3].Text = rndAntwoorden[3] + " uur";
+
+                RblAntwoorden.Items[0].Value = rndAntwoorden[0];
+                RblAntwoorden.Items[1].Value = rndAntwoorden[1];
+                RblAntwoorden.Items[2].Value = rndAntwoorden[2];
+                RblAntwoorden.Items[3].Value = rndAntwoorden[3];
 
                 //labels verbergen
                 LblGoedFout.Visible = false;
@@ -179,7 +184,7 @@ namespace ToetsendRekenen
 
             //antwoord checken
             string check;
-            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Text, goedsUren + ':' + goedsMinuten);
+            check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
 
             if (check == "Dit andwoord is goed")
             {
@@ -195,33 +200,56 @@ namespace ToetsendRekenen
             if (objResultaat.AantalGoed == 10)
             {
                 imgSter1.ImageUrl = "Images/Ster.png";
-                aantalsterren = aantalsterren + 1;
+                if (aantalsterren == 0)
+                {
+                    aantalsterren = aantalsterren + 1;
+                }
                 Session["AantalSterren"] = aantalsterren;
             }
             else if (objResultaat.AantalGoed == 20)
             {
-                aantalsterren = aantalsterren + 1;
+                if (aantalsterren == 1)
+                {
+                    aantalsterren = aantalsterren + 1;
+                }
                 Session["AantalSterren"] = aantalsterren;
             }
             else if (objResultaat.AantalGoed == 30)
             {
-                aantalsterren = aantalsterren + 1;
+                if (aantalsterren == 2)
+                {
+                    aantalsterren = aantalsterren + 1;
+                }
                 Session["AantalSterren"] = aantalsterren;
             }
             else if (objResultaat.AantalGoed == 40)
             {
-                aantalsterren = aantalsterren + 1;
+                if (aantalsterren == 3)
+                {
+                    aantalsterren = aantalsterren + 1;
+                }
                 Session["AantalSterren"] = aantalsterren;
             }
             else if (objResultaat.AantalGoed == 50)
             {
-                aantalsterren = aantalsterren + 1;
+                if (aantalsterren == 4)
+                {
+                    aantalsterren = aantalsterren + 1;
+                }
                 Session["AantalSterren"] = aantalsterren;
             }
 
             //alle controls laten verschijnen/verdwijnen en enablen/disablen
             LblGoedFout.Text = check;
             LblGoedFout.Visible = true;
+            if (check == "Dit andwoord is goed")
+            {
+                LblGoedFout.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                LblGoedFout.ForeColor = System.Drawing.Color.Red;
+            }
             btnVolgendeVraag.Visible = true;
             RblAntwoorden.Enabled = false;
 

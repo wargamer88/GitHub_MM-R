@@ -26,6 +26,7 @@
                 <img class="wijzerPlaat" src="Images/WijzerPlaat.png" />
                 <img class="korteWijzer" src="Images/KorteWijzer.png" />
                 <img class="langeWijzer" src="Images/LangeWijzer.png" />
+                <asp:Image ID="SunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
             </div>
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
