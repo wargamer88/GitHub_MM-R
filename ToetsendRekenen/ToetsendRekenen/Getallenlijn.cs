@@ -314,6 +314,12 @@ namespace ToetsendRekenen
                 while (RandomPositie1 == 0 || RandomPositie4 == RandomPositie1 || RandomPositie4 == RandomPositie2 || RandomPositie4 == RandomPositie3);
             }
             #endregion
+            #region Breuken/0-10
+            else if (Subcategorie == "0-1" && Categorie == "KommaGetallen")
+            {
+
+            }
+            #endregion
             
         }
     }

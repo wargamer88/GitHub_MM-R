@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataToDatabase.cs" />
+    <Compile Include="DecimalToFraction.cs" />
     <Compile Include="Getallenlijn.cs" />
     <Compile Include="Inlog.cs" />
     <Compile Include="Klokkijken.cs" />
