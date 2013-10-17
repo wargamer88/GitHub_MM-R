@@ -51,13 +51,20 @@
     margin-left: 20% ;
 }
 
-.sterren {
+.sterrengetallenlijn {
     width:100%;
     height:80px;
     border-left:solid 1px black;
     float:right;
     margin-left: 0px;
     margin-bottom: 0px;
+}
+
+.som {
+    width:472px;
+    height:auto;
+    /*border-right:solid 1px black;*/
+    float:left;
 }
 
 .uitkomstSterren {
