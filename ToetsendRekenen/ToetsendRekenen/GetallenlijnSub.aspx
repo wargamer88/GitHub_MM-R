@@ -26,8 +26,9 @@
     <p class="SubCategorie">
         Breuken:
     </p>
-    <div>0 t/m 10</div>    
-    <div>0 t/m 100</div>      
+    <asp:LinkButton ID="lbBreuken1" runat="server" OnClick="lbBreuken1_Click">0 t/m 20</asp:LinkButton>  
+    <br /> 
+    <asp:LinkButton ID="lbBreuken2" runat="server" OnClick="lbBreuken2_Click">0 t/m 100</asp:LinkButton>      
     <p>
         &nbsp;</p>
     <asp:Label ID="lbError" runat="server" Text="Error" ForeColor="Red" Visible="False"></asp:Label>
