@@ -9,6 +9,10 @@ using System.Collections;
 using MoreLinq;
 using System.Drawing;
 
+using System.Text;
+using System.Threading.Tasks;
+
+
 namespace ToetsendRekenen
 {
     public class Supermarkt
@@ -64,8 +68,9 @@ Password=romimi;");
         public List<Supermarkt> VanDB()
         {
             thisConnection.Open();
-            int TellerDB = 1;
             int aantalafbeelding = 0;
+            int tagteller = 1;
+            Image result = null;
             SqlParameter pm = new SqlParameter();
             pm.ParameterName = "@AfbeeldingID";
 
@@ -81,35 +86,34 @@ Password=romimi;");
             for (int i = 0; i < aantalafbeelding; i++)
             {
                 ImageUrl = new string[aantalafbeelding];
-                pm.Value = TellerDB;
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE AfbeeldingID = " + TellerDB);
 
-                cmd.Connection = thisConnection;
+                string selectString = "[dbo].[GetImageByImageID]";
+                SqlCommand selectCommand = new SqlCommand(selectString, thisConnection);
+                selectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@AfbeeldingID", tagteller);
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                selectCommand.Connection = thisConnection;
+
+                SqlDataReader reader = selectCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    byte[] raw = (byte[])reader["Afbeelding"];
-                    var BTI = DD.ByteArraytoImage(raw);
+                    result = Image.FromStream(new MemoryStream((byte[])reader.GetValue(1)));
 
-                    if (reader["Supermarktprijs"] == null)
-                    {
-                        PriceFromDBD = 0;
-                    }
-                    else if (reader["Tag"] == null)
+                    //if (reader["Supermarktprijs"] == "")
+                    //{
+                    //    PriceFromDBD = 0;
+                    //}
+                    if (reader["Tag"] == null)
                     {
                         TagFromDBD = "";
                     }
                     else
                     {
-                        productenFromDBD.Add(new Supermarkt { ImageFromDBD = BTI, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
-                        TellerDB--;
-                        ImageUrl[TellerDB] = reader[1].ToString();
-                        TellerDB++;
+                        productenFromDBD.Add(new Supermarkt { ImageFromDBD = result, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
                     }
 
                 }
-                TellerDB++;
+                tagteller++;
                 reader.Close();
             }
             thisConnection.Close();

@@ -56,46 +56,18 @@
    width:350px; 
    background-repeat:no-repeat;
 }
+.price {
+    margin-left:-50px;
+    font-size:18px;
+    font-weight:bold;
+    color:blue;
+}
 /*Hieronder de CSS voor de Subpagina.*/
-#lijstafrekenen {
-    width:49%;
-    float:left;
-    text-align:center;
+#SubTitel {
+    font-size: 19px; 
+    font-weight: bolder; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-#lijstmaken {
-    width:49%;
-    float:right;
-    text-align:center;
-    height: 26px;
-}
-#lijstafrekenenstatiegeld {
-    width:390px;
-    float:left;
-}
-#lijstmakenstatiegeld {
-    width:390px;
-    float:right;
-}
-#afrekenenLijst {
-    width:175px;
-}
-#makenLijst {
-    width:175px;
-}
-#afrekenenzonder {
-    float:right;
-}
-#makenzonder {
-    float:right;
-    width:185px;
-    text-align:right;
-}
-#afrekenenmet {
-    width:10px;
-    float:left;
-    margin-left:10px;
-}
-#makenmet {
-    width:185px;
-    float:left;
+.SubCategorie {
+    font-weight:bold;
 }
