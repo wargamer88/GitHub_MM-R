@@ -31,5 +31,28 @@ namespace ToetsendRekenen
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        public bool CheckSessie()
+        {
+            bool SessieAlreadyExists = false;
+            string dbSessieID = "l";
+            SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
+            SqlCommand cmd = new SqlCommand("SELECT * from Sessie");
+
+            cmd.Connection = conn;
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                dbSessieID = (string)reader["SessieID"];
+                if (dbSessieID == SessieID)
+                {
+                    SessieAlreadyExists = true;
+                    break;
+                }
+            }
+            conn.Close();
+
+            return SessieAlreadyExists;
+        }
     }
 }

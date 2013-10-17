@@ -10,6 +10,7 @@ namespace ToetsendRekenen
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Sessie objSessie = new Sessie();
@@ -17,7 +18,12 @@ namespace ToetsendRekenen
             objSessie.Datum = DateTime.Now;
             Session["Sessie"] = objSessie;
             Session["Inlog"] = null;
-            objSessie.NewSessie();
+            bool SessieAlreadyExists = objSessie.CheckSessie();
+
+            if (SessieAlreadyExists == false)
+            {
+                objSessie.NewSessie();
+            }
         }
 
         protected void btnStatistiek_Click(object sender, EventArgs e)

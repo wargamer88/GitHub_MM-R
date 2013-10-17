@@ -29,9 +29,60 @@
     <p>
         Week&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="ddlWeek" runat="server" Height="21px" Width="121px" style="margin-left: 2px">
-            <asp:ListItem>Week 35</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+            <asp:ListItem>5</asp:ListItem>
+            <asp:ListItem>6</asp:ListItem>
+            <asp:ListItem>7</asp:ListItem>
+            <asp:ListItem>8</asp:ListItem>
+            <asp:ListItem>9</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>11</asp:ListItem>
+            <asp:ListItem>12</asp:ListItem>
+            <asp:ListItem>13</asp:ListItem>
+            <asp:ListItem>14</asp:ListItem>
+            <asp:ListItem>15</asp:ListItem>
+            <asp:ListItem>16</asp:ListItem>
+            <asp:ListItem>17</asp:ListItem>
+            <asp:ListItem>18</asp:ListItem>
+            <asp:ListItem>19</asp:ListItem>
+            <asp:ListItem>20</asp:ListItem>
+            <asp:ListItem>21</asp:ListItem>
+            <asp:ListItem>22</asp:ListItem>
+            <asp:ListItem>23</asp:ListItem>
+            <asp:ListItem>24</asp:ListItem>
+            <asp:ListItem>25</asp:ListItem>
+            <asp:ListItem>26</asp:ListItem>
+            <asp:ListItem>27</asp:ListItem>
+            <asp:ListItem>28</asp:ListItem>
+            <asp:ListItem>29</asp:ListItem>
+            <asp:ListItem>30</asp:ListItem>
+            <asp:ListItem>31</asp:ListItem>
+            <asp:ListItem>32</asp:ListItem>
+            <asp:ListItem>33</asp:ListItem>
+            <asp:ListItem>34</asp:ListItem>
+            <asp:ListItem>35</asp:ListItem>
+            <asp:ListItem>36</asp:ListItem>
+            <asp:ListItem>37</asp:ListItem>
+            <asp:ListItem>38</asp:ListItem>
+            <asp:ListItem>39</asp:ListItem>
+            <asp:ListItem>40</asp:ListItem>
+            <asp:ListItem>41</asp:ListItem>
+            <asp:ListItem>42</asp:ListItem>
+            <asp:ListItem>43</asp:ListItem>
+            <asp:ListItem>44</asp:ListItem>
+            <asp:ListItem>45</asp:ListItem>
+            <asp:ListItem>46</asp:ListItem>
+            <asp:ListItem>47</asp:ListItem>
+            <asp:ListItem>48</asp:ListItem>
+            <asp:ListItem>49</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+            <asp:ListItem>51</asp:ListItem>
+            <asp:ListItem>52</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" />
+        <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" OnClick="ToonGegevensWeek_Click" />
         <br />
         Maand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="ddlMaand" runat="server" Height="21px" Width="121px" style="margin-left: 3px">
             <asp:ListItem Value="01">Januari</asp:ListItem>
@@ -47,15 +98,16 @@
             <asp:ListItem Value="11">November</asp:ListItem>
             <asp:ListItem Value="12">December</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" />
+        <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" OnClick="ToonGegevensMaand_Click" />
         <br />
         Jaar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
         <asp:DropDownList ID="ddlJaar" runat="server" Height="21px" Width="121px">
             <asp:ListItem>0</asp:ListItem>
             <asp:ListItem>1</asp:ListItem>
             <asp:ListItem Value="2">2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="ToonGegevensJaar" runat="server" Text="Toon gegevens" />
+        <asp:Button ID="ToonGegevensJaar" runat="server" Text="Toon gegevens" OnClick="ToonGegevensJaar_Click" />
         <br />
         Tussen specifieke data: van
         <asp:TextBox ID="tbDatumVan" runat="server"></asp:TextBox>
@@ -65,7 +117,7 @@
         <asp:TextBox ID="tbDatumTot" runat="server"></asp:TextBox>
         <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot">
         </asp:CalendarExtender>
-        <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" />
+        <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" OnClick="ToonGegevensVariabelTot_Click" />
     </p>
     <div id="Tables" style="height : 160px; overflow :scroll;">
     <div style="float:left">
