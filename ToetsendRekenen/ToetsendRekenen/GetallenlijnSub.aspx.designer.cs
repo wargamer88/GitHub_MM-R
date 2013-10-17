@@ -49,6 +49,24 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.LinkButton lbKommatGetal2;
         
         /// <summary>
+        /// lbBreuken1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbBreuken1;
+        
+        /// <summary>
+        /// lbBreuken2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbBreuken2;
+        
+        /// <summary>
         /// lbError control.
         /// </summary>
         /// <remarks>

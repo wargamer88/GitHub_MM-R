@@ -10,18 +10,18 @@
                 <ContentTemplate>
                     <div>
                         <div><asp:Image ID="Getallenlijn" runat="server" ImageUrl="Images/Getallenlijn.png"/></div>
-                        <div id="Pijltje" style="position:absolute; left:255px; right: 708px; top:37px;" runat="server" ><asp:Image ID="Pijl" runat="server" ImageUrl="Images/pijltje.png" /></div>
-                        <div id="StartNummerCss"><asp:Label ID="StartNummer" runat="server" Text="0" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
-                        <div id="MiddelNummerCss"><asp:Label ID="MiddelNummer" runat="server" Text="5" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
-                        <div id="EindNummerCss"><asp:Label ID="EindNummer" runat="server" Text="10" Font-Bold="True" Font-Size="X-Large" ForeColor="Blue" style="font-family:Calibri"></asp:Label></div>
+                        <div id="Pijltje" style="position:absolute; left:255px; right: 708px; top:37px; z-index:2" runat="server" ><asp:Image ID="Pijl" runat="server" ImageUrl="Images/pijltje.png" /></div>
+                        <div id="StartNummerCss"><asp:Label ID="StartNummer" runat="server" Text="012341123" Font-Bold="True" Font-Size="X-Large" ForeColor="Black" style="font-family:Calibri"></asp:Label></div>
+                        <div id="MiddelNummerCss"><asp:Label ID="MiddelNummer" runat="server" Text="5124123" Font-Bold="True" Font-Size="X-Large" ForeColor="Black" style="font-family:Calibri"></asp:Label></div>
+                        <div id="EindNummerCss"><asp:Label ID="EindNummer" runat="server" Text="10241123" Font-Bold="True" Font-Size="X-Large" ForeColor="Black" style="font-family:Calibri"></asp:Label></div>
                     </div>
                     <br />
                     <span id="OefeningTitel">Getallenlijn</span><br />
                     <br />
                     Welk nummer wijst de pijl aan<br />
                     <br />
-                    <asp:RadioButtonList ID="cblAntwoorden" runat="server" Font-Bold="False" Font-Size="Medium" Height="125px" Width="66px" AutoPostBack="True" OnSelectedIndexChanged="Antwoorden_SelectedIndexChanged">
-                    <asp:ListItem Value="1">3000</asp:ListItem>
+                    <asp:RadioButtonList ID="cblAntwoorden" runat="server" Font-Bold="False" Font-Size="Medium" Height="125px" Width="104px" AutoPostBack="True" OnSelectedIndexChanged="Antwoorden_SelectedIndexChanged">
+                    <asp:ListItem Value="1">3000000</asp:ListItem>
                     <asp:ListItem Value="2">2</asp:ListItem>
                     <asp:ListItem Value="3">5</asp:ListItem>
                     <asp:ListItem Value="4">4</asp:ListItem>
@@ -43,8 +43,8 @@
         <div class="uitkomstSterren">
             <div class="sterren">
                 
-                <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; position:absolute; top:15px; margin-left:15px;">Score</span>
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; position:absolute; top:15px; margin-left:15px; left: 676px;">Score</span>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Image ID="imgSter1" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter2" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter3" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter4" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter5" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" />
                 <div class="voortgang"><span id="voortgang" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/50 vragen</span></div>
 

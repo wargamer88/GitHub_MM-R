@@ -1,57 +1,48 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.IO;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
-//namespace ToetsendRekenen
-//{
-//    /// <summary>
-//    /// Summary description for ShowImage
-//    /// </summary>
-//    public class ShowImage : IHttpHandler
-//    {
+namespace ToetsendRekenen
+{
+    /// <summary>
+    /// Summary description for ShowImage
+    /// </summary>
+    public class ShowImage : IHttpHandler
+    {
 
-//        public void ProcessRequest(HttpContext context)
-//        {
-//            Int32 empno;
-//            if (context.Request.QueryString["id"] != null)
-//                empno = Convert.ToInt32(context.Request.QueryString["id"]);
-//            else
-//                throw new ArgumentException("No parameter specified");
-//            context.Response.ContentType = "image/jpeg";
-//            Stream strm = ShowEmpImage(empno);
-//            byte[] buffer = new byte[4096];
-//            int byteSeq = strm.Read(buffer, 0, 4096);
-//            while (byteSeq > 0)
-//            {
-//                context.Response.OutputStream.Write(buffer, 0, byteSeq);
-//                byteSeq = strm.Read(buffer, 0, 4096);
-//            }
-//        }
-
-//        public Stream ShowEmpImage(int empno)
-//        {
-//            string conn = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
-//            SqlConnection connection = new SqlConnection(conn);
-//            string sql = "SELECT* FROM  table WHERE empid = @ID";
-//            SqlCommand cmd = new SqlCommand(sql, connection);
-//            cmd.CommandType = CommandType.Text;
-//            cmd.Parameters.AddWithValue("@ID", empno);
-//            connection.Open();
-//            object img = cmd.ExecuteScalar();
-//            try
-//            {
-//                return new MemoryStream((byte[])img);
-//            }
-//            catch
-//            { return null; }
-
-//            finally
-//            { connection.Close(); }
-//        }
-//        public bool IsReusable
-//        {
-//            get { return false; }
-//        }
-//    }
-//}
+        public void ProcessRequest(HttpContext context)
+        {
+            string AfbeeldingID;
+            if (context.Request.QueryString["id"] != null)
+            {
+                AfbeeldingID = Convert.ToString(context.Request.QueryString["id"]);
+                SqlConnection con = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi; Password=romimi;");
+                SqlCommand cmd = new SqlCommand();
+                string qry = "Select Afbeelding from Afbeelding where AfbeeldingID = '" + AfbeeldingID.ToString() + "'";
+                cmd.CommandText = qry;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = con;
+                con.Open();
+                context.Response.BinaryWrite((byte[])cmd.ExecuteScalar());
+                con.Close();
+            }
+            else
+            {
+                context.Response.Write("Mislukt om de afbeelding te laden");
+            }
+        }
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+    
+}

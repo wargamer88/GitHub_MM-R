@@ -122,5 +122,59 @@ namespace ToetsendRekenen
                 lbError.Text = ex.ToString();
             }
         }
+
+        protected void lbBreuken1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Getallenlijn";
+                objResultaat.Categorie = "Breuken";
+                objResultaat.SubCategorie = "0-10";
+                objResultaat.SessieID = Session.SessionID;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
+
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Getallenlijn.aspx");
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
+            }
+        }
+
+        protected void lbBreuken2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lbError.Visible = false;
+                Resultaat objResultaat = new Resultaat();
+                objResultaat.Oefening = "Getallenlijn";
+                objResultaat.Categorie = "Breuken";
+                objResultaat.SubCategorie = "0-100";
+                objResultaat.SessieID = Session.SessionID;
+                int aantalsterren = 0;
+                Session["AantalSterren"] = aantalsterren;
+                objResultaat.AantalGoed = 0;
+                objResultaat.AantalFout = 0;
+                int voortgang = 0;
+                Session["Voortgang"] = voortgang;
+
+                Session["Resultaat"] = objResultaat;
+                Response.Redirect("Getallenlijn.aspx");
+            }
+            catch (Exception ex)
+            {
+                lbError.Visible = true;
+                lbError.Text = ex.ToString();
+            }
+        }
     }
 }
