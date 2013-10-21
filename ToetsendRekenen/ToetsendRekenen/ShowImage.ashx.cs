@@ -31,6 +31,19 @@ namespace ToetsendRekenen
                 context.Response.BinaryWrite((byte[])cmd.ExecuteScalar());
                 con.Close();
             }
+            else if (context.Request.QueryString["tag"] != null)
+            {
+                AfbeeldingID = Convert.ToString(context.Request.QueryString["tag"]);
+                SqlConnection con = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi; Password=romimi;");
+                SqlCommand cmd = new SqlCommand();
+                string qry = "Select Afbeelding from Afbeelding where tag = '" + AfbeeldingID.ToString() + "'";
+                cmd.CommandText = qry;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = con;
+                con.Open();
+                context.Response.BinaryWrite((byte[])cmd.ExecuteScalar());
+                con.Close();
+            }
             else
             {
                 context.Response.Write("Mislukt om de afbeelding te laden");
