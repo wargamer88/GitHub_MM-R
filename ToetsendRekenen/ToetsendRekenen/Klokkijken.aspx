@@ -18,15 +18,18 @@
         
         <div class="som">
             
-            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoge klokken</span><br />
+            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoog naar digitaal</span><br />
             <br />
-            Hoelaat is het?<br />
+            Wat is de tijd van de klok?<br />
+            <br />
+            06 : 00 uur t/m 17 : 59 uur is dag.<br />
+            18 : 00 uur t/m 05 : 59 uur is nacht.<br />
             <br />
             <div id="questionClock">
                 <img class="wijzerPlaat" src="Images/WijzerPlaat.png" />
                 <img class="korteWijzer" src="Images/KorteWijzer.png" />
                 <img class="langeWijzer" src="Images/LangeWijzer.png" />
-                <asp:Image ID="SunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
+                <asp:Image ID="imgSunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
             </div>
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -60,6 +63,14 @@
             </div>
             <br />
             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Uitleg</span><br />
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div runat="server" id="divUitleg">
+                        
+                    </div>
+                    <asp:Label ID="lblUitlegAntwoord" runat="server" Text="Label"></asp:Label>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             <br />
 
             

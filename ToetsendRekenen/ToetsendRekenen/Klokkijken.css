@@ -30,6 +30,10 @@
     width:540px;
 }
 
+.sterren {
+    border-bottom: solid 1px black;
+}
+
 #questionClock {
     height: 200px;
     width: 400px;
