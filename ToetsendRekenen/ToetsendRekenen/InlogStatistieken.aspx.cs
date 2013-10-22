@@ -11,7 +11,7 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            tbGebruikersnaam.Attributes.Add("autocomplete", "off");
         }
 
         protected void btnInloggen_Click(object sender, EventArgs e)

@@ -13,13 +13,40 @@ namespace ToetsendRekenen {
     public partial class WebForm2 {
         
         /// <summary>
-        /// TextBox1 control.
+        /// lbVraagGetal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label lbVraagGetal1;
+        
+        /// <summary>
+        /// lbCategorie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCategorie;
+        
+        /// <summary>
+        /// lbVraagGetal2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbVraagGetal2;
+        
+        /// <summary>
+        /// tbAntwoord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbAntwoord;
         
         /// <summary>
         /// btnControleer control.
