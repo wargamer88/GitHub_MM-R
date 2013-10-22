@@ -21,6 +21,7 @@ namespace ToetsendRekenen
         #region Properties
         Supermarkt SM = new Supermarkt();
         List<Supermarkt> SuperList = new List<Supermarkt>();
+        List<Supermarkt> SuperListprice = new List<Supermarkt>();
         DataToDatabase DD = new DataToDatabase();
         decimal Totaal =0;
         int goed = 0;
@@ -49,7 +50,7 @@ namespace ToetsendRekenen
                 Totaal = SM.GetPrice();
 
                 //Plaatjes met prijs na de pagina.
-
+                #region MethodePlaatjeNaarSchem
                 int tellerpr = 0;
                 string[] disttostring = new string[SM.dist.Count];               
                 List<string> enkelproduct = new List<string>();
@@ -74,11 +75,11 @@ namespace ToetsendRekenen
                 }
                 
                 tellerpr = 0;
-                tellerpr = 0;
-                int count = SuperList.Count - enkelproduct.Count;
-                for (int i = 0; i < count; i++)
+                //int count = SuperList.Count - enkelproduct.Count;
+                for (int i = 0; i < enkelproduct.Count; i++)
                 {
-                    var List = SuperList.RemoveAll(x => x.TagFromDBD == enkelproduct[tellerpr]);
+                    SuperList.RemoveAll(x => x.TagFromDBD == enkelproduct[tellerpr]);
+                    tellerpr++;
                 }
                 Random R = new Random();
                 for (int i = 0; i < R.Next(3, SuperList.Count); i++)
@@ -86,8 +87,8 @@ namespace ToetsendRekenen
                     Supermarkt super = SuperList[R.Next(SuperList.Count)];
                     RSuperList.Add(super);
                 }
-
-                foreach (var Rprogtag in RSuperList)
+                IEnumerable<Supermarkt> RSuperList1 = RSuperList.Distinct();
+                foreach (var Rprogtag in RSuperList1)
                 {
                     enkelproduct.Add(Rprogtag.TagFromDBD);
                 }
@@ -101,9 +102,11 @@ namespace ToetsendRekenen
 
                 tellerpr = 0;
                 decimal[] price = new decimal[enkelproduct.Count];
+                enkelproduct = enkelproduct.OrderBy(x => R.Next()).ToList();
+                SuperListprice = SM.VanDB();
                 for (int i = 0; i < enkelproduct.Count; i++)
                 {
-                    var result = from p in SuperList
+                    var result = from p in SuperListprice
                                  where p.TagFromDBD == enkelproduct[tellerpr]
                                  select p.PriceFromDBD;
                     IEnumerable<decimal> resultprice = result;
@@ -116,7 +119,7 @@ namespace ToetsendRekenen
                 }
                 tellerpr = 0;
                 foreach (string pic in enkelproduct)
-                {
+                {                    
                     var test = Server.UrlEncode(pic);
                     plaatjesdiv.InnerHtml += plaatjesdiv.InnerHtml = "<img src=" + "ShowImage.ashx?tag=" + test + " style='width:75px;'/>";
                     for (int i = 0; i < 1; i++)
@@ -125,7 +128,7 @@ namespace ToetsendRekenen
                         tellerpr++;
                     }
                 }
-                
+                #endregion
 
 
                 #endregion
@@ -146,6 +149,7 @@ namespace ToetsendRekenen
             //Kijken of antword in antwoordenbox gelijk is aan de totale prijs van het boodschappenlijst.
             Totaal = (decimal)Session["Totaal"];
             decimal antwoordvar = Convert.ToDecimal(antwoord.Text);
+            decimal.TryParse(antwoord.Text.Replace(".", ","), out antwoordvar);
             if (antwoordvar == Totaal)
             {
                 goed++;

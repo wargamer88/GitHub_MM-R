@@ -149,9 +149,9 @@ Password=romimi;");
                             sum = oldsum;
                         }
                         reader.Close();
-                    }
+                    }                   
              }
-
+            thisConnection.Close();
             return sum;
         }
 
@@ -256,13 +256,13 @@ Password=romimi;");
            return imglist;
        }
         //Veranderd de volgorde van een lijst.
-       public static string[] Shuffle(string[] list)
+       public List<string> Shuffle(List<string> list)
        {
            int upper = 1;
            Random r = new Random();
            for (int i = 0; i < upper; i++)
            {
-               int randInd = r.Next(i, list.Length);
+               int randInd = r.Next(i, list.Count);
                var temp = list[i];
                list[i] = list[randInd];
                list[randInd] = temp;
