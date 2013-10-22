@@ -3,11 +3,15 @@
     <link href="Supermarkt.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div id="voortgang">
+            <div class="voortgangster">
                             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; position:absolute; top:15px; margin-left:30px;">Score</span>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/Ster.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" /><img alt="" class="auto-style2" src="Images/legeSter.png" />
-                <span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00;margin-top:15px; float:right;">Voortgang /50 vragen</span></div>
+                <asp:Image ID="imgSter1" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter2" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter3" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter4" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter5" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" />
+             </div>
+                <div class="voortgang"><span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/50 vragen</span></div>
+            </div>
     <div id="left-content">
         <div id="plaatjesdiv" runat="server">
 
@@ -27,11 +31,19 @@
         </div>
     </div>
     <div id="som">
-        Wat is het totale bedrag van het boodschappenlijstje? LET OP AFRONDING! <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+        Wat is het totale bedrag van het boodschappenlijstje? <asp:Label ID="lblafronden" runat="server" Text=" LET OP AFRONDING! "></asp:Label>
+        <br />
+        <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
         <asp:Button ID="verzend" runat="server" Text="Controleer" OnClick="verzend_Click" />
-    </div>
-    <div id="uitleg">
-        Uitleg
-        <asp:TextBox ID="reaction" runat="server" OnTextChanged="reaction_TextChanged"></asp:TextBox>
-    </div>
+        <br />
+        <asp:Label ID="lblantwoord" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:Label ID="goedeantwoord" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:Button ID="btnVolgendeVraag" runat="server" Text="Volgende vraag" OnClick="btnVolgendeVraag_Click" />
+                     </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
 </asp:Content>

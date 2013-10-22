@@ -20,7 +20,7 @@ namespace ToetsendRekenen
         DataToDatabase DD = new DataToDatabase();
         List<String> imagesList = new List<String>();
         public List<Supermarkt> productenFromDBD = new List<Supermarkt>();
-        List<Supermarkt> dist = new List<Supermarkt>();
+        public List<Supermarkt> dist = new List<Supermarkt>();
 
         SqlConnection thisConnection = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;
 Password=romimi;");
@@ -35,6 +35,7 @@ Password=romimi;");
         public string pricelabel { get; set; }
         public int aantal { get; set; }
         public string[] ImageUrl { get; set; }
+        public List<string> randomlist = new List<string>();
 
 
         public Image ImageFromDBD { get; set; }
@@ -148,9 +149,9 @@ Password=romimi;");
                             sum = oldsum;
                         }
                         reader.Close();
-                    }
+                    }                   
              }
-
+            thisConnection.Close();
             return sum;
         }
 
@@ -160,7 +161,6 @@ Password=romimi;");
         {
             Random R = new Random();
             string[] alleproducten = new string[productenFromDBD.Count];
-            List<string> randomlist = new List<string>();
 
             int rc = randomlist.Count;
             int teller = 0;
@@ -254,6 +254,20 @@ Password=romimi;");
            }
 
            return imglist;
+       }
+        //Veranderd de volgorde van een lijst.
+       public List<string> Shuffle(List<string> list)
+       {
+           int upper = 1;
+           Random r = new Random();
+           for (int i = 0; i < upper; i++)
+           {
+               int randInd = r.Next(i, list.Count);
+               var temp = list[i];
+               list[i] = list[randInd];
+               list[randInd] = temp;
+           }
+           return list;
        }
     }
 }
