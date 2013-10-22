@@ -367,7 +367,7 @@ namespace ToetsendRekenen
 
             if (objResultaat.Categorie == "Analoog")
             {
-                #region Analoog klokkijken
+                s#region Analoog klokkijken
                 {
                     //object resultaat ophalen
                     objResultaat = (Resultaat)Session["Resultaat"];
