@@ -13,6 +13,42 @@ namespace ToetsendRekenen {
     public partial class WebForm15 {
         
         /// <summary>
+        /// lblAnaloog15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAnaloog15;
+        
+        /// <summary>
+        /// lblAnaloog10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAnaloog10;
+        
+        /// <summary>
+        /// lblAnaloog5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAnaloog5;
+        
+        /// <summary>
+        /// lblAnaloog1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAnaloog1;
+        
+        /// <summary>
         /// lblAnaarD15 control.
         /// </summary>
         /// <remarks>

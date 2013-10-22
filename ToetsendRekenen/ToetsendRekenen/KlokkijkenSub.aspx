@@ -5,13 +5,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="subs">
-        <%--<span style="font-weight: bold">Analoog</span>
+        <span style="font-weight: bold">Analoog</span>
         <br />
         <br />
         <asp:LinkButton ID="lblAnaloog15" runat="server" OnClick="lblAnaloog15_Click">15 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblAnaloog10" runat="server" OnClick="lblAnaloog10_Click">10 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblAnaloog5" runat="server" OnClick="lblAnaloog5_Click">5 minuten</asp:LinkButton><br />
-        <asp:LinkButton ID="lblAnaloog1" runat="server" OnClick="lblAnaloog1_Click">1 minuten</asp:LinkButton><br />--%>
+        <asp:LinkButton ID="lblAnaloog1" runat="server" OnClick="lblAnaloog1_Click">1 minuten</asp:LinkButton><br />
 
     </div>
     <div class="subs subsFloat">
