@@ -9,6 +9,7 @@ namespace ToetsendRekenen
     {
 
         Random rnd = new Random();
+        string[] getallenUitgeschreven = new string[]{"één", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf", "dertien", "viertien"};
 
         public int randomHour()
         {
@@ -108,6 +109,40 @@ namespace ToetsendRekenen
             return false;
         }
 
-        
+        public string uitgeschrevenAntwoordMaken(int uren, int minuten)
+        {
+            string antwoord = "";
+
+            if (uren >= 13)
+            {
+                uren = uren - 12;
+            }
+            
+
+            if (uren == 0)
+            {
+                uren = 12;
+            }
+
+            if (minuten == 0)
+            {
+                antwoord = getallenUitgeschreven[uren - 1] + " uur";
+            }
+            else if (minuten == 15)
+            {
+                antwoord = "Kwart over " + getallenUitgeschreven[uren - 1];
+            }
+            else if (minuten == 30)
+            {
+                antwoord = "Half " + getallenUitgeschreven[uren];
+            }
+            else if (minuten == 45)
+            {
+                antwoord = "Kwart voor " + getallenUitgeschreven[uren];
+            }
+
+            return antwoord;
+        }
+
     }
 }
