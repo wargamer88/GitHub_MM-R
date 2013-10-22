@@ -379,10 +379,10 @@ namespace ToetsendRekenen
                     goedsMinuten = (string)Session["minuut"];
                     goedUren = Convert.ToInt16(goedsUren);
                     goedMinuten = Convert.ToInt16(goedsMinuten);
-                    antwoord = 
+                    antwoord = (string)Session["Antwoord"];
 
                     //antwoord checken
-                    check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
+                    check = klokkijken.answerCheckAnaloog(RblAntwoorden.SelectedItem.Value, antwoord);
 
                     if (check == "Dit andwoord is goed")
                     {
@@ -727,7 +727,7 @@ namespace ToetsendRekenen
                     goedMinuten = Convert.ToInt16(goedsMinuten);
 
                     //antwoord checken
-                    check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
+                    check = klokkijken.answerCheckAnaloogNaarDigitaal(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
 
                     if (check == "Dit andwoord is goed")
                     {
