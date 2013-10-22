@@ -70,7 +70,20 @@ namespace ToetsendRekenen
             
         }
 
-        public string answerCheck(string givenAnswer, string goodAnswer)
+        public string answerCheckAnaloogNaarDigitaal(string givenAnswer, string goodAnswer)
+        {
+            if (givenAnswer == goodAnswer)
+            {
+                return "Dit andwoord is goed";
+            }
+            else
+            {
+                return "Dit antwoord is fout";
+            }
+
+        }
+
+        public string answerCheckAnaloog(string givenAnswer, string goodAnswer)
         {
             if (givenAnswer == goodAnswer)
             {
