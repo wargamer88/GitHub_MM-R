@@ -24,16 +24,22 @@ namespace ToetsendRekenen
         List<Supermarkt> SuperListprice = new List<Supermarkt>();
         DataToDatabase DD = new DataToDatabase();
         decimal Totaal =0;
-        int goed = 0;
-        int fout = 0;
         public FileUpload imgUpload { get; set; }
+
+        Resultaat objResultaat = new Resultaat();
+
+        //Sessie variabelen
+        protected string subCategorie;
+        protected int voortgang;
+        protected int aantalsterren;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                objResultaat = (Resultaat)Session["Resultaat"];
+                subCategorie = Convert.ToString(objResultaat.SubCategorie);
                 #region sterren laden
                 {
                     aantalsterren = (int)Session["AantalSterren"];
@@ -89,7 +95,7 @@ namespace ToetsendRekenen
 
                 #region Zonder afronden
                 //Subpagina word opgehaald.
-
+                lblafronden.Visible = false;
 
                 //Pad naar lokale PC voor de plaatjes.
                 //SM.GetImagesPath(path);
@@ -206,12 +212,12 @@ namespace ToetsendRekenen
             decimal.TryParse(antwoord.Text.Replace(".", ","), out antwoordvar);
             if (antwoordvar == Totaal)
             {
-                goed++;
+                objResultaat.AantalGoed += 1;
                 reaction.Text = "antwoord is goed";
             }
             else
             {
-                fout++;
+                objResultaat.AantalFout += 1;
                 reaction.Text = "antwoord is fout";
             }
             #region sterren verwerken
