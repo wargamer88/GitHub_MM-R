@@ -368,7 +368,7 @@ namespace ToetsendRekenen
 
             if (objResultaat.Categorie == "Analoog")
             {
-                s#region Analoog klokkijken
+                #region Analoog klokkijken
                 {
                     //object resultaat ophalen
                     objResultaat = (Resultaat)Session["Resultaat"];
@@ -382,7 +382,6 @@ namespace ToetsendRekenen
                     antwoord = 
 
                     //antwoord checken
-                    string check;
                     check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
 
                     if (check == "Dit andwoord is goed")
@@ -728,7 +727,6 @@ namespace ToetsendRekenen
                     goedMinuten = Convert.ToInt16(goedsMinuten);
 
                     //antwoord checken
-                    string check;
                     check = klokkijken.answerCheck(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
 
                     if (check == "Dit andwoord is goed")
