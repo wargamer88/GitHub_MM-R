@@ -160,6 +160,7 @@
     <Compile Include="ShowImage.ashx.cs">
       <DependentUpon>ShowImage.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Sommen.cs" />
     <Compile Include="SommenSub.aspx.cs">
       <DependentUpon>SommenSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
