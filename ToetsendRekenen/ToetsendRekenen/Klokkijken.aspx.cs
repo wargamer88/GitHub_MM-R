@@ -19,6 +19,7 @@ namespace ToetsendRekenen
         protected string goedsUren;
         protected string goedsMinuten;
         protected string antwoord;
+        protected string check;
 
         //foute antwoord variabelen
         protected int Uren;
