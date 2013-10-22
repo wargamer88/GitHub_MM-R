@@ -18,7 +18,7 @@
         
         <div class="som">
             
-            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;">Analoog naar digitaal</span><br />
+            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold;"><asp:Label ID="lblCategorie" runat="server" Text=""></asp:Label></span><br />
             <br />
             Wat is de tijd van de klok?<br />
             <br />
