@@ -63,6 +63,8 @@ namespace ToetsendRekenen
                 {
                     #region Analoog klokkijken
                     {
+                        lblCategorie.Text = "Analoog klokkijken";
+
                         #region sterren laden
                         {
                             aantalsterren = (int)Session["AantalSterren"];
@@ -205,13 +207,17 @@ namespace ToetsendRekenen
                 else if (objResultaat.Categorie == "Digitaal")
                 {
                     #region Digitaal klokkijken
-                    { }
+                    {
+                        lblCategorie.Text = "Digitaal klokkijken";
+                    }
                     #endregion
                 }
                 else if (objResultaat.Categorie == "Analoog naar digitaal")
                 {
                     #region Analoog naar digitaal
                     {
+                        lblCategorie.Text = "Analoog naar Digitaal";
+
                         #region sterren laden
                         {
                             aantalsterren = (int)Session["AantalSterren"];
@@ -353,7 +359,7 @@ namespace ToetsendRekenen
                 {
                     #region Digitaal naar analoog
                     {
-
+                        lblCategorie.Text = "Digitaal naar analoog";
                     }
                     #endregion
                 }
@@ -384,7 +390,7 @@ namespace ToetsendRekenen
                     //antwoord checken
                     check = klokkijken.answerCheckAnaloog(RblAntwoorden.SelectedItem.Value, antwoord);
 
-                    if (check == "Dit andwoord is goed")
+                    if (check == "Dit antwoord is goed")
                     {
                         objResultaat.AantalGoed += 1;
                     }
@@ -729,7 +735,7 @@ namespace ToetsendRekenen
                     //antwoord checken
                     check = klokkijken.answerCheckAnaloogNaarDigitaal(RblAntwoorden.SelectedItem.Value, goedsUren + " : " + goedsMinuten);
 
-                    if (check == "Dit andwoord is goed")
+                    if (check == "Dit antwoord is goed")
                     {
                         objResultaat.AantalGoed += 1;
                     }

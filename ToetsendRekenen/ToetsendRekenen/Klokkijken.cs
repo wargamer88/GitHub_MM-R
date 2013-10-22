@@ -122,37 +122,105 @@ namespace ToetsendRekenen
             return false;
         }
 
-        public string uitgeschrevenAntwoordMaken(int uren, int minuten)
+        public string uitgeschrevenAntwoordMaken(int Uren, int minuten)
         {
             string antwoord = "";
+            int uren;
 
-            if (uren >= 13)
+            if (Uren >= 13)
             {
-                uren = uren - 12;
+                uren = Uren - 12;
             }
-            
-
-            if (uren == 0)
+            else if (Uren == 0)
             {
                 uren = 12;
             }
+            else
+            {
+                uren = Uren;
+            }
 
-            if (minuten == 0)
+            switch (minuten)
             {
-                antwoord = getallenUitgeschreven[uren - 1] + " uur";
+                case 0: antwoord = getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 1: antwoord = getallenUitgeschreven[0] + " minuut over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 2: antwoord = getallenUitgeschreven[1] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 3: antwoord = getallenUitgeschreven[2] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 4: antwoord = getallenUitgeschreven[3] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 5: antwoord = getallenUitgeschreven[4] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 6: antwoord = getallenUitgeschreven[5] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 7: antwoord = getallenUitgeschreven[6] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 8: antwoord = getallenUitgeschreven[7] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 9: antwoord = getallenUitgeschreven[8] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 10: antwoord = getallenUitgeschreven[9] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 11: antwoord = getallenUitgeschreven[10] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 12: antwoord = getallenUitgeschreven[11] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 13: antwoord = getallenUitgeschreven[12] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 14: antwoord = getallenUitgeschreven[13] + " minuten over " + getallenUitgeschreven[uren - 1] + " uur"; break;
+                case 15: antwoord = "kwart over " + getallenUitgeschreven[uren - 1]; break;
+                case 16: antwoord = getallenUitgeschreven[13] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 17: antwoord = getallenUitgeschreven[12] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 18: antwoord = getallenUitgeschreven[11] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 19: antwoord = getallenUitgeschreven[10] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 20: antwoord = getallenUitgeschreven[9] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 21: antwoord = getallenUitgeschreven[8] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 22: antwoord = getallenUitgeschreven[7] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 23: antwoord = getallenUitgeschreven[6] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 24: antwoord = getallenUitgeschreven[5] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 25: antwoord = getallenUitgeschreven[4] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 26: antwoord = getallenUitgeschreven[3] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 27: antwoord = getallenUitgeschreven[2] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 28: antwoord = getallenUitgeschreven[1] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 29: antwoord = getallenUitgeschreven[0] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 30: antwoord = "half " + getallenUitgeschreven[uren]; break;
+                case 31: antwoord = getallenUitgeschreven[0] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 32: antwoord = getallenUitgeschreven[1] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 33: antwoord = getallenUitgeschreven[2] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 34: antwoord = getallenUitgeschreven[3] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 35: antwoord = getallenUitgeschreven[4] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 36: antwoord = getallenUitgeschreven[5] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 37: antwoord = getallenUitgeschreven[6] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 38: antwoord = getallenUitgeschreven[7] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 39: antwoord = getallenUitgeschreven[8] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 40: antwoord = getallenUitgeschreven[9] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 41: antwoord = getallenUitgeschreven[10] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 42: antwoord = getallenUitgeschreven[11] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 43: antwoord = getallenUitgeschreven[12] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 44: antwoord = getallenUitgeschreven[13] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 45: antwoord = "kwart voor " + getallenUitgeschreven[uren]; break;
+                case 46: antwoord = getallenUitgeschreven[13] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 47: antwoord = getallenUitgeschreven[12] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 48: antwoord = getallenUitgeschreven[11] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 49: antwoord = getallenUitgeschreven[10] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 50: antwoord = getallenUitgeschreven[9] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 51: antwoord = getallenUitgeschreven[8] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 52: antwoord = getallenUitgeschreven[7] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 53: antwoord = getallenUitgeschreven[6] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 54: antwoord = getallenUitgeschreven[5] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 55: antwoord = getallenUitgeschreven[4] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 56: antwoord = getallenUitgeschreven[3] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 57: antwoord = getallenUitgeschreven[2] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 58: antwoord = getallenUitgeschreven[1] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 59: antwoord = getallenUitgeschreven[0] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
             }
-            else if (minuten == 15)
+
+            if (Uren <= 5)
             {
-                antwoord = "Kwart over " + getallenUitgeschreven[uren - 1];
+                antwoord += " 's nachts";
             }
-            else if (minuten == 30)
+            else if (Uren <= 11)
             {
-                antwoord = "Half " + getallenUitgeschreven[uren];
+                antwoord += " 's ochtends";
             }
-            else if (minuten == 45)
+            else if (Uren <= 17)
             {
-                antwoord = "Kwart voor " + getallenUitgeschreven[uren];
+                antwoord += " 's middags";
             }
+            else if (Uren <= 23)
+            {
+                antwoord += " 's avonds";
+            }
+            
 
             return antwoord;
         }
