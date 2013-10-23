@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Breuken.css" />
     <Content Include="Getallenlijn.css" />
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Happy.png" />
@@ -160,6 +161,7 @@
     <Compile Include="ShowImage.ashx.cs">
       <DependentUpon>ShowImage.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Sommen.cs" />
     <Compile Include="SommenSub.aspx.cs">
       <DependentUpon>SommenSub.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

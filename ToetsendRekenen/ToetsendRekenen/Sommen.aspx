@@ -21,7 +21,7 @@
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnControleer" runat="server" Height="23px" Text="Controleer antwoord" Width="127px" />
+            <asp:Button ID="btnControleer" runat="server" Height="23px" Text="Controleer antwoord" Width="127px" style="margin-left: 3px" />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
