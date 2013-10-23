@@ -37,8 +37,8 @@
                 <ContentTemplate>
         Wat is het totale bedrag van het boodschappenlijstje? <asp:Label ID="lblafronden" runat="server" Text=" LET OP AFRONDING! "></asp:Label>
         <br />
-        <asp:TextBox ID="antwoord" runat="server" OnTextChanged="antwoord_TextChanged"></asp:TextBox>
-                    <asp:FilteredTextBoxExtender ID="ftbe" runat="server" TargetControlID="TextBox1" ValidChars="1234567890.," />
+        <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
+                    <asp:FilteredTextBoxExtender ID="ftbe" runat="server" TargetControlID="antwoord" ValidChars="1234567890.," />
         <asp:Button ID="verzend" runat="server" Text="Controleer" OnClick="verzend_Click" />
         <br />
         <asp:Label ID="lblantwoord" runat="server" Text=""></asp:Label>
