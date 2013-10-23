@@ -16,28 +16,39 @@
         Kan je met sommen werken?</p>
     <p>
         Selecteer één van de onderstaande categorieën.</p>
-    <p>
-        Erbij sommen:<br />
-        0 t/m 10<br />
-        0 t/m 100
+    <p style="font-weight:bold;">
+        Erbij sommen:
+    </p>
+    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">0 t/m 10</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">0 t/m 100</asp:LinkButton>    
         <br />
-        0 t/m 1000</p>
-    <p>
+    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">0 t/m 1000</asp:LinkButton>    
+    <p style="font-weight:bold;">
         Eraf sommen:
+    </p>
+    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">0 t/m 10</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="LinkButton5" runat="server" OnClick="LinkButton5_Click">0 t/m 100</asp:LinkButton>    
         <br />
-        0 t/m 10<br />
-        0 t/m 100<br />
-        0 t/m 1000</p>
+    <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">0 t/m 1000</asp:LinkButton> 
+    <p style="font-weight:bold;">
+        Keer sommen:
+    </p>
+    <asp:LinkButton ID="LinkButton7" runat="server" OnClick="LinkButton7_Click">0 t/m 10</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="LinkButton8" runat="server" OnClick="LinkButton8_Click">0 t/m 100</asp:LinkButton>    
+        <br />
+    <asp:LinkButton ID="LinkButton9" runat="server" OnClick="LinkButton9_Click">0 t/m 1000</asp:LinkButton> 
+    <p style="font-weight:bold;">
+        Deel sommen:
+    </p>
+    <asp:LinkButton ID="LinkButton10" runat="server" OnClick="LinkButton10_Click">0 t/m 10</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="LinkButton11" runat="server" OnClick="LinkButton11_Click">0 t/m 100</asp:LinkButton>    
+        <br />
+    <asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click">0 t/m 1000</asp:LinkButton> 
     <p>
-        Deel sommen:<br />
-        0 t/m 10<br />
-        0 t/m 100<br />
-        0 t/m 1000</p>
-    <p>
-        Keer sommen:<br />
-        0 t/m 10<br />
-        0 t/m 100<br />
-        0 t/m 1000</p>
-    <p>
-        &nbsp;</p>
+        <asp:Label ID="lbError" runat="server" Text="Error" Font-Bold="True" ForeColor="Red" Visible="False"></asp:Label>
+    </p>
 </asp:Content>

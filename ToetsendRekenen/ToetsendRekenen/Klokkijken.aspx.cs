@@ -502,7 +502,7 @@ namespace ToetsendRekenen
                                         uitleg += "9. Dus zijn de minuten 45.<br />";
                                         break;
                                 }
-                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + antwoord;
 
                                 break;
                             case 10: //10 minuten
@@ -547,7 +547,7 @@ namespace ToetsendRekenen
                                         uitleg += "10. Dus zijn de minuten 50.<br />";
                                         break;
                                 }
-                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + antwoord;
 
                                 break;
                             case 5: //5 minuten
@@ -614,7 +614,7 @@ namespace ToetsendRekenen
 
 
 
-                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + antwoord;
 
                                 break;
                             case 1: //1 minuut
@@ -698,10 +698,11 @@ namespace ToetsendRekenen
                                     uitleg += "11. <br />Als je lange wijzer op de 11 staat is het 55 minuten. <br />Dan tel je hoeveel minuten er tussen de lange wijzer en de 11 zit.<br />" +
                                         "Dit tel je dan bij de 55 minuten die al hebt op. <br />Bij deze vraag kom je dan op " + goedMinuten + ".";
                                 }
-                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                lblUitlegAntwoord.Text = "Het juiste antwoord is: " + antwoord;
                                 break;
                         }
-                        divUitleg.InnerHtml = uitleg;
+                        //divUitleg.InnerHtml = uitleg;
+                        lblUitlegAntwoord.Text = "Het juiste antwoord is: <br />" + antwoord;
                         lblUitlegAntwoord.ForeColor = System.Drawing.Color.Green;
                         lblUitlegAntwoord.Visible = true;
                     }
