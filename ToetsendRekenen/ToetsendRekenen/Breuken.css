@@ -1,0 +1,16 @@
+﻿#content {
+    width:799px;
+}
+#left-content {
+    float:left;
+    width:390px;
+}
+#right-content {
+    float:right;
+    width:380px;
+    height:auto;
+}
+    #right-content img {
+        float:right;
+        margin-right:5px;
+}
