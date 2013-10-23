@@ -126,10 +126,15 @@ namespace ToetsendRekenen
         {
             string antwoord = "";
             int uren;
+            //Uren = 12;
 
-            if (Uren >= 13)
+            if (Uren > 12)
             {
                 uren = Uren - 12;
+            }
+            else if (Uren == 12)
+            {
+                uren = Uren - 11;
             }
             else if (Uren == 0)
             {
@@ -171,9 +176,9 @@ namespace ToetsendRekenen
                 case 26: antwoord = getallenUitgeschreven[3] + " minuten voor half " + getallenUitgeschreven[uren]; break;
                 case 27: antwoord = getallenUitgeschreven[2] + " minuten voor half " + getallenUitgeschreven[uren]; break;
                 case 28: antwoord = getallenUitgeschreven[1] + " minuten voor half " + getallenUitgeschreven[uren]; break;
-                case 29: antwoord = getallenUitgeschreven[0] + " minuten voor half " + getallenUitgeschreven[uren]; break;
+                case 29: antwoord = getallenUitgeschreven[0] + " minuut voor half " + getallenUitgeschreven[uren]; break;
                 case 30: antwoord = "half " + getallenUitgeschreven[uren]; break;
-                case 31: antwoord = getallenUitgeschreven[0] + " minuten over half " + getallenUitgeschreven[uren]; break;
+                case 31: antwoord = getallenUitgeschreven[0] + " minuut over half " + getallenUitgeschreven[uren]; break;
                 case 32: antwoord = getallenUitgeschreven[1] + " minuten over half " + getallenUitgeschreven[uren]; break;
                 case 33: antwoord = getallenUitgeschreven[2] + " minuten over half " + getallenUitgeschreven[uren]; break;
                 case 34: antwoord = getallenUitgeschreven[3] + " minuten over half " + getallenUitgeschreven[uren]; break;
@@ -201,7 +206,7 @@ namespace ToetsendRekenen
                 case 56: antwoord = getallenUitgeschreven[3] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
                 case 57: antwoord = getallenUitgeschreven[2] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
                 case 58: antwoord = getallenUitgeschreven[1] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
-                case 59: antwoord = getallenUitgeschreven[0] + " minuten voor " + getallenUitgeschreven[uren] + " uur"; break;
+                case 59: antwoord = getallenUitgeschreven[0] + " minuut voor " + getallenUitgeschreven[uren] + " uur"; break;
             }
 
             if (Uren <= 5)
