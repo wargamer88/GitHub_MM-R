@@ -15,7 +15,7 @@
                 <div class="voortgang"><span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/25 vragen</span></div>
             </div>
     <div id="left-content">
-        <div id="plaatjesdiv" runat="server">
+        <div id="plaatjesdiv" runat="server" style="height : 310px; overflow :scroll;">
 
 
         </div>
