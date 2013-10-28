@@ -4,6 +4,12 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="animatedClockDIV">
+        <img id="animatedClockGIF" src="Images/Clock.gif" /></div>
+    <p style="font-size: 19px; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif">
+        Het Klokkijken Spel</p>
+    <p>
+        Selecteer één van de onderstaande categorieën.</p>
     <div class="subs">
         <span style="font-weight: bold">Analoog</span>
         <br />
@@ -44,11 +50,9 @@
         <asp:LinkButton ID="lblDnaarA1" runat="server" OnClick="lblDnaarA1_Click">1 minuten</asp:LinkButton><br />--%>
 
     </div>
-    <div id="animatedClockDIV">
-        <img id="animatedClockGIF" src="Images/Clock.gif" /></div>
 
     <div id="Spacer"></div>
     <div id="Errorlbl">
         <asp:Label ID="lbError" runat="server" Text="Error" ForeColor="Red" Visible="False"></asp:Label>
-    </div>
+        s</div>
 </asp:Content>

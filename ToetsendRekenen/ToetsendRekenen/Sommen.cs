@@ -49,8 +49,8 @@ namespace ToetsendRekenen
                 do
                 {
                     Random R = new Random();
-                    VraagGetal1 = R.Next(1, 1000);
-                    VraagGetal2 = R.Next(1, 1000);
+                    VraagGetal1 = R.Next(100, 1000);
+                    VraagGetal2 = R.Next(100, 1000);
                     CategorieTeken = "+";
                     vraag = Convert.ToString(VraagGetal1) + Convert.ToString(VraagGetal2);
                 }
@@ -91,8 +91,8 @@ namespace ToetsendRekenen
                 do
                 {
                     Random R = new Random();
-                    VraagGetal1 = R.Next(1, 1000);
-                    VraagGetal2 = R.Next(1, VraagGetal1);
+                    VraagGetal1 = R.Next(100, 1000);
+                    VraagGetal2 = R.Next(100, VraagGetal1);
                     CategorieTeken = "-";
                     vraag = Convert.ToString(VraagGetal1) + Convert.ToString(VraagGetal2);
                 }
@@ -133,8 +133,8 @@ namespace ToetsendRekenen
                 do
                 {
                     Random R = new Random();
-                    VraagGetal1 = R.Next(1, 1000);
-                    VraagGetal2 = R.Next(1, 1000);
+                    VraagGetal1 = R.Next(100, 1000);
+                    VraagGetal2 = R.Next(100, 1000);
                     CategorieTeken = "x";
                     vraag = Convert.ToString(VraagGetal1) + Convert.ToString(VraagGetal2);
                 }
@@ -191,8 +191,8 @@ namespace ToetsendRekenen
                 do
                 {
                     Random R = new Random();
-                    VraagGetal1test = R.Next(1, 1000);
-                    VraagGetal2test = R.Next(1, Convert.ToInt32(VraagGetal1test));
+                    VraagGetal1test = R.Next(100, 1000);
+                    VraagGetal2test = R.Next(100, Convert.ToInt32(VraagGetal1test));
                     CategorieTeken = ":";
 
                     vraag = Convert.ToString(VraagGetal1test) + Convert.ToString(VraagGetal2test);

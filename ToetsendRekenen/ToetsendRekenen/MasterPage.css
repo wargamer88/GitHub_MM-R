@@ -1,4 +1,7 @@
-﻿
+﻿* {
+    font-family: 'Lucida Sans';
+}
+
 body {
     background-color: #A19EFF;
     height: 0 auto;
@@ -25,13 +28,14 @@ body {
     font-size:x-large;
     font-weight:900;
     color:white;
+    text-transform:uppercase;
 }
 
 #bodyPage {
     background-color:#FFFFFF;
     margin:0 auto 0 auto;
     width:1000px;
-    min-height:500px;
+    min-height:550px;
     height:0 auto;
     border:solid 3px white;
     position:relative;
@@ -40,9 +44,33 @@ body {
 #nav {
     background-color:#7D86FF;
     width:200px;
-    min-height:500px;
+    min-height:550px;
     height:0 auto;
     float:left;
+}
+
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    float:left;
+    width:195px;
+}
+
+.NavMenu:link,.NavMenu:visited {
+    margin-left: 5px;
+    margin-top: 5px;
+    display:block;
+    font-weight:bold;
+    color:#FFFFFF;
+    background-color:#7D86FF;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+}
+
+.NavMenu:hover,.NavMenu:active {
+    background-color:#1C2DFF;
 }
 
 #content {
