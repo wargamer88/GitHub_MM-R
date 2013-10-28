@@ -257,7 +257,7 @@ namespace ToetsendRekenen
                         uitleg.Style.Add("visibility", visibility);
                         Session["Resultaat"] = objResultaat;
                     }
-                    btnControleer.Visible = false;
+                    btnControlleer.Visible = false;
 
             }
             catch (Exception ex)
