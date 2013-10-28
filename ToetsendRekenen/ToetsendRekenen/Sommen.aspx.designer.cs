@@ -103,15 +103,6 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Label lbResultaat;
         
         /// <summary>
-        /// btnControleer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnControleer;
-        
-        /// <summary>
         /// btnVolgendeVraag control.
         /// </summary>
         /// <remarks>
