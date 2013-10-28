@@ -27,7 +27,7 @@
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         
-            <asp:Button ID="btnControleer" runat="server" Height="26px" BackColor="#3333FF" ForeColor="White" Text="Controleer antwoord" Width="127px" style="margin-left: 3px" OnClick="btnControleer_Click" /><asp:Button ID="btnVolgendeVraag" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" style="margin-top: 0px" Height="25px" OnClick="btnVolgendeVraag_Click" />
+            <asp:Button ID="btnControleer" runat="server" Height="26px" BackColor="#3333FF" ForeColor="White" Text="Controleer antwoord" Width="150px" style="margin-left: 3px" OnClick="btnControleer_Click" /><asp:Button ID="btnVolgendeVraag" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" style="margin-top: 0px" Height="25px" OnClick="btnVolgendeVraag_Click" Width="192px" />
             <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -13,16 +13,25 @@ namespace ToetsendRekenen
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Sessie objSessie = new Sessie();
-            objSessie.SessieID = Session.SessionID;
-            objSessie.Datum = DateTime.Now;
-            Session["Sessie"] = objSessie;
-            Session["Inlog"] = null;
-            bool SessieAlreadyExists = objSessie.CheckSessie();
 
-            if (SessieAlreadyExists == false)
+            try
             {
-                objSessie.NewSessie();
+                Sessie objSessie = new Sessie();
+                objSessie.SessieID = Session.SessionID;
+                objSessie.Datum = DateTime.Now;
+                Session["Sessie"] = objSessie;
+                Session["Inlog"] = null;
+                bool SessieAlreadyExists = objSessie.CheckSessie();
+
+                if (SessieAlreadyExists == false)
+                {
+                    objSessie.NewSessie();
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=JavaScript>alert(" + ex + ")</SCRIPT>");
             }
         }
 
