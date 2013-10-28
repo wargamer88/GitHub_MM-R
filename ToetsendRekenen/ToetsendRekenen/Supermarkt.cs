@@ -17,6 +17,7 @@ namespace ToetsendRekenen
 {
     public class Supermarkt
     {
+        #region properties
         DataToDatabase DD = new DataToDatabase();
         List<String> imagesList = new List<String>();
         public List<Supermarkt> productenFromDBD = new List<Supermarkt>();
@@ -41,99 +42,115 @@ Password=romimi;");
         public Image ImageFromDBD { get; set; }
         public decimal PriceFromDBD { get; set; }
         public string TagFromDBD { get; set; }
+        #endregion
 
-        
         //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
+            try
+            {
                 thisConnection.Open();
                 int teller = 0;
                 String savePath = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
                 GetImagesPath(savePath);
                 for (int i = 0; i < imagesList.Count; i++)
                 {
-                 SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
-                 SqlParameter pm = new SqlParameter();
-                 Image img = Image.FromFile(imagesList[teller]);
-                 pm.ParameterName = "@Afbeelding";
-                 pm.Value = DD.ImagetoByteArray(img);
-                 cmd.Parameters.Add(pm);
-                 cmd.Connection = thisConnection;
-                 cmd.ExecuteNonQuery();
-                 teller++;                  
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Afbeelding (Afbeelding) VALUES (@Afbeelding)");
+                    SqlParameter pm = new SqlParameter();
+                    Image img = Image.FromFile(imagesList[teller]);
+                    pm.ParameterName = "@Afbeelding";
+                    pm.Value = DD.ImagetoByteArray(img);
+                    cmd.Parameters.Add(pm);
+                    cmd.Connection = thisConnection;
+                    cmd.ExecuteNonQuery();
+                    teller++;
                 }
                 thisConnection.Close();
+            }
+            catch (SqlException ex)
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
+            }
         }
 
         //Methode om de database afbeeldingen uit te lezen en op te slaan.
         public List<Supermarkt> VanDB()
         {
-            thisConnection.Open();
-            int aantalafbeelding = 0;
-            int tagteller = 1;
-            Image result = null;
-            SqlParameter pm = new SqlParameter();
-            pm.ParameterName = "@AfbeeldingID";
-
-            SqlCommand cm = new SqlCommand("SELECT * FROM Afbeelding");
-            cm.Connection = thisConnection;
-
-            SqlDataReader readcm = cm.ExecuteReader();
-            while (readcm.Read())
+            try
             {
-                aantalafbeelding++;
-            }
-            readcm.Close();
-            for (int i = 0; i < aantalafbeelding; i++)
-            {
-                ImageUrl = new string[aantalafbeelding];
+                thisConnection.Open();
+                int aantalafbeelding = 0;
+                int tagteller = 1;
+                Image result = null;
+                SqlParameter pm = new SqlParameter();
+                pm.ParameterName = "@AfbeeldingID";
 
-                string selectString = "[dbo].[GetImageByImageID]";
-                SqlCommand selectCommand = new SqlCommand(selectString, thisConnection);
-                selectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                selectCommand.Parameters.AddWithValue("@AfbeeldingID", tagteller);
+                SqlCommand cm = new SqlCommand("SELECT * FROM Afbeelding");
+                cm.Connection = thisConnection;
 
-                selectCommand.Connection = thisConnection;
-
-                SqlDataReader reader = selectCommand.ExecuteReader();
-                while (reader.Read())
+                SqlDataReader readcm = cm.ExecuteReader();
+                while (readcm.Read())
                 {
-                    result = Image.FromStream(new MemoryStream((byte[])reader.GetValue(1)));
-
-                    //if (reader["Supermarktprijs"] == "")
-                    //{
-                    //    PriceFromDBD = 0;
-                    //}
-                    if (reader["Tag"] == null)
-                    {
-                        TagFromDBD = "";
-                    }
-                    else
-                    {
-                        productenFromDBD.Add(new Supermarkt { ImageFromDBD = result, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
-                    }
-
+                    aantalafbeelding++;
                 }
-                tagteller++;
-                reader.Close();
+                readcm.Close();
+                for (int i = 0; i < aantalafbeelding; i++)
+                {
+                    ImageUrl = new string[aantalafbeelding];
+
+                    string selectString = "[dbo].[GetImageByImageID]";
+                    SqlCommand selectCommand = new SqlCommand(selectString, thisConnection);
+                    selectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    selectCommand.Parameters.AddWithValue("@AfbeeldingID", tagteller);
+
+                    selectCommand.Connection = thisConnection;
+
+                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result = Image.FromStream(new MemoryStream((byte[])reader.GetValue(1)));
+
+                        //if (reader["Supermarktprijs"] == "")
+                        //{
+                        //    PriceFromDBD = 0;
+                        //}
+                        if (reader["Tag"] == null)
+                        {
+                            TagFromDBD = "";
+                        }
+                        else
+                        {
+                            productenFromDBD.Add(new Supermarkt { ImageFromDBD = result, PriceFromDBD = Convert.ToDecimal(reader["Supermarktprijs"]), TagFromDBD = reader["Tag"].ToString() });
+                        }
+
+                    }
+                    tagteller++;
+                    reader.Close();
+                }
+                thisConnection.Close();
             }
-            thisConnection.Close();
+            catch
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
+            }
             return productenFromDBD;
         }
 
         //Producten worden ingeladen vanuit de database en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
         {
-            string currentproduct ="";
+            try
+            {
+                string currentproduct = "";
 
-            thisConnection.Open();
+                thisConnection.Open();
 
                 for (int i = 0; i < dist.Count; i++)
                 {
-                   decimal oldsum = 0;             
-                   foreach (var cpro in dist)
+                    decimal oldsum = 0;
+                    foreach (var cpro in dist)
                     {
-                        currentproduct =  cpro.TagFromDBD;
+                        currentproduct = cpro.TagFromDBD;
                         SqlParameter pm = new SqlParameter();
                         SqlCommand cmd = new SqlCommand("SELECT * FROM Afbeelding WHERE Tag = @Tag");
                         pm.ParameterName = "@Tag";
@@ -149,9 +166,15 @@ Password=romimi;");
                             sum = oldsum;
                         }
                         reader.Close();
-                    }                   
-             }
-            thisConnection.Close();
+                    }
+                }
+
+                thisConnection.Close();
+            }
+            catch (SqlException ex)
+            {
+                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
+            }
             return sum;
         }
 

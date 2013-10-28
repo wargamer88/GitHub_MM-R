@@ -310,8 +310,13 @@ namespace ToetsendRekenen
 
             //Kijken of antword in antwoordenbox gelijk is aan de totale prijs van het boodschappenlijst.
             Totaal = (decimal)Session["Totaal"];
+            if (antwoord.Text == "")
+            {
+                antwoord.Text = "0";
+            }
             decimal antwoordvar = Convert.ToDecimal(antwoord.Text);
             decimal.TryParse(antwoord.Text.Replace(".", ","), out antwoordvar);
+            decimal.TryParse(antwoord.Text.Replace("-", "00"), out antwoordvar);
             #region verzendknop
             if (subCategorie == "Zonder afronden")
             {
