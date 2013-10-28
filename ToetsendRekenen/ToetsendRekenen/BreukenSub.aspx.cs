@@ -18,5 +18,25 @@ namespace ToetsendRekenen
         {
             Response.Redirect("Breuken.aspx");
         }
+
+        protected void lbBreuken2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbKomma1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbKomma2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbKomma3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
