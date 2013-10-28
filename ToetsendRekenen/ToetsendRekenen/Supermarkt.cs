@@ -47,8 +47,7 @@ Password=romimi;");
         //Methode om naar database te sturen. Handmatig per 1 afbeelding gedaan.
         public void NaarDB()
         {
-            try
-            {
+            
                 thisConnection.Open();
                 int teller = 0;
                 String savePath = "C:/Users/Michael/Documents/GitHub/GitHub_MM-R/ToetsendRekenen/ToetsendRekenen/Images/Supermarkt";
@@ -66,18 +65,13 @@ Password=romimi;");
                     teller++;
                 }
                 thisConnection.Close();
-            }
-            catch (SqlException ex)
-            {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
-            }
+            
         }
 
         //Methode om de database afbeeldingen uit te lezen en op te slaan.
         public List<Supermarkt> VanDB()
         {
-            try
-            {
+            
                 thisConnection.Open();
                 int aantalafbeelding = 0;
                 int tagteller = 1;
@@ -128,19 +122,14 @@ Password=romimi;");
                     reader.Close();
                 }
                 thisConnection.Close();
-            }
-            catch
-            {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
-            }
+            
             return productenFromDBD;
         }
 
         //Producten worden ingeladen vanuit de database en prijs word opgehaald en uitgerekend.
         public decimal GetPrice()
         {
-            try
-            {
+            
                 string currentproduct = "";
 
                 thisConnection.Open();
@@ -170,11 +159,7 @@ Password=romimi;");
                 }
 
                 thisConnection.Close();
-            }
-            catch (SqlException ex)
-            {
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Er kon geen verbinding met de database gemaakt. Probeer het later nog eens.')</SCRIPT>");
-            }
+            
             return sum;
         }
 
