@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <img alt="Denken aan sommen" class="auto-style2" src="Images/RekenenDenken.png" /> ss<p style="font-weight:bold;">
+    <img alt="Denken aan sommen" class="auto-style2" src="Images/RekenenDenken.png" /><p style="font-weight:bold;">
         Erbij sommen:
     </p>
     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">0 t/m 10</asp:LinkButton>
