@@ -11,7 +11,10 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Breuken B = new Breuken();
 
+            string [,] BrArray = B.BreukArray();
+            B.GangbareBreuken(BrArray);
 
         }
     }

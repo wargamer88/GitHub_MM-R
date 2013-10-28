@@ -12,7 +12,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Image ID="imgSter1" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter2" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter3" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter4" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter5" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" />
              </div>
-                <div class="voortgang"><span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/50 vragen</span></div>
+                <div class="voortgang"><span id="Span1" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/25 vragen</span></div>
             </div>
     <div id="left-content">
         <div id="plaatjesdiv" runat="server">
@@ -40,6 +40,7 @@
         <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbe" runat="server" TargetControlID="antwoord" ValidChars="1234567890.," />
         <asp:Button ID="verzend" runat="server" Text="Controleer" OnClick="verzend_Click" />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="antwoord" runat="server" ErrorMessage="Getallen en komma's of punt alleen." ValidationExpression="^(-)?\d+([\.\,]\d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblantwoord" runat="server" Text=""></asp:Label>
         <br />
