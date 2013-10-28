@@ -39,8 +39,8 @@
         <br />
         <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbe" runat="server" TargetControlID="antwoord" ValidChars="1234567890.," />
-
         <asp:Button ID="verzend" runat="server" Text="Controleer" OnClick="verzend_Click" />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="antwoord" runat="server" ErrorMessage="Getallen en komma's of punt alleen." ValidationExpression="^(-)?\d+([\.\,]\d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblantwoord" runat="server" Text=""></asp:Label>
         <br />
