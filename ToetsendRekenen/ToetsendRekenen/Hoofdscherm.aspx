@@ -2,13 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
-        Welkom op de site van ToetsendRekenen</p>
+    <h1>
+        Welkom op de site van ToetsendRekenen</h1>
     <p>
         Links in het hoofdmenu kan je uit de verschilende categorieën kiezen. </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;<asp:Button ID="btnStatistiek" runat="server" Text="Ga naar statistieken" OnClick="btnStatistiek_Click" />
+    <p style="float:left; margin-bottom:0;">
+        &nbsp;<asp:Button ID="btnStatistiek" runat="server" Height="26px" BackColor="#3333FF" ForeColor="White" Text="Ga naar statistieken" OnClick="btnStatistiek_Click" />
     </p>
 </asp:Content>

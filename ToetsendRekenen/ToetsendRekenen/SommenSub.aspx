@@ -23,7 +23,7 @@
     <br />
     <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">0 t/m 100</asp:LinkButton>    
         <br />
-    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">0 t/m 1000</asp:LinkButton>    
+    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">100 t/m 1000</asp:LinkButton>    
     <p style="font-weight:bold;">
         Eraf sommen:
     </p>
@@ -31,7 +31,7 @@
     <br />
     <asp:LinkButton ID="LinkButton5" runat="server" OnClick="LinkButton5_Click">0 t/m 100</asp:LinkButton>    
         <br />
-    <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">0 t/m 1000</asp:LinkButton> 
+    <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton6_Click">100 t/m 1000</asp:LinkButton> 
     <p style="font-weight:bold;">
         Keer sommen:
     </p>
@@ -39,7 +39,7 @@
     <br />
     <asp:LinkButton ID="LinkButton8" runat="server" OnClick="LinkButton8_Click">0 t/m 100</asp:LinkButton>    
         <br />
-    <asp:LinkButton ID="LinkButton9" runat="server" OnClick="LinkButton9_Click">0 t/m 1000</asp:LinkButton> 
+    <asp:LinkButton ID="LinkButton9" runat="server" OnClick="LinkButton9_Click">100 t/m 1000</asp:LinkButton> 
     <p style="font-weight:bold;">
         Deel sommen:
     </p>
@@ -47,7 +47,7 @@
     <br />
     <asp:LinkButton ID="LinkButton11" runat="server" OnClick="LinkButton11_Click">0 t/m 100</asp:LinkButton>    
         <br />
-    <asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click">0 t/m 1000</asp:LinkButton> 
+    <asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click">100 t/m 1000</asp:LinkButton> 
     <p>
         <asp:Label ID="lbError" runat="server" Text="Error" Font-Bold="True" ForeColor="Red" Visible="False"></asp:Label>
     </p>
