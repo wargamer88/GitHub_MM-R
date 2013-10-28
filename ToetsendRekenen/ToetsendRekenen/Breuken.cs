@@ -7,18 +7,19 @@ namespace ToetsendRekenen
 {
     public class Breuken
     {
-        string[,] BrArr = new string[101, 101];
+        public string[,] BrArr = new string[101, 101];
         #region Gangbare breuken string
-        string[] Gang100 = new string[101];
-        string[] Gang50 = new string[51];
-        string[] Gang25 = new string[26];
-        string[] Gang20 = new string[21];
-        string[] Gang10 = new string[11];
-        string[] Gang8 = new string[9];
-        string[] Gang5 = new string[6];
-        string[] Gang4 = new string[5];
-        string[] Gang3 = new string[4];
-        string[] Gang2 = new string[3];
+        public string[] Gang100 = new string[101];
+        public string[] Gang50 = new string[51];
+        public string[] Gang25 = new string[26];
+        public string[] Gang20 = new string[21];
+        public string[] Gang10 = new string[11];
+        public string[] Gang8 = new string[9];
+        public string[] Gang5 = new string[6];
+        public string[] Gang4 = new string[5];
+        public string[] Gang3 = new string[4];
+        public string[] Gang2 = new string[3];
+        
         #endregion
 
         public string[,] BreukArray()
@@ -89,11 +90,25 @@ namespace ToetsendRekenen
                 Gang2[i] = BrArr[i, 2];
             }
             #endregion
+            #region combine
+            
+            #endregion
         }
 
         public void Random()
         {
+            Random R = new Random();
+            string[] randomgangbarebreuken = new string[Gang100.Length + Gang50.Length + Gang25.Length + Gang20.Length + Gang10.Length + Gang8.Length + Gang5.Length + Gang4.Length + Gang3.Length + Gang2.Length];
+            string[] array1 = {  };
+            Gang100.CopyTo(randomgangbarebreuken, Gang100.Length);
+            var Rgangbarebreuken = Gang100.Concat(Gang50);
+            //randomgangbarebreuken.
 
+            var query = from element in Gang100
+                        orderby element
+                        select element;
+
+            string[] array2 = query.ToArray();
         }
     }
 }
