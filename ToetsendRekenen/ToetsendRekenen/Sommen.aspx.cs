@@ -13,6 +13,7 @@ namespace ToetsendRekenen
         {
             if (!IsPostBack)
             {
+                    tbAntwoord.Attributes.Add("autocomplete", "off");
                     //Getallenlijn/Antwoorden genereren en Invullen.
                     Resultaat objResultaat = new Resultaat();
                     objResultaat = (Resultaat)Session["Resultaat"];
