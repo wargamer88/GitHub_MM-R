@@ -90,5 +90,10 @@ namespace ToetsendRekenen
             }
             #endregion
         }
+
+        public void Random()
+        {
+
+        }
     }
 }
