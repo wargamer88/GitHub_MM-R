@@ -90,25 +90,12 @@ namespace ToetsendRekenen
                 Gang2[i] = BrArr[i, 2];
             }
             #endregion
-            #region combine
-            
-            #endregion
         }
 
         public void Random()
         {
             Random R = new Random();
-            string[] randomgangbarebreuken = new string[Gang100.Length + Gang50.Length + Gang25.Length + Gang20.Length + Gang10.Length + Gang8.Length + Gang5.Length + Gang4.Length + Gang3.Length + Gang2.Length];
-            string[] array1 = {  };
-            Gang100.CopyTo(randomgangbarebreuken, Gang100.Length);
-            var Rgangbarebreuken = Gang100.Concat(Gang50);
-            //randomgangbarebreuken.
-
-            var query = from element in Gang100
-                        orderby element
-                        select element;
-
-            string[] array2 = query.ToArray();
+            
         }
     }
 }
