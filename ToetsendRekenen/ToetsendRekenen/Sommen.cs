@@ -15,6 +15,7 @@ namespace ToetsendRekenen
 
         public void GenerateSommen(string Categorie, string Subcategorie)
         {
+            #region +/0-10
             string vraag = "";
             if (Subcategorie == "0-10" && Categorie == "+")
             {
@@ -29,7 +30,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 + VraagGetal2;
-            }
+            } 
+            #endregion
+            #region +/0-100
             else if (Subcategorie == "0-100" && Categorie == "+")
             {
                 do
@@ -43,7 +46,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 + VraagGetal2;
-            }
+            } 
+            #endregion
+            #region +/0-1000
             else if (Subcategorie == "0-1000" && Categorie == "+")
             {
                 do
@@ -57,7 +62,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 + VraagGetal2;
-            }
+            } 
+            #endregion
+            #region -/0-10
             else if (Subcategorie == "0-10" && Categorie == "-")
             {
                 do
@@ -71,7 +78,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 - VraagGetal2;
-            }
+            } 
+            #endregion
+            #region -/0-100
             else if (Subcategorie == "0-100" && Categorie == "-")
             {
                 do
@@ -85,7 +94,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 - VraagGetal2;
-            }
+            } 
+            #endregion
+            #region -/0-1000
             else if (Subcategorie == "0-1000" && Categorie == "-")
             {
                 do
@@ -99,7 +110,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 - VraagGetal2;
-            }
+            } 
+            #endregion
+            #region x/0-10
             else if (Subcategorie == "0-10" && Categorie == "x")
             {
                 do
@@ -113,7 +126,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 * VraagGetal2;
-            }
+            } 
+            #endregion
+            #region x/0-100
             else if (Subcategorie == "0-100" && Categorie == "x")
             {
                 do
@@ -127,7 +142,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 * VraagGetal2;
-            }
+            } 
+            #endregion
+            #region x/0-1000
             else if (Subcategorie == "0-1000" && Categorie == "x")
             {
                 do
@@ -141,7 +158,9 @@ namespace ToetsendRekenen
                 while (PreventRepeatingQuestions(vraag, Vragen));
                 Vragen.Add(vraag);
                 Antwoord = VraagGetal1 * VraagGetal2;
-            }
+            } 
+            #endregion
+            #region :/0-10
             else if (Subcategorie == "0-10" && Categorie == ":")
             {
                 double ControleAntwoord = 0;
@@ -161,8 +180,10 @@ namespace ToetsendRekenen
                 VraagGetal1 = Convert.ToInt32(VraagGetal1test);
                 VraagGetal2 = Convert.ToInt32(VraagGetal2test);
                 Antwoord = VraagGetal1 / VraagGetal2;
-                
-            }
+
+            } 
+            #endregion
+            #region :/0-100
             else if (Subcategorie == "0-100" && Categorie == ":")
             {
                 double ControleAntwoord = 0;
@@ -182,7 +203,9 @@ namespace ToetsendRekenen
                 VraagGetal1 = Convert.ToInt32(VraagGetal1test);
                 VraagGetal2 = Convert.ToInt32(VraagGetal2test);
                 Antwoord = VraagGetal1 / VraagGetal2;
-            }
+            } 
+            #endregion
+            #region :/0-1000
             else if (Subcategorie == "0-1000" && Categorie == ":")
             {
                 double ControleAntwoord = 0;
@@ -202,7 +225,8 @@ namespace ToetsendRekenen
                 VraagGetal1 = Convert.ToInt32(VraagGetal1test);
                 VraagGetal2 = Convert.ToInt32(VraagGetal2test);
                 Antwoord = VraagGetal1 / VraagGetal2;
-            }
+            } 
+            #endregion
         }
 
         public bool PreventRepeatingQuestions(string vraag, List<string> vragen)

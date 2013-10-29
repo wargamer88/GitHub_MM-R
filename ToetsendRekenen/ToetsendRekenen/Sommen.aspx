@@ -50,7 +50,7 @@
                     Uitleg:
                 </span>
                 <br />
-               
+                <asp:Label ID="lbUitleg" runat="server" Text="lbUitleg"></asp:Label>
 
                 <br />
                 <asp:Label ID="lbAntwoord" runat="server" Text="Juiste Antwoord" Visible="False"></asp:Label>
