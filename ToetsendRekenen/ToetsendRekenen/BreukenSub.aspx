@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="left-content">
             <p id="SubTitel">
-        Het Supermarkt Spel</p>
+        Het Breuken Spel</p>
     <p>
         Selecteer één van de onderstaande categorieën.</p>
      <p class="SubCategorie">
@@ -29,6 +29,6 @@
     <asp:Label ID="lbError" runat="server" Text=""></asp:Label>
     </div>
     <div id="right-content">
-        <img src="Images/breukenmaker.png" />
+        <img src="~/Images/breukenmaker.png" />
     </div>
 </asp:Content>
