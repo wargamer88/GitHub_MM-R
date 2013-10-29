@@ -310,6 +310,7 @@
     <Content Include="MasterToetsendRekenen.Master" />
     <Content Include="packages.config" />
     <Content Include="ShowImage.ashx" />
+    <None Include="Properties\PublishProfiles\ToetsendRekenen.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -330,7 +331,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>39018</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:13727/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
