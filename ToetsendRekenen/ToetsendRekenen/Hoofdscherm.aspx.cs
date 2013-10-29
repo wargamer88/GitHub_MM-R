@@ -16,17 +16,23 @@ namespace ToetsendRekenen
 
             try
             {
+                #region NieuweSessie
+                //Nieuwe Sessie aanmaken
                 Sessie objSessie = new Sessie();
                 objSessie.SessieID = Session.SessionID;
                 objSessie.Datum = DateTime.Now;
                 Session["Sessie"] = objSessie;
-                Session["Inlog"] = null;
-                bool SessieAlreadyExists = objSessie.CheckSessie();
+                Session["Inlog"] = null; 
+                #endregion
 
+                #region SessieOpslaanDB
+                //Sessie Opslaan op de database
+                bool SessieAlreadyExists = objSessie.CheckSessie();
                 if (SessieAlreadyExists == false)
                 {
                     objSessie.NewSessie();
-                }
+                } 
+                #endregion
             }
             catch (Exception ex)
             {

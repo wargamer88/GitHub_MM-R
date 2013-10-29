@@ -67,6 +67,8 @@
     <Content Include="Breuken.css" />
     <Content Include="Getallenlijn.css" />
     <Content Include="Images\Clock.gif" />
+    <Content Include="Images\Getallenlijn.png" />
+    <Content Include="Images\GetallenlijnDenken.png" />
     <Content Include="Images\Happy.png" />
     <Content Include="Images\KorteWijzer.png" />
     <Content Include="Images\LangeWijzer.png" />
@@ -75,6 +77,7 @@
     <Content Include="Images\perkament1px.png" />
     <Content Include="Images\Perkamentboven.png" />
     <Content Include="Images\perkamentonder.png" />
+    <Content Include="Images\Pijltje.png" />
     <Content Include="Images\RekenenDenken.png" />
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
