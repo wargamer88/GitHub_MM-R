@@ -176,7 +176,7 @@ namespace ToetsendRekenen
             try
             {
                 #region InladenGegevens
-                //Alles gegevens inladen van sessie
+                //Alle gegevens inladen
                 int antwoord = 0;
                 lbError.Visible = false;
                 btnVolgendeVraag.Visible = true;

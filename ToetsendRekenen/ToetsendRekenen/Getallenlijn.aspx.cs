@@ -19,10 +19,11 @@ namespace ToetsendRekenen
             {
                 if (!IsPostBack)
                 {
-                    //Getallenlijn/Antwoorden genereren en Invullen.
+                    #region Voortgang
+                    //voorgang controlleren
                     Resultaat objResultaat = new Resultaat();
                     objResultaat = (Resultaat)Session["Resultaat"];
-                    int voortgang = (int)Session["Voortgang"];         
+                    int voortgang = (int)Session["Voortgang"];
                     if (voortgang != 50)
                     {
                         voortgang = voortgang + 1;
@@ -35,8 +36,10 @@ namespace ToetsendRekenen
                     Session["Voortgang"] = voortgang;
 
                     lbError.Visible = false;
-                    lbResultaat.Visible = false;
+                    lbResultaat.Visible = false; 
+                    #endregion
 
+                    #region Sterren
                     //Sterren laden
                     int aantalsterren = (int)Session["AantalSterren"];
                     if (aantalsterren == 1)
@@ -68,15 +71,18 @@ namespace ToetsendRekenen
                         imgSter3.ImageUrl = "Images/Ster.png";
                         imgSter4.ImageUrl = "Images/Ster.png";
                         imgSter5.ImageUrl = "Images/Ster.png";
-                    }
+                    } 
+                    #endregion
 
+                    #region Getallenlijn/Foute antwoorden Genereren en Invullen
+                    //Getallenlijn/Antwoorden genereren en Invullen.
                     string subcategorie = objResultaat.SubCategorie;
                     string categorie = objResultaat.Categorie;
                     do
                     {
                         GL.GetallenlijnGenereren(categorie, subcategorie);
                     }
-                    while (GL.EindGetal > 100  || GL.EindKommaGetal > 100);
+                    while (GL.EindGetal > 100 || GL.EindKommaGetal > 100);
                     if (objResultaat.Categorie == "Getallen")
                     {
                         cblAntwoorden.Items[GL.RandomPositie2].Text = Convert.ToString(GL.FoutGetal1);
@@ -98,21 +104,23 @@ namespace ToetsendRekenen
                     else if (objResultaat.Categorie == "Breuken")
                     {
                         //Alles naar fractions
-                        cblAntwoorden.Items[GL.RandomPositie2].Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.FoutKommaGetal1)).ToString(); 
+                        cblAntwoorden.Items[GL.RandomPositie2].Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.FoutKommaGetal1)).ToString();
                         cblAntwoorden.Items[GL.RandomPositie3].Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.FoutKommaGetal2)).ToString();
                         cblAntwoorden.Items[GL.RandomPositie4].Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.FoutKommaGetal3)).ToString();
                         StartNummer.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.StartKommaGetal)).ToString();
                         EindNummer.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.EindKommaGetal)).ToString();
                         MiddelNummer.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.MiddelKommaGetal)).ToString();
-                    }
+                    } 
+                    #endregion
 
+                    #region JuisteAntwoord/Pijl/Uitleg
                     //Pijl Verplaatsen
                     string plaatspijl = "Geen Antwoord";
                     if (objResultaat.Categorie == "Getallen")
                     {
                         antwoord = (GL.VraagGetal * GL.Tussenstapint) + GL.StartGetal;
                         plaatspijl = Convert.ToString((GL.VraagGetal * 36) + 219) + "px;";
-                        
+
                         Pijltje.Style.Add("Left", plaatspijl);
                         cblAntwoorden.Items[GL.RandomPositie1].Text = Convert.ToString(antwoord);
 
@@ -127,7 +135,7 @@ namespace ToetsendRekenen
                         antword = (GL.VraagGetal * GL.Tussenstapdouble) + GL.StartKommaGetal;
                         antword = Math.Round(antword, 1);
                         plaatspijl = Convert.ToString((GL.VraagGetal * 36) + 219) + "px;";
-                        
+
                         Pijltje.Style.Add("Left", plaatspijl);
                         cblAntwoorden.Items[GL.RandomPositie1].Text = Convert.ToString(antword);
 
@@ -151,8 +159,11 @@ namespace ToetsendRekenen
                         lbUitlegTussenstap.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.Tussenstapdouble)).ToString();
                         lbUitlegTussenstapGrootte.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.Tussenstapdouble)).ToString();
                         lbUitlegLijnnummer.Text = GetallenLijn.ConvertToFracture(Convert.ToDecimal(GL.VraagGetal)).ToString();
-                    }
+                    } 
+                    #endregion
 
+                    #region AntwoordOpslaan
+                    //Antwoord opslaan in session
                     if (objResultaat.Categorie == "Getallen")
                     {
                         Session["Antwoord"] = antwoord;
@@ -160,7 +171,8 @@ namespace ToetsendRekenen
                     else if (objResultaat.Categorie == "KommaGetallen" || objResultaat.Categorie == "Breuken")
                     {
                         Session["Antwoord"] = antword;
-                    }
+                    } 
+                    #endregion
                     
                     
                 }
@@ -178,6 +190,8 @@ namespace ToetsendRekenen
         {
             try
             {
+                #region InladenGegevens
+                //Alle gegevens inladen
                 lbError.Visible = false;
                 btnNext.Visible = true;
                 Resultaat objResultaat = new Resultaat();
@@ -190,89 +204,28 @@ namespace ToetsendRekenen
                 else if (objResultaat.Categorie == "KommaGetallen" || objResultaat.Categorie == "Breuken")
                 {
                     antword = (double)Session["Antwoord"];
-                }
+                } 
+                #endregion
 
                 if (objResultaat.Categorie == "Getallen")
                 {
                     if (Convert.ToInt32(cblAntwoorden.SelectedItem.Text) == antwoord)
                     {
+                        #region GoedAntwoord
+                        //Antwoord Goed, Dan Antwoord is juist laten zien
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is juist!";
-                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Green;
-                        cblAntwoorden.Enabled = false;
-                        string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
-
-                        int aantalsterren = (int)Session["AantalSterren"]; 
-                        if (objResultaat.AantalGoed == 10)
-                        {
-                            imgSter1.ImageUrl = "Images/Ster.png";
-                            if (aantalsterren == 0)
-                            {
-                                aantalsterren = aantalsterren + 1;
-                            }
-                            Session["AantalSterren"] = aantalsterren;
-                        }
-                        else if (objResultaat.AantalGoed == 20)
-                        {
-                            if (aantalsterren == 1)
-                            {
-                                aantalsterren = aantalsterren + 1;
-                            }
-                            Session["AantalSterren"] = aantalsterren;
-                        }
-                        else if (objResultaat.AantalGoed == 30)
-                        {
-                            if (aantalsterren == 2)
-                            {
-                                aantalsterren = aantalsterren + 1;
-                            }
-                            Session["AantalSterren"] = aantalsterren;
-                        }
-                        else if (objResultaat.AantalGoed == 40)
-                        {
-                            if (aantalsterren == 3)
-                            {
-                                aantalsterren = aantalsterren + 1;
-                            }
-                            Session["AantalSterren"] = aantalsterren;
-                        }
-                        else if (objResultaat.AantalGoed == 50)
-                        {
-                            if (aantalsterren == 4)
-                            {
-                                aantalsterren = aantalsterren + 1;
-                            }
-                            Session["AantalSterren"] = aantalsterren;
-                        }
-                    }
-                    else if (Convert.ToDouble(cblAntwoorden.SelectedItem.Text) != antwoord)
-                    {
-                        lbResultaat.Visible = true;
-                        lbResultaat.Text = "Jou antwoord is fout!";
-                        lbAntwoord.Visible = true;
-                        lbAntwoord.Text = "Het juiste antwoord = " + Convert.ToString(antwoord);
-                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
-                        lbResultaat.ForeColor = System.Drawing.Color.Red;
-                        lbAntwoord.ForeColor = System.Drawing.Color.Green;
-                        cblAntwoorden.Enabled = false;
-                        string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
-                    }
-                }
-                else if (objResultaat.Categorie == "KommaGetallen")
-                {
-                    if (Convert.ToDouble(cblAntwoorden.SelectedItem.Text) == antword)
-                    {
-                        lbResultaat.Visible = true;
-                        lbResultaat.Text = "Jou antwoord is juist!";
+                        //Voorgang aantal goed updaten
                         objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
-                        lbResultaat.ForeColor = System.Drawing.Color.Green;
                         cblAntwoorden.Enabled = false;
+                        //Uitleg laten zien
                         string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
 
+                        #region SterrenBijvullen
+                        //Aantal sterren bijvullen bij aantal goed
                         int aantalsterren = (int)Session["AantalSterren"];
                         if (objResultaat.AantalGoed == 10)
                         {
@@ -314,20 +267,108 @@ namespace ToetsendRekenen
                                 aantalsterren = aantalsterren + 1;
                             }
                             Session["AantalSterren"] = aantalsterren;
-                        }
+                        } 
+                        #endregion
                     }
-                    else if(Convert.ToDouble(cblAntwoorden.SelectedItem.Text) != antword)
+                    else if (Convert.ToDouble(cblAntwoorden.SelectedItem.Text) != antwoord)
                     {
+                        #region FoutAntwoord
+                        //Resultaat weergeven fout + antwoord
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is fout!";
                         lbAntwoord.Visible = true;
-                        lbAntwoord.Text = "Het juiste antwoord = " + Convert.ToString(antword);
+                        lbAntwoord.Text = "Het juiste antwoord = " + Convert.ToString(antwoord);
+                        lbResultaat.ForeColor = System.Drawing.Color.Red;
+                        lbAntwoord.ForeColor = System.Drawing.Color.Green;
+                        //Voorgagn aantal fout updaten
                         objResultaat.AantalFout = objResultaat.AantalFout + 1;
+                        cblAntwoorden.Enabled = false;
+                        //Uileg laten zien
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
+                    }
+                }
+                else if (objResultaat.Categorie == "KommaGetallen")
+                {
+                    if (Convert.ToDouble(cblAntwoorden.SelectedItem.Text) == antword)
+                    {
+                        #region GoedAntwoord
+                        //Antwoord Goed, dan Aantwoord juist laten zien
+                        lbResultaat.Visible = true;
+                        lbResultaat.Text = "Jou antwoord is juist!";
+                        lbResultaat.ForeColor = System.Drawing.Color.Green;
+                        //Voorgang aantal goed updaten
+                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
+                        cblAntwoorden.Enabled = false;
+                        //Uitleg laten zien
+                        string visibility = "visible";
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
+
+                        #region SterrenBijvullen
+                        //Aantal Sterren bijvullen bij aantal goed
+                        int aantalsterren = (int)Session["AantalSterren"];
+                        if (objResultaat.AantalGoed == 10)
+                        {
+                            imgSter1.ImageUrl = "Images/Ster.png";
+                            if (aantalsterren == 0)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 20)
+                        {
+                            if (aantalsterren == 1)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 30)
+                        {
+                            if (aantalsterren == 2)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 40)
+                        {
+                            if (aantalsterren == 3)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        }
+                        else if (objResultaat.AantalGoed == 50)
+                        {
+                            if (aantalsterren == 4)
+                            {
+                                aantalsterren = aantalsterren + 1;
+                            }
+                            Session["AantalSterren"] = aantalsterren;
+                        } 
+                        #endregion
+                    }
+                    else if(Convert.ToDouble(cblAntwoorden.SelectedItem.Text) != antword)
+                    {
+                        #region FoutAntwoord
+                        //Resultaat weergeen fout + antwoord
+                        lbResultaat.Visible = true;
+                        lbResultaat.Text = "Jou antwoord is fout!";
+                        lbAntwoord.Visible = true;
                         lbResultaat.ForeColor = System.Drawing.Color.Red;
                         lbAntwoord.ForeColor = System.Drawing.Color.Red;
+                        lbAntwoord.Text = "Het juiste antwoord = " + Convert.ToString(antword);
+                        //Voorgang aantal fout updaten
+                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         cblAntwoorden.Enabled = false;
+                        //Uitleg laten zien
                         string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
                     }
                 }
                 else if (objResultaat.Categorie == "Breuken")
@@ -335,14 +376,21 @@ namespace ToetsendRekenen
                     double selectedantwoord = GL.FractionalNumber(cblAntwoorden.SelectedItem.Text);
                     if (selectedantwoord == antword)
                     {
+                        #region GoedAntwoord
+                        //Antwoord goed, dan antwoord is juist laten zien
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is juist!";
-                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Green;
+                        //Voortgang aantal goed updaten
+                        objResultaat.AantalGoed = objResultaat.AantalGoed + 1;
                         cblAntwoorden.Enabled = false;
+                        //Uitleg laten zien
                         string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
 
+                        #region SterrenBijvullen
+                        //Aantal Sterren bijvullen bij aantal goed
                         int aantalsterren = (int)Session["AantalSterren"];
                         if (objResultaat.AantalGoed == 10)
                         {
@@ -384,20 +432,26 @@ namespace ToetsendRekenen
                                 aantalsterren = aantalsterren + 1;
                             }
                             Session["AantalSterren"] = aantalsterren;
-                        }
+                        } 
+                        #endregion
                     }
                     else if (selectedantwoord != antword)
                     {
+                        #region FoutAntwoord
+                        //Resultaat weergeven fout + antwoord
                         lbResultaat.Visible = true;
                         lbResultaat.Text = "Jou antwoord is fout!";
                         lbAntwoord.Visible = true;
-                        lbAntwoord.Text = "Het juiste antwoord = " + GetallenLijn.ConvertToFracture(Convert.ToDecimal(antword)).ToString(); ;
-                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         lbResultaat.ForeColor = System.Drawing.Color.Red;
                         lbAntwoord.ForeColor = System.Drawing.Color.Red;
+                        lbAntwoord.Text = "Het juiste antwoord = " + GetallenLijn.ConvertToFracture(Convert.ToDecimal(antword)).ToString(); ;
+                        //Voortgang aantal fout updaten
+                        objResultaat.AantalFout = objResultaat.AantalFout + 1;
                         cblAntwoorden.Enabled = false;
+                        //Uitleg laten zien
                         string visibility = "visible";
-                        uitleg.Style.Add("visibility", visibility);
+                        uitleg.Style.Add("visibility", visibility); 
+                        #endregion
                     }
                 }
                 
