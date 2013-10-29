@@ -121,7 +121,8 @@
     </p>
     <div id="Tables" style="height : 160px; overflow :scroll;">
     <div style="float:left">
-        <asp:GridView ID="gvResultaat" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="gvResultaat" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="Oefening" HeaderText="Oefening" SortExpression="Oefening" />
                 <asp:BoundField DataField="Categorie" HeaderText="Categorie" SortExpression="Categorie" />
@@ -130,14 +131,36 @@
                 <asp:BoundField DataField="Aantal Fout" HeaderText="Aantal Fout" ReadOnly="True" SortExpression="Aantal Fout" />
             </Columns>
 
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
         </asp:GridView>
     </div>
         <div id="gvViewsp" style="float:left; margin-left:50px;">
-            <asp:GridView ID="gvViews" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvViews" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="Views" HeaderText="Views" ReadOnly="True" SortExpression="Views" />
                     <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:MM/dd/yyyy}" />
                 </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
         </div>
     </div>
