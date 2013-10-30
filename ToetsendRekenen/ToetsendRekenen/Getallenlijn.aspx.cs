@@ -24,13 +24,28 @@ namespace ToetsendRekenen
                     Resultaat objResultaat = new Resultaat();
                     objResultaat = (Resultaat)Session["Resultaat"];
                     int voortgang = (int)Session["Voortgang"];
-                    if (voortgang != 50)
+                    if (objResultaat.Categorie == "Breuken")
                     {
-                        voortgang = voortgang + 1;
+                        lbTotaalAantalVragen.Text = "25";
+                        if (voortgang != 25)
+                        {
+                            voortgang = voortgang + 1;
+                        }
+                        else if (voortgang >= 25)
+                        {
+                            Response.Redirect("Resultaat.aspx");
+                        }
                     }
-                    else if (voortgang >= 50)
+                    else
                     {
-                        Response.Redirect("Resultaat.aspx");
+                        if (voortgang != 50)
+                        {
+                            voortgang = voortgang + 1;
+                        }
+                        else if (voortgang >= 50)
+                        {
+                            Response.Redirect("Resultaat.aspx");
+                        }
                     }
                     lbVoortgang.Text = Convert.ToString(voortgang);
                     Session["Voortgang"] = voortgang;
@@ -392,7 +407,7 @@ namespace ToetsendRekenen
                         #region SterrenBijvullen
                         //Aantal Sterren bijvullen bij aantal goed
                         int aantalsterren = (int)Session["AantalSterren"];
-                        if (objResultaat.AantalGoed == 10)
+                        if (objResultaat.AantalGoed == 5)
                         {
                             imgSter1.ImageUrl = "Images/Ster.png";
                             if (aantalsterren == 0)
@@ -401,7 +416,7 @@ namespace ToetsendRekenen
                             }
                             Session["AantalSterren"] = aantalsterren;
                         }
-                        else if (objResultaat.AantalGoed == 20)
+                        else if (objResultaat.AantalGoed == 10)
                         {
                             if (aantalsterren == 1)
                             {
@@ -409,7 +424,7 @@ namespace ToetsendRekenen
                             }
                             Session["AantalSterren"] = aantalsterren;
                         }
-                        else if (objResultaat.AantalGoed == 30)
+                        else if (objResultaat.AantalGoed == 15)
                         {
                             if (aantalsterren == 2)
                             {
@@ -417,7 +432,7 @@ namespace ToetsendRekenen
                             }
                             Session["AantalSterren"] = aantalsterren;
                         }
-                        else if (objResultaat.AantalGoed == 40)
+                        else if (objResultaat.AantalGoed == 20)
                         {
                             if (aantalsterren == 3)
                             {
@@ -425,7 +440,7 @@ namespace ToetsendRekenen
                             }
                             Session["AantalSterren"] = aantalsterren;
                         }
-                        else if (objResultaat.AantalGoed == 50)
+                        else if (objResultaat.AantalGoed == 25)
                         {
                             if (aantalsterren == 4)
                             {

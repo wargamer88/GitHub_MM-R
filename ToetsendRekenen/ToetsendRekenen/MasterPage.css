@@ -20,6 +20,11 @@ body {
     margin:0 auto 0 auto;
     border:solid 3px white;
 }
+#SubTitel {
+    font-size: 19px; 
+    font-weight: bolder; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 #headerTitle {
     margin-top:30px;

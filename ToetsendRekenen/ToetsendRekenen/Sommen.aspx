@@ -25,7 +25,7 @@
             <br />
                     <asp:Label ID="lbResultaat" runat="server" Text="Resultaat"></asp:Label>
             <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnControlleer" runat="server" BackColor="#3333FF" ForeColor="White" Text="Controleer Antwoord" style="margin-top: 0px" Height="25px" OnClick="btnControleer_Click" Width="150px" /><asp:Button ID="btnVolgendeVraag" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" style="margin-top: 0px" Height="25px" OnClick="btnVolgendeVraag_Click" Width="192px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnControlleer" runat="server" BackColor="#3333FF" ForeColor="White" Text="Controleer Antwoord" style="margin-top: 0px" Height="25px" OnClick="btnControleer_Click" Width="150px" /><asp:Button ID="btnVolgendeVraag" runat="server" BackColor="#3333FF" ForeColor="White" Text="Naar de volgende vraag" Visible="False" style="margin-top: 0px" Height="25px" OnClick="btnVolgendeVraag_Click" Width="192px" />
             <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -50,7 +50,7 @@ namespace ToetsendRekenen
                 imgSter3.ImageUrl = "Images/Ster.png";
                 imgSter4.ImageUrl = "Images/Ster.png";
                 face.ImageUrl = "Images/happy.png";
-                lbAanmoediging.Text = "Goedzo, nu niet opgeven. Nog 1 ster en dan heb je alles sterren verdient.";
+                lbAanmoediging.Text = "Goedzo, nu niet opgeven. Nog 1 ster en dan heb je alle sterren verdient.";
             }
             else if (aantalsterren == 5)
             {
