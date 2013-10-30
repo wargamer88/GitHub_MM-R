@@ -42,11 +42,9 @@
     <p style="font-weight:bold;">
         Deel sommen:
     </p>
-    <asp:LinkButton ID="LinkButton10" runat="server" OnClick="LinkButton10_Click">0 t/m 10</asp:LinkButton>
-    <br />
     <asp:LinkButton ID="LinkButton11" runat="server" OnClick="LinkButton11_Click">0 t/m 100</asp:LinkButton>    
         <br />
-    <asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click">100 t/m 1000</asp:LinkButton> 
+    <asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click">0 t/m 1000</asp:LinkButton> 
     <p>
         <asp:Label ID="lbError" runat="server" Text="Error" Font-Bold="True" ForeColor="Red" Visible="False"></asp:Label>
     </p>

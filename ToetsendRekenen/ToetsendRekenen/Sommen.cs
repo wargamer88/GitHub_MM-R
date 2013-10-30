@@ -160,29 +160,6 @@ namespace ToetsendRekenen
                 Antwoord = VraagGetal1 * VraagGetal2;
             } 
             #endregion
-            #region :/0-10
-            else if (Subcategorie == "0-10" && Categorie == ":")
-            {
-                double ControleAntwoord = 0;
-                double VraagGetal1test = 0;
-                double VraagGetal2test = 0;
-                do
-                {
-                    Random R = new Random();
-                    VraagGetal1test = R.Next(1, 10);
-                    VraagGetal2test = R.Next(1, Convert.ToInt32(VraagGetal1test));
-                    CategorieTeken = ":";
-
-                    vraag = Convert.ToString(VraagGetal1test) + Convert.ToString(VraagGetal2test);
-                    ControleAntwoord = VraagGetal1test / VraagGetal2test;
-                }
-                while ((Math.Floor(ControleAntwoord)) != ControleAntwoord || PreventRepeatingQuestions(vraag, Vragen));
-                VraagGetal1 = Convert.ToInt32(VraagGetal1test);
-                VraagGetal2 = Convert.ToInt32(VraagGetal2test);
-                Antwoord = VraagGetal1 / VraagGetal2;
-
-            } 
-            #endregion
             #region :/0-100
             else if (Subcategorie == "0-100" && Categorie == ":")
             {
@@ -215,7 +192,7 @@ namespace ToetsendRekenen
                 {
                     Random R = new Random();
                     VraagGetal1test = R.Next(100, 1000);
-                    VraagGetal2test = R.Next(100, Convert.ToInt32(VraagGetal1test));
+                    VraagGetal2test = R.Next(2, Convert.ToInt32(VraagGetal1test));
                     CategorieTeken = ":";
 
                     vraag = Convert.ToString(VraagGetal1test) + Convert.ToString(VraagGetal2test);

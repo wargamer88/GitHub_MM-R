@@ -39,6 +39,30 @@ namespace ToetsendRekenen
                             Response.Redirect("Resultaat.aspx");
                         }
                     }
+                    else if (objResultaat.Categorie == "-" && objResultaat.SubCategorie == "0-1000")
+                    {
+                        lbTotaalAantalVragen.Text = "25";
+                        if (voortgang != 25)
+                        {
+                            voortgang = voortgang + 1;
+                        }
+                        else if (voortgang >= 25)
+                        {
+                            Response.Redirect("Resultaat.aspx");
+                        }
+                    }
+                    else if (objResultaat.Categorie == "x" || objResultaat.Categorie == ":")
+                    {
+                        lbTotaalAantalVragen.Text = "25";
+                        if (voortgang != 25)
+                        {
+                            voortgang = voortgang + 1;
+                        }
+                        else if (voortgang >= 25)
+                        {
+                            Response.Redirect("Resultaat.aspx");
+                        }
+                    }
                     else
                     {
                         if (voortgang != 50)
@@ -204,6 +228,96 @@ namespace ToetsendRekenen
                         #region SterrenBijvullen
                         //Aantal Sterren bijvullen bij aantal goed
                         if (objResultaat.SubCategorie == "0-10")
+                        {
+                            int aantalsterren = (int)Session["AantalSterren"];
+                            if (objResultaat.AantalGoed == 5)
+                            {
+                                imgSter1.ImageUrl = "Images/Ster.png";
+                                if (aantalsterren == 0)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 10)
+                            {
+                                if (aantalsterren == 1)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 15)
+                            {
+                                if (aantalsterren == 2)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 20)
+                            {
+                                if (aantalsterren == 3)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 25)
+                            {
+                                if (aantalsterren == 4)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                        }
+                        else if (objResultaat.Categorie == "-" && objResultaat.SubCategorie == "0-1000")
+                        {
+                            int aantalsterren = (int)Session["AantalSterren"];
+                            if (objResultaat.AantalGoed == 5)
+                            {
+                                imgSter1.ImageUrl = "Images/Ster.png";
+                                if (aantalsterren == 0)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 10)
+                            {
+                                if (aantalsterren == 1)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 15)
+                            {
+                                if (aantalsterren == 2)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 20)
+                            {
+                                if (aantalsterren == 3)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                            else if (objResultaat.AantalGoed == 25)
+                            {
+                                if (aantalsterren == 4)
+                                {
+                                    aantalsterren = aantalsterren + 1;
+                                }
+                                Session["AantalSterren"] = aantalsterren;
+                            }
+                        }
+                        else if (objResultaat.Categorie == "x" || objResultaat.Categorie == ":")
                         {
                             int aantalsterren = (int)Session["AantalSterren"];
                             if (objResultaat.AantalGoed == 5)

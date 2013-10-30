@@ -46,7 +46,7 @@
                 <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; position:absolute; top:15px; margin-left:15px; left: 675px;">Score</span>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Image ID="imgSter1" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter2" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter3" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter4" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" /><asp:Image ID="imgSter5" CssClass="auto-style2" ImageUrl="Images/legeSter.png" runat="server" />
-                <div class="voortgang"><span id="voortgang" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/50 vragen</span></div>
+                <div class="voortgang"><span id="voortgang" style="font-family: Arial, Helvetica, sans-serif; font-size: 19px; font-weight: bold; background-color: #FFFF00">Voortgang <asp:Label ID="lbVoortgang" runat="server" Text="0"></asp:Label>/<asp:Label ID="lbTotaalAantalVragen" runat="server" Text="50"></asp:Label> vragen</span></div>
 
             </div>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -57,7 +57,7 @@
                 </span>
                 <br />
                 Je begint door <asp:Label ID="lbUitlegMiddenGetal" runat="server" Text="MiddelGetal"></asp:Label> - <asp:Label ID="lbUitlegBeginGetal" runat="server" Text="BeginGetal"></asp:Label>
-                daarna deel je dat door 5, en het antwoord daarvan is <asp:Label ID="lbUitlegTussenstap" runat="server" Text="Tussenstapgroote"></asp:Label>, dat is de tussenstapgrootte.
+                van elkaar af te halen, daarna deel je dat door 5 en het antwoord daarvan is <asp:Label ID="lbUitlegTussenstap" runat="server" Text="Tussenstapgroote"></asp:Label>, dat is de tussenstapgrootte.
                 Wat je dus dan doet is <asp:Label ID="lbUitlegTussenstapGrootte" runat="server" Text="tussenstapgrootte"></asp:Label> * <asp:Label ID="lbUitlegLijnnummer" runat="server" Text="VraagGetal"></asp:Label>.
 
                 <br />
