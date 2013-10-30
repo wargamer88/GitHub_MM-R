@@ -49,6 +49,42 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.LinkButton lblAnaloog1;
         
         /// <summary>
+        /// lblDigitaal15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblDigitaal15;
+        
+        /// <summary>
+        /// lblDigitaal10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblDigitaal10;
+        
+        /// <summary>
+        /// lblDigitaal5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblDigitaal5;
+        
+        /// <summary>
+        /// lblDigitaal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblDigitaal1;
+        
+        /// <summary>
         /// lblAnaarD15 control.
         /// </summary>
         /// <remarks>

@@ -75,7 +75,7 @@ namespace ToetsendRekenen
         {
             if (givenAnswer == goodAnswer)
             {
-                return "Dit andwoord is goed";
+                return "Dit antwoord is goed";
             }
             else
             {
@@ -88,7 +88,7 @@ namespace ToetsendRekenen
         {
             if (givenAnswer == goodAnswer)
             {
-                return "Dit andwoord is goed";
+                return "Dit antwoord is goed";
             }
             else
             {

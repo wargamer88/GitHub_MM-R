@@ -6,8 +6,21 @@
         $(document).ready(function () {
             $gradesLangewijzer = 360 / 60 * parseInt("<%= minutenVanLangewijzer%>");
             $gradesKortewijzer = 360 / 60 * parseInt("<%= minutenVanKortewijzer%>");
-            $('.langeWijzer').rotate($gradesLangewijzer);
-            $('.korteWijzer').rotate($gradesKortewijzer);
+            $('#langeWijzer').rotate($gradesLangewijzer);
+            $('#korteWijzer').rotate($gradesKortewijzer);
+
+            $clockVisibility = ("<%= clockVisibility%>");
+
+            if ($clockVisibility === "False") {
+                $('#wijzerPlaat').css("visibility", "hidden");
+                $('#korteWijzer').css("visibility", "hidden");
+                $('#langeWijzer').css("visibility", "hidden");
+            }
+            else {
+                $('#wijzerPlaat').css("visibility", "visible");
+                $('#korteWijzer').css("visibility", "visible");
+                $('#langeWijzer').css("visibility", "visible");
+            }
         });
 
     </script>
@@ -25,10 +38,11 @@
             06 : 00 uur t/m 17 : 59 uur is dag.<br />
             18 : 00 uur t/m 05 : 59 uur is nacht.<br />
             <br />
-            <div id="questionClock">
-                <img class="wijzerPlaat" src="Images/WijzerPlaat.png" />
-                <img class="korteWijzer" src="Images/KorteWijzer.png" />
-                <img class="langeWijzer" src="Images/LangeWijzer.png" />
+            <div id="questionClock" runat="server">
+                <asp:Label ID="digitalClock" runat="server" Text=""></asp:Label>
+                <img id="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img id="korteWijzer" src="Images/KorteWijzer.png" />
+                <img id="langeWijzer" src="Images/LangeWijzer.png" />
                 <asp:Image ID="imgSunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
             </div>
             <br />

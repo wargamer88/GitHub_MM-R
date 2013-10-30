@@ -31,6 +31,24 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Label lblCategorie;
         
         /// <summary>
+        /// questionClock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl questionClock;
+        
+        /// <summary>
+        /// digitalClock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label digitalClock;
+        
+        /// <summary>
         /// imgSunAndMoon control.
         /// </summary>
         /// <remarks>
