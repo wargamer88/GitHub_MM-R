@@ -9,8 +9,13 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <img alt="Denken aan sommen" class="auto-style2" src="Images/RekenenDenken.png" />
+    <p id="SubTitel">
+        Kun jij met sommen werken?</p>
+    <p>
+        Selecteer één van de onderstaande categorieën.</p>
 
-    <img alt="Denken aan sommen" class="auto-style2" src="Images/RekenenDenken.png" /><p style="font-weight:bold;">
+    <p style="font-weight:bold;">
         Erbij sommen:
     </p>
     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">0 t/m 10</asp:LinkButton>
