@@ -79,3 +79,11 @@
     width:100px;
     height:100px;
 }
+
+.rblAntwoorden input[type="radio"]{
+   margin-right: 100px; 
+}
+
+.SterImages {
+    margin-left: 80px;
+}
