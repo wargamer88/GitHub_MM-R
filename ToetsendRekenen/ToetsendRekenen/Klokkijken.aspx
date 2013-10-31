@@ -4,22 +4,46 @@
     <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $gradesLangewijzer = 360 / 60 * parseInt("<%= minutenVanLangewijzer%>");
-            $gradesKortewijzer = 360 / 60 * parseInt("<%= minutenVanKortewijzer%>");
-            $('#langeWijzer').rotate($gradesLangewijzer);
-            $('#korteWijzer').rotate($gradesKortewijzer);
+            //vraag
+            $('#langeWijzerVraag').rotate(360 / 60 * parseInt("<%= minutenVanLangewijzer%>"));
+            $('#korteWijzerVraag').rotate(360 / 60 * parseInt("<%= minutenVanKortewijzer%>"));
+
+            //antwoorden
+            $('#AnswerLangeWijzer1').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer1%>"));
+            $('#AnswerKorteWijzer1').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer1%>"));
+
+            $('#AnswerLangeWijzer2').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer2%>"));
+            $('#AnswerKorteWijzer2').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer2%>"));
+
+            $('#AnswerLangeWijzer3').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer3%>"));
+            $('#AnswerKorteWijzer3').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer3%>"));
+
+            $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer4%>"));
+            $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer4%>"));
 
             $clockVisibility = ("<%= clockVisibility%>");
+            $answerClockVisibility = ("<%= answerClockVisibility%>");
 
             if ($clockVisibility === "False") {
-                $('#wijzerPlaat').css("visibility", "hidden");
-                $('#korteWijzer').css("visibility", "hidden");
-                $('#langeWijzer').css("visibility", "hidden");
+                $('#wijzerPlaatVraag').css("visibility", "hidden");
+                $('#korteWijzerVraag').css("visibility", "hidden");
+                $('#langeWijzerVraag').css("visibility", "hidden");
             }
             else {
-                $('#wijzerPlaat').css("visibility", "visible");
-                $('#korteWijzer').css("visibility", "visible");
-                $('#langeWijzer').css("visibility", "visible");
+                $('#wijzerPlaatVraag').css("visibility", "visible");
+                $('#korteWijzerVraag').css("visibility", "visible");
+                $('#langeWijzerVraag').css("visibility", "visible");
+            }
+
+            if ($answerClockVisibility === "False") {
+                $('.AnswerWijzerPlaat').css("visibility", "hidden");
+                $('.AnswerKorteWijzer').css("visibility", "hidden");
+                $('.AnswerLangeWijzer').css("visibility", "hidden");
+            }
+            else {
+                $('.AnswerWijzerPlaat').css("visibility", "visible");
+                $('.AnswerKorteWijzer').css("visibility", "visible");
+                $('.AnswerLangeWijzer').css("visibility", "visible");
             }
         });
 
@@ -40,20 +64,38 @@
             <br />
             <div id="questionClock" runat="server">
                 <asp:Label ID="digitalClock" runat="server" Text=""></asp:Label>
-                <img id="wijzerPlaat" src="Images/WijzerPlaat.png" />
-                <img id="korteWijzer" src="Images/KorteWijzer.png" />
-                <img id="langeWijzer" src="Images/LangeWijzer.png" />
+                <img id="wijzerPlaatVraag" class="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img id="korteWijzerVraag" class="korteWijzer" src="Images/KorteWijzer.png" />
+                <img id="langeWijzerVraag" class="langeWijzer" src="Images/LangeWijzer.png" />
                 <asp:Image ID="imgSunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
             </div>
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-            <asp:RadioButtonList ID="RblAntwoorden" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
+                    
+            <asp:RadioButtonList ID="RblAntwoorden" CssClass="rblAntwoorden" repeatdirection="Vertical"  runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
+                <asp:ListItem>
+                    <img id="AnswerWijzerPlaat1" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="AnswerKorteWijzer1" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="AnswerLangeWijzer1" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="AnswerWijzerPlaat2" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="AnswerKorteWijzer2" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="AnswerLangeWijzer2" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="AnswerWijzerPlaat3" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="AnswerKorteWijzer3" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="AnswerLangeWijzer3" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="AnswerWijzerPlaat4" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="AnswerKorteWijzer4" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="AnswerLangeWijzer4" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
             </asp:RadioButtonList>
+                    <div id="spacer"></div>
             <br />
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
             <br />

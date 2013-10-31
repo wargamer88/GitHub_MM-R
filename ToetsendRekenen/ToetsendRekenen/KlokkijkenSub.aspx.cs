@@ -237,7 +237,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Analoog naar digitaal";
+                objResultaat.Categorie = "Analoog-Digitaal";
                 objResultaat.SubCategorie = "15";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -264,7 +264,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Analoog naar digitaal";
+                objResultaat.Categorie = "Analoog-Digitaal";
                 objResultaat.SubCategorie = "10";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -291,7 +291,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Analoog naar digitaal";
+                objResultaat.Categorie = "Analoog-Digitaal";
                 objResultaat.SubCategorie = "5";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -318,7 +318,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Analoog naar digitaal";
+                objResultaat.Categorie = "Analoog-Digitaal";
                 objResultaat.SubCategorie = "1";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -345,7 +345,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Digitaal naar analoog";
+                objResultaat.Categorie = "Digitaal-Analoog";
                 objResultaat.SubCategorie = "15";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -372,7 +372,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Digitaal naar analoog";
+                objResultaat.Categorie = "Digitaal-Analoog";
                 objResultaat.SubCategorie = "10";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -399,7 +399,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Digitaal naar analoog";
+                objResultaat.Categorie = "Digitaal-Analoog";
                 objResultaat.SubCategorie = "5";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
@@ -426,7 +426,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Klokkijken";
-                objResultaat.Categorie = "Digitaal naar analoog";
+                objResultaat.Categorie = "Digitaal-Analoog";
                 objResultaat.SubCategorie = "1";
                 objResultaat.SessieID = Session.SessionID;
                 int aantalsterren = 0;
