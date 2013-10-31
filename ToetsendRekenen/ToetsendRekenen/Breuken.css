@@ -14,3 +14,9 @@
         float:right;
         margin-right:5px;
 }
+
+/* breuken pagina */
+#left-content {
+    float:left;
+    width:390px;
+}
