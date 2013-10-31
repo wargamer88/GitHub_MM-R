@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="Breuken.css" />
     <Content Include="Getallenlijn.css" />
+    <Content Include="Images\BreukenDenken.png" />
     <Content Include="Images\Clock.gif" />
     <Content Include="Images\Getallenlijn.png" />
     <Content Include="Images\GetallenlijnDenken.png" />
@@ -82,6 +83,7 @@
     <Content Include="Images\Sad.png" />
     <Content Include="Images\Ster.png" />
     <Content Include="Images\Sun.png" />
+    <Content Include="Images\SupermarktDenken.png" />
     <Content Include="Images\uil1.gif" />
     <Content Include="Images\UnderConstruction.jpg" />
     <Content Include="Images\WijzerPlaat.png" />

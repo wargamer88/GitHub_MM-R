@@ -10,10 +10,8 @@ namespace ToetsendRekenen
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
             try
             {
                 #region NieuweSessie
@@ -44,6 +42,11 @@ namespace ToetsendRekenen
         protected void btnStatistiek_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/InlogStatistieken.aspx");
+        }
+
+        protected void btnEasteregg_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProcentenSub.aspx");
         }
     }
 }

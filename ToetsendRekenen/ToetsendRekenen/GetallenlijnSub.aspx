@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <img alt="Denken aan sommen" id="SubImage" src="Images/GetallenlijnDenken.png" />
+    <img src="Images/GetallenlijnDenken.png" alt="Denken aan sommen" id="SubImage" />
     <p id="SubTitel">
         Ken jij de getallenlijn?</p>
     <p>

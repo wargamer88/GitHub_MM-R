@@ -11,6 +11,7 @@ namespace ToetsendRekenen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //AutoComplete uitzetten.
             tbGebruikersnaam.Attributes.Add("autocomplete", "off");
         }
 
@@ -18,10 +19,13 @@ namespace ToetsendRekenen
         {
             try
             {
+                #region Inloggen
+                //Kijken of de combinatie Gebruikersnaam en Wachtwoord klopt
                 lbError.Visible = false;
                 Inlog I = new Inlog();
                 bool inlog = I.Inloggen(tbGebruikersnaam.Text, tbWachtwoord.Text);
 
+                //Als het klopt doorgaan naar Statistieken, anders Error aangeven.
                 if (inlog == true)
                 {
                     Session["Inlog"] = I;
@@ -31,7 +35,8 @@ namespace ToetsendRekenen
                 {
                     lbError.Visible = true;
                     lbError.Text = "Inloggen Mislukt";
-                }
+                } 
+                #endregion
             }
             catch (Exception ex)
             {

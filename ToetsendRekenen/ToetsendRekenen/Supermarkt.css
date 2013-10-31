@@ -1,5 +1,10 @@
 ﻿body {
 }
+#SubImage {
+    width: 385px;
+    height: 471px;
+    float:right;
+}
 #left-content {
     float:left;
     width:49%;
@@ -77,6 +82,9 @@
 #Span1 {
     float:right;
     margin-top:15px;
+}
+.SterImages {
+    margin-left: 80px;
 }
 /*Hieronder de CSS voor de Subpagina.*/
 #SubTitel {
