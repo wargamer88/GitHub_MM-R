@@ -40,17 +40,17 @@
     width: 400px;
 }
 
-#wijzerPlaat {
+.wijzerPlaat {
     position:absolute;
     z-index:1;
 }
 
-#korteWijzer {
+.korteWijzer {
     position:absolute;
     z-index:2;
 }
 
-#langeWijzer {
+.langeWijzer {
     position:absolute;
     z-index:3;
 }
@@ -58,3 +58,25 @@
 .SunAndMoon {
     margin-left:200px;
 }
+
+.AnswerWijzerPlaat {
+    position:absolute;
+    z-index:1;
+    width:100px;
+    height:100px;
+}
+
+.AnswerKorteWijzer {
+    position:absolute;
+    z-index:2;
+    width:100px;
+    height:100px;
+}
+
+.AnswerLangeWijzer {
+    position:absolute;
+    z-index:3;
+    width:100px;
+    height:100px;
+}
+

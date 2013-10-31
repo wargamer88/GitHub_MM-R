@@ -12,7 +12,21 @@ namespace ToetsendRekenen
         //klok variabelen
         protected double minutenVanLangewijzer;
         protected double minutenVanKortewijzer;
+
+        protected double AnswerMinutenVanLangewijzer1;
+        protected double AnswerMinutenVanKortewijzer1;
+
+        protected double AnswerMinutenVanLangewijzer2;
+        protected double AnswerMinutenVanKortewijzer2;
+
+        protected double AnswerMinutenVanLangewijzer3;
+        protected double AnswerMinutenVanKortewijzer3;
+
+        protected double AnswerMinutenVanLangewijzer4;
+        protected double AnswerMinutenVanKortewijzer4;
+
         protected bool clockVisibility;
+        protected bool answerClockVisibility;
         
         //goede antwoord variabelen
         protected int goedUren;
@@ -71,6 +85,8 @@ namespace ToetsendRekenen
                             clockVisibility = true;
                             digitalClock.Visible = false;
                             imgSunAndMoon.Visible = true;
+                            answerClockVisibility = false;
+                            RblAntwoorden.RepeatDirection = RepeatDirection.Vertical;
 
                             #region sterren laden
                             {
@@ -220,6 +236,8 @@ namespace ToetsendRekenen
                             imgSunAndMoon.Visible = false;
                             digitalClock.Visible = true;
                             clockVisibility = false;
+                            answerClockVisibility = false;
+                            RblAntwoorden.RepeatDirection = RepeatDirection.Vertical;
                            
 
                             #region sterren laden
@@ -355,7 +373,7 @@ namespace ToetsendRekenen
                         
                         #endregion
                     }
-                    else if (objResultaat.Categorie == "Analoog naar digitaal")
+                    else if (objResultaat.Categorie == "Analoog-Digitaal")
                     {
                         #region Analoog naar digitaal
                         {
@@ -364,6 +382,8 @@ namespace ToetsendRekenen
                             imgSunAndMoon.Visible = true;
                             clockVisibility = true;
                             digitalClock.Visible = false;
+                            answerClockVisibility = false;
+                            RblAntwoorden.RepeatDirection = RepeatDirection.Vertical;
 
                             #region sterren laden
                             {
@@ -502,11 +522,149 @@ namespace ToetsendRekenen
                         }
                         #endregion
                     }
-                    else if (objResultaat.Categorie == "Digitaal naar analoog")
+                    else if (objResultaat.Categorie == "Digitaal-Analoog")
                     {
                         #region Digitaal naar analoog
                         {
                             lblCategorie.Text = "Digitaal naar analoog";
+
+                            imgSunAndMoon.Visible = false;
+                            digitalClock.Visible = true;
+                            clockVisibility = false;
+                            answerClockVisibility = true;
+                            RblAntwoorden.RepeatDirection = RepeatDirection.Horizontal;
+                            RblAntwoorden.CssClass = "";
+
+
+                            #region sterren laden
+                            {
+                                aantalsterren = (int)Session["AantalSterren"];
+                                if (aantalsterren == 1)
+                                {
+                                    imgSter1.ImageUrl = "Images/Ster.png";
+                                }
+                                else if (aantalsterren == 2)
+                                {
+                                    imgSter1.ImageUrl = "Images/Ster.png";
+                                    imgSter2.ImageUrl = "Images/Ster.png";
+                                }
+                                else if (aantalsterren == 3)
+                                {
+                                    imgSter1.ImageUrl = "Images/Ster.png";
+                                    imgSter2.ImageUrl = "Images/Ster.png";
+                                    imgSter3.ImageUrl = "Images/Ster.png";
+                                }
+                                else if (aantalsterren == 4)
+                                {
+                                    imgSter1.ImageUrl = "Images/Ster.png";
+                                    imgSter2.ImageUrl = "Images/Ster.png";
+                                    imgSter3.ImageUrl = "Images/Ster.png";
+                                    imgSter4.ImageUrl = "Images/Ster.png";
+                                }
+                                else if (aantalsterren == 5)
+                                {
+                                    imgSter1.ImageUrl = "Images/Ster.png";
+                                    imgSter2.ImageUrl = "Images/Ster.png";
+                                    imgSter3.ImageUrl = "Images/Ster.png";
+                                    imgSter4.ImageUrl = "Images/Ster.png";
+                                    imgSter5.ImageUrl = "Images/Ster.png";
+                                }
+                            }
+                            #endregion
+
+                            #region voortgang verwerken
+                            {
+                                //voortgang verwerken
+                                voortgang = (int)Session["Voortgang"];
+                                if (voortgang != 50)
+                                {
+                                    voortgang = voortgang + 1;
+                                }
+                                else if (voortgang >= 50)
+                                {
+                                    Response.Redirect("Resultaat.aspx");
+                                }
+                                lbVoortgang.Text = Convert.ToString(voortgang);
+                                Session["Voortgang"] = voortgang;
+                            }
+                            #endregion
+
+                            #region goede/foute tijden genereren
+                            {
+                                //kloktijden aanmaken en goede antwoord opslaan en dag/nacht plaatje toevoegen
+                                do
+                                {
+                                    goedUren = klokkijken.randomHour();
+                                    goedsUren = klokkijken.timeLengthCheck(goedUren);
+                                    minutenVanLangewijzer = klokkijken.randomtijd("langeWijzer", subCategorie, 0, goedUren);
+                                    goedMinuten = Convert.ToInt16(minutenVanLangewijzer);
+                                    goedsMinuten = klokkijken.timeLengthCheck(goedMinuten);
+                                    minutenVanKortewijzer = klokkijken.randomtijd("korteWijzer", subCategorie, minutenVanLangewijzer, goedUren);
+                                    antwoorden[0] = klokkijken.uitgeschrevenAntwoordMaken(goedUren, goedMinuten); ;
+                                    antwoord = goedsUren + " : " + goedsMinuten;
+                                    digitalClock.Text = "<span style='font-size:100px; border:dashed 3px black'>" + antwoord + "</span>";
+
+                                } while (klokkijken.PreventRepeatingQuestions(antwoorden[0], vragen));
+                                vragen.Add(antwoorden[0]);
+
+                                //1e Fout antwoord genereren en opslaan
+                                do
+                                {
+                                    Uren = klokkijken.randomHour();
+                                    sUren = klokkijken.timeLengthCheck(Uren);
+                                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                                    antwoorden[1] = klokkijken.uitgeschrevenAntwoordMaken(Uren, Minuten);
+                                } while (antwoorden[1] == antwoorden[0]);
+
+                                //2e Fout antwoord genereren en opslaan
+                                do
+                                {
+                                    Uren = klokkijken.randomHour();
+                                    sUren = klokkijken.timeLengthCheck(Uren);
+                                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                                    antwoorden[2] = klokkijken.uitgeschrevenAntwoordMaken(Uren, Minuten);
+                                } while (antwoorden[2] == antwoorden[0] | antwoorden[2] == antwoorden[1]);
+
+                                //3e Fout antwoord genereren en opslaan
+                                do
+                                {
+                                    Uren = klokkijken.randomHour();
+                                    sUren = klokkijken.timeLengthCheck(Uren);
+                                    Minuten = (int)klokkijken.randomtijd("langeWijzer", subCategorie, 0, 0);
+                                    sMinuten = klokkijken.timeLengthCheck(Minuten);
+                                    antwoorden[3] = klokkijken.uitgeschrevenAntwoordMaken(Uren, Minuten);
+                                } while (antwoorden[3] == antwoorden[0] | antwoorden[3] == antwoorden[1] | antwoorden[3] == antwoorden[2]);
+                            }
+                            #endregion
+
+                            //Antwoorden[] randomizen naar rndAntwoorden[]
+                            Random rnd = new Random();
+                            rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();
+
+                            //RadioButtonList vullen
+                            //RblAntwoorden.Items[0].Text = rndAntwoorden[0];
+                            //RblAntwoorden.Items[1].Text = rndAntwoorden[1];
+                            //RblAntwoorden.Items[2].Text = rndAntwoorden[2];
+                            //RblAntwoorden.Items[3].Text = rndAntwoorden[3];
+
+                            RblAntwoorden.Items[0].Value = rndAntwoorden[0];
+                            RblAntwoorden.Items[1].Value = rndAntwoorden[1];
+                            RblAntwoorden.Items[2].Value = rndAntwoorden[2];
+                            RblAntwoorden.Items[3].Value = rndAntwoorden[3];
+
+                            //labels verbergen
+                            LblGoedFout.Visible = false;
+                            btnVolgendeVraag.Visible = false;
+                            lblUitlegAntwoord.Visible = false;
+
+                            //alle nodige variabelen in de sessie zetten
+                            Session["uur"] = goedsUren;
+                            Session["minuut"] = goedsMinuten;
+                            Session["Resultaat"] = objResultaat;
+                            Session["vragenlijst"] = vragen;
+                            Session["Antwoord"] = antwoorden[0];
                         }
                         #endregion
                     }
@@ -727,7 +885,7 @@ namespace ToetsendRekenen
                     }
                     #endregion
                 }
-                else if (objResultaat.Categorie == "Analoog naar digitaal")
+                else if (objResultaat.Categorie == "Analoog-Digitaal")
                 {
                     #region Analoog naar digitaal
                     {
@@ -1063,7 +1221,7 @@ namespace ToetsendRekenen
                     }
                     #endregion
                 }
-                else if (objResultaat.Categorie == "Digitaal naar analoog")
+                else if (objResultaat.Categorie == "Digitaal-Analoog")
                 {
                     #region Digitaal naar analoog
                     {

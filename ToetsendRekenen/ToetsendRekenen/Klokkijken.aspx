@@ -6,20 +6,32 @@
         $(document).ready(function () {
             $gradesLangewijzer = 360 / 60 * parseInt("<%= minutenVanLangewijzer%>");
             $gradesKortewijzer = 360 / 60 * parseInt("<%= minutenVanKortewijzer%>");
-            $('#langeWijzer').rotate($gradesLangewijzer);
-            $('#korteWijzer').rotate($gradesKortewijzer);
+            $('#langeWijzerVraag').rotate($gradesLangewijzer);
+            $('#korteWijzerVraag').rotate($gradesKortewijzer);
 
             $clockVisibility = ("<%= clockVisibility%>");
+            $answerClockVisibility = ("<%= answerClockVisibility%>");
 
             if ($clockVisibility === "False") {
-                $('#wijzerPlaat').css("visibility", "hidden");
-                $('#korteWijzer').css("visibility", "hidden");
-                $('#langeWijzer').css("visibility", "hidden");
+                $('#wijzerPlaatVraag').css("visibility", "hidden");
+                $('#korteWijzerVraag').css("visibility", "hidden");
+                $('#langeWijzerVraag').css("visibility", "hidden");
             }
             else {
-                $('#wijzerPlaat').css("visibility", "visible");
-                $('#korteWijzer').css("visibility", "visible");
-                $('#langeWijzer').css("visibility", "visible");
+                $('#wijzerPlaatVraag').css("visibility", "visible");
+                $('#korteWijzerVraag').css("visibility", "visible");
+                $('#langeWijzerVraag').css("visibility", "visible");
+            }
+
+            if ($answerClockVisibility === "False") {
+                $('.AnswerWijzerPlaat').css("visibility", "hidden");
+                $('.AnswerKorteWijzer').css("visibility", "hidden");
+                $('.AnswerLangeWijzer').css("visibility", "hidden");
+            }
+            else {
+                $('.AnswerWijzerPlaat').css("visibility", "visible");
+                $('.AnswerKorteWijzer').css("visibility", "visible");
+                $('.AnswerLangeWijzer').css("visibility", "visible");
             }
         });
 
@@ -40,19 +52,36 @@
             <br />
             <div id="questionClock" runat="server">
                 <asp:Label ID="digitalClock" runat="server" Text=""></asp:Label>
-                <img id="wijzerPlaat" src="Images/WijzerPlaat.png" />
-                <img id="korteWijzer" src="Images/KorteWijzer.png" />
-                <img id="langeWijzer" src="Images/LangeWijzer.png" />
+                <img id="wijzerPlaatVraag" class="wijzerPlaat" src="Images/WijzerPlaat.png" />
+                <img id="korteWijzerVraag" class="korteWijzer" src="Images/KorteWijzer.png" />
+                <img id="langeWijzerVraag" class="langeWijzer" src="Images/LangeWijzer.png" />
                 <asp:Image ID="imgSunAndMoon" CssClass="SunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
             </div>
             <br />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-            <asp:RadioButtonList ID="RblAntwoorden" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem></asp:ListItem>
+                    
+            <asp:RadioButtonList ID="RblAntwoorden" CssClass="rblAntwoorden" repeatdirection="Vertical"  runat="server" AutoPostBack="True" OnSelectedIndexChanged="RblAntwoorden_SelectedIndexChanged">
+                <asp:ListItem>
+                    <img id="Img1" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="Img2" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="Img3" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="Img4" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="Img5" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="Img6" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="Img7" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="Img8" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="Img9" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
+                <asp:ListItem>
+                    <img id="Img10" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
+                    <img id="Img11" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
+                    <img id="Img12" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                </asp:ListItem>
             </asp:RadioButtonList>
             <br />
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
