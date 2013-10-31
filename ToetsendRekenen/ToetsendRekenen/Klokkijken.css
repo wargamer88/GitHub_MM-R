@@ -40,17 +40,17 @@
     width: 400px;
 }
 
-.wijzerPlaat {
+#wijzerPlaat {
     position:absolute;
     z-index:1;
 }
 
-.korteWijzer {
+#korteWijzer {
     position:absolute;
     z-index:2;
 }
 
-.langeWijzer {
+#langeWijzer {
     position:absolute;
     z-index:3;
 }

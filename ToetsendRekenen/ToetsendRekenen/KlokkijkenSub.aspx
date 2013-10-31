@@ -21,13 +21,13 @@
 
     </div>
     <div class="subs subsFloat">
-        <%--<span style="font-weight: bold">Digitaal</span>
+        <span style="font-weight: bold">Digitaal</span>
         <br />
         <br />
         <asp:LinkButton ID="lblDigitaal15" runat="server" OnClick="lblDigitaal15_Click">15 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblDigitaal10" runat="server" OnClick="lblDigitaal10_Click">10 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblDigitaal5" runat="server" OnClick="lblDigitaal5_Click">5 minuten</asp:LinkButton><br />
-        <asp:LinkButton ID="lblDigitaal1" runat="server" OnClick="lblDigitaal1_Click">1 minuten</asp:LinkButton><br />--%>
+        <asp:LinkButton ID="lblDigitaal1" runat="server" OnClick="lblDigitaal1_Click">1 minuten</asp:LinkButton><br />
 
     </div>
     <div class="subsBreed">

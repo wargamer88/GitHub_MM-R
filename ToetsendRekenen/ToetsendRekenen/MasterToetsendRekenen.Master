@@ -38,9 +38,9 @@
                 <li><a class="NavMenu" href="BreukenSub.aspx"><asp:Label ID="lblBreukenspel" runat="server" Text="Breukenspel"></asp:Label></a></li>
                 <li><a class="NavMenu" href="SupermarktSub.aspx"><asp:Label ID="lblSupermarkt" runat="server" Text="Supermarkt spel"></asp:Label></a></li>
                 <li><a class="NavMenu" href="KlokkijkenSub.aspx"><asp:Label ID="lblKlok" runat="server" Text="Klokkijken spel"></asp:Label></a></li>
-                <li><a class="NavMenu" href="ProcentenSub.aspx"><asp:Label ID="Procenten" runat="server" Text="Procenten spel"></asp:Label></a></li>
+                <%--<li><a class="NavMenu" href="ProcentenSub.aspx"><asp:Label ID="Procenten" runat="server" Text="Procenten spel"></asp:Label></a></li>
                 <li><a class="NavMenu" href="VierkanteMeterSpelSub.aspx"><asp:Label ID="lblM2" runat="server" Text="Vierkante meter spel"></asp:Label></a></li>
-                <li><a class="NavMenu" href="AfrondenSpelSub.aspx"><asp:Label ID="lblAfronden" runat="server" Text="Afronden spel"></asp:Label></a></li>
+                <li><a class="NavMenu" href="AfrondenSpelSub.aspx"><asp:Label ID="lblAfronden" runat="server" Text="Afronden spel"></asp:Label></a></li>--%>
             </ul> 
                 
 
