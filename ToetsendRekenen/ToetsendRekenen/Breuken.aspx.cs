@@ -13,6 +13,7 @@ namespace ToetsendRekenen
         decimal Antwoord = 0;
         List<string> vragen;
         string breuk = "";
+        Random R = new Random();
 
         //Sessie
         Resultaat objResultaat = new Resultaat();
@@ -24,8 +25,8 @@ namespace ToetsendRekenen
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (!IsPostBack)
                 {
                     objResultaat = (Resultaat)Session["Resultaat"];
@@ -89,49 +90,87 @@ namespace ToetsendRekenen
                             Session["Voortgang"] = voortgang;
                         }
                         #endregion
+                        #region 0-1
                         if (subCategorie == "0-1")
                         {
                             do
                             {
-                                #region 0-1
+                                
                                 string[,] BrArray = B.BreukArray();
                                 B.GangbareBreuken(BrArray);
                                 breuk = B.RandomBreuk();
                                 Antwoord = B.RandomAntwoord(breuk);
-                                #endregion
+                                lblBreuk.Text = breuk;
+                                
                             }
                             while (B.PreventRepeatingQuestions(breuk, vragen));
-                            lblBreuk.Text = breuk;
                             vragen.Add(breuk);
                         }
+                        #endregion
+                        #region 0-10
                         else if (subCategorie == "0-10")
                         {
-                        
-                        }
+                            do
+                            {
+                            string[,] BrArray = B.BreukArray();
+                            B.GangbareBreuken(BrArray);
 
+                            breuk = B.RandomBreuk();
+
+                            string[] split = breuk.Split("/".ToArray());
+                            int getal1 = Convert.ToInt16(split[0]);
+                            int getal2 = Convert.ToInt16(split[1]);
+
+                            int helegetal = R.Next(0, 10);
+
+                            int breukgetal1 = helegetal* getal2;
+                            breukgetal1 = breukgetal1 + getal1;
+
+                            breuk = breukgetal1 + "/" + getal2;
+
+                            Antwoord = B.RandomAntwoord(breuk);
+                            lblBreuk.Text = breuk;
+                            }
+                            while (B.PreventRepeatingQuestions(breuk, vragen));
+                            vragen.Add(breuk);
+
+                        }
+                        #endregion
                         Session["Resultaat"] = objResultaat;
                         Session["Totaal"] = Antwoord;
                         Session["vragenlijst"] = vragen;
                         Session["breuken"] = breuk;
                     }
                 }
-            catch (Exception)
-            {
-                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
-                Response.Redirect("Hoofdscherm.aspx");
-            }
-            }
+            //catch (Exception)
+            //{
+            //    string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
+            //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+            //    Response.Redirect("Hoofdscherm.aspx");
+            //}
+            //}
 
         protected void btncontroleer_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 objResultaat = (Resultaat)Session["Resultaat"];
                 subCategorie = Convert.ToString(objResultaat.SubCategorie);
                 Antwoord = (decimal)Session["Totaal"];
                 breuk = (string)Session["breuken"];
 
+                if (tbantwoord.Text == "")
+                {
+                    Antwoord = 0;
+                }
+                //if (tbantwoord.Text.IndexOf(".") == tbantwoord.Text.LastIndexOf("."))
+                //{
+                //    tbantwoord.Attributes.Remove(".");
+                //    tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
+                //    tbantwoord.Text = tbantwoord.Text.Replace(",", "00");
+                //}
+
+                //tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
                 decimal tbxantwoord = Convert.ToDecimal(tbantwoord.Text);
                 decimal.TryParse(tbantwoord.Text.Replace(".", ","), out tbxantwoord);
 
@@ -154,7 +193,7 @@ namespace ToetsendRekenen
                 else
                 {
                     objResultaat.AantalFout += 1;
-                    lblcorrectie.Text = "<span style= color:red>Het antwoord is niet fout</span> en had <span style= color:green>" + (decimal)Antwoord + "</span>.";
+                    lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + (decimal)Antwoord + "</span> moeten zijn.";
                     lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
                 }
 
@@ -210,13 +249,13 @@ namespace ToetsendRekenen
                 btncontroleer.Enabled = false;
                 Session["Resultaat"] = objResultaat;
             }
-            catch (Exception)
-            {
-                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
-                Response.Redirect("Hoofdscherm.aspx");
-            }
-        }
+        //    catch (Exception)
+        //    {
+        //        string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
+        //        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+        //        Response.Redirect("Hoofdscherm.aspx");
+        //    }
+        //}
 
         protected void btnvolgende_Click(object sender, EventArgs e)
         {
