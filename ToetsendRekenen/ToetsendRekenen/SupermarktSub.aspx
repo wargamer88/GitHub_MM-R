@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="Supermarkt.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <img src="Images/SupermarktDenken.png" id="SubImage" />
     <p id="SubTitel">
         Het Supermarkt Spel</p>
     <p>
