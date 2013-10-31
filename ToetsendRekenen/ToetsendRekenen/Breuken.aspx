@@ -11,7 +11,6 @@
         <br />
         Reken de breuk om naar een komma getal:
         <br />
-        Meer dan 4 cijfers achter de komma afronden na 2 cijfers!<br />
         <asp:Label ID="lblBreuk" runat="server" Text=""></asp:Label>  = 
         <asp:TextBox ID="tbantwoord" runat="server"></asp:TextBox>
         <asp:Button ID="btncontroleer" runat="server" Text="Controleer" OnClick="btncontroleer_Click" />
