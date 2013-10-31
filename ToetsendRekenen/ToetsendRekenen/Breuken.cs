@@ -92,11 +92,87 @@ namespace ToetsendRekenen
             #endregion
         }
 
-        public void Random()
+        public string RandomBreuk()
         {
+            int getal1;
+            int getal2;
+            bool Bool = false;
+            string[] randomelk = new string[10];
             Random R = new Random();
-            
-            
+            randomelk[0] = Gang100[R.Next(Gang100.Length)];
+            randomelk[1] = Gang50[R.Next(Gang50.Length)];
+            randomelk[2] = Gang25[R.Next(Gang25.Length)];
+            randomelk[3] = Gang20[R.Next(Gang20.Length)];
+            randomelk[4] = Gang10[R.Next(Gang10.Length)];
+            randomelk[5] = Gang8[R.Next(Gang8.Length)];
+            randomelk[6] = Gang5[R.Next(Gang5.Length)];
+            randomelk[7] = Gang4[R.Next(Gang4.Length)];
+            randomelk[8] = Gang3[R.Next(Gang3.Length)];
+            randomelk[9] = Gang2[R.Next(Gang2.Length)];
+
+            string random = randomelk[R.Next(randomelk.Length)];
+
+            do
+            {
+                Bool = false;
+                if (random == null)
+                {
+                    random = randomelk[R.Next(randomelk.Length)];
+                    Bool = true;
+                }
+            }
+            while (Bool);
+
+            string[] split = random.Split("/".ToArray());
+
+            do
+            {
+                Bool = false;
+                getal1 = Convert.ToInt16(split[0]);
+                getal2 = Convert.ToInt16(split[1]);
+                if (getal1 == getal2 | random == null)
+                {
+                    random = randomelk[R.Next(randomelk.Length)];
+                    split = random.Split("/".ToArray());
+                    getal1 = Convert.ToInt16(split[0]);
+                    getal2 = Convert.ToInt16(split[1]);
+                    Bool = true;
+                }
+
+
+            }
+            while (Bool);
+            return random;
+        }
+
+        public decimal RandomAntwoord(string breuk)
+        {
+            string[] split = breuk.Split("/".ToArray());
+            int getal1 = Convert.ToInt16(split[0]);
+            int getal2 = Convert.ToInt16(split[1]);
+     
+            decimal antwoord = (decimal)getal1 / getal2;
+            return antwoord;
+        }
+
+        public bool PreventRepeatingQuestions(string antwoord, List<string> vragen)
+        {
+            if (vragen.Count != 1)
+            {
+                for (int i = 0; i < vragen.Count; i++)
+                {
+                    if (vragen[i] == antwoord)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public bool LessThan3DecimalPlaces(decimal dec)
+        {
+            decimal value = dec * 1000;
+            return value == Math.Floor(value);
         }
     }
 }

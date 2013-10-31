@@ -1,16 +1,18 @@
-﻿#content {
-    width:799px;
+﻿#SubImage {
+    width: 385px;
+    height: 471px;
+    float:right;
 }
+.SubCategorie {
+    font-weight:bold;
+}
+
+/* breuken pagina */
 #left-content {
     float:left;
     width:390px;
 }
-#right-content {
-    float:right;
-    width:380px;
-    height:auto;
-}
-    #right-content img {
-        float:right;
-        margin-right:5px;
+
+.SterImages {
+    margin-left: 80px;
 }

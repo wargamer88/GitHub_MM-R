@@ -10,25 +10,24 @@
     <br />
         <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Wachtwoord Wijzigen</span><br />
     <p>
-        Oud wachtwoord&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbOudWW" runat="server" Height="16px" Width="124px" TextMode="Password"></asp:TextBox>
+        Oud wachtwoord:
+        <asp:TextBox ID="tbOudWW" runat="server" Height="16px" Width="124px" TextMode="Password" style="margin-left: 92px"></asp:TextBox>
         <br />
-        Nieuw wachtwoord&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <asp:TextBox ID="tbNieuwWW" runat="server" Height="16px" Width="124px" style="margin-left: 3px" TextMode="Password"></asp:TextBox>
+        Nieuw wachtwoord:
+        <asp:TextBox ID="tbNieuwWW" runat="server" Height="16px" Width="124px" style="margin-left: 75px" TextMode="Password"></asp:TextBox>
         <br />
-        Opnieuw nieuw wachtwoord&nbsp;&nbsp;
-        <asp:TextBox ID="tbBevestigingNieuwWW" runat="server" Height="16px" Width="124px" TextMode="Password" style="margin-left: 1px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Opnieuw nieuw wachtwoord:
+        <asp:TextBox ID="tbBevestigingNieuwWW" runat="server" Height="16px" Width="124px" TextMode="Password" style="margin-left: 7px"></asp:TextBox>
         <br /> 
-        <asp:Label ID="lbResultaatChange" runat="server" Text="Resultaat" Visible="False" Font-Bold="True" ForeColor="Red"></asp:Label>&nbsp;<br />
-        <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="25px" Width="132px" OnClick="btnWijzigWW_Click" />
+        <asp:Label ID="lbResultaatChange" runat="server" Text="Resultaat" Visible="False" Font-Bold="True" ForeColor="Red"></asp:Label><br />
+        <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="25px" Width="132px" OnClick="btnWijzigWW_Click" style="margin-left: 232px" />
         <br />
     </p>
     <p>
         <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Statistieken</span></p>
     <p>
-        Week&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="ddlWeek" runat="server" Height="21px" Width="121px" style="margin-left: 2px">
+        Week:
+        <asp:DropDownList ID="ddlWeek" runat="server" Height="21px" Width="121px" style="margin-left: 165px">
             <asp:ListItem>1</asp:ListItem>
             <asp:ListItem>2</asp:ListItem>
             <asp:ListItem>3</asp:ListItem>
@@ -84,7 +83,7 @@
         </asp:DropDownList>
         <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" OnClick="ToonGegevensWeek_Click" />
         <br />
-        Maand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="ddlMaand" runat="server" Height="21px" Width="121px" style="margin-left: 3px">
+        Maand:<asp:DropDownList ID="ddlMaand" runat="server" Height="21px" Width="121px" style="margin-left: 161px">
             <asp:ListItem Value="01">Januari</asp:ListItem>
             <asp:ListItem Value="02">Februari</asp:ListItem>
             <asp:ListItem Value="03">Maart</asp:ListItem>
@@ -100,8 +99,8 @@
         </asp:DropDownList>
         <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" OnClick="ToonGegevensMaand_Click" />
         <br />
-        Jaar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-        <asp:DropDownList ID="ddlJaar" runat="server" Height="21px" Width="121px">
+        Jaar:
+        <asp:DropDownList ID="ddlJaar" runat="server" Height="21px" Width="121px" style="margin-left: 179px">
             <asp:ListItem>0</asp:ListItem>
             <asp:ListItem>1</asp:ListItem>
             <asp:ListItem Value="2">2</asp:ListItem>
@@ -110,10 +109,10 @@
         <asp:Button ID="ToonGegevensJaar" runat="server" Text="Toon gegevens" OnClick="ToonGegevensJaar_Click" />
         <br />
         Tussen specifieke data: van
-        <asp:TextBox ID="tbDatumVan" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbDatumVan" runat="server" style="margin-right:5px;"></asp:TextBox>
         <asp:CalendarExtender ID="tbDatumVan_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumVan">
         </asp:CalendarExtender>
-&nbsp;t/m
+        t/m
         <asp:TextBox ID="tbDatumTot" runat="server"></asp:TextBox>
         <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot">
         </asp:CalendarExtender>
@@ -144,8 +143,8 @@
 
         </asp:GridView>
     </div>
-        <div id="gvViewsp" style="float:left; margin-left:50px;">
-            <asp:GridView ID="gvViews" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <div id="gvViewsp" style="float:left; margin-left:5px; width: 181px;">
+            <asp:GridView ID="gvViews" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" style="margin-left: 0px" Width="181px">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="Views" HeaderText="Views" ReadOnly="True" SortExpression="Views" />
