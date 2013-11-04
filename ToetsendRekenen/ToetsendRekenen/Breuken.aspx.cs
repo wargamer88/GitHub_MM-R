@@ -165,7 +165,7 @@ namespace ToetsendRekenen
                                     breuk = breukgetal1 + "/" + getal2;
 
                                     Antwoord = B.RandomAntwoord(breuk);
-                                    lblBreuk.Text = breuk;
+                                    lblBreuk.Text = Antwoord.ToString();
                                 }
                                 while (B.PreventRepeatingQuestions(breuk, vragen));
                                 vragen.Add(breuk);
