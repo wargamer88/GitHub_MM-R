@@ -41,13 +41,13 @@
 
     </div>
     <div class="subsBreed">
-        <%--<span style="font-weight: bold">Digitaal naar analoog</span>
+        <span style="font-weight: bold">Digitaal naar analoog</span>
         <br />
         <br />
         <asp:LinkButton ID="lblDnaarA15" runat="server" OnClick="lblDnaarA15_Click">15 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblDnaarA10" runat="server" OnClick="lblDnaarA10_Click">10 minuten</asp:LinkButton><br />
         <asp:LinkButton ID="lblDnaarA5" runat="server" OnClick="lblDnaarA5_Click">5 minuten</asp:LinkButton><br />
-        <asp:LinkButton ID="lblDnaarA1" runat="server" OnClick="lblDnaarA1_Click">1 minuten</asp:LinkButton><br />--%>
+        <asp:LinkButton ID="lblDnaarA1" runat="server" OnClick="lblDnaarA1_Click">1 minuten</asp:LinkButton><br />
 
     </div>
 

@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterToetsendRekenen.Master" AutoEventWireup="true" CodeBehind="Breuken.aspx.cs" Inherits="ToetsendRekenen.WebForm11" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="Breuken.css" type="text/css" />
 </asp:Content>
@@ -11,10 +13,13 @@
         <br />
         Reken de breuk om naar een komma getal:
         <br />
-        Meer dan 4 cijfers achter de komma afronden na 2 cijfers!<br />
         <asp:Label ID="lblBreuk" runat="server" Text=""></asp:Label>  = 
         <asp:TextBox ID="tbantwoord" runat="server"></asp:TextBox>
+
         <asp:Button ID="btncontroleer" runat="server" Text="Controleer" OnClick="btncontroleer_Click" />
+        <br />
+        <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.," TargetControlID="tbantwoord"></asp:FilteredTextBoxExtender>
+        <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoord" runat="server" ErrorMessage="Begin met een getal of een punt die een 0 aangeeft!" ValidationExpression="^(-)?[\d\.]+([\.\,] \d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblcorrectie" runat="server" Text=""></asp:Label>
         
