@@ -20,6 +20,7 @@ namespace ToetsendRekenen
 
         //Sessie variabelen
         protected string subCategorie;
+        protected string Categorie;
         protected int voortgang;
         protected int aantalsterren;
 
@@ -31,6 +32,7 @@ namespace ToetsendRekenen
                 {
                     objResultaat = (Resultaat)Session["Resultaat"];
                         subCategorie = Convert.ToString(objResultaat.SubCategorie);
+                        Categorie = Convert.ToString(objResultaat.Categorie);
                         vragen = (List<string>)Session["vragenlijst"];
                         tbantwoord.Attributes.Add("autocomplete", "off");
                         if (vragen == null)
@@ -90,50 +92,85 @@ namespace ToetsendRekenen
                             Session["Voortgang"] = voortgang;
                         }
                         #endregion
-                        #region 0-1
-                        if (subCategorie == "0-1")
+                        #region BnD0-1
+                        if (Categorie == "Breuken-Komma")
                         {
-                            do
+                            if (subCategorie == "0-1")
                             {
-                                
-                                string[,] BrArray = B.BreukArray();
-                                B.GangbareBreuken(BrArray);
-                                breuk = B.RandomBreuk();
-                                Antwoord = B.RandomAntwoord(breuk);
-                                lblBreuk.Text = breuk;
-                                
+                                do
+                                {
+
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
+                                    breuk = B.RandomBreuk();
+                                    Antwoord = B.RandomAntwoord(breuk);
+                                    lblBreuk.Text = breuk;
+
+                                }
+                                while (B.PreventRepeatingQuestions(breuk, vragen));
+                                vragen.Add(breuk);
                             }
-                            while (B.PreventRepeatingQuestions(breuk, vragen));
-                            vragen.Add(breuk);
-                        }
                         #endregion
-                        #region 0-10
-                        else if (subCategorie == "0-10")
-                        {
-                            do
+                            #region BnD0-10
+                            else if (subCategorie == "0-10")
                             {
-                            string[,] BrArray = B.BreukArray();
-                            B.GangbareBreuken(BrArray);
+                                do
+                                {
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
 
-                            breuk = B.RandomBreuk();
+                                    breuk = B.RandomBreuk();
 
-                            string[] split = breuk.Split("/".ToArray());
-                            int getal1 = Convert.ToInt16(split[0]);
-                            int getal2 = Convert.ToInt16(split[1]);
+                                    string[] split = breuk.Split("/".ToArray());
+                                    int getal1 = Convert.ToInt16(split[0]);
+                                    int getal2 = Convert.ToInt16(split[1]);
 
-                            int helegetal = R.Next(0, 10);
+                                    int helegetal = R.Next(0, 10);
 
-                            int breukgetal1 = helegetal* getal2;
-                            breukgetal1 = breukgetal1 + getal1;
+                                    int breukgetal1 = helegetal * getal2;
+                                    breukgetal1 = breukgetal1 + getal1;
 
-                            breuk = breukgetal1 + "/" + getal2;
+                                    breuk = breukgetal1 + "/" + getal2;
 
-                            Antwoord = B.RandomAntwoord(breuk);
-                            lblBreuk.Text = breuk;
+                                    Antwoord = B.RandomAntwoord(breuk);
+                                    lblBreuk.Text = breuk;
+                                }
+                                while (B.PreventRepeatingQuestions(breuk, vragen));
+                                vragen.Add(breuk);
                             }
-                            while (B.PreventRepeatingQuestions(breuk, vragen));
-                            vragen.Add(breuk);
+                        }
+                            #endregion
+                        // aanpassen!
+                        #region DnB0-1
+                        if (Categorie == "Komma-Breuk")
+                        {
+                            if (subCategorie == "0-1")
+                            {
+                                do
+                                {
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
 
+                                    breuk = B.RandomBreuk();
+
+                                    string[] split = breuk.Split("/".ToArray());
+                                    int getal1 = Convert.ToInt16(split[0]);
+                                    int getal2 = Convert.ToInt16(split[1]);
+
+                                    int helegetal = R.Next(0, 10);
+
+                                    int breukgetal1 = helegetal * getal2;
+                                    breukgetal1 = breukgetal1 + getal1;
+
+                                    breuk = breukgetal1 + "/" + getal2;
+
+                                    Antwoord = B.RandomAntwoord(breuk);
+                                    lblBreuk.Text = breuk;
+                                }
+                                while (B.PreventRepeatingQuestions(breuk, vragen));
+                                vragen.Add(breuk);
+
+                            }
                         }
                         #endregion
                         Session["Resultaat"] = objResultaat;
