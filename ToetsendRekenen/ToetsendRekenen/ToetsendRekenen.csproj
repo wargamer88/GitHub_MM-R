@@ -87,7 +87,6 @@
     <Content Include="Images\uil1.gif" />
     <Content Include="Images\UnderConstruction.jpg" />
     <Content Include="Images\WijzerPlaat.png" />
-    <Content Include="jQueryRotate.js" />
     <Content Include="Klokkijken.css" />
     <Content Include="MasterPage.css" />
     <Content Include="Supermarkt.css" />
@@ -106,12 +105,6 @@
     <Content Include="SupermarktSub.aspx" />
     <Content Include="Klokkijken.aspx" />
     <Content Include="KlokkijkenSub.aspx" />
-    <Content Include="Procenten.aspx" />
-    <Content Include="ProcentenSub.aspx" />
-    <Content Include="VierkanteMeterSpel.aspx" />
-    <Content Include="VierkanteMeterSpelSub.aspx" />
-    <Content Include="AfrondenSpel.aspx" />
-    <Content Include="AfrondenSpelSub.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Breuken.cs" />
@@ -268,48 +261,6 @@
     </Compile>
     <Compile Include="KlokkijkenSub.aspx.designer.cs">
       <DependentUpon>KlokkijkenSub.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Procenten.aspx.cs">
-      <DependentUpon>Procenten.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Procenten.aspx.designer.cs">
-      <DependentUpon>Procenten.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcentenSub.aspx.cs">
-      <DependentUpon>ProcentenSub.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcentenSub.aspx.designer.cs">
-      <DependentUpon>ProcentenSub.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VierkanteMeterSpel.aspx.cs">
-      <DependentUpon>VierkanteMeterSpel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VierkanteMeterSpel.aspx.designer.cs">
-      <DependentUpon>VierkanteMeterSpel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VierkanteMeterSpelSub.aspx.cs">
-      <DependentUpon>VierkanteMeterSpelSub.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VierkanteMeterSpelSub.aspx.designer.cs">
-      <DependentUpon>VierkanteMeterSpelSub.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AfrondenSpel.aspx.cs">
-      <DependentUpon>AfrondenSpel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AfrondenSpel.aspx.designer.cs">
-      <DependentUpon>AfrondenSpel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AfrondenSpelSub.aspx.cs">
-      <DependentUpon>AfrondenSpelSub.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AfrondenSpelSub.aspx.designer.cs">
-      <DependentUpon>AfrondenSpelSub.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
