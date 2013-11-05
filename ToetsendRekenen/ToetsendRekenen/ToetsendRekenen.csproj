@@ -105,6 +105,7 @@
     <Content Include="SupermarktSub.aspx" />
     <Content Include="Klokkijken.aspx" />
     <Content Include="KlokkijkenSub.aspx" />
+    <Content Include="Wachtwoord.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Breuken.cs" />
@@ -261,6 +262,13 @@
     </Compile>
     <Compile Include="KlokkijkenSub.aspx.designer.cs">
       <DependentUpon>KlokkijkenSub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wachtwoord.aspx.cs">
+      <DependentUpon>Wachtwoord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wachtwoord.aspx.designer.cs">
+      <DependentUpon>Wachtwoord.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
