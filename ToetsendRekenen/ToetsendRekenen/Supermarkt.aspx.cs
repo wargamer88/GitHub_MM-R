@@ -304,7 +304,7 @@ namespace ToetsendRekenen
                     Session["Totaal"] = Totaal;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
                 Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);

@@ -95,6 +95,8 @@ namespace ToetsendRekenen
                         #region BnD0-1
                         if (Categorie == "Breuken-Komma")
                         {
+                            lblspel.Text = "";
+                            lblTekst.Text = "";
                             if (subCategorie == "0-1")
                             {
                                 do
