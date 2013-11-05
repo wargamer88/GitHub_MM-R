@@ -32,10 +32,11 @@ namespace ToetsendRekenen
                 } 
                 #endregion
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                
-                System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=JavaScript>alert(" + ex + ")</SCRIPT>");
+
+                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan.');</script>";
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
             }
         }
 

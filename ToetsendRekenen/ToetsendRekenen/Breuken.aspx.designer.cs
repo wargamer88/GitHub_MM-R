@@ -49,13 +49,22 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.Label lblBreuk;
         
         /// <summary>
-        /// tbantwoord control.
+        /// tbantwoordD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbantwoord;
+        protected global::System.Web.UI.WebControls.TextBox tbantwoordD;
+        
+        /// <summary>
+        /// tbantwoordB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbantwoordB;
         
         /// <summary>
         /// btncontroleer control.
@@ -65,6 +74,15 @@ namespace ToetsendRekenen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btncontroleer;
+        
+        /// <summary>
+        /// lblFormatBreuk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormatBreuk;
         
         /// <summary>
         /// FTBE control.

@@ -34,7 +34,8 @@ namespace ToetsendRekenen
                         subCategorie = Convert.ToString(objResultaat.SubCategorie);
                         Categorie = Convert.ToString(objResultaat.Categorie);
                         vragen = (List<string>)Session["vragenlijst"];
-                        tbantwoord.Attributes.Add("autocomplete", "off");
+                        tbantwoordD.Attributes.Add("autocomplete", "off");
+                        tbantwoordB.Attributes.Add("autocomplete", "off");
                         if (vragen == null)
                         {
                             vragen = new List<string>();
@@ -95,8 +96,8 @@ namespace ToetsendRekenen
                         #region BnD0-1
                         if (Categorie == "Breuken-Komma")
                         {
-                            lblspel.Text = "";
-                            lblTekst.Text = "";
+                            lblspel.Text = "Breuken spel" + Categorie + " " + subCategorie;
+                            lblTekst.Text = "Reken de breuk om naar komma getal.";
                             if (subCategorie == "0-1")
                             {
                                 do
@@ -146,6 +147,9 @@ namespace ToetsendRekenen
                         #region DnB0-1
                         if (Categorie == "Komma-Breuk")
                         {
+                            lblspel.Text = "Breuken spel" + Categorie + " " + subCategorie;
+                            lblTekst.Text = "Vul de breuk in vanuit een decimaal getal.";
+                            lblFormatBreuk.Text = "Schrijf het antwoord op als bijvoorbeeld: 1/3";
                             if (subCategorie == "0-1")
                             {
                                 do
@@ -193,44 +197,53 @@ namespace ToetsendRekenen
                 Antwoord = (decimal)Session["Totaal"];
                 breuk = (string)Session["breuken"];
 
-                if (tbantwoord.Text == "")
+                if (tbantwoordD.Text == "")
                 {
                     Antwoord = 0;
                 }
-                //if (tbantwoord.Text.IndexOf(".") == tbantwoord.Text.LastIndexOf("."))
-                //{
-                //    tbantwoord.Attributes.Remove(".");
-                //    tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
-                //    tbantwoord.Text = tbantwoord.Text.Replace(",", "00");
-                //}
-
-                //tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
-                decimal tbxantwoord = Convert.ToDecimal(tbantwoord.Text);
-                decimal.TryParse(tbantwoord.Text.Replace(".", ","), out tbxantwoord);
-
-                string[] split = breuk.Split("/".ToArray());
-                int getal1 = Convert.ToInt16(split[0]);
-                int getal2 = Convert.ToInt16(split[1]);
-                decimal getal = 100 / getal2;
-
-                if (!(B.LessThan3DecimalPlaces(Antwoord)))
+                if (Categorie == "Breuk-Komma")
                 {
-                    Antwoord = Math.Round(Antwoord,2, MidpointRounding.AwayFromZero);
-                    tbxantwoord = Math.Round(tbxantwoord, 2, MidpointRounding.AwayFromZero);
-                }
-                if (Antwoord == tbxantwoord)
-                {
-                    objResultaat.AantalGoed += 1;
-                    lblcorrectie.Text = "<span style= color:green>Het antwoord is goed</span>.";
-                    lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
-                }
-                else
-                {
-                    objResultaat.AantalFout += 1;
-                    lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + (decimal)Antwoord + "</span> moeten zijn.";
-                    lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
-                }
+                    #region Breuk-Komma
+                    //if (tbantwoord.Text.IndexOf(".") == tbantwoord.Text.LastIndexOf("."))
+                    //{
+                    //    tbantwoord.Attributes.Remove(".");
+                    //    tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
+                    //    tbantwoord.Text = tbantwoord.Text.Replace(",", "00");
+                    //}
 
+                    //tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
+                    decimal tbxantwoord = Convert.ToDecimal(tbantwoordD.Text);
+                    decimal.TryParse(tbantwoordD.Text.Replace(".", ","), out tbxantwoord);
+
+                    string[] split = breuk.Split("/".ToArray());
+                    int getal1 = Convert.ToInt16(split[0]);
+                    int getal2 = Convert.ToInt16(split[1]);
+                    decimal getal = 100 / getal2;
+
+                    if (!(B.LessThan3DecimalPlaces(Antwoord)))
+                    {
+                        Antwoord = Math.Round(Antwoord, 2, MidpointRounding.AwayFromZero);
+                        tbxantwoord = Math.Round(tbxantwoord, 2, MidpointRounding.AwayFromZero);
+                    }
+                    if (Antwoord == tbxantwoord)
+                    {
+                        objResultaat.AantalGoed += 1;
+                        lblcorrectie.Text = "<span style= color:green>Het antwoord is goed</span>.";
+                        lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
+                    }
+                    else
+                    {
+                        objResultaat.AantalFout += 1;
+                        lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + (decimal)Antwoord + "</span> moeten zijn.";
+                        lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
+                    }
+#endregion
+                }
+                else if (Categorie == "Komma-Breuk")
+                {
+                    #region Komma-Breuk
+                    #endregion
+                }
                 #region sterren verwerken
                 {
                     //sterren verwerken
@@ -279,7 +292,7 @@ namespace ToetsendRekenen
                 }
                 #endregion
                 btnvolgende.Visible = true;
-                tbantwoord.Enabled = false;
+                tbantwoordD.Enabled = false;
                 btncontroleer.Enabled = false;
                 Session["Resultaat"] = objResultaat;
             }
