@@ -304,9 +304,11 @@ namespace ToetsendRekenen
                     Session["Totaal"] = Totaal;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                 System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=JavaScript>alert(" + ex + ")</SCRIPT>");
+                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+                Response.Redirect("Hoofdscherm.aspx");
             }
         }
 

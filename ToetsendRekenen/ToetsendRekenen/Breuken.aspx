@@ -7,11 +7,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="left-content">
-        Breuken 0-1
+        <asp:Label ID="lblspel" runat="server" Text=""></asp:Label>
         <br />
         <br />
         <br />
-        Reken de breuk om naar een komma getal:
+        <asp:Label ID="lblTekst" runat="server" Text=""></asp:Label>
         <br />
         <asp:Label ID="lblBreuk" runat="server" Text=""></asp:Label>  = 
         <asp:TextBox ID="tbantwoord" runat="server"></asp:TextBox>
