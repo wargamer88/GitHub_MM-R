@@ -11,7 +11,7 @@
         <br />
         <br />
         <br />
-        Reken de breuk om naar een komma getal:
+        <asp:Label ID="lblTekst" runat="server" Text=""></asp:Label>
         <br />
         <asp:Label ID="lblBreuk" runat="server" Text=""></asp:Label>  = 
         <asp:TextBox ID="tbantwoord" runat="server"></asp:TextBox>

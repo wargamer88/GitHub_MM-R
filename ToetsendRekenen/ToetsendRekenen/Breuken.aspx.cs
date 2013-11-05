@@ -157,12 +157,7 @@ namespace ToetsendRekenen
                                     int getal1 = Convert.ToInt16(split[0]);
                                     int getal2 = Convert.ToInt16(split[1]);
 
-                                    int helegetal = R.Next(0, 10);
-
-                                    int breukgetal1 = helegetal * getal2;
-                                    breukgetal1 = breukgetal1 + getal1;
-
-                                    breuk = breukgetal1 + "/" + getal2;
+                                    breuk = getal1 + "/" + getal2;
 
                                     Antwoord = B.RandomAntwoord(breuk);
                                     lblBreuk.Text = Antwoord.ToString();
