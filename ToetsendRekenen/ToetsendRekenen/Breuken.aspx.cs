@@ -159,17 +159,14 @@ namespace ToetsendRekenen
 
                                     breuk = B.RandomBreuk();
 
-                                    string[] split = breuk.Split("/".ToArray());
-                                    int getal1 = Convert.ToInt16(split[0]);
-                                    int getal2 = Convert.ToInt16(split[1]);
-
-                                    breuk = getal1 + "/" + getal2;
+                                    breuk = B.Deelbarebreuken(breuk);
 
                                     Antwoord = B.RandomAntwoord(breuk);
+                                    
                                     lblBreuk.Text = Antwoord.ToString();
                                 }
-                                while (B.PreventRepeatingQuestions(breuk, vragen));
-                                vragen.Add(breuk);
+                                while (B.PreventRepeatingQuestions(Antwoord.ToString(), vragen));
+                                vragen.Add(Antwoord.ToString());
 
                             }
                         }
@@ -194,6 +191,7 @@ namespace ToetsendRekenen
             //{
                 objResultaat = (Resultaat)Session["Resultaat"];
                 subCategorie = Convert.ToString(objResultaat.SubCategorie);
+                Categorie = Convert.ToString(objResultaat.Categorie);
                 Antwoord = (decimal)Session["Totaal"];
                 breuk = (string)Session["breuken"];
 
@@ -242,6 +240,18 @@ namespace ToetsendRekenen
                 else if (Categorie == "Komma-Breuk")
                 {
                     #region Komma-Breuk
+                    string tbxantwoordB = tbantwoordB.Text;
+
+                    if (breuk == tbxantwoordB)
+                    {
+                        objResultaat.AantalGoed += 1;
+                        lblcorrectie.Text = "goed";
+                    }
+                    else
+                    {
+                        objResultaat.AantalFout += 1;
+                        lblcorrectie.Text = "fout";
+                    }
                     #endregion
                 }
                 #region sterren verwerken

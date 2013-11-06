@@ -22,8 +22,8 @@
         <br />
         <asp:Label ID="lblFormatBreuk" runat="server" Text=""></asp:Label>
         <br />
-        <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.,/" TargetControlID="tbantwoord"></asp:FilteredTextBoxExtender>
-        <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoord" runat="server" ErrorMessage="Begin met een getal of een punt die een 0 aangeeft!" ValidationExpression="^(-)?\d+([\.\,] \d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
+        <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.,/" TargetControlID="tbantwoordD"></asp:FilteredTextBoxExtender>
+        <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoordD" runat="server" ErrorMessage="Begin met een getal of een punt die een 0 aangeeft!" ValidationExpression="^(-)?\d+([\.\,] \d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblcorrectie" runat="server" Text=""></asp:Label>
         
