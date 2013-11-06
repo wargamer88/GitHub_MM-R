@@ -1265,6 +1265,20 @@ namespace ToetsendRekenen
                         AnswerMinutenVanLangewijzer4 = (double)Session["AnswerLang4"];
                         AnswerMinutenVanKortewijzer4 = (double)Session["AnswerKort4"];
 
+//                        string textForMessage = @"<script language='javascript'> 
+//                            $('#AnswerLangeWijzer1').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer1%>'));
+//                            $('#AnswerKorteWijzer1').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer1%>'));
+//
+//                            $('#AnswerLangeWijzer2').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer2%>'));
+//                            $('#AnswerKorteWijzer2').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer2%>'));
+//
+//                            $('#AnswerLangeWijzer3').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer3%>'));
+//                            $('#AnswerKorteWijzer3').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer3%>'));
+//
+//                            $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer4%>'));
+//                            $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer4%>'));</script>";
+//                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+
                         //goede antwoord ophalen
                         goedsUren = (string)Session["uur"];
                         goedsMinuten = (string)Session["minuut"];
@@ -1332,6 +1346,7 @@ namespace ToetsendRekenen
                         #endregion
 
                         //alle controls laten verschijnen/verdwijnen en enablen/disablen
+                        spacer.InnerHtml = "<br /><br /><br /><br /><br />";
                         LblGoedFout.Text = check;
                         LblGoedFout.Visible = true;
                         if (check == "Dit antwoord is goed")
@@ -1590,6 +1605,8 @@ namespace ToetsendRekenen
                             lblUitlegAntwoord.Visible = true;
                         }
                         #endregion
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "setAnswerclocksAfterRBLselection", "setAnswerclocksAfterRBLselection();", true);
 
                         //objResultaat weer wegschrijven
                         Session["Resultaat"] = objResultaat;
