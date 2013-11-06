@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterToetsendRekenen.Master" AutoEventWireup="true" CodeBehind="Klokkijken.aspx.cs" Inherits="ToetsendRekenen.WebForm14" %>
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
     <link rel="stylesheet" type="text/css" href="Klokkijken.css" />
     <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
     <script type="text/javascript">
@@ -45,9 +47,27 @@
                 $('.AnswerKorteWijzer').css("visibility", "visible");
                 $('.AnswerLangeWijzer').css("visibility", "visible");
             }
-        });
+                 
+            });
+        
+        function setAnswerclocksAfterRBLselection() {
+            $('#AnswerLangeWijzer1').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer1%>"));
+            $('#AnswerKorteWijzer1').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer1%>"));
 
+            $('#AnswerLangeWijzer2').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer2%>"));
+            $('#AnswerKorteWijzer2').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer2%>"));
+
+            $('#AnswerLangeWijzer3').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer3%>"));
+            $('#AnswerKorteWijzer3').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer3%>"));
+
+            $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer4%>"));
+            $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer4%>"));
+        }
+
+        
+                    
     </script>
+                    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -95,7 +115,7 @@
                     <img id="AnswerLangeWijzer4" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
                 </asp:ListItem>
             </asp:RadioButtonList>
-                    <div id="spacer"></div>
+                    <div id="spacer" runat="server"></div>
             <br />
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
             <br />
