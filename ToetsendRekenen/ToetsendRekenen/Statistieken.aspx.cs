@@ -22,7 +22,6 @@ namespace ToetsendRekenen
                 } 
                 #endregion
 
-
                 if (!IsPostBack)
                 {
                     #region GridviewsVullen
