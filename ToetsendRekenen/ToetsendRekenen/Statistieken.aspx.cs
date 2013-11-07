@@ -60,19 +60,29 @@ namespace ToetsendRekenen
 
         protected void ToonGegevensWeek_Click(object sender, EventArgs e)
         {
-            #region WeekFilteren
-            //Filteren dmv week
-            Statistieken st = new Statistieken();
-            string week = ddlWeek.SelectedItem.Text;
-            gvResultaat.DataSource = st.FilterenMetWeekResultaat(week);
-            gvResultaat.DataBind();
-            gvViews.DataSource = st.FilterenMetWeekViews(week);
-            gvViews.DataBind(); 
-            #endregion
+            try
+            {
+                #region WeekFilteren
+                //Filteren dmv week
+                Statistieken st = new Statistieken();
+                string week = ddlWeek.SelectedItem.Text;
+                gvResultaat.DataSource = st.FilterenMetWeekResultaat(week);
+                gvResultaat.DataBind();
+                gvViews.DataSource = st.FilterenMetWeekViews(week);
+                gvViews.DataBind();
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                lbErrorStats.Visible = true;
+                lbErrorStats.Text = ex.ToString();
+            }
         }
 
         protected void ToonGegevensMaand_Click(object sender, EventArgs e)
         {
+            try
+            {
             #region MaandFilteren
             //dmv Maand Filteren
             Statistieken st = new Statistieken();
@@ -82,10 +92,18 @@ namespace ToetsendRekenen
             gvViews.DataSource = st.FilterenMetMaandViews(maand);
             gvViews.DataBind(); 
             #endregion
+            }
+            catch (Exception ex)
+            {
+                lbErrorStats.Visible = true;
+                lbErrorStats.Text = ex.ToString();
+            }
         }
 
         protected void ToonGegevensJaar_Click(object sender, EventArgs e)
         {
+            try
+            {
             #region JaarFilteren
             //dmv jaar filteren
             Statistieken st = new Statistieken();
@@ -95,10 +113,18 @@ namespace ToetsendRekenen
             gvViews.DataSource = st.FilterenMetJaarViews(jaar);
             gvViews.DataBind(); 
             #endregion
+            }
+            catch (Exception ex)
+            {
+                lbErrorStats.Visible = true;
+                lbErrorStats.Text = ex.ToString();
+            }
         }
 
         protected void ToonGegevensVariabelTot_Click(object sender, EventArgs e)
         {
+            try
+            {
             #region DatumFilteren
             //dmv van Datum Filteren
             Statistieken st = new Statistieken();
@@ -109,6 +135,12 @@ namespace ToetsendRekenen
             gvViews.DataSource = st.FilterenMetDatumViews(van, tot);
             gvViews.DataBind(); 
             #endregion
+            }
+            catch (Exception ex)
+            {
+                lbErrorStats.Visible = true;
+                lbErrorStats.Text = ex.ToString();
+            }
         }
 
         protected void btnWijzigWW_Click1(object sender, EventArgs e)

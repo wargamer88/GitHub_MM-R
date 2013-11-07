@@ -94,11 +94,11 @@
         <br />
         Tussen specifieke data: van
         <asp:TextBox ID="tbDatumVan" runat="server" style="margin-right:5px;"></asp:TextBox>
-        <asp:CalendarExtender ID="tbDatumVan_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumVan">
+        <asp:CalendarExtender ID="tbDatumVan_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumVan" Format="MM/dd/yyyy">
         </asp:CalendarExtender>
         t/m
         <asp:TextBox ID="tbDatumTot" runat="server"></asp:TextBox>
-        <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot">
+        <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot" Format="MM/dd/yyyy">
         </asp:CalendarExtender>
         <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" OnClick="ToonGegevensVariabelTot_Click" />
         <br />
