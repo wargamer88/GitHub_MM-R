@@ -25,6 +25,9 @@
         <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.,/" TargetControlID="tbantwoordD"></asp:FilteredTextBoxExtender>
         <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoordD" runat="server" ErrorMessage="Begin altijd met een getal ookal is die 0!" ValidationExpression="^\d{1,3}(\.\d{1,3})?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
+        <asp:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server" ValidChars="1234567890/" TargetControlID="tbantwoordB"></asp:FilteredTextBoxExtender>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="tbantwoordB" runat="server" ErrorMessage="Volledig breuk. Geen hele uit de breuk halen." ValidationExpression="^\d+\/\d+$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
+        <br />
         <asp:Label ID="lblcorrectie" runat="server" Text=""></asp:Label>
         
 
