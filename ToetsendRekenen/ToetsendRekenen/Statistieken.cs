@@ -23,7 +23,7 @@ namespace ToetsendRekenen
         public SqlDataReader OphalenViews()
         {
             List<Sessie> SessieList = new List<Sessie>();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s GROUP BY s.Datum");
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s GROUP BY s.Datum ORDER BY s.Datum");
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             cmd.Connection = conn;
 
@@ -90,7 +90,7 @@ namespace ToetsendRekenen
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(mm, S.Datum) = " + Maand + " GROUP BY s.Datum", conn);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(mm, S.Datum) = " + Maand + " GROUP BY s.Datum ORDER BY s.Datum", conn);
 
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
@@ -103,7 +103,7 @@ namespace ToetsendRekenen
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s WHERE S.Datum between '" + Van + "' and '" + Tot + "' GROUP BY s.Datum", conn);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s WHERE S.Datum between '" + Van + "' and '" + Tot + "' GROUP BY s.Datum ORDER BY s.Datum", conn);
 
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
@@ -116,7 +116,7 @@ namespace ToetsendRekenen
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(yy, s.Datum) = " + Jaar + " GROUP BY s.Datum", conn);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(yy, s.Datum) = " + Jaar + " GROUP BY s.Datum ORDER BY s.Datum", conn);
 
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
@@ -129,7 +129,7 @@ namespace ToetsendRekenen
             List<Sessie> SessieList = new List<Sessie>();
             SqlConnection conn = new SqlConnection(@"Server=www.dbss.nl;Database=PVB1314-003;User Id=miromi;Password=romimi;");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(ww, s.Datum) = " + Week + " GROUP BY s.Datum", conn);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(s.SessieID) 'Views', s.Datum FROM Sessie s where DATEPART(ww, s.Datum) = " + Week + " GROUP BY s.Datum ORDER BY s.Datum", conn);
 
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
