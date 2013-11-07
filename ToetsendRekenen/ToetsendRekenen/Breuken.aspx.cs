@@ -26,8 +26,8 @@ namespace ToetsendRekenen
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (!IsPostBack)
                 {
                     objResultaat = (Resultaat)Session["Resultaat"];
@@ -339,19 +339,19 @@ namespace ToetsendRekenen
                         Session["vragenlijst"] = vragen;
                         Session["breuken"] = breuk;
                     }
-                //}
-            //catch (Exception)
-            //{
-            //    string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
-            //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
-            //    Response.Redirect("Hoofdscherm.aspx");
-            //}
+                }
+            catch (Exception)
+            {
+                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+                Response.Redirect("Hoofdscherm.aspx");
+            }
         }
 
         protected void btncontroleer_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 objResultaat = (Resultaat)Session["Resultaat"];
                 subCategorie = Convert.ToString(objResultaat.SubCategorie);
                 Categorie = Convert.ToString(objResultaat.Categorie);
@@ -474,13 +474,13 @@ namespace ToetsendRekenen
                 tbantwoordD.Enabled = false;
                 btncontroleer.Enabled = false;
                 Session["Resultaat"] = objResultaat;
-            //}
-            //catch (Exception)
-            //{
-            //    string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
-            //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
-            //    Response.Redirect("Hoofdscherm.aspx");
-            //}
+            }
+            catch (Exception)
+            {
+                string textForMessage = @"<script language='javascript'> alert('Er is wat mis gegaan. U gaat terug naar het hoofdscherm. Probeer later opnieuw.');</script>";
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+                Response.Redirect("Hoofdscherm.aspx");
+            }
         }
 
         protected void btnvolgende_Click(object sender, EventArgs e)
