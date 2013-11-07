@@ -14,12 +14,16 @@
         <asp:Label ID="lblTekst" runat="server" Text=""></asp:Label>
         <br />
         <asp:Label ID="lblBreuk" runat="server" Text=""></asp:Label>  = 
-        <asp:TextBox ID="tbantwoord" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbantwoordD" runat="server"></asp:TextBox>
+
+        <asp:TextBox ID="tbantwoordB" runat="server"></asp:TextBox>
 
         <asp:Button ID="btncontroleer" runat="server" Text="Controleer" OnClick="btncontroleer_Click" />
         <br />
-        <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.," TargetControlID="tbantwoord"></asp:FilteredTextBoxExtender>
-        <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoord" runat="server" ErrorMessage="Begin met een getal of een punt die een 0 aangeeft!" ValidationExpression="^(-)?[\d\.]+([\.\,] \d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
+        <asp:Label ID="lblFormatBreuk" runat="server" Text=""></asp:Label>
+        <br />
+        <asp:FilteredTextBoxExtender ID="FTBE" runat="server" ValidChars="1234567890.,/" TargetControlID="tbantwoordD"></asp:FilteredTextBoxExtender>
+        <asp:RegularExpressionValidator ID="REV" ControlToValidate="tbantwoordD" runat="server" ErrorMessage="Begin met een getal of een punt die een 0 aangeeft!" ValidationExpression="^(-)?\d+([\.\,] \d\d)?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblcorrectie" runat="server" Text=""></asp:Label>
         
