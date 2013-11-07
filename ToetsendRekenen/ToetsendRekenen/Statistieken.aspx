@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
-    <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="26px" BackColor="#3333FF" ForeColor="White" Width="132px" OnClick="btnWijzigWW_Click1" />
+    <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="26px" BackColor="#3333FF" ForeColor="White" Width="144px" OnClick="btnWijzigWW_Click1" />
     <p>
         <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Statistieken</span></p>
     <p style="border-bottom: solid 2px #3333FF; border-top: solid 2px #3333FF; ">
@@ -65,7 +65,7 @@
             <asp:ListItem>51</asp:ListItem>
             <asp:ListItem>52</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" OnClick="ToonGegevensWeek_Click" />
+        <asp:Button ID="ToonGegevensWeek" runat="server" Text="Toon gegevens" OnClick="ToonGegevensWeek_Click" Width="110px" Height="26px" BackColor="#3333FF" ForeColor="White" />
         <br />
         Maand:<asp:DropDownList ID="ddlMaand" runat="server" Height="21px" Width="121px" style="margin-left: 161px">
             <asp:ListItem Value="01">Januari</asp:ListItem>
@@ -81,7 +81,7 @@
             <asp:ListItem Value="11">November</asp:ListItem>
             <asp:ListItem Value="12">December</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" OnClick="ToonGegevensMaand_Click" />
+        <asp:Button ID="ToonGegevensMaand" runat="server" Text="Toon gegevens" OnClick="ToonGegevensMaand_Click" Width="110px" Height="26px" BackColor="#3333FF" ForeColor="White" />
         <br />
         Jaar:
         <asp:DropDownList ID="ddlJaar" runat="server" Height="21px" Width="121px" style="margin-left: 179px">
@@ -89,8 +89,8 @@
             <asp:ListItem>1</asp:ListItem>
             <asp:ListItem Value="2">2</asp:ListItem>
             <asp:ListItem>3</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Button ID="ToonGegevensJaar" runat="server" Text="Toon gegevens" OnClick="ToonGegevensJaar_Click" />
+        </asp:DropDownList> 
+        <asp:Button ID="ToonGegevensJaar" runat="server" Text="Toon gegevens" OnClick="ToonGegevensJaar_Click" Width="110px" Height="26px" BackColor="#3333FF" ForeColor="White" />
         <br />
         Tussen specifieke data: van
         <asp:TextBox ID="tbDatumVan" runat="server" style="margin-right:5px;"></asp:TextBox>
@@ -100,7 +100,8 @@
         <asp:TextBox ID="tbDatumTot" runat="server"></asp:TextBox>
         <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot" Format="MM/dd/yyyy">
         </asp:CalendarExtender>
-        <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" OnClick="ToonGegevensVariabelTot_Click" />
+        <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" OnClick="ToonGegevensVariabelTot_Click" Width="110px" Height="26px" BackColor="#3333FF" ForeColor="White" />
+        <asp:Label ID="Label1" runat="server" Text="(maand/dag/jaar)" style="margin-left: 5px;"></asp:Label>
         <br />
         <br />
     </p>
