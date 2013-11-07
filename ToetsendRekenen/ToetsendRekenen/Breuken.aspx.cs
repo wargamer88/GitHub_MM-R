@@ -469,6 +469,7 @@ namespace ToetsendRekenen
                     }
                 }
                 #endregion
+                tbantwoordB.Enabled = false;
                 btnvolgende.Visible = true;
                 tbantwoordD.Enabled = false;
                 btncontroleer.Enabled = false;
