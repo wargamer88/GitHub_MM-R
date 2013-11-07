@@ -21,7 +21,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Breuken";
-                objResultaat.Categorie = "Breuken-Komma";
+                objResultaat.Categorie = "Breuk-Komma";
                 objResultaat.SubCategorie = "0-1";
                 objResultaat.SessieID = Session.SessionID;
                 objResultaat.AantalGoed = 0;
@@ -48,7 +48,7 @@ namespace ToetsendRekenen
                 lbError.Visible = false;
                 Resultaat objResultaat = new Resultaat();
                 objResultaat.Oefening = "Breuken";
-                objResultaat.Categorie = "Breuken-Komma";
+                objResultaat.Categorie = "Breuk-Komma";
                 objResultaat.SubCategorie = "0-10";
                 objResultaat.SessieID = Session.SessionID;
                 objResultaat.AantalGoed = 0;

@@ -94,8 +94,10 @@ namespace ToetsendRekenen
                         }
                         #endregion
                         #region BnD0-1
-                        if (Categorie == "Breuken-Komma")
+                        if (Categorie == "Breuk-Komma")
                         {
+                            tbantwoordD.Visible = true;
+                            tbantwoordB.Visible = false;
                             lblspel.Text = "Breuken spel" + Categorie + " " + subCategorie;
                             lblTekst.Text = "Reken de breuk om naar komma getal.";
                             if (subCategorie == "0-1")
@@ -147,9 +149,12 @@ namespace ToetsendRekenen
                         #region DnB0-1
                         if (Categorie == "Komma-Breuk")
                         {
+                            tbantwoordD.Visible = false;
+                            tbantwoordB.Visible = true;
+                            bool GF = false;
                             lblspel.Text = "Breuken spel" + Categorie + " " + subCategorie;
                             lblTekst.Text = "Vul de breuk in vanuit een decimaal getal.";
-                            lblFormatBreuk.Text = "Schrijf het antwoord op als bijvoorbeeld: 1/3";
+                            lblFormatBreuk.Text = "Schrijf het antwoord op als bijvoorbeeld: 1/3. Zover mogelijk vereenvoudigen!";
                             if (subCategorie == "0-1")
                             {
                                 do
@@ -164,6 +169,32 @@ namespace ToetsendRekenen
                                     Antwoord = B.RandomAntwoord(breuk);
                                     
                                     lblBreuk.Text = Antwoord.ToString();
+                                    #region controleer op 1 0-1
+                                    do
+                                    {
+                                        if (subCategorie == "0-1")
+                                        {
+                                            if (Antwoord == 1)
+                                            {
+                                                BrArray = B.BreukArray();
+                                                B.GangbareBreuken(BrArray);
+
+                                                breuk = B.RandomBreuk();
+
+                                                breuk = B.Deelbarebreuken(breuk);
+
+                                                Antwoord = B.RandomAntwoord(breuk);
+                                    
+                                                lblBreuk.Text = Antwoord.ToString();
+                                                GF = true;
+                                                if (Antwoord != 1)
+                                                {
+                                                    GF = false;
+                                                }
+                                            }
+                                        }
+                                    } while (GF);
+                                    #endregion
                                 }
                                 while (B.PreventRepeatingQuestions(Antwoord.ToString(), vragen));
                                 vragen.Add(Antwoord.ToString());
