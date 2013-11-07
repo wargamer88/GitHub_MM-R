@@ -104,7 +104,7 @@
         <br />
         <br />
     </p>
-    <div id="Tables" style="height : 300px; overflow :scroll;">
+    <div id="Tables" style="height : 340px; overflow :scroll;">
     <div style="float:left">
         <asp:GridView ID="gvResultaat" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
