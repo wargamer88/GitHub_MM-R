@@ -9,7 +9,4 @@
     <p style="float:left; margin-bottom:0;">
         <asp:Button ID="btnStatistiek" runat="server" Height="26px" BackColor="#3333FF" ForeColor="White" Text="Ga naar statistieken" OnClick="btnStatistiek_Click" />
     </p>
-    <div style="position:absolute; left: 978px; top:3px; width: 16px; height: 26px;">
-        <asp:Button ID="btnEasteregg" runat="server" Height="26px" BackColor="#FFFFFF" BorderStyle="None" ForeColor="White" Text="" Width="16px" OnClick="btnEasteregg_Click" />
-    </div>
 </asp:Content>
