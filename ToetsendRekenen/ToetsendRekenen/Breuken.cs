@@ -139,9 +139,14 @@ namespace ToetsendRekenen
                     {
                         do
                         {
+                            Bool = true;
                              random = randomelk[R.Next(randomelk.Length)];
+                             if (random != null)
+                             {
+                                 Bool = false;
+                             }
                         }
-                        while(random != null);
+                        while(Bool);
                         split = random.Split("/".ToArray());
                         getal1 = Convert.ToInt16(split[0]);
                         getal2 = Convert.ToInt16(split[1]);
@@ -150,15 +155,20 @@ namespace ToetsendRekenen
                     {
                         do
                         {
+                            Bool = true;
                              random = randomelk[R.Next(randomelk.Length)];
+                             if (random != null)
+                             {
+                                 Bool = false;
+                             }
                         }
-                        while(random != null);
+                        while(Bool);
                         split = random.Split("/".ToArray());
                         getal1 = Convert.ToInt16(split[0]);
                         getal2 = Convert.ToInt16(split[1]);
                     }
-                    Bool = true;
-                    } while (true);
+                    Bool = false;
+                    } while (Bool);
                 }
 
 
@@ -202,12 +212,10 @@ namespace ToetsendRekenen
             string[] split = breuk.Split("/".ToArray());
             int getal1 = Convert.ToInt16(split[0]);
             int getal2 = Convert.ToInt16(split[1]);
-            int heelgetal1 = 0;
-            int heelgetal2 = 0;
             string breukantwoord = "";
             #region 100,50,25 en 20
             //100
-            if (getal2 == 100 || heelgetal2 == 100)
+            if (getal2 == 100)
             {
                 #region 100
                 int modusgetal5 = getal1 % 5;
@@ -215,68 +223,65 @@ namespace ToetsendRekenen
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else if (modusgetal4 == 0)
                 {
-                    heelgetal1 = getal1 / 4;
-                    heelgetal2 = getal2 / 4;
+                    getal1 = getal1 / 4;
+                    getal2 = getal2 / 4;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //50
-            if (getal2 == 50 || heelgetal2 == 50)
+            if (getal2 == 50)
             {
                 #region 50
                 int modusgetal5 = getal1 % 5;
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //25
-            if (getal2 == 25 || heelgetal2 == 25)
+            if (getal2 == 25)
             {
                 #region 25
                 int modusgetal5 = getal1 % 5;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //20
-            if (getal2 == 20 || heelgetal2 == 20)
+            if (getal2 == 20)
             {
                 #region 20
                 int modusgetal5 = getal1 % 5;
@@ -284,53 +289,51 @@ namespace ToetsendRekenen
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else if (modusgetal4 == 0)
                 {
-                    heelgetal1 = getal1 / 4;
-                    heelgetal2 = getal2 / 4;
+                    getal1 = getal1 / 4;
+                    getal2 = getal2 / 4;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             #endregion
             #region 10,8,5,4,3 en 2
             //10
-            if (getal2 == 10 || heelgetal2 == 10)
+            if (getal2 == 10)
             {
                 #region 10
                 int modusgetal5 = getal1 % 5;
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //8
-            if (getal2 == 8 || heelgetal2 == 8)
+            if (getal2 == 8)
             {
                 #region 8
                 int modusgetal8 = getal1 % 8;
@@ -338,103 +341,98 @@ namespace ToetsendRekenen
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal8 == 0)
                 {
-                    heelgetal1 = getal1 / 8;
-                    heelgetal2 = getal2 / 8;
+                    getal1 = getal1 / 8;
+                    getal2 = getal2 / 8;
                 }
                 else if (modusgetal4 == 0)
                 {
-                    heelgetal1 = getal1 / 4;
-                    heelgetal2 = getal2 / 4;
+                    getal1 = getal1 / 4;
+                    getal2 = getal2 / 4;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //5
-            if (getal2 == 5 || heelgetal2 == 5)
+            if (getal2 == 5)
             {
                 #region 5
                 int modusgetal5 = getal1 % 5;
                 if (modusgetal5 == 0)
                 {
-                    heelgetal1 = getal1 / 5;
-                    heelgetal2 = getal2 / 5;
+                    getal1 = getal1 / 5;
+                    getal2 = getal2 / 5;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //4
-            if (getal2 == 4 || heelgetal2 == 4)
+            if (getal2 == 4)
             {
                 #region 4
                 int modusgetal4 = getal1 % 4;
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal4 == 0)
                 {
-                    heelgetal1 = getal1 / 4;
-                    heelgetal2 = getal2 / 4;
+                    getal1 = getal1 / 4;
+                    getal2 = getal2 / 4;
                 }
                 else if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //3
-            if (getal2 == 3 || heelgetal2 == 3)
+            if (getal2 == 3)
             {
                 #region 3
                 int modusgetal3 = getal1 % 3;
                 if (modusgetal3 == 0)
                 {
-                    heelgetal1 = getal1 / 3;
-                    heelgetal2 = getal2 / 3;
+                    getal1 = getal1 / 3;
+                    getal2 = getal2 / 3;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             //2
-            if (getal2 == 2 || heelgetal2 == 2)
+            if (getal2 == 2)
             {
                 #region 2
                 int modusgetal2 = getal1 % 2;
                 if (modusgetal2 == 0)
                 {
-                    heelgetal1 = getal1 / 2;
-                    heelgetal2 = getal2 / 2;
+                    getal1 = getal1 / 2;
+                    getal2 = getal2 / 2;
                 }
                 else
                 {
-                    heelgetal1 = getal1;
-                    heelgetal2 = getal2;
+
                 }
                 #endregion
             }
             #endregion
 
-            breukantwoord = heelgetal1 + "/" + heelgetal2;
+            breukantwoord = getal1 + "/" + getal2;
 
             return breukantwoord;
         }
