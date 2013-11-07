@@ -146,9 +146,10 @@ namespace ToetsendRekenen
                         }
                             #endregion
                         // aanpassen!
-                        #region DnB0-1
+                        
                         if (Categorie == "Komma-Breuk")
                         {
+                            #region DnB0-1
                             tbantwoordD.Visible = false;
                             tbantwoordB.Visible = true;
                             bool GF = false;
@@ -198,10 +199,140 @@ namespace ToetsendRekenen
                                 }
                                 while (B.PreventRepeatingQuestions(Antwoord.ToString(), vragen));
                                 vragen.Add(Antwoord.ToString());
+                                #endregion
+                            #region DnB0-10
+                            }                           
+                            if (subCategorie == "0-10")
+                            {
+                                do
+                                {
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
 
+                                    breuk = B.RandomBreuk();
+
+                                    string[] split = breuk.Split("/".ToArray());
+                                    int getal1 = Convert.ToInt16(split[0]);
+                                    int getal2 = Convert.ToInt16(split[1]);
+
+                                    int helegetal = R.Next(0, 10);
+
+                                    helegetal = helegetal * getal2;
+
+                                    getal1 = getal1 + helegetal;
+                                    breuk = getal1 + "/" + getal2;
+
+                                    breuk = B.Deelbarebreuken(breuk);
+
+                                    Antwoord = B.RandomAntwoord(breuk);
+
+                                    lblBreuk.Text = Antwoord.ToString();
+                                    #region controleer op heel 0-1
+                                    do
+                                    {
+                                        if (subCategorie == "0-10")
+                                        {
+                                            bool isint = true;
+                                            if (Antwoord % 1 == 0)
+                                            {
+                                                isint = true;
+                                            }
+                                            else
+                                            {
+                                                isint = false;
+                                            }
+                                            if (isint )
+                                            {
+                                                BrArray = B.BreukArray();
+                                                B.GangbareBreuken(BrArray);
+
+                                                breuk = B.RandomBreuk();
+
+                                                breuk = B.Deelbarebreuken(breuk);
+
+                                                Antwoord = B.RandomAntwoord(breuk);
+
+                                                lblBreuk.Text = Antwoord.ToString();
+                                                GF = true;
+                                                if (Antwoord % 1 != 0)
+                                                {
+                                                    GF = false;
+                                                }
+                                            }
+                                        }
+                                    } while (GF);
+                                    #endregion
+                                }
+                                while (B.PreventRepeatingQuestions(Antwoord.ToString(), vragen));
+                                vragen.Add(Antwoord.ToString());
                             }
+                            #endregion
+                            #region DnB0-10
+                            if (subCategorie == "0-100")
+                            {
+                                do
+                                {
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
+
+                                    breuk = B.RandomBreuk();
+
+                                    breuk = B.Deelbarebreuken(breuk);
+
+                                    string[] split = breuk.Split("/".ToArray());
+                                    int getal1 = Convert.ToInt16(split[0]);
+                                    int getal2 = Convert.ToInt16(split[1]);
+
+                                    int helegetal = R.Next(0, 100);
+                                    helegetal = helegetal * getal2;
+                                    getal1 = getal1 + helegetal;
+                                    breuk = getal1 + "/" + getal2;
+
+                                    Antwoord = B.RandomAntwoord(breuk);
+
+                                    lblBreuk.Text = Antwoord.ToString();
+                                    #region controleer op heel 0-100
+                                    do
+                                    {
+                                        if (subCategorie == "0-10")
+                                        {
+                                            bool isint = true;
+                                            if (Antwoord % 1 == 0)
+                                            {
+                                                isint = true;
+                                            }
+                                            else
+                                            {
+                                                isint = false;
+                                            }
+                                            if (isint)
+                                            {
+                                                BrArray = B.BreukArray();
+                                                B.GangbareBreuken(BrArray);
+
+                                                breuk = B.RandomBreuk();
+
+                                                breuk = B.Deelbarebreuken(breuk);
+
+                                                Antwoord = B.RandomAntwoord(breuk);
+
+                                                lblBreuk.Text = Antwoord.ToString();
+                                                GF = true;
+                                                if (Antwoord % 1 != 0)
+                                                {
+                                                    GF = false;
+                                                }
+                                            }
+                                        }
+                                    } while (GF);
+                                    #endregion
+                                }
+                                while (B.PreventRepeatingQuestions(Antwoord.ToString(), vragen));
+                                vragen.Add(Antwoord.ToString());
+                            }
+                            #endregion 
                         }
-                        #endregion
+                       
                         Session["Resultaat"] = objResultaat;
                         Session["Totaal"] = Antwoord;
                         Session["vragenlijst"] = vragen;
@@ -233,14 +364,6 @@ namespace ToetsendRekenen
                 if (Categorie == "Breuk-Komma")
                 {
                     #region Breuk-Komma
-                    //if (tbantwoord.Text.IndexOf(".") == tbantwoord.Text.LastIndexOf("."))
-                    //{
-                    //    tbantwoord.Attributes.Remove(".");
-                    //    tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
-                    //    tbantwoord.Text = tbantwoord.Text.Replace(",", "00");
-                    //}
-
-                    //tbantwoord.Text = tbantwoord.Text.Replace(".", "00");
                     decimal tbxantwoord = Convert.ToDecimal(tbantwoordD.Text);
                     decimal.TryParse(tbantwoordD.Text.Replace(".", ","), out tbxantwoord);
 
@@ -276,12 +399,12 @@ namespace ToetsendRekenen
                     if (breuk == tbxantwoordB)
                     {
                         objResultaat.AantalGoed += 1;
-                        lblcorrectie.Text = "goed";
+                        lblcorrectie.Text = "<span style= color:green>Het antwoord is goed</span>.";
                     }
                     else
                     {
                         objResultaat.AantalFout += 1;
-                        lblcorrectie.Text = "fout";
+                        lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + breuk + "</span> moeten zijn.";
                     }
                     #endregion
                 }
