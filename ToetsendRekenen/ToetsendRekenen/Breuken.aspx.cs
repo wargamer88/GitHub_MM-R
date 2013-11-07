@@ -145,7 +145,6 @@ namespace ToetsendRekenen
                             }
                         }
                             #endregion
-                        // aanpassen!
                         
                         if (Categorie == "Komma-Breuk")
                         {
@@ -204,6 +203,7 @@ namespace ToetsendRekenen
                             }                           
                             if (subCategorie == "0-10")
                             {
+                                lblFormatBreuk.Text = lblFormatBreuk.Text + " <br />Een gehele breuk. 4/3 is dus ook mogelijk!";
                                 do
                                 {
                                     string[,] BrArray = B.BreukArray();
@@ -270,6 +270,7 @@ namespace ToetsendRekenen
                             #region DnB0-10
                             if (subCategorie == "0-100")
                             {
+                                lblFormatBreuk.Text = lblFormatBreuk.Text + " <br />Een gehele breuk. 4/3 is dus ook mogelijk!";
                                 do
                                 {
                                     string[,] BrArray = B.BreukArray();
@@ -357,6 +358,13 @@ namespace ToetsendRekenen
                 Antwoord = (decimal)Session["Totaal"];
                 breuk = (string)Session["breuken"];
 
+                string[] split = breuk.Split("/".ToArray());
+                int getal1 = Convert.ToInt16(split[0]);
+                int getal2 = Convert.ToInt16(split[1]);
+                decimal getal = 100 / getal2;
+                decimal aangepastebreuk = Antwoord * 100;
+                aangepastebreuk = Math.Round(aangepastebreuk, 0);
+
                 if (tbantwoordD.Text == "")
                 {
                     Antwoord = 0;
@@ -367,10 +375,10 @@ namespace ToetsendRekenen
                     decimal tbxantwoord = Convert.ToDecimal(tbantwoordD.Text);
                     decimal.TryParse(tbantwoordD.Text.Replace(".", ","), out tbxantwoord);
 
-                    string[] split = breuk.Split("/".ToArray());
-                    int getal1 = Convert.ToInt16(split[0]);
-                    int getal2 = Convert.ToInt16(split[1]);
-                    decimal getal = 100 / getal2;
+                    split = breuk.Split("/".ToArray());
+                    getal1 = Convert.ToInt16(split[0]);
+                    getal2 = Convert.ToInt16(split[1]);
+                    getal = 100 / getal2;
 
                     if (!(B.LessThan3DecimalPlaces(Antwoord)))
                     {
@@ -400,11 +408,13 @@ namespace ToetsendRekenen
                     {
                         objResultaat.AantalGoed += 1;
                         lblcorrectie.Text = "<span style= color:green>Het antwoord is goed</span>.";
+                        lblUitlegAntwoord.Text = "Voor een breuk is makkelijk het getal 100 te gebruiken. <br /> Zo kun je dus elke getal/100 doen. <br /> Als " + Antwoord + " 1 nul heeft is het dus gelijk aan 2 nullen. <br />Bijvoorbeeld 0,1 is hetzelfde als 0,10 en 0,100. <br /> Daarmee kun je de breuk altijd /100 maken. <br />De breuk bij deze is dus eigenlijk " + aangepastebreuk + "/100. <br />Vanuit hier is dan mogelijk om te vereenvoudigen. <br />Het moet te delen zijn door beide getallen.<br /> Vaak is door 2 soms ook 4 en 5 mogelijk. <br />Zo niet kijk dan verder na mogelijkheden.<br />Ook de antwoorden daarvan zouden mogelijk te zijn om te delen.<br />Doe doe je tot je niet meer kan en kom je op het antwoord:<span style= color:green> " + breuk + "<span>";
                     }
                     else
                     {
                         objResultaat.AantalFout += 1;
                         lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + breuk + "</span> moeten zijn.";
+                        lblUitlegAntwoord.Text = "Voor een breuk is makkelijk het getal 100 te gebruiken. <br /> Zo kun je dus elke getal/100 doen. <br /> Als " + Antwoord + " 1 nul heeft is het dus gelijk aan 2 nullen. <br />Bijvoorbeeld 0,1 is hetzelfde als 0,10 en 0,100. <br /> Daarmee kun je de breuk altijd /100 maken. <br />De breuk bij deze is dus eigenlijk " + aangepastebreuk + "/100. <br />Vanuit hier is dan mogelijk om te vereenvoudigen. <br />Het moet te delen zijn door beide getallen.<br /> Vaak is door 2 soms ook 4 en 5 mogelijk. <br />Zo niet kijk dan verder na mogelijkheden.<br />Ook de antwoorden daarvan zouden mogelijk te zijn om te delen.<br />Doe doe je tot je niet meer kan en kom je op het antwoord:<span style= color:green> " + breuk + "<span>";
                     }
                     #endregion
                 }
