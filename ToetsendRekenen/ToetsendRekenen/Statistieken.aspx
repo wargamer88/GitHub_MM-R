@@ -5,27 +5,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
-        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Hoofdmenu</span>
-    <br />  
-    <br />
-        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Wachtwoord Wijzigen</span><br />
-    <p>
-        Oud wachtwoord:
-        <asp:TextBox ID="tbOudWW" runat="server" Height="16px" Width="124px" TextMode="Password" style="margin-left: 92px"></asp:TextBox>
-        <br />
-        Nieuw wachtwoord:
-        <asp:TextBox ID="tbNieuwWW" runat="server" Height="16px" Width="124px" style="margin-left: 75px" TextMode="Password"></asp:TextBox>
-        <br />
-        Opnieuw nieuw wachtwoord:
-        <asp:TextBox ID="tbBevestigingNieuwWW" runat="server" Height="16px" Width="124px" TextMode="Password" style="margin-left: 7px"></asp:TextBox>
-        <br /> 
-        <asp:Label ID="lbResultaatChange" runat="server" Text="Resultaat" Visible="False" Font-Bold="True" ForeColor="Red"></asp:Label><br />
-        <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="25px" Width="132px" OnClick="btnWijzigWW_Click" style="margin-left: 232px" />
-        <br />
-    </p>
+    <asp:Button ID="btnWijzigWW" runat="server" Text="Wijzig wachtwoord" Height="26px" BackColor="#3333FF" ForeColor="White" Width="132px" OnClick="btnWijzigWW_Click1" />
     <p>
         <span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold">Statistieken</span></p>
-    <p>
+    <p style="border-bottom: solid 2px #3333FF; border-top: solid 2px #3333FF; ">
+        <br />
         Week:
         <asp:DropDownList ID="ddlWeek" runat="server" Height="21px" Width="121px" style="margin-left: 165px">
             <asp:ListItem>1</asp:ListItem>
@@ -117,8 +101,10 @@
         <asp:CalendarExtender ID="tbDatumTot_CalendarExtender" runat="server" Enabled="True" TargetControlID="tbDatumTot">
         </asp:CalendarExtender>
         <asp:Button ID="ToonGegevensVariabelTot" runat="server" Text="Toon gegevens" OnClick="ToonGegevensVariabelTot_Click" />
+        <br />
+        <br />
     </p>
-    <div id="Tables" style="height : 160px; overflow :scroll;">
+    <div id="Tables" style="height : 340px; overflow :scroll;">
     <div style="float:left">
         <asp:GridView ID="gvResultaat" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

@@ -40,7 +40,7 @@ body {
     background-color:#FFFFFF;
     margin:0 auto 0 auto;
     width:1000px;
-    min-height:550px;
+    min-height:600px;
     height:0 auto;
     border:solid 3px white;
     position:relative;
@@ -49,7 +49,7 @@ body {
 #nav {
     background-color:#7D86FF;
     width:200px;
-    min-height:550px;
+    min-height:600px;
     height:0 auto;
     float:left;
 }
@@ -93,7 +93,7 @@ ul {
 }
 
 .som {
-    width:400px;
+    width:399px;
     height:auto;
     /*border-right:solid 1px black;*/
     float:left;

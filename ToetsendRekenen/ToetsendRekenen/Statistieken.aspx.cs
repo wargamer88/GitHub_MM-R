@@ -58,46 +58,6 @@ namespace ToetsendRekenen
 
         }
 
-        protected void btnWijzigWW_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                #region WachtwoordAanpassen
-                //Wachtwoord aanpassen
-                lbResultaatChange.Visible = false;
-                Inlog I = new Inlog();
-                I = (Inlog)Session["Inlog"];
-                bool WWChange = I.Changepassword(tbOudWW.Text, tbNieuwWW.Text, tbBevestigingNieuwWW.Text); 
-                #endregion
-
-                #region BevestigingWachtwoord
-                //kijken of wachtwoord wijzigen gelukt is
-                if (WWChange == true)
-                {
-                    lbResultaatChange.Visible = true;
-                    lbResultaatChange.ForeColor = System.Drawing.Color.Green;
-                    lbResultaatChange.Text = "Wachtwoord wijzigen gelukt.";
-                    tbOudWW.Text = "";
-                    tbNieuwWW.Text = "";
-                    tbBevestigingNieuwWW.Text = "";
-                }
-                else
-                {
-                    lbResultaatChange.Visible = true;
-                    lbResultaatChange.ForeColor = System.Drawing.Color.Red;
-                    lbResultaatChange.Text = "Wachtwoord wijzigen mislukt";
-                } 
-                #endregion
-
-            }
-            catch (Exception ex)
-            {
-                lbResultaatChange.Visible = true;
-                lbResultaatChange.ForeColor = System.Drawing.Color.Red;
-                lbResultaatChange.Text = ex.ToString();
-            }
-        }
-
         protected void ToonGegevensWeek_Click(object sender, EventArgs e)
         {
             #region WeekFilteren
@@ -149,6 +109,11 @@ namespace ToetsendRekenen
             gvViews.DataSource = st.FilterenMetDatumViews(van, tot);
             gvViews.DataBind(); 
             #endregion
+        }
+
+        protected void btnWijzigWW_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("Wachtwoord.aspx");
         }
     }
 }

@@ -23,10 +23,14 @@
             $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer4%>"));
             $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer4%>"));
 
-            $clockVisibility = ("<%= clockVisibility%>");
+            $questionClockVisibility = ("<%= clockVisibility%>");
             $answerClockVisibility = ("<%= answerClockVisibility%>");
 
-            if ($clockVisibility === "False") {
+            $('#UitlegWijzerPlaat').css("visibility", "hidden");
+            $('#UitlegKorteWijzer').css("visibility", "hidden");
+            $('#UitlegLangeWijzer').css("visibility", "hidden");
+
+            if ($questionClockVisibility === "False") {
                 $('#wijzerPlaatVraag').css("visibility", "hidden");
                 $('#korteWijzerVraag').css("visibility", "hidden");
                 $('#langeWijzerVraag').css("visibility", "hidden");
@@ -62,6 +66,39 @@
 
             $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanLangewijzer4%>"));
             $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt("<%= AnswerMinutenVanKortewijzer4%>"));
+
+            $('#UitlegLangeWijzer').rotate(360 / 60 * parseInt("<%= minutenVanLangewijzer%>"));
+            $('#UitlegKorteWijzer').rotate(360 / 60 * parseInt("<%= minutenVanKortewijzer%>"));
+
+            if ($questionClockVisibility === "False") {
+                $('#wijzerPlaatVraag').css("visibility", "hidden");
+                $('#korteWijzerVraag').css("visibility", "hidden");
+                $('#langeWijzerVraag').css("visibility", "hidden");
+            }
+            else {
+                $('#wijzerPlaatVraag').css("visibility", "visible");
+                $('#korteWijzerVraag').css("visibility", "visible");
+                $('#langeWijzerVraag').css("visibility", "visible");
+            }
+
+            if ($answerClockVisibility === "False") {
+                $('.AnswerWijzerPlaat').css("visibility", "hidden");
+                $('.AnswerKorteWijzer').css("visibility", "hidden");
+                $('.AnswerLangeWijzer').css("visibility", "hidden");
+
+                $('#UitlegWijzerPlaat').css("visibility", "hidden");
+                $('#UitlegKorteWijzer').css("visibility", "hidden");
+                $('#UitlegLangeWijzer').css("visibility", "hidden");
+            }
+            else {
+                $('.AnswerWijzerPlaat').css("visibility", "visible");
+                $('.AnswerKorteWijzer').css("visibility", "visible");
+                $('.AnswerLangeWijzer').css("visibility", "visible");
+
+                $('#UitlegWijzerPlaat').css("visibility", "visible");
+                $('#UitlegKorteWijzer').css("visibility", "visible");
+                $('#UitlegLangeWijzer').css("visibility", "visible");
+            }
         }
 
         
@@ -98,6 +135,8 @@
                     <img id="AnswerWijzerPlaat1" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
                     <img id="AnswerKorteWijzer1" class="AnswerKorteWijzer" src="Images/KorteWijzer.png" />
                     <img id="AnswerLangeWijzer1" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
+                    
+
                 </asp:ListItem>
                 <asp:ListItem>
                     <img id="AnswerWijzerPlaat2" class="AnswerWijzerPlaat" src="Images/WijzerPlaat.png" />
@@ -115,6 +154,12 @@
                     <img id="AnswerLangeWijzer4" class="AnswerLangeWijzer" src="Images/LangeWijzer.png" />
                 </asp:ListItem>
             </asp:RadioButtonList>
+                    <div style="width:500px;">
+                        <asp:Image ID="imgSunAndMoon1" CssClass="answerSunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
+                        <asp:Image ID="imgSunAndMoon2" CssClass="answerSunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
+                        <asp:Image ID="imgSunAndMoon3" CssClass="answerSunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
+                        <asp:Image ID="imgSunAndMoon4" CssClass="answerSunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
+                    </div>
                     <div id="spacer" runat="server"></div>
             <br />
             <asp:Label ID="LblGoedFout" runat="server" Text="Label"></asp:Label>
@@ -144,6 +189,12 @@
                 <ContentTemplate>
                     <div runat="server" id="divUitleg">
                         
+                    </div>
+                    <div>
+                        <img id="UitlegWijzerPlaat" class="uitlegWijzerPlaat" src="Images/WijzerPlaat.png" />
+                        <img id="UitlegKorteWijzer" class="uitlegKorteWijzer" src="Images/KorteWijzer.png" />
+                        <img id="UitlegLangeWijzer" class="uitlegLangeWijzer" src="Images/LangeWijzer.png" />
+                        <asp:Image ID="UitlegImgSunAndMoon" CssClass="UitlegSunAndMoon" ImageUrl="Images/Sun.png" runat="server" />
                     </div>
                     <asp:Label ID="lblUitlegAntwoord" runat="server" Text="Label"></asp:Label>
                 </ContentTemplate>

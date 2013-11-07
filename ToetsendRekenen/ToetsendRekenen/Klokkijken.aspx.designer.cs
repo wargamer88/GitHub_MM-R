@@ -76,6 +76,42 @@ namespace ToetsendRekenen {
         protected global::System.Web.UI.WebControls.RadioButtonList RblAntwoorden;
         
         /// <summary>
+        /// imgSunAndMoon1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSunAndMoon1;
+        
+        /// <summary>
+        /// imgSunAndMoon2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSunAndMoon2;
+        
+        /// <summary>
+        /// imgSunAndMoon3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSunAndMoon3;
+        
+        /// <summary>
+        /// imgSunAndMoon4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSunAndMoon4;
+        
+        /// <summary>
         /// spacer control.
         /// </summary>
         /// <remarks>
@@ -173,6 +209,15 @@ namespace ToetsendRekenen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUitleg;
+        
+        /// <summary>
+        /// UitlegImgSunAndMoon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image UitlegImgSunAndMoon;
         
         /// <summary>
         /// lblUitlegAntwoord control.

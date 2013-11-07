@@ -81,6 +81,12 @@ namespace ToetsendRekenen
                     {
                         #region Analoog klokkijken
                         {
+                            imgSunAndMoon1.Visible = false;
+                            imgSunAndMoon2.Visible = false;
+                            imgSunAndMoon3.Visible = false;
+                            imgSunAndMoon4.Visible = false;
+                            UitlegImgSunAndMoon.Visible = false;
+
                             lblCategorie.Text = "Analoog klokkijken";
 
                             clockVisibility = true;
@@ -233,6 +239,12 @@ namespace ToetsendRekenen
                     {
                         #region Digitaal klokkijken
                         {
+                            imgSunAndMoon1.Visible = false;
+                            imgSunAndMoon2.Visible = false;
+                            imgSunAndMoon3.Visible = false;
+                            imgSunAndMoon4.Visible = false;
+                            UitlegImgSunAndMoon.Visible = false;
+
                             lblCategorie.Text = "Digitaal klokkijken";
 
                             imgSunAndMoon.Visible = false;
@@ -380,6 +392,12 @@ namespace ToetsendRekenen
                     {
                         #region Analoog naar digitaal
                         {
+                            imgSunAndMoon1.Visible = false;
+                            imgSunAndMoon2.Visible = false;
+                            imgSunAndMoon3.Visible = false;
+                            imgSunAndMoon4.Visible = false;
+                            UitlegImgSunAndMoon.Visible = false;
+
                             lblCategorie.Text = "Analoog naar Digitaal";
 
                             imgSunAndMoon.Visible = true;
@@ -530,6 +548,12 @@ namespace ToetsendRekenen
                     {
                         #region Digitaal naar analoog
                         {
+                            imgSunAndMoon1.Visible = true;
+                            imgSunAndMoon2.Visible = true;
+                            imgSunAndMoon3.Visible = true;
+                            imgSunAndMoon4.Visible = true;
+                            UitlegImgSunAndMoon.Visible = false;
+
                             lblCategorie.Text = "Digitaal naar analoog";
 
                             imgSunAndMoon.Visible = false;
@@ -607,6 +631,14 @@ namespace ToetsendRekenen
                                     antwoorden[0] = goedsUren + " : " + goedsMinuten;
                                     antwoord = goedsUren + " : " + goedsMinuten;
                                     digitalClock.Text = "<span style='font-size:100px; border:dashed 3px black'>" + antwoord + "</span>";
+                                    if (goedUren >= 6 && goedUren <= 17)
+                                    {
+                                        UitlegImgSunAndMoon.ImageUrl = "Images/Sun.png";
+                                    }
+                                    else
+                                    {
+                                        UitlegImgSunAndMoon.ImageUrl = "Images/Moon.png";
+                                    }
 
                                 } while (klokkijken.PreventRepeatingQuestions(antwoorden[0], vragen));
                                 vragen.Add(antwoorden[0]);
@@ -648,15 +680,45 @@ namespace ToetsendRekenen
                             rndAntwoorden = antwoorden.OrderBy(x => rnd.Next()).ToArray();
 
                             //RadioButtonList vullen
-                            //RblAntwoorden.Items[0].Text = rndAntwoorden[0];
-                            //RblAntwoorden.Items[1].Text = rndAntwoorden[1];
-                            //RblAntwoorden.Items[2].Text = rndAntwoorden[2];
-                            //RblAntwoorden.Items[3].Text = rndAntwoorden[3];
-
                             RblAntwoorden.Items[0].Value = rndAntwoorden[0];
+                            if (Convert.ToInt16(RblAntwoorden.Items[0].Value.Substring(0, 2)) >= 6 && Convert.ToInt16(RblAntwoorden.Items[0].Value.Substring(0, 2)) <= 17)
+                            {
+                                imgSunAndMoon1.ImageUrl = "Images/Sun.png";
+                            }
+                            else
+                            {
+                                imgSunAndMoon1.ImageUrl = "Images/Moon.png";
+                            }
+
                             RblAntwoorden.Items[1].Value = rndAntwoorden[1];
+                            if (Convert.ToInt16(RblAntwoorden.Items[1].Value.Substring(0, 2)) >= 6 && Convert.ToInt16(RblAntwoorden.Items[1].Value.Substring(0, 2)) <= 17)
+                            {
+                                imgSunAndMoon2.ImageUrl = "Images/Sun.png";
+                            }
+                            else
+                            {
+                                imgSunAndMoon2.ImageUrl = "Images/Moon.png";
+                            }
+
                             RblAntwoorden.Items[2].Value = rndAntwoorden[2];
+                            if (Convert.ToInt16(RblAntwoorden.Items[2].Value.Substring(0, 2)) >= 6 && Convert.ToInt16(RblAntwoorden.Items[2].Value.Substring(0, 2)) <= 17)
+                            {
+                                imgSunAndMoon3.ImageUrl = "Images/Sun.png";
+                            }
+                            else
+                            {
+                                imgSunAndMoon3.ImageUrl = "Images/Moon.png";
+                            }
+
                             RblAntwoorden.Items[3].Value = rndAntwoorden[3];
+                            if (Convert.ToInt16(RblAntwoorden.Items[3].Value.Substring(0, 2)) >= 6 && Convert.ToInt16(RblAntwoorden.Items[3].Value.Substring(0, 2)) <= 17)
+                            {
+                                imgSunAndMoon4.ImageUrl = "Images/Sun.png";
+                            }
+                            else
+                            {
+                                imgSunAndMoon4.ImageUrl = "Images/Moon.png";
+                            }
 
                             AnswerMinutenVanLangewijzer1 = Convert.ToDouble(rndAntwoorden[0].Substring(5, 2));
                             AnswerMinutenVanKortewijzer1 = klokkijken.randomtijd("korteWijzer", subCategorie, AnswerMinutenVanLangewijzer1, Convert.ToInt16(rndAntwoorden[0].Substring(0, 2)));
@@ -693,6 +755,9 @@ namespace ToetsendRekenen
 
                             Session["AnswerLang4"] = AnswerMinutenVanLangewijzer4;
                             Session["AnswerKort4"] = AnswerMinutenVanKortewijzer4;
+
+                            Session["UitlegLang"] = minutenVanLangewijzer;
+                            Session["UitlegKort"] = minutenVanKortewijzer;
                         }
                         #endregion
                     }
@@ -716,6 +781,11 @@ namespace ToetsendRekenen
                 {
                     #region Analoog klokkijken
                     {
+                        imgSunAndMoon1.Visible = false;
+                        imgSunAndMoon2.Visible = false;
+                        imgSunAndMoon3.Visible = false;
+                        imgSunAndMoon4.Visible = false;
+                        UitlegImgSunAndMoon.Visible = false;
 
                         //goede antwoord ophalen
                         goedsUren = (string)Session["uur"];
@@ -817,6 +887,12 @@ namespace ToetsendRekenen
                 {
                     #region Digitaal klokkijken
                     {
+                        imgSunAndMoon1.Visible = false;
+                        imgSunAndMoon2.Visible = false;
+                        imgSunAndMoon3.Visible = false;
+                        imgSunAndMoon4.Visible = false;
+                        UitlegImgSunAndMoon.Visible = false;
+
                         //goede antwoord ophalen
                         goedsUren = (string)Session["uur"];
                         goedsMinuten = (string)Session["minuut"];
@@ -917,6 +993,11 @@ namespace ToetsendRekenen
                 {
                     #region Analoog naar digitaal
                     {
+                        imgSunAndMoon1.Visible = false;
+                        imgSunAndMoon2.Visible = false;
+                        imgSunAndMoon3.Visible = false;
+                        imgSunAndMoon4.Visible = false;
+                        UitlegImgSunAndMoon.Visible = false;
 
                         //goede antwoord ophalen
                         goedsUren = (string)Session["uur"];
@@ -1253,6 +1334,12 @@ namespace ToetsendRekenen
                 {
                     #region Digitaal naar analoog
                     {
+                        imgSunAndMoon1.Visible = true;
+                        imgSunAndMoon2.Visible = true;
+                        imgSunAndMoon3.Visible = true;
+                        imgSunAndMoon4.Visible = true;
+                        UitlegImgSunAndMoon.Visible = true;
+
                         AnswerMinutenVanLangewijzer1 = (double)Session["AnswerLang1"];
                         AnswerMinutenVanKortewijzer1 = (double)Session["AnswerKort1"];
                                                      
@@ -1265,19 +1352,8 @@ namespace ToetsendRekenen
                         AnswerMinutenVanLangewijzer4 = (double)Session["AnswerLang4"];
                         AnswerMinutenVanKortewijzer4 = (double)Session["AnswerKort4"];
 
-//                        string textForMessage = @"<script language='javascript'> 
-//                            $('#AnswerLangeWijzer1').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer1%>'));
-//                            $('#AnswerKorteWijzer1').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer1%>'));
-//
-//                            $('#AnswerLangeWijzer2').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer2%>'));
-//                            $('#AnswerKorteWijzer2').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer2%>'));
-//
-//                            $('#AnswerLangeWijzer3').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer3%>'));
-//                            $('#AnswerKorteWijzer3').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer3%>'));
-//
-//                            $('#AnswerLangeWijzer4').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanLangewijzer4%>'));
-//                            $('#AnswerKorteWijzer4').rotate(360 / 60 * parseInt('<%= AnswerMinutenVanKortewijzer4%>'));</script>";
-//                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UserPopup", textForMessage);
+                        minutenVanLangewijzer = (double)Session["UitlegLang"];
+                        minutenVanKortewijzer = (double)Session["UitlegKort"];
 
                         //goede antwoord ophalen
                         goedsUren = (string)Session["uur"];
@@ -1346,7 +1422,7 @@ namespace ToetsendRekenen
                         #endregion
 
                         //alle controls laten verschijnen/verdwijnen en enablen/disablen
-                        spacer.InnerHtml = "<br /><br /><br /><br /><br />";
+                        spacer.InnerHtml = "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
                         LblGoedFout.Text = check;
                         LblGoedFout.Visible = true;
                         if (check == "Dit antwoord is goed")
@@ -1401,7 +1477,7 @@ namespace ToetsendRekenen
                                             uitleg += "9. Dus zijn de minuten 45.<br />";
                                             break;
                                     }
-                                    lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                    //lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
 
                                     break;
                                 case 10: //10 minuten
@@ -1446,7 +1522,7 @@ namespace ToetsendRekenen
                                             uitleg += "10. Dus zijn de minuten 50.<br />";
                                             break;
                                     }
-                                    lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                    //lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
 
                                     break;
                                 case 5: //5 minuten
@@ -1513,7 +1589,7 @@ namespace ToetsendRekenen
 
 
 
-                                    lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                    //lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
 
                                     break;
                                 case 1: //1 minuut
@@ -1597,22 +1673,27 @@ namespace ToetsendRekenen
                                         uitleg += "11. <br />Als je lange wijzer op de 11 staat is het 55 minuten. <br />Dan tel je hoeveel minuten er tussen de lange wijzer en de 11 zit.<br />" +
                                             "Dit tel je dan bij de 55 minuten die al hebt op. <br />Bij deze vraag kom je dan op " + goedMinuten + ".";
                                     }
-                                    lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
+                                    //lblUitlegAntwoord.Text = "Het juiste antwoord is: " + goedsUren + " : " + goedsMinuten + " uur.";
                                     break;
                             }
-                            divUitleg.InnerHtml = uitleg;
+                            //divUitleg.InnerHtml = uitleg;
                             lblUitlegAntwoord.ForeColor = System.Drawing.Color.Green;
                             lblUitlegAntwoord.Visible = true;
                         }
                         #endregion
 
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "setAnswerclocksAfterRBLselection", "setAnswerclocksAfterRBLselection();", true);
+                        divUitleg.InnerHtml = "Het antwoord is:";
+                        lblUitlegAntwoord.Text = "";
+
+                        
 
                         //objResultaat weer wegschrijven
                         Session["Resultaat"] = objResultaat;
                     }
                     #endregion
                 }
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "setAnswerclocksAfterRBLselection", "setAnswerclocksAfterRBLselection();", true);
             }
             catch (Exception ex)
             {

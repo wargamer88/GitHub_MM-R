@@ -80,10 +80,45 @@
     height:100px;
 }
 
+.answerSunAndMoon {
+    margin-top: 100px;
+    margin-right: 20px;
+    width:100px;
+    height:100px;
+    float:left;
+}
+
 .SterImages {
     margin-left: 80px;
 }
 
 .rblAntwoorden input[type="radio"] {
     margin-right:100px;
+}
+
+.uitlegWijzerPlaat {
+    position:absolute;
+    z-index:1;
+    width:100px;
+    height:100px;
+}
+
+.uitlegKorteWijzer {
+    position:absolute;
+    z-index:2;
+    width:100px;
+    height:100px;
+}
+
+.uitlegLangeWijzer {
+    position:absolute;
+    z-index:3;
+    width:100px;
+    height:100px;
+}
+
+.UitlegSunAndMoon {
+    margin-left:100px;
+    width:100px;
+    height:100px;
 }
