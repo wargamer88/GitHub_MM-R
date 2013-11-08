@@ -143,6 +143,34 @@ namespace ToetsendRekenen
                                 while (B.PreventRepeatingQuestions(breuk, vragen));
                                 vragen.Add(breuk);
                             }
+                            #region BnD0-100
+                            else if (subCategorie == "0-100")
+                            {
+                                do
+                                {
+                                    string[,] BrArray = B.BreukArray();
+                                    B.GangbareBreuken(BrArray);
+
+                                    breuk = B.RandomBreuk();
+
+                                    string[] split = breuk.Split("/".ToArray());
+                                    int getal1 = Convert.ToInt16(split[0]);
+                                    int getal2 = Convert.ToInt16(split[1]);
+
+                                    int helegetal = R.Next(0, 100);
+
+                                    int breukgetal1 = helegetal * getal2;
+                                    breukgetal1 = breukgetal1 + getal1;
+
+                                    breuk = breukgetal1 + "/" + getal2;
+
+                                    Antwoord = B.RandomAntwoord(breuk);
+                                    lblBreuk.Text = breuk;
+                                }
+                                while (B.PreventRepeatingQuestions(breuk, vragen));
+                                vragen.Add(breuk);
+                            }
+                            #endregion
                         }
                             #endregion
                         
