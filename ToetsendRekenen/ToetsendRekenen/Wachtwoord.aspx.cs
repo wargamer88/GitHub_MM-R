@@ -22,28 +22,49 @@ namespace ToetsendRekenen
                 //Wachtwoord aanpassen
                 lbResultaatChange.Visible = false;
                 Inlog I = new Inlog();
+                bool WWChange = false;
                 I = (Inlog)Session["Inlog"];
-                bool WWChange = I.Changepassword(tbOudWW.Text, tbNieuwWW.Text, tbBevestigingNieuwWW.Text);
+                if(tbOudWW.Text == "")
+                {
+                    lbResultaatChange.Text = "Wachtwoord mag niet leeg zijn";
+                    lbResultaatChange.Visible = true;
+                }
+                if (tbNieuwWW.Text == "")
+                {
+                    lbResultaatChange.Text = "Wachtwoord mag niet leeg zijn";
+                    lbResultaatChange.Visible = true;
+                }
+                if (tbBevestigingNieuwWW.Text == "")
+                {
+                    lbResultaatChange.Text = "Wachtwoord mag niet leeg zijn";
+                    lbResultaatChange.Visible = true;
+                }
+                if (tbOudWW.Text != "" && tbNieuwWW.Text != "" && tbBevestigingNieuwWW.Text != "")
+                {
+                    WWChange = I.Changepassword(tbOudWW.Text, tbNieuwWW.Text, tbBevestigingNieuwWW.Text);
+
+                    #region BevestigingWachtwoord
+                    //kijken of wachtwoord wijzigen gelukt is
+                    if (WWChange == true)
+                    {
+                        lbResultaatChange.Visible = true;
+                        lbResultaatChange.ForeColor = System.Drawing.Color.Green;
+                        lbResultaatChange.Text = "Wachtwoord wijzigen gelukt.";
+                        tbOudWW.Text = "";
+                        tbNieuwWW.Text = "";
+                        tbBevestigingNieuwWW.Text = "";
+                    }
+                    else
+                    {
+                        lbResultaatChange.Visible = true;
+                        lbResultaatChange.ForeColor = System.Drawing.Color.Red;
+                        lbResultaatChange.Text = "Wachtwoord wijzigen mislukt";
+                    }
+                    #endregion
+                }
                 #endregion
 
-                #region BevestigingWachtwoord
-                //kijken of wachtwoord wijzigen gelukt is
-                if (WWChange == true)
-                {
-                    lbResultaatChange.Visible = true;
-                    lbResultaatChange.ForeColor = System.Drawing.Color.Green;
-                    lbResultaatChange.Text = "Wachtwoord wijzigen gelukt.";
-                    tbOudWW.Text = "";
-                    tbNieuwWW.Text = "";
-                    tbBevestigingNieuwWW.Text = "";
-                }
-                else
-                {
-                    lbResultaatChange.Visible = true;
-                    lbResultaatChange.ForeColor = System.Drawing.Color.Red;
-                    lbResultaatChange.Text = "Wachtwoord wijzigen mislukt";
-                }
-                #endregion
+                
 
             }
             catch (Exception ex)
