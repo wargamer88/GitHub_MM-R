@@ -405,7 +405,7 @@ namespace ToetsendRekenen
                 {
                     #region Breuk-Komma
                     decimal tbxantwoord = Convert.ToDecimal(tbantwoordD.Text);
-                    decimal.TryParse(tbantwoordD.Text.Replace(".", ","), out tbxantwoord);
+                    decimal.TryParse(tbantwoordD.Text.Replace(",", "."), out tbxantwoord);
 
                     split = breuk.Split("/".ToArray());
                     getal1 = Convert.ToInt16(split[0]);
@@ -429,7 +429,7 @@ namespace ToetsendRekenen
                         lblcorrectie.Text = "<span style= color:red>Het antwoord is fout</span> en had <span style= color:green>" + (decimal)Antwoord + "</span> moeten zijn.";
                         lblUitlegAntwoord.Text = "Het is makkelijk te berekenen door het getal 100 te gebruiken. <br />Deel 100 door het 2de getal dat is " + (decimal)getal2 + " de uitkomst is " + (decimal)getal + ". <br />Het getal dat je krijgt van 100 : " + (decimal)getal2 + " doe je keer het eerste getal van de breuk. <br />" + (decimal)getal1 + " x " + (decimal)getal + " = " + (getal = (decimal)getal1 * getal) + ". <br />Verplaats de komma 2 plaatjes naar links om terug te rekenen van 100. <br />Want dat heb je gebruikt dus moet er door gedeeld worden. <br />" + (decimal)getal + " : 100 = " + (decimal)getal1 / getal2 + ".";
                     }
-#endregion
+                #endregion
                 }
                 else if (Categorie == "Komma-Breuk")
                 {
