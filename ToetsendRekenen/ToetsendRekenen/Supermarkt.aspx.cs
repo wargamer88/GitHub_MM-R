@@ -326,7 +326,7 @@ namespace ToetsendRekenen
                     antwoord.Text = "0";
                 }
                 decimal antwoordvar = Convert.ToDecimal(antwoord.Text);
-                decimal.TryParse(antwoord.Text.Replace(",", "."), out antwoordvar);
+                decimal.TryParse(antwoord.Text.Replace(".", ","), out antwoordvar);
                 decimal.TryParse(antwoord.Text.Replace("-", "00"), out antwoordvar);
                 #region verzendknop
                 if (subCategorie == "Zonder afronden")
