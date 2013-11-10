@@ -41,7 +41,7 @@
         <asp:TextBox ID="antwoord" runat="server"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbe" runat="server" TargetControlID="antwoord" ValidChars="1234567890.," />
         <asp:Button ID="verzend" runat="server" Text="Controleer" OnClick="verzend_Click" />
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="antwoord" runat="server" ErrorMessage="Getal daarna komma of een punt dan 2 getallen die de centen uitdrukt" ValidationExpression="^\d{1,1000}([\.\,]\d{1,3})?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="antwoord" runat="server" ErrorMessage="Getal daarna komma of een punt dan 2 getallen die de centen uitdrukt" ValidationExpression="^\d+([\.\,]\d{1,3})?$" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblantwoord" runat="server" Text=""></asp:Label>
         <br />
