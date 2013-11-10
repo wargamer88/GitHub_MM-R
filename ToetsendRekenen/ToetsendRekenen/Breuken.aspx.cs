@@ -404,8 +404,9 @@ namespace ToetsendRekenen
                 if (Categorie == "Breuk-Komma")
                 {
                     #region Breuk-Komma
-                    decimal tbxantwoord = Convert.ToDecimal(tbantwoordD.Text);
-                    decimal.TryParse(tbantwoordD.Text.Replace(",", "."), out tbxantwoord);
+                    string tbxantwoordD = tbantwoordD.Text;
+                    string tbantwoordR = tbxantwoordD.Replace(".", ",");
+                    decimal tbxantwoord = Convert.ToDecimal(tbantwoordR);
 
                     split = breuk.Split("/".ToArray());
                     getal1 = Convert.ToInt16(split[0]);
